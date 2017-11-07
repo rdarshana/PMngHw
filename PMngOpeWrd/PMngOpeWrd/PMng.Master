@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
 
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -17,9 +18,20 @@
 
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+        <div class="row master-header">
+            Header
+        </div>
+        <div class="row master-middle">
+            <div class="col-md-2 master-leftnav">Left nav</div>
+            <div class="col-md-10">
+                <div class="row master-body">
+                    <asp:ContentPlaceHolder ID="body" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+        <div class="row master-footer">
+            footer
         </div>
     </form>
     <script src="js/jquery-3.0.0.min.js"></script>
@@ -27,3 +39,7 @@
 </body>
 
 </html>
+
+
+
+

@@ -1,0 +1,24 @@
+﻿body {
+}
+
+.master-header {
+    background-color:yellow;
+    height:100px;
+}
+
+.master-middle {
+}
+
+.master-leftnav{
+    background-color:green;
+    height: 500px;
+}
+
+.master-footer{
+    background-color:gray;
+    height:80px;
+}
+
+.master-body{
+    margin-top:10px;
+}
