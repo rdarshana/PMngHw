@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PMng.Master" AutoEventWireup="true" CodeBehind="PatientRegistration.aspx.cs" Inherits="PMngOpeWrd.PatientRegistration" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="row">
@@ -159,10 +165,10 @@
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
-                        <asp:Label ID="Label4" CssClass="control-label" runat="server" for="calenderDOB" Text="Date of Birth"></asp:Label>
+                        <asp:Label ID="Label4" CssClass="control-label" runat="server" for="txtStartDate" Text="Date of Birth"></asp:Label>
                     </div>
                     <div class="col-md-5">
-                        <asp:Calendar ID="calenderDOB" runat="server"></asp:Calendar>
+                        <asp:TextBox ID="txtStartDate" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control"></asp:TextBox>
                     </div>
                     <div class="col-md-3"></div>
                 </div>
@@ -183,4 +189,25 @@
 
     <div class="row"></div>
     <div class="row"></div>
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <!-- Boostrap DatePciker JS  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var dp = $('#<%=txtStartDate.ClientID%>');
+            dp.datepicker({
+                changeMonth: true,
+                changeYear: true,
+                format: "dd.mm.yyyy",
+                language: "tr"
+            }).on('changeDate', function (ev) {
+                $(this).blur();
+                $(this).datepicker('hide');
+            });
+        });
+    </script>
+
 </asp:Content>

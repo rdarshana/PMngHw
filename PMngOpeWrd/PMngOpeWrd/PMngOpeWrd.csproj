@@ -70,12 +70,17 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\datepicker.css" />
     <Content Include="css\main.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="js\bootstrap-datepicker.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\datepicker.js" />
+    <Content Include="js\jquery-1.12.4.min.js" />
     <Content Include="js\jquery-3.0.0.min.js" />
     <Content Include="js\npm.js" />
+    <Content Include="js\pages\PatientRegistration.js" />
     <Content Include="packages.config" />
     <Content Include="PatientRegistration.aspx" />
     <Content Include="WebForm1.aspx" />
