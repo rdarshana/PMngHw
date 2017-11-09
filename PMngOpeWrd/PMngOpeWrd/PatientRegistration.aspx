@@ -168,13 +168,14 @@
                         <asp:Label ID="Label4" CssClass="control-label" runat="server" for="txtStartDate" Text="Date of Birth"></asp:Label>
                     </div>
                     <div class="col-md-5">
-                        <asp:TextBox ID="txtStartDate" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control"></asp:TextBox>
+                        <div class="input-group date">
+                            <asp:TextBox ID="txtStartDate" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control" ReadOnly="True"></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                        </div>
+
                     </div>
                     <div class="col-md-3"></div>
                 </div>
             </div>
-
-
             <div class="form-group">
                 <div class="col-md-1"></div>
                 <div class="col-md-3"></div>
@@ -197,11 +198,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            var dp = $('#<%=txtStartDate.ClientID%>');
-            dp.datepicker({
+            <%--var dp = $('#<%=txtStartDate.ClientID%>');
+            dp.datepicker({--%>
+            $('.input-group.date').datepicker({
                 changeMonth: true,
                 changeYear: true,
-                format: "dd.mm.yyyy",
+                format: "dd/mm/yyyy",
                 language: "tr"
             }).on('changeDate', function (ev) {
                 $(this).blur();
