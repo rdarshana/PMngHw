@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +20,8 @@ namespace PMngOpeWrd.View
         string maritalStatus { get; set; }
         string emergencyContact { get; set; }
         string dateOfBirth { get; set; }
-
         string bloodGroup { get; set; }
+        DataTable patientsData { set; }
 
     }
 }

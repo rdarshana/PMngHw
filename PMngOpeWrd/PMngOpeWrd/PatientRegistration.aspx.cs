@@ -6,11 +6,19 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using PMngOpeWrd.View;
 using PMngOpeWrd.Presenter;
+using System.Data;
 
 namespace PMngOpeWrd
 {
     public partial class PatientRegistration : System.Web.UI.Page, IPatientRegistrationView
     {
+        PatientRegistrationPresenter presenter;
+
+        public PatientRegistration()
+        {
+            presenter = new PatientRegistrationPresenter(this);
+        }
+
         public string address
         {
             get
@@ -185,19 +193,40 @@ namespace PMngOpeWrd
             }
         }
 
+        public DataTable patientsData
+        {
+            set
+            {
+                gridViewPatientData.DataSource = value;
+                gridViewPatientData.DataBind();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 //read only a dateof birth contron in page load
                 txtDateofBirth.Attributes.Add("readonly", "readonly");
+                presenter.fillPatientGrid();
             }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            PatientRegistrationPresenter presenter = new PatientRegistrationPresenter(this);
+
             presenter.RegisterPatient();
+
+        }
+
+
+        protected void GridViewPatient_onClick(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void PatientView_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

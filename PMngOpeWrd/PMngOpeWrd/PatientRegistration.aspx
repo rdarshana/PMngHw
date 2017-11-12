@@ -158,7 +158,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="input-group date">
-                            <asp:TextBox ID="txtDateofBirth" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control" ></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                            <asp:TextBox ID="txtDateofBirth" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control"></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                         </div>
 
                     </div>
@@ -169,9 +169,38 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-3"></div>
                 <div class="col-md-5">
-                    <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+                    <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Register" OnClick="btnSubmit_Click" />
                 </div>
                 <div class="col-md-3"></div>
+            </div>
+            <div class="form-group">
+                <div class="gridview-margin">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-8">
+                        <asp:GridView ID="gridViewPatientData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="PatientView_SelectedIndexChanged">
+                            <Columns>
+                                <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                                <asp:BoundField DataField="LastName" HeaderText="LastName" />
+                                <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                                <asp:BoundField DataField="NIC" HeaderText="NIC" />
+                                <asp:BoundField DataField="Address" HeaderText="Address" />
+                                <asp:BoundField DataField="MobilePhone" HeaderText="Mobile Phone" />
+                                <asp:BoundField DataField="LandPhone" HeaderText="Land Phone" />
+                                <asp:BoundField DataField="Email" HeaderText="Email" />
+                                <asp:BoundField DataField="Gender" HeaderText="Gender" />
+                                <asp:BoundField DataField="MaritalStatus" HeaderText="Marital Status" />
+                                <asp:BoundField DataField="EmergencyContact" HeaderText="Emergency Contact" />
+                                <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("PatientId") %>' OnClick="GridViewPatient_onClick">View</asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
             </div>
         </div>
     </div>

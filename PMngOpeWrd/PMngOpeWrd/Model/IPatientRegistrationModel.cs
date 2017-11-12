@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Dynamic;
+using System.Data;
 
 namespace PMngOpeWrd.Model
 {
     public interface IPatientRegistrationModel
     {
         bool InsertPatientData(dynamic patient);
+        DataTable GetAllPatientData();
     }
 }

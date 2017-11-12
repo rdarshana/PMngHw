@@ -12,6 +12,21 @@ namespace PMngOpeWrd.Model
     {
         SqlConnection sqlCon = new SqlConnection(@"Data Source=RDARSHANA;Initial Catalog=PntMngOpeWrd;Integrated Security=true;");
 
+        public DataTable GetAllPatientData()
+        {
+            if(sqlCon.State== ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetAllPatientData", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
+        }
+
         public bool InsertPatientData(dynamic patient)
         {
 
