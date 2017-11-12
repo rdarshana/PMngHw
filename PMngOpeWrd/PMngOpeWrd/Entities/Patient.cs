@@ -19,5 +19,10 @@ namespace PMngOpeWrd.Entities
         string maritalStatus;
         string emergencyContact;
         string dateOfBirth;
+
+        public void insertPatient()
+        {
+            
+        }
     }
 }

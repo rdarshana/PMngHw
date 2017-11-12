@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Patient.cs" />
+    <Compile Include="Model\IPatientRegistrationModel.cs" />
     <Compile Include="Model\PatientRegistrationModel.cs" />
     <Compile Include="PatientRegistration.aspx.cs">
       <DependentUpon>PatientRegistration.aspx</DependentUpon>

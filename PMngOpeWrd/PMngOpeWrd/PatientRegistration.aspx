@@ -165,11 +165,11 @@
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
-                        <asp:Label ID="Label4" CssClass="control-label" runat="server" for="txtStartDate" Text="Date of Birth"></asp:Label>
+                        <asp:Label ID="Label4" CssClass="control-label" runat="server" for="txtDateofBirth" Text="Date of Birth"></asp:Label>
                     </div>
                     <div class="col-md-5">
                         <div class="input-group date">
-                            <asp:TextBox ID="txtStartDate" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control" ReadOnly="True"></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                            <asp:TextBox ID="txtDateofBirth" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control" ></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                         </div>
 
                     </div>
@@ -180,7 +180,7 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-3"></div>
                 <div class="col-md-5">
-                    <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Submit" />
+                    <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                 </div>
                 <div class="col-md-3"></div>
             </div>
