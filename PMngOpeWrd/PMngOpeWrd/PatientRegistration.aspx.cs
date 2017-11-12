@@ -54,7 +54,7 @@ namespace PMngOpeWrd
         {
             get
             {
-                return txtEmergencyContact.Text;
+                return txtEmergencyContact.Text.Trim();
             }
 
             set
