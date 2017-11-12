@@ -143,17 +143,6 @@
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
-                        <asp:Label ID="Label3" CssClass="control-label" runat="server" for="txtEmail" Text="Email"></asp:Label>
-                    </div>
-                    <div class="col-md-5">
-                        <asp:TextBox ID="TextBox3" CssClass="form-control" runat="server"></asp:TextBox>
-                    </div>
-                    <div class="col-md-3"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-3">
                         <asp:Label ID="lblEmergencyContact" CssClass="control-label" runat="server" for="txtEmergencyContact" Text="Emergency Contact"></asp:Label>
                     </div>
                     <div class="col-md-5">
