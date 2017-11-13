@@ -83,5 +83,11 @@ namespace PMngOpeWrd.Presenter
             patientView.emergencyContact = string.Empty;
             patientView.dateOfBirth = string.Empty;
         }
+
+        public void DeletePatientById()
+        {
+            patientRegistration.DeletePatientBySelectedId(patientView.patientId);
+            FillPatientGrid();
+        }
     }
 }

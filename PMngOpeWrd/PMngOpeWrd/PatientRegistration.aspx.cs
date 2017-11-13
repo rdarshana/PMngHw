@@ -245,5 +245,15 @@ namespace PMngOpeWrd
         {
 
         }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            presenter.DeletePatientById();
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            presenter.ClearPatientData();
+        }
     }
 }

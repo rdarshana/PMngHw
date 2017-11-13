@@ -170,6 +170,8 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-5">
                     <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Register" OnClick="btnSubmit_Click" />
+                    <asp:Button ID="btnDelete" CssClass="btn btn-primary" runat="server" Text="Delete" OnClick="btnDelete_Click" />
+                    <asp:Button ID="btnClear" CssClass="btn btn-primary" runat="server" Text="Clear" OnClick="btnClear_Click" />
                 </div>
                 <div class="col-md-3"></div>
             </div>

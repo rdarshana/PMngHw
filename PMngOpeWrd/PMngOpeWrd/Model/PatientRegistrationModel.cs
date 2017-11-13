@@ -12,6 +12,21 @@ namespace PMngOpeWrd.Model
     {
         SqlConnection sqlCon = new SqlConnection(@"Data Source=RDARSHANA;Initial Catalog=PntMngOpeWrd;Integrated Security=true;");
 
+        public bool DeletePatientBySelectedId(string patientId)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlCommand sqlCmd = new SqlCommand("DeletePatientById", sqlCon);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.Parameters.AddWithValue("@PatientId", patientId);
+            sqlCmd.ExecuteNonQuery();
+
+            return true;
+        }
+
         public DataTable GetAllPatientData()
         {
             if(sqlCon.State== ConnectionState.Closed)
