@@ -14,7 +14,7 @@
 
 AS
 BEGIN
-	IF(@PatientId=NULL)
+	IF(@PatientId IS NULL OR @PatientId='')
 		BEGIN
 			INSERT INTO [dbo].[Patient](FirstName,LastName,NIC,Address,MobilePhone,LandPhone,Email,Gender,MaritalStatus,EmergencyContact,DateOfBirth)
 			VALUES (@FirstName,@LastName,@NIC,@Address,@MobilePhone,@LandPhone,@Email,@Gender,@MaritalStatus,@EmergencyContact,@DateOfBirth)

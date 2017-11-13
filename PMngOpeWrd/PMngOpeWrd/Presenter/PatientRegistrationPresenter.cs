@@ -53,8 +53,7 @@ namespace PMngOpeWrd.Presenter
 
         public void GetPatientById()
         {
-            ClearPatientData(); 
-
+            
             DataTable patientData = patientRegistration.GetPatientById(patientView.patientId);
             patientView.firstName = patientData.Rows[0]["FirstName"].ToString();
             patientView.lastName = patientData.Rows[0]["LastName"].ToString();
@@ -71,6 +70,7 @@ namespace PMngOpeWrd.Presenter
 
         public void ClearPatientData()
         {
+            patientView.patientId = string.Empty;
             patientView.firstName = string.Empty;
             patientView.lastName = string.Empty;
             patientView.NIC = string.Empty;
@@ -87,6 +87,7 @@ namespace PMngOpeWrd.Presenter
         public void DeletePatientById()
         {
             patientRegistration.DeletePatientBySelectedId(patientView.patientId);
+            ClearPatientData();
             FillPatientGrid();
         }
     }

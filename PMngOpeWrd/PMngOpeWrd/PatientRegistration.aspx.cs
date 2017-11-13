@@ -206,7 +206,7 @@ namespace PMngOpeWrd
         {
             get
             {
-                return hdnPatientId.Value;
+                return hdnPatientId.Value == "" ? string.Empty : hdnPatientId.Value;
             }
 
             set
