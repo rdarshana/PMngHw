@@ -27,6 +27,22 @@ namespace PMngOpeWrd.Model
             return dataTable;
         }
 
+        public DataTable GetPatientById(string patientId)
+        {
+            if(sqlCon.State ==ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetPatientById", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDa.SelectCommand.Parameters.AddWithValue("@PatientId", patientId);
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
+        }
+
         public bool InsertPatientData(dynamic patient)
         {
 
@@ -37,7 +53,7 @@ namespace PMngOpeWrd.Model
 
             SqlCommand sqlCmd = new SqlCommand("PatientRegistration", sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
-            sqlCmd.Parameters.AddWithValue("@PatientId", patient.PatientId == "" ? 0 : patient.PatientId);
+            sqlCmd.Parameters.AddWithValue("@PatientId", patient.patientId == "" ? null : patient.patientId);
             sqlCmd.Parameters.AddWithValue("@FirstName", patient.firstName);
             sqlCmd.Parameters.AddWithValue("@LastName", patient.lastName);
             sqlCmd.Parameters.AddWithValue("@NIC", patient.NIC);

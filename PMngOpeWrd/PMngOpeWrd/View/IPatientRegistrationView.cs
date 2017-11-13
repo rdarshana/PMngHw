@@ -9,6 +9,7 @@ namespace PMngOpeWrd.View
 {
     public interface IPatientRegistrationView
     {
+        string patientId { get; set; }
         string firstName { get; set; }
         string lastName { get; set; }
         string  NIC { get; set; }

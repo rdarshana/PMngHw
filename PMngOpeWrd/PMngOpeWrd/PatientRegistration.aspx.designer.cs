@@ -13,6 +13,15 @@ namespace PMngOpeWrd {
     public partial class PatientRegistration {
         
         /// <summary>
+        /// hdnPatientId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnPatientId;
+        
+        /// <summary>
         /// lblFirstName control.
         /// </summary>
         /// <remarks>

@@ -94,7 +94,7 @@ namespace PMngOpeWrd
             set
             {
                 ddlGender.ClearSelection();
-                ddlGender.Items.FindByValue(value).Selected = true;
+                //ddlGender.Items.FindByValue(value).Selected = true;
             }
         }
 
@@ -202,13 +202,26 @@ namespace PMngOpeWrd
             }
         }
 
+        public string patientId
+        {
+            get
+            {
+                return hdnPatientId.Value;
+            }
+
+            set
+            {
+                hdnPatientId.Value = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 //read only a dateof birth contron in page load
                 txtDateofBirth.Attributes.Add("readonly", "readonly");
-                presenter.fillPatientGrid();
+                presenter.FillPatientGrid();
             }
         }
 
@@ -222,6 +235,9 @@ namespace PMngOpeWrd
 
         protected void GridViewPatient_onClick(object sender, EventArgs e)
         {
+            string selectedPatientId = (sender as LinkButton).CommandArgument;
+            patientId = selectedPatientId;
+            presenter.GetPatientById();
 
         }
 

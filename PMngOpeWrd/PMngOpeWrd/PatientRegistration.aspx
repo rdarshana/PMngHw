@@ -12,6 +12,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="form-horizontal">
+                <asp:HiddenField ID="hdnPatientId" runat="server" />
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
@@ -160,7 +161,6 @@
                         <div class="input-group date">
                             <asp:TextBox ID="txtDateofBirth" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control"></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                         </div>
-
                     </div>
                     <div class="col-md-3"></div>
                 </div>

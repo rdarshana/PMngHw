@@ -12,5 +12,7 @@ namespace PMngOpeWrd.Model
     {
         bool InsertPatientData(dynamic patient);
         DataTable GetAllPatientData();
+
+        DataTable GetPatientById(string patientId);
     }
 }
