@@ -229,6 +229,7 @@ namespace PMngOpeWrd
         {
 
             presenter.RegisterPatient();
+            btnSubmit.Text = "Register";
 
         }
 
@@ -238,6 +239,7 @@ namespace PMngOpeWrd
             string selectedPatientId = (sender as LinkButton).CommandArgument;
             patientId = selectedPatientId;
             presenter.GetPatientById();
+            btnSubmit.Text = "Update";
 
         }
 
@@ -249,11 +251,13 @@ namespace PMngOpeWrd
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             presenter.DeletePatientById();
+            btnSubmit.Text = "Register";
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
             presenter.ClearPatientData();
+            btnSubmit.Text = "Register";
         }
     }
 }

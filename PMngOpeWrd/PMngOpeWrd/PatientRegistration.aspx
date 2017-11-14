@@ -11,10 +11,10 @@
                 <asp:HiddenField ID="hdnPatientId" runat="server" />
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-xm-12">
                         <asp:Label ID="lblFirstName" CssClass="control-label" runat="server" for="txtFirstName" Text="Fist Name"></asp:Label>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-xm-12">
                         <asp:TextBox ID="txtFirstName" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                     <div class="col-md-3"></div>

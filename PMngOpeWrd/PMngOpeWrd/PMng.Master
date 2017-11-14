@@ -19,7 +19,9 @@
 <body>
     <form id="form1" runat="server">
         <div class="row master-header">
-            Header
+            <div class="col-md-12">
+                Header
+            </div>
         </div>
         <div class="row master-middle">
             <div class="col-md-2 master-leftnav">Left nav</div>
@@ -31,7 +33,9 @@
             </div>
         </div>
         <div class="row master-footer">
-            footer
+            <div class="col-md-12">
+                footer
+            </div>
         </div>
     </form>
     <%--    <script src="js/jquery-3.0.0.min.js"></script>

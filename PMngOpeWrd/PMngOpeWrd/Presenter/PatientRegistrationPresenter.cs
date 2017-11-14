@@ -40,6 +40,7 @@ namespace PMngOpeWrd.Presenter
             patientRegistration.InsertPatientData(patient);
 
             FillPatientGrid();
+            ClearPatientData();
 
 
             return true;
