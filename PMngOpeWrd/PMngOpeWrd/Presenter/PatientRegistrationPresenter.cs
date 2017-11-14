@@ -15,13 +15,20 @@ namespace PMngOpeWrd.Presenter
         IPatientRegistrationView patientView;
         PatientRegistrationModel patientRegistration;
 
+        /// <summary>
+        /// constructor of the patient presenter
+        /// </summary>
+        /// <param name="view"></param>
         public PatientRegistrationPresenter(IPatientRegistrationView view)
         {
             patientView = view;
             patientRegistration = new PatientRegistrationModel();
         }
 
-
+        /// <summary>
+        /// Register Patient
+        /// </summary>
+        /// <returns></returns>
         public bool RegisterPatient()
         {
             dynamic patient = new ExpandoObject();
@@ -47,11 +54,15 @@ namespace PMngOpeWrd.Presenter
 
         }
 
+        //Get all ptient information
         public void FillPatientGrid()
         {
             patientView.patientsData = patientRegistration.GetAllPatientData();
         }
 
+        /// <summary>
+        /// get patient information by given id
+        /// </summary>
         public void GetPatientById()
         {
             
@@ -69,6 +80,9 @@ namespace PMngOpeWrd.Presenter
             patientView.dateOfBirth = patientData.Rows[0]["DateOfBirth"].ToString();
         }
 
+        /// <summary>
+        ///Clear form data
+        /// </summary>
         public void ClearPatientData()
         {
             patientView.patientId = string.Empty;
@@ -85,6 +99,9 @@ namespace PMngOpeWrd.Presenter
             patientView.dateOfBirth = string.Empty;
         }
 
+        /// <summary>
+        /// Delete patient by Id
+        /// </summary>
         public void DeletePatientById()
         {
             patientRegistration.DeletePatientBySelectedId(patientView.patientId);

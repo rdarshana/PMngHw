@@ -10,8 +10,14 @@ namespace PMngOpeWrd.Model
 {
     public class PatientRegistrationModel : IPatientRegistrationModel
     {
+        //database connection string
         SqlConnection sqlCon = new SqlConnection(@"Data Source=RDARSHANA;Initial Catalog=PntMngOpeWrd;Integrated Security=true;");
 
+        /// <summary>
+        /// Delete patient by given Id
+        /// </summary>
+        /// <param name="patientId"></param>
+        /// <returns></returns>
         public bool DeletePatientBySelectedId(string patientId)
         {
             if (sqlCon.State == ConnectionState.Closed)
@@ -27,6 +33,10 @@ namespace PMngOpeWrd.Model
             return true;
         }
 
+        /// <summary>
+        /// Get all patient information
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetAllPatientData()
         {
             if(sqlCon.State== ConnectionState.Closed)
@@ -42,6 +52,11 @@ namespace PMngOpeWrd.Model
             return dataTable;
         }
 
+        /// <summary>
+        /// Get patient by id
+        /// </summary>
+        /// <param name="patientId"></param>
+        /// <returns></returns>
         public DataTable GetPatientById(string patientId)
         {
             if(sqlCon.State ==ConnectionState.Closed)
@@ -58,6 +73,11 @@ namespace PMngOpeWrd.Model
             return dataTable;
         }
 
+        /// <summary>
+        /// insert or update patient information
+        /// </summary>
+        /// <param name="patient"></param>
+        /// <returns></returns>
         public bool InsertPatientData(dynamic patient)
         {
 

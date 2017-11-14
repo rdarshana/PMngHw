@@ -178,7 +178,7 @@
                         <asp:GridView ID="gridViewPatientData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="PatientView_SelectedIndexChanged">
                             <Columns>
                                 <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-                                <%--<asp:BoundField DataField="LastName" HeaderText="LastName" />--%>
+                                <asp:BoundField DataField="LastName" HeaderText="LastName" />
                                 <%--   <asp:BoundField DataField="NIC" HeaderText="NIC" />
                                 <asp:BoundField DataField="Address" HeaderText="Address" />--%>
                                 <asp:BoundField DataField="MobilePhone" HeaderText="Mobile Phone" />
