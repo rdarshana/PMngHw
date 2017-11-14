@@ -23,6 +23,10 @@ namespace PMngOpeWrd.View
         string dateOfBirth { get; set; }
         string bloodGroup { get; set; }
         DataTable patientsData { set; }
+        string transactionStatusSuccess { set; }
+        string transactionStatusFail { set; }
+
+
 
     }
 }

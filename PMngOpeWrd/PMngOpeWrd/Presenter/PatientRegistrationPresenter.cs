@@ -29,9 +29,11 @@ namespace PMngOpeWrd.Presenter
         /// Register Patient
         /// </summary>
         /// <returns></returns>
-        public bool RegisterPatient()
+        public void RegisterPatient()
         {
             dynamic patient = new ExpandoObject();
+            bool transactionStatus = false;
+
             patient.patientId = patientView.patientId;
             patient.firstName = patientView.firstName;
             patient.lastName = patientView.lastName;
@@ -44,13 +46,34 @@ namespace PMngOpeWrd.Presenter
             patient.maritalStatus = patientView.maritalStatus;
             patient.emergencyContact = patientView.emergencyContact;
             patient.dateOfBirth = patientView.dateOfBirth;
-            patientRegistration.InsertPatientData(patient);
+            transactionStatus = patientRegistration.InsertPatientData(patient);
+
+            if (transactionStatus)
+            {
+                if (patientView.patientId == string.Empty)
+                {
+                    patientView.transactionStatusSuccess = "Patient has been Registered Successfully";
+                }
+                else
+                {
+                    patientView.transactionStatusSuccess = "Patient has been Updated Successfully";
+                }
+            }
+            else
+            {
+                if (patientView.patientId == string.Empty)
+                {
+                    patientView.transactionStatusFail = "Patient Registration has been Failed";
+                }
+                else
+                {
+                    patientView.transactionStatusFail = "Patient Update has been Failed";
+                }
+
+            }
 
             FillPatientGrid();
             ClearPatientData();
-
-
-            return true;
 
         }
 
@@ -65,7 +88,7 @@ namespace PMngOpeWrd.Presenter
         /// </summary>
         public void GetPatientById()
         {
-            
+
             DataTable patientData = patientRegistration.GetPatientById(patientView.patientId);
             patientView.firstName = patientData.Rows[0]["FirstName"].ToString();
             patientView.lastName = patientData.Rows[0]["LastName"].ToString();
@@ -97,6 +120,8 @@ namespace PMngOpeWrd.Presenter
             patientView.maritalStatus = string.Empty;
             patientView.emergencyContact = string.Empty;
             patientView.dateOfBirth = string.Empty;
+            //patientView.transactionStatusSuccess = string.Empty;
+            //patientView.transactionStatusFail = string.Empty;
         }
 
         /// <summary>
@@ -104,7 +129,16 @@ namespace PMngOpeWrd.Presenter
         /// </summary>
         public void DeletePatientById()
         {
-            patientRegistration.DeletePatientBySelectedId(patientView.patientId);
+            bool status = patientRegistration.DeletePatientBySelectedId(patientView.patientId);
+            if (status)
+            {
+                patientView.transactionStatusSuccess = "Patient has been Deleted Successfully";
+            }
+            else
+            {
+                patientView.transactionStatusFail = "Patient Delete has been Failed";
+            }
+
             ClearPatientData();
             FillPatientGrid();
         }

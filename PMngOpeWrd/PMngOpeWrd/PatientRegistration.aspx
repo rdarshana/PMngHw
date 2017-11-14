@@ -172,6 +172,16 @@
                 <div class="col-md-3"></div>
             </div>
             <div class="form-group">
+                <div class="col-md-4"></div>
+                <div class="col-md-5">
+                    <div class="button-status">
+                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Green" Text=""></asp:Label>
+                        <asp:Label ID="lblFail" runat="server" ForeColor="Red" Text=""></asp:Label>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="form-group">
                 <div class="gridview-margin">
                     <div class="col-md-1"></div>
                     <div class="col-md-11">

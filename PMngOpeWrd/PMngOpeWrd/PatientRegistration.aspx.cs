@@ -215,6 +215,22 @@ namespace PMngOpeWrd
             }
         }
 
+        public string transactionStatusSuccess
+        {
+            set
+            {
+                lblSuccess.Text = value;
+            }
+        }
+
+        public string transactionStatusFail
+        {
+            set
+            {
+                lblFail.Text = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -222,6 +238,8 @@ namespace PMngOpeWrd
                 //read only a dateof birth contron in page load
                 txtDateofBirth.Attributes.Add("readonly", "readonly");
                 presenter.FillPatientGrid();
+                transactionStatusSuccess = string.Empty;
+                transactionStatusFail = string.Empty;
             }
         }
 
@@ -240,7 +258,8 @@ namespace PMngOpeWrd
             patientId = selectedPatientId;
             presenter.GetPatientById();
             btnSubmit.Text = "Update";
-
+            transactionStatusSuccess = string.Empty;
+            transactionStatusFail = string.Empty;
         }
 
         protected void PatientView_SelectedIndexChanged(object sender, EventArgs e)
