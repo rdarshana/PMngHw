@@ -31,6 +31,13 @@
     margin-top:30px;
 }
 
+.required-field-star{
+    color:red;
+    font-size:larger;
+    position:relative;
+    top:6px;
+}
+
 /*gridview*/
 .table table tbody tr td a,
 .table table tbody tr td span {
