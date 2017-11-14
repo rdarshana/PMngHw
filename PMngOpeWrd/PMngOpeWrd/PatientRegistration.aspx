@@ -1,13 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PMng.Master" AutoEventWireup="true" CodeBehind="PatientRegistration.aspx.cs" Inherits="PMngOpeWrd.PatientRegistration" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <!-- Boostrap CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" type="text/css" />
+    <link href="css/bootstrap-datepicker.css" rel="stylesheet" />
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="row">
         <div class="col-md-8">
@@ -183,7 +179,7 @@
                             <Columns>
                                 <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                                 <%--<asp:BoundField DataField="LastName" HeaderText="LastName" />--%>
-                             <%--   <asp:BoundField DataField="NIC" HeaderText="NIC" />
+                                <%--   <asp:BoundField DataField="NIC" HeaderText="NIC" />
                                 <asp:BoundField DataField="Address" HeaderText="Address" />--%>
                                 <asp:BoundField DataField="MobilePhone" HeaderText="Mobile Phone" />
                                 <%--<asp:BoundField DataField="LandPhone" HeaderText="Land Phone" />--%>
@@ -211,10 +207,11 @@
     <div class="row"></div>
 
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- Boostrap DatePciker JS  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             <%--var dp = $('#<%=txtStartDate.ClientID%>');
