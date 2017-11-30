@@ -4,8 +4,12 @@
     <link href="css/bootstrap-datepicker.css" rel="stylesheet" />
 </asp:Content>
 
+<asp:Content ID="ContentFormHeader" ContentPlaceHolderID="formHeader" runat="server">
+    <h1>Patient Registration</h1>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="row">
+    <div class="row form-body">
         <div class="col-md-8">
             <div class="form-horizontal">
                 <asp:HiddenField ID="hdnPatientId" runat="server" />
@@ -37,7 +41,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
                         <asp:Label ID="lblNIC" CssClass="control-label" runat="server" for="txtNIC" Text="NIC"></asp:Label>
-                         <span class="required-field-star">*</span>
+                        <span class="required-field-star">*</span>
                     </div>
                     <div class="col-md-5">
                         <asp:TextBox ID="txtNIC" CssClass="form-control" runat="server"></asp:TextBox>

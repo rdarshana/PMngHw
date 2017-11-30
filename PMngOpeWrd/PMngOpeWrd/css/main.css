@@ -1,8 +1,11 @@
-﻿body {
+﻿html, body {
+    min-height: 100%;
+    overflow: auto;
 }
 
+
 .master-header {
-    background-color: yellow;
+    background-color: #ffffff;
     height: 100px;
 }
 
@@ -10,8 +13,8 @@
 }
 
 .master-leftnav {
-    background-color: green;
-    height: 500px;
+    background-color: #207fdd;
+    height: 100vh;
 }
 
 .master-footer {
@@ -19,23 +22,41 @@
     height: 80px;
 }
 
-.master-body {
-    margin-top: 10px;
+.form-header {
+    background-color: #f5f5f5;
 }
 
-.gridview-margin{
+.form-left {
+    background-color: #f5f5f5;
+    height: 100vh;
+}
+
+.form-right {
+    background-color: #f5f5f5;
+    height: 100vh;
+}
+
+.master-body {
+    /*margin-top: 10px;*/
+}
+
+.form-body {
+    margin-top: 15px;
+}
+
+.gridview-margin {
     margin-top: 140px;
 }
 
-.button-status{
-    margin-top:30px;
+.button-status {
+    margin-top: 30px;
 }
 
-.required-field-star{
-    color:red;
-    font-size:larger;
-    position:relative;
-    top:6px;
+.required-field-star {
+    color: red;
+    font-size: larger;
+    position: relative;
+    top: 6px;
 }
 
 /*gridview*/
@@ -83,3 +104,29 @@
     border-color: #ddd;
 }
 /*end gridview */
+
+.menuStyle {
+    /*background-color: red;*/
+}
+
+.menu {
+    background: transparent url(images/blueslate_background.gif) repeat-x;
+    text-align: left;
+    font-size: 12px;
+    border: solid 1px #fff !important;
+}
+
+.menuhover {
+    color: #fff;
+    background: transparent url(images/blueslate_backgroundOVER.gif) no-repeat topcenter;
+}
+
+/*.level1 a{
+    vertical-align:middle;
+}*/
+
+.header-menu {
+    margin-top: 47px;
+    background-color: #f5f5f5;
+    text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+}
