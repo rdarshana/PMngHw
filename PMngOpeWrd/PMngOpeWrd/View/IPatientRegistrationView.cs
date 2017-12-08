@@ -12,7 +12,7 @@ namespace PMngOpeWrd.View
         string patientId { get; set; }
         string firstName { get; set; }
         string lastName { get; set; }
-        string  NIC { get; set; }
+        string NIC { get; set; }
         string address { get; set; }
         string mobilePhone { get; set; }
         string landPhone { get; set; }
@@ -25,7 +25,6 @@ namespace PMngOpeWrd.View
         DataTable patientsData { set; }
         string transactionStatusSuccess { set; }
         string transactionStatusFail { set; }
-
 
 
     }
