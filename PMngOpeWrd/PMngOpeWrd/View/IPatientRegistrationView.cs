@@ -22,7 +22,6 @@ namespace PMngOpeWrd.View
         string emergencyContact { get; set; }
         string dateOfBirth { get; set; }
         string bloodGroup { get; set; }
-        DataTable patientsData { set; }
         string transactionStatusSuccess { set; }
         string transactionStatusFail { set; }
 

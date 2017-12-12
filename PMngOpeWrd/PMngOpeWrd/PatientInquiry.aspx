@@ -9,7 +9,6 @@
             <div class="form-group">
                 <asp:HiddenField ID="hdnPatientId" runat="server" />
                 <div class="gridview-margin">
-                    <div class="col-md-1"></div>
                     <div class="col-md-11">
                         <asp:GridView ID="gridViewPatientData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="PatientView_SelectedIndexChanged">
                             <Columns>
@@ -32,6 +31,7 @@
                             </Columns>
                         </asp:GridView>
                     </div>
+                    <div class="col-md-1"></div>
                     <%--<div class="col-md-3"></div>--%>
                 </div>
             </div>

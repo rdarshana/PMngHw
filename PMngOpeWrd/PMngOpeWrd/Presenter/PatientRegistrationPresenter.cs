@@ -72,16 +72,11 @@ namespace PMngOpeWrd.Presenter
 
             }
 
-            FillPatientGrid();
+            //FillPatientGrid();
             ClearPatientData();
 
         }
 
-        //Get all ptient information
-        public void FillPatientGrid()
-        {
-            patientView.patientsData = patientRegistration.GetAllPatientData();
-        }
 
         /// <summary>
         /// get patient information by given id
@@ -140,7 +135,7 @@ namespace PMngOpeWrd.Presenter
             }
 
             ClearPatientData();
-            FillPatientGrid();
+            //FillPatientGrid();
         }
     }
 }

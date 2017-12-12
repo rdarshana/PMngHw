@@ -50,6 +50,8 @@ namespace PMngOpeWrd
         {
             string selectedPatientId = (sender as LinkButton).CommandArgument;
             patientId = selectedPatientId;
+
+            Response.Redirect("PatientRegistration.aspx?pid="+patientId);
             // presenter.GetPatientById();
         }
 

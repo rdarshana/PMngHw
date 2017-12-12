@@ -193,15 +193,6 @@ namespace PMngOpeWrd
             }
         }
 
-        public DataTable patientsData
-        {
-            set
-            {
-                gridViewPatientData.DataSource = value;
-                gridViewPatientData.DataBind();
-            }
-        }
-
         public string patientId
         {
             get
@@ -237,9 +228,15 @@ namespace PMngOpeWrd
             {
                 //read only a dateof birth contron in page load
                 txtDateofBirth.Attributes.Add("readonly", "readonly");
-                presenter.FillPatientGrid();
+                //presenter.FillPatientGrid();
                 transactionStatusSuccess = string.Empty;
                 transactionStatusFail = string.Empty;
+            }
+
+            if (Request.QueryString["pid"] != null)
+            {
+                this.patientId = Request.QueryString["pid"];
+                presenter.GetPatientById();
             }
         }
 
@@ -248,22 +245,6 @@ namespace PMngOpeWrd
 
             presenter.RegisterPatient();
             btnSubmit.Text = "Register";
-
-        }
-
-
-        protected void GridViewPatient_onClick(object sender, EventArgs e)
-        {
-            string selectedPatientId = (sender as LinkButton).CommandArgument;
-            patientId = selectedPatientId;
-            presenter.GetPatientById();
-            btnSubmit.Text = "Update";
-            transactionStatusSuccess = string.Empty;
-            transactionStatusFail = string.Empty;
-        }
-
-        protected void PatientView_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
