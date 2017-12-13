@@ -48,8 +48,18 @@
     margin-top: 10px;
 }
 
+.primary-button-style{
+    width:100px;
+}
+
+.button-group{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
 .button-status {
-    margin-top: 30px;
+    margin-top: 12px;
+    margin-bottom: 30px;
 }
 
 .required-field-star {

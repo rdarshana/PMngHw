@@ -23,6 +23,9 @@ namespace PMngOpeWrd
             presenter = new PatientInquiryPresenter(this);
         }
 
+        /// <summary>
+        /// fill grid data
+        /// </summary>
         public DataTable patientsData
         {
             set
@@ -46,13 +49,13 @@ namespace PMngOpeWrd
             }
         }
 
+        //when row click, open patient information
         protected void GridViewPatient_onClick(object sender, EventArgs e)
         {
             string selectedPatientId = (sender as LinkButton).CommandArgument;
             patientId = selectedPatientId;
 
             Response.Redirect("PatientRegistration.aspx?pid="+patientId);
-            // presenter.GetPatientById();
         }
 
         protected void PatientView_SelectedIndexChanged(object sender, EventArgs e)

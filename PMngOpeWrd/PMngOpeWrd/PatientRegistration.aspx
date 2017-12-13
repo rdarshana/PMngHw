@@ -19,11 +19,10 @@
                         <asp:Label ID="lblFirstName" CssClass="control-label" runat="server" for="txtFirstName" Text="Fist Name"></asp:Label>
                         <span class="required-field-star">*</span>
                     </div>
-                    <div class="col-md-5 col-xm-12">
+                    <div class="col-md-8 col-xm-12">
                         <asp:TextBox ID="txtFirstName" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ErrorMessage="This field is required" ControlToValidate="txtFirstName" ValidationGroup="patientRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
-                    <div class="col-md-3"></div>
                 </div>
 
                 <div class="form-group">
@@ -31,36 +30,31 @@
                     <div class="col-md-3">
                         <asp:Label ID="lblLastName" CssClass="control-label" runat="server" for="txtLastName" Text="Last Name"></asp:Label>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <asp:TextBox ID="txtLastName" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="col-md-3"></div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
                         <asp:Label ID="lblNIC" CssClass="control-label" runat="server" for="txtNIC" Text="NIC"></asp:Label>
-                        <span class="required-field-star">*</span>
+                       <%-- <span class="required-field-star">*</span>--%>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <asp:TextBox ID="txtNIC" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvNIC" runat="server" ErrorMessage="This field is required" ControlToValidate="txtNIC" ValidationGroup="patientRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <%--<asp:RequiredFieldValidator ID="rfvNIC" runat="server" ErrorMessage="This field is required" ControlToValidate="txtNIC" ValidationGroup="patientRegistration" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                     </div>
-                    <div class="col-md-3"></div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
                         <asp:Label ID="lblAddress" CssClass="control-label" runat="server" for="txtAddress" Text="Address"></asp:Label>
-                        <span class="required-field-star">*</span>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <asp:TextBox ID="txtAddress" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvAddress" runat="server" ErrorMessage="This field is required" ControlToValidate="txtAddress" ValidationGroup="patientRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
-                    <div class="col-md-3"></div>
                 </div>
 
                 <div class="form-group">
@@ -68,10 +62,9 @@
                     <div class="col-md-3">
                         <asp:Label ID="lblMobilePhone" CssClass="control-label" runat="server" for="txtMobilePhone" Text="Mobile Phone"></asp:Label>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <asp:TextBox ID="txtMobilePhone" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="col-md-3"></div>
                 </div>
 
                 <div class="form-group">
@@ -79,10 +72,9 @@
                     <div class="col-md-3">
                         <asp:Label ID="lblLandPhone" CssClass="control-label" runat="server" for="txtLandPhone" Text="Land Phone"></asp:Label>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <asp:TextBox ID="txtLandPhone" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="col-md-3"></div>
                 </div>
 
                 <div class="form-group">
@@ -90,11 +82,10 @@
                     <div class="col-md-3">
                         <asp:Label ID="lblEmail" CssClass="control-label" runat="server" for="txtEmail" Text="Email"></asp:Label>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="refEmail" runat="server" ControlToValidate="txtEmail" ValidationGroup="patientRegistration" ForeColor="Red" ErrorMessage="Invalid Email format" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                         <asp:RegularExpressionValidator ID="refEmail" runat="server" ControlToValidate="txtEmail" ValidationGroup="patientRegistration" ForeColor="Red" ErrorMessage="Invalid Email format" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </div>
-                    <div class="col-md-3"></div>
                 </div>
 
                 <div class="form-group">
@@ -102,14 +93,13 @@
                     <div class="col-md-3">
                         <asp:Label ID="lblGender" CssClass="control-label" runat="server" for="ddlGender" Text="Gender"></asp:Label>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-control">
                             <asp:ListItem Value="male">Male</asp:ListItem>
                             <asp:ListItem Value="female">Female</asp:ListItem>
                             <asp:ListItem Value="other">Other</asp:ListItem>
                         </asp:DropDownList>
                     </div>
-                    <div class="col-md-3"></div>
                 </div>
 
                 <div class="form-group">
@@ -117,7 +107,7 @@
                     <div class="col-md-3">
                         <asp:Label ID="lblBloodGroup" CssClass="control-label" runat="server" for="ddlBloodGroup" Text="Blood Group"></asp:Label>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <asp:DropDownList ID="ddlBloodGroup" runat="server" CssClass="form-control">
                             <asp:ListItem Value="O+">O +</asp:ListItem>
                             <asp:ListItem Value="O-">O -</asp:ListItem>
@@ -129,7 +119,6 @@
                             <asp:ListItem Value="AB-">AB -</asp:ListItem>
                         </asp:DropDownList>
                     </div>
-                    <div class="col-md-3"></div>
                 </div>
 
                 <div class="form-group">
@@ -153,46 +142,41 @@
                     <div class="col-md-3">
                         <asp:Label ID="lblEmergencyContact" CssClass="control-label" runat="server" for="txtEmergencyContact" Text="Emergency Contact"></asp:Label>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <asp:TextBox ID="txtEmergencyContact" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="col-md-3"></div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
                         <asp:Label ID="Label4" CssClass="control-label" runat="server" for="txtDateofBirth" Text="Date of Birth"></asp:Label>
-                        <span class="required-field-star">*</span>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <div class="input-group date">
                             <asp:TextBox ID="txtDateofBirth" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control"></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                         </div>
-                        <asp:RequiredFieldValidator ID="rfvDateOfBirth" runat="server" ErrorMessage="This field is required" ControlToValidate="txtDateofBirth" ValidationGroup="patientRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
-                    <div class="col-md-3"></div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-1"></div>
                 <div class="col-md-3"></div>
-                <div class="col-md-5">
-                    <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Register" OnClick="btnSubmit_Click" ValidationGroup="patientRegistration" />
-                    <asp:Button ID="btnDelete" CssClass="btn btn-primary" runat="server" Text="Delete" OnClick="btnDelete_Click" />
-                    <asp:Button ID="btnClear" CssClass="btn btn-primary" runat="server" Text="Clear" OnClick="btnClear_Click" />
+                <div class="col-md-7 button-group">
+                    <asp:Button ID="btnSubmit" CssClass="btn btn-primary primary-button-style" runat="server" Text="Register" OnClick="btnSubmit_Click" ValidationGroup="patientRegistration" />
+                    <asp:Button ID="btnDelete" CssClass="btn btn-primary primary-button-style" runat="server" Text="Delete" OnClick="btnDelete_Click" />
+                    <asp:Button ID="btnClear" CssClass="btn btn-primary primary-button-style" runat="server" Text="Clear" OnClick="btnClear_Click" />
                 </div>
-                <div class="col-md-3"></div>
+                <div class="col-md-1"></div>
             </div>
             <div class="form-group">
                 <div class="col-md-4"></div>
-                <div class="col-md-5">
+                <div class="col-md-8    ">
                     <div class="button-status">
                         <asp:Label ID="lblSuccess" runat="server" ForeColor="Green" Text=""></asp:Label>
                         <asp:Label ID="lblFail" runat="server" ForeColor="Red" Text=""></asp:Label>
                     </div>
                 </div>
-                <div class="col-md-3"></div>
             </div>
         </div>
     </div>
