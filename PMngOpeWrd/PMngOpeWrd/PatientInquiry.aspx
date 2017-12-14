@@ -10,7 +10,7 @@
                 <asp:HiddenField ID="hdnPatientId" runat="server" />
                 <div class="gridview-margin">
                     <div class="col-md-11">
-                        <asp:GridView ID="gridViewPatientData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="PatientView_SelectedIndexChanged">
+                        <asp:GridView ID="gridViewPatientData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="PatientView_SelectedIndexChanged" OnPageIndexChanging="gridViewPatientData_PageIndexChanging">
                             <Columns>
                                 <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                                 <asp:BoundField DataField="LastName" HeaderText="LastName" />

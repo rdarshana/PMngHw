@@ -15,7 +15,10 @@ namespace PMngOpeWrd
         PatientInquiryPresenter presenter;
         protected void Page_Load(object sender, EventArgs e)
         {
-            presenter.FillPatientGrid();
+            if (!this.IsPostBack)
+            {
+                presenter.FillPatientGrid();
+            }
         }
 
         public PatientInquiry()
@@ -62,5 +65,17 @@ namespace PMngOpeWrd
         {
 
         }
+
+        protected void gridViewPatientData_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridViewPatientData.PageIndex = e.NewPageIndex;
+            presenter.FillPatientGrid();
+        }
+
+        //protected void gridViewPatientData_PageIndexChanged(object sender, GridViewPageEventArgs e)
+        //{
+        //    gridViewPatientData.PageIndex = e.NewPageIndex;
+        //    presenter.FillPatientGrid();
+        //}
     }
 }
