@@ -96,6 +96,7 @@ namespace PMngOpeWrd.Model
             sqlCmd.Parameters.AddWithValue("@MobilePhone", patient.mobilePhone);
             sqlCmd.Parameters.AddWithValue("@LandPhone", patient.landPhone);
             sqlCmd.Parameters.AddWithValue("@Email", patient.email);
+            sqlCmd.Parameters.AddWithValue("@BloodGroup", patient.bloodGroup); 
             sqlCmd.Parameters.AddWithValue("@Gender", patient.gender);
             sqlCmd.Parameters.AddWithValue("@MaritalStatus", patient.maritalStatus);
             sqlCmd.Parameters.AddWithValue("@EmergencyContact", patient.emergencyContact);

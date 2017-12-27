@@ -72,10 +72,5 @@ namespace PMngOpeWrd
             presenter.FillPatientGrid();
         }
 
-        //protected void gridViewPatientData_PageIndexChanged(object sender, GridViewPageEventArgs e)
-        //{
-        //    gridViewPatientData.PageIndex = e.NewPageIndex;
-        //    presenter.FillPatientGrid();
-        //}
     }
 }

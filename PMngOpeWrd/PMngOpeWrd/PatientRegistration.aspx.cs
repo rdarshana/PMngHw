@@ -93,8 +93,14 @@ namespace PMngOpeWrd
 
             set
             {
+                string gender = value.Trim();
                 ddlGender.ClearSelection();
-                //ddlGender.Items.FindByValue(value).Selected = true;
+                ListItem selectedGender = ddlGender.Items.FindByValue(gender);
+                if (selectedGender != null)
+                {
+                    selectedGender.Selected = true;
+                }
+
             }
         }
 
@@ -142,7 +148,7 @@ namespace PMngOpeWrd
 
             set
             {
-                if (String.Equals(value, "Single"))
+                if (string.Equals(value, "Single"))
                 {
                     radioStatusSingle.Checked = true;
                 }
@@ -188,8 +194,13 @@ namespace PMngOpeWrd
 
             set
             {
+                string bloodGroup = value.Trim();
                 ddlBloodGroup.ClearSelection();
-                ddlBloodGroup.Items.FindByValue(value).Selected = true;
+                ListItem itemtoSelect = ddlBloodGroup.Items.FindByValue(bloodGroup);
+                if (itemtoSelect != null)
+                {
+                    itemtoSelect.Selected = true;
+                }
             }
         }
 
@@ -231,12 +242,12 @@ namespace PMngOpeWrd
                 //presenter.FillPatientGrid();
                 transactionStatusSuccess = string.Empty;
                 transactionStatusFail = string.Empty;
-            }
 
-            if (Request.QueryString["pid"] != null)
-            {
-                this.patientId = Request.QueryString["pid"];
-                presenter.GetPatientById();
+                if (Request.QueryString["pid"] != null)
+                {
+                    this.patientId = Request.QueryString["pid"];
+                    presenter.GetPatientById();
+                }
             }
         }
 

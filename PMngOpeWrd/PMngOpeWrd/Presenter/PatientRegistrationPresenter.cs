@@ -43,6 +43,7 @@ namespace PMngOpeWrd.Presenter
             patient.landPhone = patientView.landPhone;
             patient.email = patientView.email;
             patient.gender = patientView.gender;
+            patient.bloodGroup = patientView.bloodGroup;
             patient.maritalStatus = patientView.maritalStatus;
             patient.emergencyContact = patientView.emergencyContact;
             patient.dateOfBirth = patientView.dateOfBirth;
@@ -92,6 +93,7 @@ namespace PMngOpeWrd.Presenter
             patientView.mobilePhone = patientData.Rows[0]["MobilePhone"].ToString();
             patientView.landPhone = patientData.Rows[0]["LandPhone"].ToString();
             patientView.email = patientData.Rows[0]["Email"].ToString();
+            patientView.bloodGroup = patientData.Rows[0]["BloodGroup"].ToString();
             patientView.gender = patientData.Rows[0]["Gender"].ToString();
             patientView.maritalStatus = patientData.Rows[0]["MaritalStatus"].ToString();
             patientView.emergencyContact = patientData.Rows[0]["EmergencyContact"].ToString();
