@@ -7,6 +7,7 @@
     [MobilePhone]      VARCHAR (20)  NULL,
     [LandPhone]        VARCHAR (20)  NULL,
     [Email]            VARCHAR (100) NULL,
+	[BloodGroup]	   VARCHAR (10) NULL,
     [Gender]           VARCHAR (6)   NULL,
     [MaritalStatus]    VARCHAR (9)   NULL,
     [EmergencyContact] VARCHAR (20)  NULL,

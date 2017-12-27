@@ -7,6 +7,7 @@
     @MobilePhone VARCHAR (20),
     @LandPhone VARCHAR (20),
     @Email VARCHAR (100),
+	@BloodGroup VARCHAR (10),
     @Gender VARCHAR (6),
     @MaritalStatus VARCHAR (9),
     @EmergencyContact VARCHAR (20),
@@ -16,13 +17,13 @@ AS
 BEGIN
 	IF(@PatientId IS NULL OR @PatientId='')
 		BEGIN
-			INSERT INTO [dbo].[Patient](FirstName,LastName,NIC,Address,MobilePhone,LandPhone,Email,Gender,MaritalStatus,EmergencyContact,DateOfBirth)
-			VALUES (@FirstName,@LastName,@NIC,@Address,@MobilePhone,@LandPhone,@Email,@Gender,@MaritalStatus,@EmergencyContact,@DateOfBirth)
+			INSERT INTO [dbo].[Patient](FirstName,LastName,NIC,Address,MobilePhone,LandPhone,Email,BloodGroup,Gender,MaritalStatus,EmergencyContact,DateOfBirth)
+			VALUES (@FirstName,@LastName,@NIC,@Address,@MobilePhone,@LandPhone,@Email,@BloodGroup,@Gender,@MaritalStatus,@EmergencyContact,@DateOfBirth)
 		END
 	ELSE
 		BEGIN
 			UPDATE [dbo].[Patient]
-			SET FirstName = @FirstName,LastName = @LastName,NIC= @NIC,Address= @Address,MobilePhone= @MobilePhone,LandPhone=@LandPhone,Email=@Email,Gender=@Gender,MaritalStatus=@MaritalStatus,EmergencyContact=@EmergencyContact,DateOfBirth=@DateOfBirth
+			SET FirstName = @FirstName,LastName = @LastName,NIC= @NIC,Address= @Address,MobilePhone= @MobilePhone,LandPhone=@LandPhone,Email=@Email,BloodGroup=@BloodGroup,Gender=@Gender,MaritalStatus=@MaritalStatus,EmergencyContact=@EmergencyContact,DateOfBirth=@DateOfBirth
 			WHERE PatientId = @PatientId
 		END
 END
