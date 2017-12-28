@@ -12,6 +12,8 @@
     [MaritalStatus]    VARCHAR (9)   NULL,
     [EmergencyContact] VARCHAR (20)  NULL,
     [DateOfBirth]      VARCHAR (10)  NULL,
+	[GardianName]	   VARCHAR (50)	 NULL,
+	[GardianAddress]   VARCHAR (250) NULL,
     PRIMARY KEY CLUSTERED ([PatientId] ASC)
 );
 
