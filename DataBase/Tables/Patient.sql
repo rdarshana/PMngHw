@@ -14,17 +14,18 @@
     [DateOfBirth]      VARCHAR (10)  NULL,
 	[GardianName]	   VARCHAR (50)	 NULL,
 	[GardianAddress]   VARCHAR (250) NULL,
+	[CreationDate]	   DATE,
     PRIMARY KEY CLUSTERED ([PatientId] ASC)
 );
 
 
 
-CREATE SEQUENCE [dbo].[Patient_Seq]  AS
+/*CREATE SEQUENCE [dbo].[Patient_Seq]  AS
 INT START WITH 1
 INCREMENT BY 1 ;
 
 
 ALTER TABLE [dbo].[Patient]
 ADD CONSTRAINT Const_Patient_Seq
-DEFAULT FORMAT((NEXT VALUE FOR [dbo].[Patient_Seq]),'PAT#') FOR [PatientId];
+DEFAULT FORMAT((NEXT VALUE FOR [dbo].[Patient_Seq]),'PAT#') FOR [PatientId];*/
 

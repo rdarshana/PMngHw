@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[PatientRegistration]
+﻿ALTER PROCEDURE [dbo].[PatientRegistration]
 	@PatientId VARCHAR (20),
     @FirstName VARCHAR (50),
     @LastName VARCHAR (50),
@@ -19,8 +19,8 @@ AS
 BEGIN
 	IF(@PatientId IS NULL OR @PatientId='')
 		BEGIN
-			INSERT INTO [dbo].[Patient](FirstName,LastName,NIC,Address,MobilePhone,LandPhone,Email,BloodGroup,Gender,MaritalStatus,EmergencyContact,DateOfBirth,GardianName,GardianAddress)
-			VALUES (@FirstName,@LastName,@NIC,@Address,@MobilePhone,@LandPhone,@Email,@BloodGroup,@Gender,@MaritalStatus,@EmergencyContact,@DateOfBirth,@GardianName,@GardianAddress)
+			INSERT INTO [dbo].[Patient](FirstName,LastName,NIC,Address,MobilePhone,LandPhone,Email,BloodGroup,Gender,MaritalStatus,EmergencyContact,DateOfBirth,GardianName,GardianAddress,CreationDate)
+			VALUES (@FirstName,@LastName,@NIC,@Address,@MobilePhone,@LandPhone,@Email,@BloodGroup,@Gender,@MaritalStatus,@EmergencyContact,@DateOfBirth,@GardianName,@GardianAddress, getdate())
 		END
 	ELSE
 		BEGIN
