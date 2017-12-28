@@ -146,5 +146,10 @@ namespace PMngOpeWrd.Presenter
             ClearPatientData();
             //FillPatientGrid();
         }
+
+        public void GetNextPatientId()
+        {
+            patientView.patientId = patientRegistration.GetNextPatientId();
+        }
     }
 }

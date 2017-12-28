@@ -108,5 +108,29 @@ namespace PMngOpeWrd.Model
 
             return true;
         }
+
+        public string GetNextPatientId()
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+
+            SqlCommand sqlCmd = new SqlCommand("GetNextPatientId", sqlCon);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlDataReader reader = sqlCmd.ExecuteReader();
+            if (reader.Read())
+            {
+                return reader.GetString(0);
+            }
+            return null;
+            //SqlDataAdapter sqlDa = new SqlDataAdapter("GetNextPatientId", sqlCon);
+            //sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            //DataTable dataTable = new DataTable();
+            //sqlDa.Fill(dataTable);
+            //sqlCon.Close();
+            //return dataTable;
+        }
     }
 }

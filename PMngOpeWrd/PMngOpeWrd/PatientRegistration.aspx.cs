@@ -262,6 +262,8 @@ namespace PMngOpeWrd
             }
         }
 
+        public bool isNewPatient{ get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -274,10 +276,21 @@ namespace PMngOpeWrd
 
                 if (Request.QueryString["pid"] != null)
                 {
-                    this.patientId = Request.QueryString["pid"];
+                    string patientID= Request.QueryString["pid"];
+                    this.isNewPatient = false;
+                    this.patientId = patientID;
+                    txtPatientId.Text = patientID;
+
                     presenter.GetPatientById();
                     btnSubmit.Text = "Update";
                     removeQueryString("pid");
+                }
+                else
+                {
+                    this.isNewPatient = true;
+                    presenter.GetNextPatientId();
+                    txtPatientId.Text = patientId;
+
                 }
             }
         }
@@ -311,5 +324,7 @@ namespace PMngOpeWrd
             // remove
             this.Request.QueryString.Remove("pid");
         }
+
+      
     }
 }

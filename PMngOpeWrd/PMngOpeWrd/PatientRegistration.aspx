@@ -13,6 +13,17 @@
         <div class="col-md-9">
             <div class="form-horizontal">
                 <asp:HiddenField ID="hdnPatientId" runat="server" />
+
+                <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4 col-xm-12">
+                        <asp:Label ID="lblPatientId" CssClass="control-label" runat="server" for="txtPatientId" Text="Patient ID"></asp:Label>
+                    </div>
+                    <div class="col-md-7 col-xm-12">
+                        <asp:TextBox ID="txtPatientId" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-4 col-xm-12">
@@ -189,7 +200,7 @@
                     <asp:Button ID="btnDelete" CssClass="btn btn-primary primary-button-style" runat="server" Text="Delete" OnClick="btnDelete_Click" />
                     <asp:Button ID="btnClear" CssClass="btn btn-primary primary-button-style" runat="server" Text="Clear" OnClick="btnClear_Click" />
                 </div>
-                
+
             </div>
             <div class="form-group">
                 <div class="col-md-4"></div>

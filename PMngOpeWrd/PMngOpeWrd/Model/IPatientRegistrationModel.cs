@@ -14,5 +14,7 @@ namespace PMngOpeWrd.Model
         DataTable GetAllPatientData();
         DataTable GetPatientById(string patientId);
         bool DeletePatientBySelectedId(string patientId);
+
+        string GetNextPatientId();
     }
 }
