@@ -47,6 +47,8 @@ namespace PMngOpeWrd.Presenter
             patient.maritalStatus = patientView.maritalStatus;
             patient.emergencyContact = patientView.emergencyContact;
             patient.dateOfBirth = patientView.dateOfBirth;
+            patient.gardianName = patientView.gardianName;
+            patient.gardianAddress = patientView.gardianAddress;
             transactionStatus = patientRegistration.InsertPatientData(patient);
 
             if (transactionStatus)
@@ -98,6 +100,8 @@ namespace PMngOpeWrd.Presenter
             patientView.maritalStatus = patientData.Rows[0]["MaritalStatus"].ToString();
             patientView.emergencyContact = patientData.Rows[0]["EmergencyContact"].ToString();
             patientView.dateOfBirth = patientData.Rows[0]["DateOfBirth"].ToString();
+            patientView.gardianName = patientData.Rows[0]["GardianName"].ToString();
+            patientView.gardianAddress = patientData.Rows[0]["GardianAddress"].ToString();
         }
 
         /// <summary>
@@ -118,6 +122,8 @@ namespace PMngOpeWrd.Presenter
             patientView.emergencyContact = string.Empty;
             patientView.dateOfBirth = string.Empty;
             patientView.bloodGroup = "default";
+            patientView.gardianName = string.Empty;
+            patientView.gardianAddress = string.Empty;
             //patientView.transactionStatusSuccess = string.Empty;
             //patientView.transactionStatusFail = string.Empty;
         }

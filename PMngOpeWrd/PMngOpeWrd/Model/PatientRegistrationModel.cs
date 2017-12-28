@@ -101,6 +101,8 @@ namespace PMngOpeWrd.Model
             sqlCmd.Parameters.AddWithValue("@MaritalStatus", patient.maritalStatus);
             sqlCmd.Parameters.AddWithValue("@EmergencyContact", patient.emergencyContact);
             sqlCmd.Parameters.AddWithValue("@DateOfBirth", patient.dateOfBirth);
+            sqlCmd.Parameters.AddWithValue("@GardianName", patient.gardianName);
+            sqlCmd.Parameters.AddWithValue("@GardianAddress", patient.gardianAddress);
             sqlCmd.ExecuteNonQuery();
             sqlCon.Close();
 

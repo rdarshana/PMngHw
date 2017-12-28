@@ -236,6 +236,32 @@ namespace PMngOpeWrd
             }
         }
 
+        public string gardianName
+        {
+            get
+            {
+                return txtGardianName.Text;
+            }
+
+            set
+            {
+                txtGardianName.Text = value;
+            }
+        }
+
+        public string gardianAddress
+        {
+            get
+            {
+                return txtGardianAddress.Text;
+            }
+
+            set
+            {
+                txtGardianAddress.Text = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

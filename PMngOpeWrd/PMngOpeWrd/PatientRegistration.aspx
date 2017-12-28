@@ -10,16 +10,16 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="row form-body">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="form-horizontal">
                 <asp:HiddenField ID="hdnPatientId" runat="server" />
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3 col-xm-12">
+                    <div class="col-md-4 col-xm-12">
                         <asp:Label ID="lblFirstName" CssClass="control-label" runat="server" for="txtFirstName" Text="Fist Name"></asp:Label>
                         <span class="required-field-star">*</span>
                     </div>
-                    <div class="col-md-8 col-xm-12">
+                    <div class="col-md-7 col-xm-12">
                         <asp:TextBox ID="txtFirstName" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ErrorMessage="This field is required" ControlToValidate="txtFirstName" ValidationGroup="patientRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
@@ -27,21 +27,21 @@
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <asp:Label ID="lblLastName" CssClass="control-label" runat="server" for="txtLastName" Text="Last Name"></asp:Label>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <asp:TextBox ID="txtLastName" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <asp:Label ID="lblNIC" CssClass="control-label" runat="server" for="txtNIC" Text="NIC"></asp:Label>
-                       <%-- <span class="required-field-star">*</span>--%>
+                        <%-- <span class="required-field-star">*</span>--%>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <asp:TextBox ID="txtNIC" CssClass="form-control" runat="server"></asp:TextBox>
                         <%--<asp:RequiredFieldValidator ID="rfvNIC" runat="server" ErrorMessage="This field is required" ControlToValidate="txtNIC" ValidationGroup="patientRegistration" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                     </div>
@@ -49,51 +49,51 @@
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <asp:Label ID="lblAddress" CssClass="control-label" runat="server" for="txtAddress" Text="Address"></asp:Label>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <asp:TextBox ID="txtAddress" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <asp:Label ID="lblMobilePhone" CssClass="control-label" runat="server" for="txtMobilePhone" Text="Mobile Phone"></asp:Label>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <asp:TextBox ID="txtMobilePhone" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <asp:Label ID="lblLandPhone" CssClass="control-label" runat="server" for="txtLandPhone" Text="Land Phone"></asp:Label>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <asp:TextBox ID="txtLandPhone" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <asp:Label ID="lblEmail" CssClass="control-label" runat="server" for="txtEmail" Text="Email"></asp:Label>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
-                         <asp:RegularExpressionValidator ID="refEmail" runat="server" ControlToValidate="txtEmail" ValidationGroup="patientRegistration" ForeColor="Red" ErrorMessage="Invalid Email format" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="refEmail" runat="server" ControlToValidate="txtEmail" ValidationGroup="patientRegistration" ForeColor="Red" ErrorMessage="Invalid Email format" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <asp:Label ID="lblGender" CssClass="control-label" runat="server" for="ddlGender" Text="Gender"></asp:Label>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-control">
                             <asp:ListItem Value="male">Male</asp:ListItem>
                             <asp:ListItem Value="female">Female</asp:ListItem>
@@ -104,10 +104,10 @@
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <asp:Label ID="lblBloodGroup" CssClass="control-label" runat="server" for="ddlBloodGroup" Text="Blood Group"></asp:Label>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <asp:DropDownList ID="ddlBloodGroup" runat="server" CssClass="form-control">
                             <asp:ListItem Value="default">-- Please Select --</asp:ListItem>
                             <asp:ListItem Value="O+">O +</asp:ListItem>
@@ -124,7 +124,7 @@
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <asp:Label ID="lblMaritalStatus" CssClass="control-label" runat="server" Text="Marital Status"></asp:Label>
                     </div>
                     <div class="col-md-2">
@@ -135,40 +135,61 @@
                         <asp:Label ID="lblMarried" runat="server" for="radioStatusMarried" Text="Married"></asp:Label>
                         <asp:RadioButton ID="radioStatusMarried" runat="server" GroupName="maritalStatus" />
                     </div>
-                    <div class="col-md-3"></div>
+                    <div class="col-md-2"></div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
-                        <asp:Label ID="lblEmergencyContact" CssClass="control-label" runat="server" for="txtEmergencyContact" Text="Emergency Contact"></asp:Label>
-                    </div>
-                    <div class="col-md-8">
-                        <asp:TextBox ID="txtEmergencyContact" CssClass="form-control" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <asp:Label ID="Label4" CssClass="control-label" runat="server" for="txtDateofBirth" Text="Date of Birth"></asp:Label>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <div class="input-group date">
                             <asp:TextBox ID="txtDateofBirth" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control"></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                         </div>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <asp:Label ID="lblgardianName" CssClass="control-label" runat="server" for="txtGardianName" Text="Name of the Guardian"></asp:Label>
+                    </div>
+                    <div class="col-md-7">
+                        <asp:TextBox ID="txtGardianName" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <asp:Label ID="Label1" CssClass="control-label" runat="server" for="txtGardianAddress" Text="Address of the Guardian "></asp:Label>
+                    </div>
+                    <div class="col-md-7">
+                        <asp:TextBox ID="txtGardianAddress" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <asp:Label ID="lblEmergencyContact" CssClass="control-label" runat="server" for="txtEmergencyContact" Text="Contact of the Guardian"></asp:Label>
+                    </div>
+                    <div class="col-md-7">
+                        <asp:TextBox ID="txtEmergencyContact" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+
             </div>
             <div class="form-group">
                 <div class="col-md-1"></div>
-                <div class="col-md-3"></div>
+                <div class="col-md-4"></div>
                 <div class="col-md-7 button-group">
                     <asp:Button ID="btnSubmit" CssClass="btn btn-primary primary-button-style" runat="server" Text="Register" OnClick="btnSubmit_Click" ValidationGroup="patientRegistration" />
                     <asp:Button ID="btnDelete" CssClass="btn btn-primary primary-button-style" runat="server" Text="Delete" OnClick="btnDelete_Click" />
                     <asp:Button ID="btnClear" CssClass="btn btn-primary primary-button-style" runat="server" Text="Clear" OnClick="btnClear_Click" />
                 </div>
-                <div class="col-md-1"></div>
+                
             </div>
             <div class="form-group">
                 <div class="col-md-4"></div>
@@ -180,8 +201,8 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3"></div>
     </div>
-    <div class="col-md-4"></div>
 
     <div class="row"></div>
     <div class="row"></div>

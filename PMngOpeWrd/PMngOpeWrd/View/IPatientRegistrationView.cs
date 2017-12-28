@@ -24,7 +24,8 @@ namespace PMngOpeWrd.View
         string bloodGroup { get; set; }
         string transactionStatusSuccess { set; }
         string transactionStatusFail { set; }
-
+        string gardianName { get; set; }
+        string gardianAddress { get; set; }
 
     }
 }
