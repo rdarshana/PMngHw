@@ -109,6 +109,7 @@
                     </div>
                     <div class="col-md-8">
                         <asp:DropDownList ID="ddlBloodGroup" runat="server" CssClass="form-control">
+                            <asp:ListItem Value="default">-- Please Select --</asp:ListItem>
                             <asp:ListItem Value="O+">O +</asp:ListItem>
                             <asp:ListItem Value="O-">O -</asp:ListItem>
                             <asp:ListItem Value="A+">A +</asp:ListItem>

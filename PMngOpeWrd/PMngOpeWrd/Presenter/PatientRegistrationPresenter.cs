@@ -113,10 +113,11 @@ namespace PMngOpeWrd.Presenter
             patientView.mobilePhone = string.Empty;
             patientView.landPhone = string.Empty;
             patientView.email = string.Empty;
-            patientView.gender = string.Empty;
-            patientView.maritalStatus = string.Empty;
+            patientView.gender = "male";
+            patientView.maritalStatus = "Single";
             patientView.emergencyContact = string.Empty;
             patientView.dateOfBirth = string.Empty;
+            patientView.bloodGroup = "default";
             //patientView.transactionStatusSuccess = string.Empty;
             //patientView.transactionStatusFail = string.Empty;
         }

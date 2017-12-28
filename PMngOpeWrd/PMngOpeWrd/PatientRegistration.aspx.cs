@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using PMngOpeWrd.View;
 using PMngOpeWrd.Presenter;
 using System.Data;
+using System.Reflection;
 
 namespace PMngOpeWrd
 {
@@ -150,10 +151,12 @@ namespace PMngOpeWrd
             {
                 if (string.Equals(value, "Single"))
                 {
+                    radioStatusMarried.Checked = false;
                     radioStatusSingle.Checked = true;
                 }
                 else
                 {
+                    radioStatusSingle.Checked = false;
                     radioStatusMarried.Checked = true;
                 }
             }
@@ -237,7 +240,7 @@ namespace PMngOpeWrd
         {
             if (!IsPostBack)
             {
-                //read only a dateof birth contron in page load
+                //read only a dateof birth control in page load
                 txtDateofBirth.Attributes.Add("readonly", "readonly");
                 //presenter.FillPatientGrid();
                 transactionStatusSuccess = string.Empty;
@@ -247,6 +250,8 @@ namespace PMngOpeWrd
                 {
                     this.patientId = Request.QueryString["pid"];
                     presenter.GetPatientById();
+                    btnSubmit.Text = "Update";
+                    removeQueryString("pid");
                 }
             }
         }
@@ -269,6 +274,16 @@ namespace PMngOpeWrd
         {
             presenter.ClearPatientData();
             btnSubmit.Text = "Register";
+            removeQueryString("pid");
+        }
+
+        private void removeQueryString(string id)
+        {
+            PropertyInfo isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+            // make collection editable
+            isreadonly.SetValue(this.Request.QueryString, false, null);
+            // remove
+            this.Request.QueryString.Remove("pid");
         }
     }
 }
