@@ -89,6 +89,7 @@ namespace PMngOpeWrd.Model
             SqlCommand sqlCmd = new SqlCommand("PatientRegistration", sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.AddWithValue("@PatientId", patient.patientId);
+            sqlCmd.Parameters.AddWithValue("@IsNewPatient", patient.isNewPatient);
             sqlCmd.Parameters.AddWithValue("@FirstName", patient.firstName);
             sqlCmd.Parameters.AddWithValue("@LastName", patient.lastName);
             sqlCmd.Parameters.AddWithValue("@NIC", patient.NIC);

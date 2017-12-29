@@ -12,7 +12,7 @@
     <div class="row form-body">
         <div class="col-md-9">
             <div class="form-horizontal">
-                <asp:HiddenField ID="hdnPatientId" runat="server" />
+                <asp:HiddenField ID="hdnIsNewPatient" runat="server" />
 
                 <div class="form-group">
                     <div class="col-md-1"></div>

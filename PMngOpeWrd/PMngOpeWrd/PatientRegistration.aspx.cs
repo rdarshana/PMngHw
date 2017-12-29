@@ -211,12 +211,12 @@ namespace PMngOpeWrd
         {
             get
             {
-                return hdnPatientId.Value == "" ? string.Empty : hdnPatientId.Value;
+                return txtPatientId.Text;
             }
 
             set
             {
-                hdnPatientId.Value = value;
+                txtPatientId.Text = value;
             }
         }
 
@@ -262,10 +262,22 @@ namespace PMngOpeWrd
             }
         }
 
-        public bool isNewPatient{ get; set; }
+        public string isNewPatient{
+            get
+            {
+                return hdnIsNewPatient.Value;
+               
+                    
+            }
+            set
+            {
+                hdnIsNewPatient.Value = value;
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
                 //read only a dateof birth control in page load
@@ -277,20 +289,16 @@ namespace PMngOpeWrd
                 if (Request.QueryString["pid"] != null)
                 {
                     string patientID= Request.QueryString["pid"];
-                    this.isNewPatient = false;
+                    isNewPatient = "false";
                     this.patientId = patientID;
-                    txtPatientId.Text = patientID;
-
                     presenter.GetPatientById();
                     btnSubmit.Text = "Update";
                     removeQueryString("pid");
                 }
                 else
                 {
-                    this.isNewPatient = true;
+                    isNewPatient = "true";
                     presenter.GetNextPatientId();
-                    txtPatientId.Text = patientId;
-
                 }
             }
         }

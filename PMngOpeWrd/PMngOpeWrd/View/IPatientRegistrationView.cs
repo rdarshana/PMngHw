@@ -26,7 +26,7 @@ namespace PMngOpeWrd.View
         string transactionStatusFail { set; }
         string gardianName { get; set; }
         string gardianAddress { get; set; }
-        bool isNewPatient { get; set; }
+        string isNewPatient { get; set; }
 
     }
 }

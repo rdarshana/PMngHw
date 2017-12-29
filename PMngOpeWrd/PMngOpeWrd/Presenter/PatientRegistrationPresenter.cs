@@ -35,6 +35,7 @@ namespace PMngOpeWrd.Presenter
             bool transactionStatus = false;
 
             patient.patientId = patientView.patientId;
+            patient.isNewPatient = patientView.isNewPatient;
             patient.firstName = patientView.firstName;
             patient.lastName = patientView.lastName;
             patient.NIC = patientView.NIC;
@@ -102,6 +103,7 @@ namespace PMngOpeWrd.Presenter
             patientView.dateOfBirth = patientData.Rows[0]["DateOfBirth"].ToString();
             patientView.gardianName = patientData.Rows[0]["GardianName"].ToString();
             patientView.gardianAddress = patientData.Rows[0]["GardianAddress"].ToString();
+            patientView.isNewPatient = "false";
         }
 
         /// <summary>
@@ -124,8 +126,7 @@ namespace PMngOpeWrd.Presenter
             patientView.bloodGroup = "default";
             patientView.gardianName = string.Empty;
             patientView.gardianAddress = string.Empty;
-            //patientView.transactionStatusSuccess = string.Empty;
-            //patientView.transactionStatusFail = string.Empty;
+            GetNextPatientId();
         }
 
         /// <summary>
