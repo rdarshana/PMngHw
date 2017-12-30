@@ -52,6 +52,37 @@ namespace PMngOpeWrd
             }
         }
 
+        public string searchColumn
+        {
+            get
+            {
+                string selectedValue = ddlPatientFilter.SelectedValue;
+                string columnName = string.Empty;
+                switch(selectedValue)
+                {
+                    case "patientId":
+                        columnName = "PatientId";
+                        break;
+                    case "nic":
+                        columnName = "NIC";
+                        break;
+                    case "firstName":
+                        columnName = "FirstName";
+                        break;
+                }
+
+                return columnName;
+            }
+        }
+
+        public string searchValue
+        {
+            get
+            {
+                return txtSearchId.Text;
+            }
+        }
+
         //when row click, open patient information
         protected void GridViewPatient_onClick(object sender, EventArgs e)
         {
@@ -72,5 +103,9 @@ namespace PMngOpeWrd
             presenter.FillPatientGrid();
         }
 
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

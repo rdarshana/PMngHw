@@ -20,11 +20,11 @@
                         </asp:DropDownList>
                     </div>
                     <div class="col-md-6 search-left-margin">
-                        <asp:TextBox ID="txtSearchId" CssClass="form-control" placeholder="Search Key..." runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtSearchId" CssClass="form-control" placeholder="Search Value..." runat="server"></asp:TextBox>
                     </div>
                     <div class="col-md-3">
                         <span class="input-group-btn">
-                            <asp:Button ID="Button1" CssClass="btn btn-default" runat="server" Text="Search" /><span class="glyphicon glyphicon-search"></span>
+                            <asp:Button ID="btnSearch" CssClass="btn btn-default" runat="server" Text="Search" OnClick="btnSearch_Click" /><span class="glyphicon glyphicon-search"></span>
                         </span>
                     </div>
                 </div>

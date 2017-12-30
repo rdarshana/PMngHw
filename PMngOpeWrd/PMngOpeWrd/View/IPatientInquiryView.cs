@@ -11,6 +11,7 @@ namespace PMngOpeWrd.View
     {
         string patientId { get; set; }
         DataTable patientsData { set; }
-
+        string searchColumn { get; }
+        string searchValue { get; }
     }
 }
