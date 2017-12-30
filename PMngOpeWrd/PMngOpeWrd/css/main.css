@@ -48,7 +48,11 @@
 }
 
 .gridview-margin {
-    margin-top: 10px;
+    margin-top: 15px;
+}
+
+.gridview-search-margin {
+     margin-top: 20px;
 }
 
 .primary-button-style{
@@ -142,4 +146,8 @@
     margin-top: 50px;
     background-color: #eae9e9;
     text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+}
+
+.search-left-margin {
+    margin-right:-32px;
 }
