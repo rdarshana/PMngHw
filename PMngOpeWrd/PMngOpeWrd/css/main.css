@@ -52,16 +52,16 @@
 }
 
 .gridview-search-margin {
-     margin-top: 20px;
+    margin-top: 20px;
 }
 
-.primary-button-style{
-    width:100px;
+.primary-button-style {
+    width: 100px;
 }
 
-.button-group{
-    margin-top:20px;
-    margin-bottom:20px;
+.button-group {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .button-status {
@@ -135,7 +135,7 @@
 
 .menuhover {
     color: #fff;
-    background: transparent url(images/blueslate_backgroundOVER.gif) no-repeat topcenter;
+    background: transparent url(images/blueslate_backgroundOVER.gif) no-repeat top center;
 }
 
 /*.level1 a{
@@ -149,5 +149,11 @@
 }
 
 .search-left-margin {
-    margin-right:-32px;
+    margin-right: -32px;
+}
+
+.info-mzg {
+    text-align: center;
+    width: 85%;
+    margin: auto;
 }

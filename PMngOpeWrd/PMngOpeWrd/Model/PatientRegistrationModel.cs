@@ -126,12 +126,23 @@ namespace PMngOpeWrd.Model
                 return reader.GetString(0);
             }
             return null;
-            //SqlDataAdapter sqlDa = new SqlDataAdapter("GetNextPatientId", sqlCon);
-            //sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
-            //DataTable dataTable = new DataTable();
-            //sqlDa.Fill(dataTable);
-            //sqlCon.Close();
-            //return dataTable;
+        }
+
+        public DataTable GetPatientBySearchKey(string columnName, string searchValue)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetPatientBySearchKey", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDa.SelectCommand.Parameters.AddWithValue("@ColumnName", columnName);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@SearchValue", searchValue);
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
         }
     }
 }

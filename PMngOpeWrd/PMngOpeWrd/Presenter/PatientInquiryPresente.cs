@@ -32,5 +32,16 @@ namespace PMngOpeWrd.Presenter
             patientView.patientsData = patientRegistration.GetAllPatientData();
         }
 
+        public void GetPatientByKey()
+        {
+            patientView.patientsData = patientRegistration.GetPatientBySearchKey(patientView.searchColumn, patientView.searchValue);
+
+        }
+
+        public void ClearFilter()
+        {
+            patientView.searchValue = string.Empty;
+            FillPatientGrid();
+        }
     }
 }

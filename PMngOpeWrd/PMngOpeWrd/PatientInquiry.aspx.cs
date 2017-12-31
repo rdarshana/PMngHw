@@ -33,9 +33,20 @@ namespace PMngOpeWrd
         {
             set
             {
-                gridViewPatientData.DataSource = value;
-                gridViewPatientData.DataBind();
+                if (value != null)
+                {
+                    gridViewPatientData.DataSource = value;
+                    gridViewPatientData.DataBind();
 
+                    if (value.Rows.Count > 0)
+                    {
+                        grdDisplayMessage.Style["display"] = "none";
+                    }
+                    else
+                    {
+                        grdDisplayMessage.Style["display"] = "block";
+                    }
+                }
             }
         }
 
@@ -81,6 +92,10 @@ namespace PMngOpeWrd
             {
                 return txtSearchId.Text;
             }
+            set
+            {
+                txtSearchId.Text = value;
+            }
         }
 
         //when row click, open patient information
@@ -105,7 +120,13 @@ namespace PMngOpeWrd
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            presenter.GetPatientByKey();
+        }
 
+        protected void btnClearFilter_Click(object sender, EventArgs e)
+        {
+            presenter.ClearFilter();
+         
         }
     }
 }

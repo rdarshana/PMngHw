@@ -19,13 +19,16 @@
                             <asp:ListItem Value="firstName">First Name</asp:ListItem>
                         </asp:DropDownList>
                     </div>
-                    <div class="col-md-6 search-left-margin">
+                    <div class="col-md-5 search-left-margin">
                         <asp:TextBox ID="txtSearchId" CssClass="form-control" placeholder="Search Value..." runat="server"></asp:TextBox>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-1">
                         <span class="input-group-btn">
                             <asp:Button ID="btnSearch" CssClass="btn btn-default" runat="server" Text="Search" OnClick="btnSearch_Click" /><span class="glyphicon glyphicon-search"></span>
                         </span>
+                    </div>
+                    <div class="col-md-3">
+                        <asp:Button ID="btnClearFilter" CssClass="btn btn-default primary-button-style" runat="server" Text="Clear Filter" OnClick="btnClearFilter_Click" />
                     </div>
                 </div>
             </div>
@@ -58,4 +61,15 @@
             <%--<div class="col-md-3"></div>--%>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-10 info-mzg">
+        
+        <div id="grdDisplayMessage" class="alert alert-info" style="display:none" runat="server">
+            There are no matching records
+        </div>
+            </div>
+        <div class="col-md-2"></div>
+    </div>
+
 </asp:Content>
