@@ -39,8 +39,8 @@
                             <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
                             <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                             <asp:BoundField DataField="LastName" HeaderText="LastName" />
-                            <%--   <asp:BoundField DataField="NIC" HeaderText="NIC" />
-                                <asp:BoundField DataField="Address" HeaderText="Address" />--%>
+                            <asp:BoundField DataField="NIC" HeaderText="NIC" />
+                           <%--<asp:BoundField DataField="Address" HeaderText="Address" />--%>
                             <asp:BoundField DataField="MobilePhone" HeaderText="Mobile Phone" />
                             <%--<asp:BoundField DataField="LandPhone" HeaderText="Land Phone" />--%>
                             <asp:BoundField DataField="Email" HeaderText="Email" />
