@@ -2,8 +2,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="formHeader" runat="server">
     <h1>Patient Inquery</h1>
+</asp:Content>
+
+<asp:Content ID="patientregLeftnav" ContentPlaceHolderID="formleftnav" runat="server">
+   <div class="patirnt-inq-formleftnav"></div>
+</asp:Content>
+
+<asp:Content ID="patientLeftColumn" ContentPlaceHolderID="formleftcolumn" runat="server">
+    <div class="patirnt-ing-formleft"></div>
+</asp:Content>
+
+<asp:Content ID="patientRightColumn" ContentPlaceHolderID="formrightcolumn" runat="server">
+    <div class="patirnt-inq-formright"></div>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">

@@ -21,15 +21,6 @@
         <div class="row master-header">
             <div class="col-md-12">
                 <asp:Menu ID="Menu1" StaticDisplayLevels="1" Orientation="Horizontal" RenderingMode="List" runat="server" IncludeStyleBlock="false" StaticMenuStyle-CssClass="nav navbar-nav header-menu" DynamicMenuStyle-CssClass="dropdown-menu">
-                    <%--<StaticMenuStyle CssClass="menuStyle" />--%>
-                    <%--<StaticMenuItemStyle BorderColor="White" Width="215px" Height="50px" BorderWidth="1px" BorderStyle="Solid" />--%>
-
-<%--                    <StaticMenuItemStyle Height="40px" CssClass="static-menu" />
-                    <DynamicMenuItemStyle CssClass="Menu" Height="40px" HorizontalPadding="25px" />
-                    <DynamicHoverStyle CssClass="menuhover" />
-                    <StaticHoverStyle CssClass="menuhover" />--%>
-
-
                     <Items>
                         <asp:MenuItem Text="Home" Value="home" NavigateUrl="#">
                             <asp:MenuItem Text="WebForm1" Value="webform1" NavigateUrl="~/WebForm1.aspx"></asp:MenuItem>
@@ -43,10 +34,9 @@
             </div>
         </div>
         <div class="row master-middle">
-            <div class="col-md-2 master-leftnav">
-
-                
-
+            <div class="col-md-2">
+                <asp:ContentPlaceHolder ID="formleftnav" runat="server">
+                </asp:ContentPlaceHolder>
             </div>
             <div class="col-md-10">
                 <div class="row form-header">
@@ -57,14 +47,19 @@
                     </div>
                     <div class="col-md-1"></div>
                 </div>
-                <div class="row master-body">
-                    <div class="col-md-1 form-left">
+                <div class="row">
+                    <div class="col-md-1">
+                        <asp:ContentPlaceHolder ID="formleftcolumn" runat="server">
+                        </asp:ContentPlaceHolder>
                     </div>
                     <div class="col-md-10">
                         <asp:ContentPlaceHolder ID="body" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>
-                    <div class="col-md-1 form-right"></div>
+                    <div class="col-md-1">
+                        <asp:ContentPlaceHolder ID="formrightcolumn" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12"></div>
@@ -80,25 +75,25 @@
     <%--    <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>--%>
     <script type="text/javascript">
-    //Disable the default MouseOver functionality of ASP.Net Menu control.
-    //Sys.WebForms.Menu._elementObjectMapper.getMappedObject = function () {
-    //    return false;
-    //};
-    $(function () {
-        //Remove the style attributes.
-        $(".navbar-nav li, .navbar-nav a, .navbar-nav ul").removeAttr('style');
-           
-        //Apply the Bootstrap class to the Submenu.
-        $(".dropdown-menu").closest("li").removeClass().addClass("dropdown-toggle");
-           
-        //Apply the Bootstrap properties to the Submenu.
-        $(".dropdown-toggle").find("a").eq(0).attr("data-toggle", "dropdown").attr("aria-haspopup", "true").attr("aria-expanded", "false").append("<span class='caret'></span>");
-           
-        //Apply the Bootstrap "active" class to the selected Menu item.
-        $("a.selected").closest("li").addClass("active");
-        $("a.selected").closest(".dropdown-toggle").addClass("active");
-    });
-</script>
+        //Disable the default MouseOver functionality of ASP.Net Menu control.
+        //Sys.WebForms.Menu._elementObjectMapper.getMappedObject = function () {
+        //    return false;
+        //};
+        $(function () {
+            //Remove the style attributes.
+            $(".navbar-nav li, .navbar-nav a, .navbar-nav ul").removeAttr('style');
+
+            //Apply the Bootstrap class to the Submenu.
+            $(".dropdown-menu").closest("li").removeClass().addClass("dropdown-toggle");
+
+            //Apply the Bootstrap properties to the Submenu.
+            $(".dropdown-toggle").find("a").eq(0).attr("data-toggle", "dropdown").attr("aria-haspopup", "true").attr("aria-expanded", "false").append("<span class='caret'></span>");
+
+            //Apply the Bootstrap "active" class to the selected Menu item.
+            $("a.selected").closest("li").addClass("active");
+            $("a.selected").closest(".dropdown-toggle").addClass("active");
+        });
+    </script>
 </body>
 
 </html>

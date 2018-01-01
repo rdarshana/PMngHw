@@ -2,10 +2,23 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/bootstrap-datepicker.css" rel="stylesheet" />
+<link href="css/main.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="ContentFormHeader" ContentPlaceHolderID="formHeader" runat="server">
     <h1>Patient Registration</h1>
+</asp:Content>
+
+<asp:Content ID="patientregLeftnav" ContentPlaceHolderID="formleftnav" runat="server">
+   <div class="patirnt-reg-formleftnav"></div>
+</asp:Content>
+
+<asp:Content ID="patientLeftColumn" ContentPlaceHolderID="formleftcolumn" runat="server">
+    <div class="patirnt-reg-formleft"></div>
+</asp:Content>
+
+<asp:Content ID="patientRightColumn" ContentPlaceHolderID="formrightcolumn" runat="server">
+    <div class="patirnt-reg-formright"></div>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">

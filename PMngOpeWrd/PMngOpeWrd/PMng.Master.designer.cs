@@ -40,6 +40,15 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.Menu Menu1;
         
         /// <summary>
+        /// formleftnav control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder formleftnav;
+        
+        /// <summary>
         /// formHeader control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder formHeader;
         
         /// <summary>
+        /// formleftcolumn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder formleftcolumn;
+        
+        /// <summary>
         /// body control.
         /// </summary>
         /// <remarks>
@@ -56,5 +74,14 @@ namespace PMngOpeWrd {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder body;
+        
+        /// <summary>
+        /// formrightcolumn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder formrightcolumn;
     }
 }
