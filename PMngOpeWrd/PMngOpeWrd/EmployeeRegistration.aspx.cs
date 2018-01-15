@@ -13,7 +13,7 @@ namespace PMngOpeWrd
     {
         EmployeeRegistrationPresenter presenter;
 
-        public string EmployeeType
+        public string employeeType
         {
             get
             {
@@ -32,7 +32,7 @@ namespace PMngOpeWrd
             }
         }
 
-        public string EmployeeId
+        public string employeeId
         {
             get
             {
@@ -49,12 +49,12 @@ namespace PMngOpeWrd
         {
             get
             {
-                throw new NotImplementedException();
+                return txtFirstName.Text;
             }
 
             set
             {
-                throw new NotImplementedException();
+                txtFirstName.Text = value;
             }
         }
 
@@ -62,12 +62,12 @@ namespace PMngOpeWrd
         {
             get
             {
-                throw new NotImplementedException();
+                return txtLastName.Text;
             }
 
             set
             {
-                throw new NotImplementedException();
+                txtLastName.Text = value;
             }
         }
 
@@ -75,12 +75,12 @@ namespace PMngOpeWrd
         {
             get
             {
-                throw new NotImplementedException();
+                return txtNIC.Text;
             }
 
             set
             {
-                throw new NotImplementedException();
+                txtNIC.Text = value;
             }
         }
 
@@ -88,12 +88,12 @@ namespace PMngOpeWrd
         {
             get
             {
-                throw new NotImplementedException();
+                return txtAddress.Text;
             }
 
             set
             {
-                throw new NotImplementedException();
+                txtAddress.Text = value;
             }
         }
 
@@ -101,12 +101,12 @@ namespace PMngOpeWrd
         {
             get
             {
-                throw new NotImplementedException();
+                return txtMobilePhone.Text;
             }
 
             set
             {
-                throw new NotImplementedException();
+                txtMobilePhone.Text = value;
             }
         }
 
@@ -114,12 +114,12 @@ namespace PMngOpeWrd
         {
             get
             {
-                throw new NotImplementedException();
+                return txtLandPhone.Text;
             }
 
             set
             {
-                throw new NotImplementedException();
+                txtLandPhone.Text = value;
             }
         }
 
@@ -127,12 +127,12 @@ namespace PMngOpeWrd
         {
             get
             {
-                throw new NotImplementedException();
+                return txtEmail.Text;
             }
 
             set
             {
-                throw new NotImplementedException();
+                txtEmail.Text = value;
             }
         }
 
@@ -140,12 +140,41 @@ namespace PMngOpeWrd
         {
             get
             {
-                throw new NotImplementedException();
+                string activeEmployee = "true";
+                if(chkIsActive.Checked == true)
+                {
+                    activeEmployee = "true";
+                }
+                else
+                {
+                    activeEmployee = "false";
+                }
+                return activeEmployee;
             }
 
             set
             {
-                throw new NotImplementedException();
+               if(value == "true")
+                {
+                    chkIsActive.Checked = true;
+                }
+                else
+                {
+                    chkIsActive.Checked = false;
+                }
+            }
+        }
+
+        public string isNewEmployee
+        {
+            get
+            {
+                return hdnIsNewEmployee.Value;
+            }
+
+            set
+            {
+                hdnIsNewEmployee.Value = value; 
             }
         }
 
@@ -159,12 +188,52 @@ namespace PMngOpeWrd
             //txtAddress.Visible = false;
             //lblAddress.Visible = false;
 
-            presenter.GetNextEmployeeId();
+            if (!IsPostBack)
+            {
+                if(Request.QueryString["eid"] != null)
+                {
+                    isNewEmployee = "false";
+                    string employeeId = Request.QueryString["eid"];
+                    string[] employeeIdSplit = employeeId.Split('-');
+                    string employeeIdPrefix = employeeIdSplit[0];
+                    string employeeType = string.Empty;
+
+                    switch (employeeIdPrefix)
+                    {
+                        case "DOC":
+                            employeeType = "doctor";
+                            break;
+                        case "ANE":
+                            employeeType = "anesthetist";
+                            break;
+                        case "DIR":
+                            employeeType = "director";
+                            break;
+                        case "MLT":
+                            employeeType = "mlt";
+                            break;
+                    }
+                    this.employeeType = employeeType;
+                    this.employeeId = employeeId;
+                    ddlEmployeeType.Enabled = false;
+                    btnSubmit.Text = "Update";
+                }
+                else
+                {
+                    btnSubmit.Text = "Register";
+                    isNewEmployee = "true";
+                    presenter.GetNextEmployeeId();
+                    ddlEmployeeType.Enabled = true;
+                }
+
+            }
+
+           
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            presenter.RegisterEmployee();
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
