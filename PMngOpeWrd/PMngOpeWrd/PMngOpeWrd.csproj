@@ -117,6 +117,8 @@
       <DependentUpon>EmployeeRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Patient.cs" />
+    <Compile Include="Model\EmployeeModel.cs" />
+    <Compile Include="Model\IEmployeeModel.cs" />
     <Compile Include="Model\IPatientRegistrationModel.cs" />
     <Compile Include="Model\PatientRegistrationModel.cs" />
     <Compile Include="PatientInquiry.aspx.cs">
@@ -140,9 +142,11 @@
     <Compile Include="PMng.Master.designer.cs">
       <DependentUpon>PMng.Master</DependentUpon>
     </Compile>
+    <Compile Include="Presenter\EmployeeRegistrationPresenter.cs" />
     <Compile Include="Presenter\PatientInquiryPresente.cs" />
     <Compile Include="Presenter\PatientRegistrationPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\IEmployeeRegistrationView.cs" />
     <Compile Include="View\IPatientInquiryView.cs" />
     <Compile Include="View\IPatientRegistrationView.cs" />
     <Compile Include="WebForm1.aspx.cs">

@@ -30,11 +30,11 @@
                         <asp:Label ID="lblEmployeeType" CssClass="control-label" runat="server" for="ddlEmployeeType" Text="Employee Type"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:DropDownList ID="ddlEmployeeType" runat="server" CssClass="form-control">
-                            <asp:ListItem Value="doctor">Doctor</asp:ListItem>
+                        <asp:DropDownList ID="ddlEmployeeType" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlEmployeeType_SelectedIndexChanged">
                             <asp:ListItem Value="anesthetist">Anesthetist</asp:ListItem>
-                            <asp:ListItem Value="mlt">MLT</asp:ListItem>
                             <asp:ListItem Value="director">Director</asp:ListItem>
+                            <asp:ListItem Value="doctor">Doctor</asp:ListItem>
+                            <asp:ListItem Value="mlt">MLT</asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>
