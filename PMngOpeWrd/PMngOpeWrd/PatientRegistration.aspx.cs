@@ -275,6 +275,33 @@ namespace PMngOpeWrd
             }
         }
 
+        public bool patientRegistration
+        {
+            set
+            {
+                divPatientRegistration.Visible = value;
+            }
+        }
+
+        public bool patientUpdate
+        {
+            set
+            {
+                divPatientUpdate.Visible = value;
+            }
+        }
+
+        public string removeQueryString
+        {
+            set
+            {
+                PropertyInfo isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+                // make collection editable
+                isreadonly.SetValue(this.Request.QueryString, false, null);
+                // remove
+                this.Request.QueryString.Remove(value);
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -293,11 +320,15 @@ namespace PMngOpeWrd
                     this.patientId = patientID;
                     presenter.GetPatientById();
                     btnSubmit.Text = "Update";
-                    removeQueryString("pid");
+                    this.removeQueryString = "pid";
+                    patientRegistration = false;
+                    patientUpdate = true;
                 }
                 else
                 {
                     isNewPatient = "true";
+                    patientRegistration = true;
+                    patientUpdate = false;
                     presenter.GetNextPatientId();
                 }
             }
@@ -321,17 +352,17 @@ namespace PMngOpeWrd
         {
             presenter.ClearPatientData();
             btnSubmit.Text = "Register";
-            removeQueryString("pid");
+            this.removeQueryString ="pid";
         }
 
-        private void removeQueryString(string id)
-        {
-            PropertyInfo isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
-            // make collection editable
-            isreadonly.SetValue(this.Request.QueryString, false, null);
-            // remove
-            this.Request.QueryString.Remove(id);
-        }
+        //private void removeQueryString(string id)
+        //{
+        //    PropertyInfo isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+        //    // make collection editable
+        //    isreadonly.SetValue(this.Request.QueryString, false, null);
+        //    // remove
+        //    this.Request.QueryString.Remove(id);
+        //}
 
       
     }

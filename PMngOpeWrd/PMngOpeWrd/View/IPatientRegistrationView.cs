@@ -27,6 +27,9 @@ namespace PMngOpeWrd.View
         string gardianName { get; set; }
         string gardianAddress { get; set; }
         string isNewPatient { get; set; }
+        bool patientRegistration { set; }
+        bool patientUpdate { set; }
+        string removeQueryString { set; }
 
     }
 }

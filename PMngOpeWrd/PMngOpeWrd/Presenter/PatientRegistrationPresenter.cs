@@ -126,6 +126,10 @@ namespace PMngOpeWrd.Presenter
             patientView.bloodGroup = "default";
             patientView.gardianName = string.Empty;
             patientView.gardianAddress = string.Empty;
+            patientView.removeQueryString = "pid";
+            patientView.patientRegistration = true;
+            patientView.patientUpdate = false;
+            patientView.isNewPatient = "true";
             GetNextPatientId();
         }
 

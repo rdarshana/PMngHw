@@ -254,6 +254,7 @@ namespace PMngOpeWrd
                     }
                     this.employeeType = employeeType;
                     this.employeeId = employeeId;
+                    this.removeQueryString = "eid";
                     employeeTypeEnable = false;
                     btnSubmit.Text = "Update";
                     employeeRegistration = false;

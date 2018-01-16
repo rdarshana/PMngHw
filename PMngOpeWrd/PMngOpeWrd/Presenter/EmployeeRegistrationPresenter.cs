@@ -89,7 +89,7 @@ namespace PMngOpeWrd.Presenter
             employeeView.employeeUpdate = false;
             employeeView.removeQueryString = "eid";
             employeeView.employeeTypeEnable = true;
-
+            employeeView.isNewEmployee = "true";
             GetNextEmployeeId();
         }
     }
