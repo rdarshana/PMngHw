@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using PMngOpeWrd.View;
 using PMngOpeWrd.Presenter;
+using System.Reflection;
 
 namespace PMngOpeWrd
 {
@@ -141,7 +142,7 @@ namespace PMngOpeWrd
             get
             {
                 string activeEmployee = "true";
-                if(chkIsActive.Checked == true)
+                if (chkIsActive.Checked == true)
                 {
                     activeEmployee = "true";
                 }
@@ -154,7 +155,7 @@ namespace PMngOpeWrd
 
             set
             {
-               if(value == "true")
+                if (value == "true")
                 {
                     chkIsActive.Checked = true;
                 }
@@ -174,7 +175,47 @@ namespace PMngOpeWrd
 
             set
             {
-                hdnIsNewEmployee.Value = value; 
+                hdnIsNewEmployee.Value = value;
+            }
+        }
+
+        public string transactionStatusSuccess
+        {
+            set
+            {
+                lblSuccess.Text = value;
+            }
+        }
+
+        public string transactionStatusFail
+        {
+            set
+            {
+                lblFail.Text = value;
+            }
+        }
+
+        public bool employeeRegistration
+        {
+            set
+            {
+                divEmployeeRegistration.Visible = value;
+            }
+        }
+
+        public bool employeeUpdate
+        {
+            set
+            {
+                divEmployeeUpdate.Visible = value;
+            }
+        }
+
+        public bool employeeTypeEnable
+        {
+            set
+            {
+                ddlEmployeeType.Enabled = value;
             }
         }
 
@@ -185,12 +226,10 @@ namespace PMngOpeWrd
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //txtAddress.Visible = false;
-            //lblAddress.Visible = false;
 
             if (!IsPostBack)
             {
-                if(Request.QueryString["eid"] != null)
+                if (Request.QueryString["eid"] != null)
                 {
                     isNewEmployee = "false";
                     string employeeId = Request.QueryString["eid"];
@@ -215,8 +254,10 @@ namespace PMngOpeWrd
                     }
                     this.employeeType = employeeType;
                     this.employeeId = employeeId;
-                    ddlEmployeeType.Enabled = false;
+                    employeeTypeEnable = false;
                     btnSubmit.Text = "Update";
+                    employeeRegistration = false;
+                    employeeUpdate = true;
                 }
                 else
                 {
@@ -224,11 +265,12 @@ namespace PMngOpeWrd
                     isNewEmployee = "true";
                     presenter.GetNextEmployeeId();
                     ddlEmployeeType.Enabled = true;
+                    employeeRegistration = true;
+                    employeeUpdate = false;
                 }
-
             }
 
-           
+
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -243,12 +285,37 @@ namespace PMngOpeWrd
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-
+            presenter.ClearEmployeeData();
+            btnSubmit.Text = "Register";
+            this.removeQueryString = "eid";
+            employeeRegistration = true;
+            employeeUpdate = false;
         }
 
         protected void ddlEmployeeType_SelectedIndexChanged(object sender, EventArgs e)
         {
             presenter.GetNextEmployeeId();
+        }
+
+        //private void removeQueryString(string id)
+        //{
+        //    PropertyInfo isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+        //    // make collection editable
+        //    isreadonly.SetValue(this.Request.QueryString, false, null);
+        //    // remove
+        //    this.Request.QueryString.Remove(id);
+        //}
+
+        public string removeQueryString
+        {
+            set
+            {
+                PropertyInfo isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+                // make collection editable
+                isreadonly.SetValue(this.Request.QueryString, false, null);
+                // remove
+                this.Request.QueryString.Remove(value);
+            }
         }
     }
 }

@@ -56,5 +56,32 @@ namespace PMngOpeWrd.Model
             }
             return null;
         }
+
+        public bool RegisterEmployee(dynamic employee)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlCommand sqlCmd = new SqlCommand("EmployeeRegistration", sqlCon);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.Parameters.AddWithValue("@EmployeeId", employee.patientId);
+            sqlCmd.Parameters.AddWithValue("@EmployeeType", employee.employeeType); 
+            sqlCmd.Parameters.AddWithValue("@IsNewPatient", employee.isNewEmployee);
+            sqlCmd.Parameters.AddWithValue("@FirstName", employee.firstName);
+            sqlCmd.Parameters.AddWithValue("@LastName", employee.lastName);
+            sqlCmd.Parameters.AddWithValue("@NIC", employee.NIC);
+            sqlCmd.Parameters.AddWithValue("@Address", employee.address);
+            sqlCmd.Parameters.AddWithValue("@MobilePhone", employee.mobilePhone);
+            sqlCmd.Parameters.AddWithValue("@LandPhone", employee.landPhone);
+            sqlCmd.Parameters.AddWithValue("@Email", employee.email);
+            sqlCmd.Parameters.AddWithValue("@IsActive", employee.isActive);
+ 
+            sqlCmd.ExecuteNonQuery();
+            sqlCon.Close();
+
+            return true;
+        }
     }
 }

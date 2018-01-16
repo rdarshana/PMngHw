@@ -11,7 +11,12 @@
 
 
 <asp:Content ID="employeeRegHeader" ContentPlaceHolderID="formHeader" runat="server">
-    <h1>Employee Registration</h1>
+    <div runat="server" id="divEmployeeRegistration">
+        <h1>Employee Registration</h1>
+    </div>
+    <div runat="server" visible="false" id="divEmployeeUpdate">
+        <h1>Employee Update</h1>
+    </div>
 </asp:Content>
 
 <asp:Content ID="employeeRegLefttCol" ContentPlaceHolderID="formleftcolumn" runat="server">
@@ -130,7 +135,7 @@
                         <asp:Label ID="lblIsActive" CssClass="control-label" runat="server" for="chkIsActive" Text="Is Active"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:CheckBox ID="chkIsActive"  CssClass="form-check-input" runat="server" Checked="True" />
+                        <asp:CheckBox ID="chkIsActive" CssClass="form-check-input" runat="server" Checked="True" />
                     </div>
                 </div>
 

@@ -19,5 +19,11 @@ namespace PMngOpeWrd.View
         string email { get; set; }
         string isActive { get; set; }
         string isNewEmployee { get; set; }
+        string transactionStatusSuccess { set; }
+        string transactionStatusFail { set; }
+        bool employeeRegistration { set; }
+        bool employeeUpdate { set;  }
+        string removeQueryString { set; }
+        bool employeeTypeEnable { set; }
     }
 }

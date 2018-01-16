@@ -330,7 +330,7 @@ namespace PMngOpeWrd
             // make collection editable
             isreadonly.SetValue(this.Request.QueryString, false, null);
             // remove
-            this.Request.QueryString.Remove("pid");
+            this.Request.QueryString.Remove(id);
         }
 
       

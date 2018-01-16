@@ -6,7 +6,8 @@
 </asp:Content>
 
 <asp:Content ID="ContentFormHeader" ContentPlaceHolderID="formHeader" runat="server">
-    <h1>Patient Registration</h1>
+    <div runat="server" id="divPatientRegistration"><h1>Patient Registration</h1></div>
+     <div runat="server" visible="false" id="divPatientUpdate"><h1>Patient Update</h1></div>
 </asp:Content>
 
 <asp:Content ID="patientregLeftnav" ContentPlaceHolderID="formleftnav" runat="server">

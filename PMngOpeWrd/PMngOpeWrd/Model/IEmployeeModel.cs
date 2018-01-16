@@ -9,5 +9,8 @@ namespace PMngOpeWrd.Model
     public interface IEmployeeModel
     {
         string GetNextEmployeeId(string employeeType);
+
+        bool RegisterEmployee(dynamic employee);
+
     }
 }

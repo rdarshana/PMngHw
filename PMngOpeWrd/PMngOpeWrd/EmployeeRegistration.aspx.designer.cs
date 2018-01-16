@@ -13,6 +13,24 @@ namespace PMngOpeWrd {
     public partial class EmployeeRegistration {
         
         /// <summary>
+        /// divEmployeeRegistration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEmployeeRegistration;
+        
+        /// <summary>
+        /// divEmployeeUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEmployeeUpdate;
+        
+        /// <summary>
         /// hdnIsNewEmployee control.
         /// </summary>
         /// <remarks>
