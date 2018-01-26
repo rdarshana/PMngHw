@@ -10,7 +10,7 @@ namespace PMngOpeWrd.Model
     public class EmployeeModel : IEmployeeModel
     {
         //database connection string
-        SqlConnection sqlCon = new SqlConnection(@"Data Source=RDARSHANA;Initial Catalog=PntMngOpeWrd;MultipleActiveResultSets=true;Integrated Security=true;");
+        SqlConnection sqlCon = new SqlConnection(@"Data Source=PRESANDI-DCE\SQLEXPRESS;Initial Catalog=PntMngOpeWrd;MultipleActiveResultSets=true;Integrated Security=true;");
 
 
         public string GetNextEmployeeId(string employeeType)

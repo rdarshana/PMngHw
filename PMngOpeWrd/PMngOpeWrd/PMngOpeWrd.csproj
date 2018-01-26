@@ -76,6 +76,11 @@
     <Content Include="css\main.css" />
     <Content Include="EmployeeRegistration.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\leftImageMaster.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\mission.png" />
+    <Content Include="images\values.png" />
+    <Content Include="images\vision.png" />
     <Content Include="js\bootstrap-datepicker.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -88,6 +93,7 @@
     <Content Include="packages.config" />
     <Content Include="PatientInquiry.aspx" />
     <Content Include="PatientRegistration.aspx" />
+    <Content Include="TestPage.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -146,6 +152,13 @@
     <Compile Include="Presenter\PatientInquiryPresente.cs" />
     <Compile Include="Presenter\PatientRegistrationPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestPage.aspx.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPage.aspx.designer.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\IEmployeeRegistrationView.cs" />
     <Compile Include="View\IPatientInquiryView.cs" />
     <Compile Include="View\IPatientRegistrationView.cs" />

@@ -11,7 +11,7 @@
 
 .master-footer {
     background-color: gray;
-    height: 80px;
+    height: 200px;
 }
 
 .form-header {
@@ -19,8 +19,9 @@
     height: 88px;
 }
 
-.patirnt-reg-formleftnav{
-    background-color: #207fdd;
+.patirnt-reg-formleftnav {
+    background-color: #f5f5f5;
+    background-image: url('../images/leftImageMaster.png');
     height: 100vh;
     min-height: 971px;
     margin-right: -15px;
@@ -163,9 +164,10 @@
 }*/
 
 .header-menu {
-    margin-top: 50px;
+    margin-top: 35px;
     background-color: #eae9e9;
     text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+    float: right !important;
 }
 
 .search-left-margin {
@@ -183,3 +185,116 @@
 text-align: center;
 border: solid 1px #fff !important;
 }*/ 
+
+
+
+/*new css*/
+
+.inside-header {
+    padding: 10px 20px 0px 20px;
+    left: 25%;
+}
+
+body .grid-container {
+    max-width: 1000px;
+}
+
+.main-navigation {
+    border-bottom: 3px solid #a0ce4e;
+}
+
+.page-header {
+    background-color: #f5f5f5;
+    height: 10px;
+}
+
+.footer-navigation {
+    border-top: 3px solid #a0ce4e;
+}
+
+.inside-footer-widgets .inner-padding {
+    padding: 0 10px;
+}
+
+.sidebar .widget, .footer-widgets .widget {
+    font-size: 13px;
+}
+
+.footer-widgets .widget-title {
+    color: #ffffff!important;
+}
+
+.widget-block {
+    padding-left: 50px;
+}
+
+.widget-title {
+    margin-bottom: 15px;
+}
+
+.widget-title {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.textwidget {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.widget-title {
+    font-weight: 400;
+    text-transform: none;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.widget-title {
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.box.box-primary {
+    border-top-color: #1F4D8A;
+}
+
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.subheading {
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #333;
+    padding-bottom: 7px;
+}
+
+.main-content {
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 13px;
+    line-height: 22px;
+    color: #333;
+    padding-bottom: 7px;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+	padding: 0 0 20px 0;
+	color: #444;
+    font-family: 'Open Sans', sans-serif;
+}

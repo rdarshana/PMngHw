@@ -19,8 +19,11 @@
 <body>
     <form id="form1" runat="server">
         <div class="row master-header">
-            <div class="col-md-12">
-                <asp:Menu ID="Menu1" StaticDisplayLevels="1" Orientation="Horizontal" RenderingMode="List" runat="server" IncludeStyleBlock="false" StaticMenuStyle-CssClass="nav navbar-nav header-menu" DynamicMenuStyle-CssClass="dropdown-menu">
+             <div class="col-md-12 inside-header grid-container grid-parent">
+                 <img src="images/logo.png" />
+             </div>
+            <div class="col-md-12 main-navigation">
+                <asp:Menu ID="Menu1" StaticDisplayLevels="1" Orientation="Horizontal" RenderingMode="List" runat="server" IncludeStyleBlock="false"  StaticMenuStyle-CssClass="nav navbar-nav header-menu" DynamicMenuStyle-CssClass="dropdown-menu">
                     <Items>
                         <asp:MenuItem Text="Home" Value="home" NavigateUrl="#">
                             <asp:MenuItem Text="WebForm1" Value="webform1" NavigateUrl="~/WebForm1.aspx"></asp:MenuItem>
@@ -87,8 +90,58 @@
             </div>
         </div>
         <div class="row master-footer">
-            <div class="col-md-12">
-                footer
+            <div class="col-md-12 footer-navigation">
+                <div class="col-md-3 widget-block">
+                    <aside id="text-1" class="widget inner-padding widget_text">
+                       <h2 class="widget-title">Contact Lanka Health</h2>			
+                           <div class="textwidget"><p>Lanka Health<br />
+                            35–47 Green St, Kirula Road, Colombo 5 3677<br />
+                            PO Box 386, Lanka Health, Colombo 5 3676<br />
+                            Phone: <a href="">+94 112 810 741</a><br />
+                            Email: <a href="javascript:location='';void 0"></a></p>
+                            <h4> </h4>
+                            </div>
+		            </aside>
+                </div>
+                <div class="col-md-3 widget-block">
+                    <aside id="text-2" class="widget inner-padding widget_text">
+                       <h2 class="widget-title">Quick Links</h2>			
+                           <div class="textwidget"><p>Lanka Health<br />
+                        </div>
+		            </aside>
+                </div>
+                <div class="col-md-3 widget-block">
+                    <aside id="text-3" class="widget inner-padding widget_text">
+                       <h2 class="widget-title">Useful Links</h2>			
+                           <div class="textwidget"><p>Lanka Health<br />
+                        </div>
+		            </aside>
+                </div>
+                <div class="col-md-3 widget-block">
+                    <aside id="text-4" class="widget inner-padding widget_text">
+                       <h2 class="widget-title">About </h2>			
+                           <div class="textwidget"><p>Lanka Health<br />
+                            acknowledges the Traditional<br />
+                            Custodians of the land upon which we <br />
+                            stand and pay our respect to the Elders <br />
+                            both past & present.</p>
+                            <h4> </h4>
+                            </div>
+		            </aside>
+                </div>        
+            </div>
+
+           <div class="col-md-12 footer-navigation">
+                <div class="col-md-3 widget-block">                   
+                </div>
+                <div class="col-md-6 widget-block">
+                   <aside id="text-5" class="widget inner-padding widget_text">		
+                           <div class="textwidget"><p>Copyright © 2018 & All Rights Reserved by Lanka Health.<br />
+                            </div>
+		            </aside>
+                </div>
+                <div class="col-md-3 widget-block">
+                </div>                        
             </div>
         </div>
     </form>
