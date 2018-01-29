@@ -11,7 +11,7 @@ namespace PMngOpeWrd.Model
     public class PatientRegistrationModel : IPatientRegistrationModel
     {
         //database connection string
-        SqlConnection sqlCon = new SqlConnection(@"Data Source=PRESANDI-DCE\SQLEXPRESS;Initial Catalog=PntMngOpeWrd;Integrated Security=true;");
+        SqlConnection sqlCon = new SqlConnection(@"Data Source=RDARSHANA;Initial Catalog=PntMngOpeWrd;Integrated Security=true;");
 
         /// <summary>
         /// Delete patient by given Id
