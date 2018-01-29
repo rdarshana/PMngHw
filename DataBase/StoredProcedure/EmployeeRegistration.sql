@@ -1,7 +1,7 @@
 ﻿ALTER PROCEDURE [dbo].[EmployeeRegistration]
 	@EmployeeId VARCHAR (20),
 	@EmployeeType VARCHAR (15),
-	@IsNewPatient BIT,
+	@IsNewEmployee BIT,
 	@FirstName VARCHAR (50),
 	@LastName VARCHAR (50),
 	@NIC CHAR (10),
@@ -23,7 +23,7 @@ SET @Insertquery = 'INSERT INTO [dbo].' +@EmployeeType+ '(EmployeeId, FirstName,
 SET @UpdateQuery = 'UPDATE [dbo].'+@EmployeeType+' SET FirstName ='''+ @FirstName+''' ,LastName = '''+@LastName+ ''' ,NIC = '''+@NIC+ ''',Address = '''+@Address+ ''',MobilePhone = '''+@MobilePhone+ ''',LandPhone = '''+@LandPhone+ ''',Email = '''+@Email+ ''',IsActive = '''+@IsActive+ ''' WHERE EmployeeId = '''+@EmployeeId+'''';
 
 
-	IF(@IsNewPatient = 'true')
+	IF(@IsNewEmployee = 'true')
 		BEGIN
 			exec (@Insertquery);
 			PRINT @Insertquery;
