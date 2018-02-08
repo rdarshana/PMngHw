@@ -5,6 +5,7 @@
         <asp:Login ID="Login1" runat="server"></asp:Login>
         <asp:ChangePassword ID="ChangePassword1" runat="server"></asp:ChangePassword>
         <asp:LoginView ID="LoginView1" runat="server"></asp:LoginView>
+        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator"></asp:CompareValidator>
     <div>
         <asp:PasswordRecovery ID="PasswordRecovery1" runat="server"></asp:PasswordRecovery>
         <asp:LoginStatus ID="LoginStatus1" runat="server" />

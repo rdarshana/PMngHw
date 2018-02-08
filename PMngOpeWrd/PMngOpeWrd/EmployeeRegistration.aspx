@@ -57,6 +57,27 @@
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-4 col-xm-12">
+                        <asp:Label ID="lblPassword" CssClass="control-label" runat="server" for="pwdPassword" Text="Password"></asp:Label>
+                    </div>
+                    <div class="col-md-7 col-xm-12">
+                        <asp:TextBox ID="pwdPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4 col-xm-12">
+                        <asp:Label ID="lblConfirmPassword" CssClass="control-label" runat="server" for="pwdConfirmPassword" Text="Confirm Password"></asp:Label>
+                    </div>
+                    <div class="col-md-7 col-xm-12">
+                        <asp:TextBox ID="pwdConfirmPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:CompareValidator ID="passwordCompareValidator" runat="server" ValidationGroup="employeeRegistration" ForeColor="Red" ErrorMessage="The Password you entered do not matched. Please Re-enteryour Password" ControlToValidate="pwdConfirmPassword" ControlToCompare="pwdPassword"></asp:CompareValidator>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4 col-xm-12">
                         <asp:Label ID="lblFirstName" CssClass="control-label" runat="server" for="txtFirstName" Text="Fist Name"></asp:Label>
                         <span class="required-field-star">*</span>
                     </div>
