@@ -1,6 +1,7 @@
 ﻿
 .employee-inq-formleftnav{
     background-color: #207fdd;
+    background-image: url('../images/leftImageMaster.png');
     height: 100vh;
     min-height: 971px;
     margin-right: -15px;

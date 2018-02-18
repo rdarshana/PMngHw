@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="formHeader" runat="server">
-     <h1>Employee Inquery</h1>
+     <h1>Employee Inquiry</h1>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="formleftnav" runat="server">
@@ -53,10 +53,10 @@
                             <asp:BoundField DataField="EmployeeId" HeaderText="Patient Id" />
                             <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                             <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                            <asp:BoundField DataField="NIC" HeaderText="NIC" />
                             <asp:BoundField DataField="EmployeeType" HeaderText="Employee Type" />
                             <asp:BoundField DataField="IsActive" HeaderText="Is Active" />
                             <asp:BoundField DataField="MobilePhone" HeaderText="Mobile Phone" />
-                            <asp:BoundField DataField="LandPhone" HeaderText="Land Phone" />
                             <asp:BoundField DataField="Email" HeaderText="Email" />
                             <asp:HyperLinkField DataNavigateUrlFields="EmployeeId, EmployeeType" DataNavigateUrlFormatString="EmployeeRegistration.aspx?empid={0}&emptyp={1}" Text="View" />
                         </Columns>

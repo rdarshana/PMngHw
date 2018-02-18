@@ -4,7 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="formHeader" runat="server">
-    <h1>Patient Inquery</h1>
+    <h1>Patient Inquiry</h1>
 </asp:Content>
 
 <asp:Content ID="patientregLeftnav" ContentPlaceHolderID="formleftnav" runat="server">

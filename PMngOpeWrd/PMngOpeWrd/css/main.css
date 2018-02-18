@@ -44,6 +44,7 @@
 
 .patirnt-inq-formleftnav {
     background-color: #207fdd;
+    background-image: url('../images/leftImageMaster.png');
     height: 100vh;
     min-height: 858px;
     margin-right: -30px;
