@@ -72,6 +72,66 @@
                     </div>
                 </div>
 
+                 <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <asp:Label ID="lblGender" CssClass="control-label" runat="server" for="ddlGender" Text="Gender"></asp:Label>
+                    </div>
+                    <div class="col-md-7">
+                        <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-control">
+                            <asp:ListItem Value="male">Male</asp:ListItem>
+                            <asp:ListItem Value="female">Female</asp:ListItem>
+                            <asp:ListItem Value="other">Other</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <asp:Label ID="lblMaritalStatus" CssClass="control-label" runat="server" Text="Marital Status"></asp:Label>
+                    </div>
+                    <div class="col-md-2">
+                        <asp:Label ID="lblSingle" runat="server" for="radioStatusSingle" Text="Single"></asp:Label>
+                        <asp:RadioButton ID="radioStatusSingle" runat="server" GroupName="maritalStatus" Checked="True" />
+                    </div>
+                    <div class="col-md-3">
+                        <asp:Label ID="lblMarried" runat="server" for="radioStatusMarried" Text="Married"></asp:Label>
+                        <asp:RadioButton ID="radioStatusMarried" runat="server" GroupName="maritalStatus" />
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <asp:Label ID="Label4" CssClass="control-label" runat="server" for="txtDateofBirth" Text="Date of Birth"></asp:Label>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="input-group date">
+                            <asp:TextBox ID="txtDateofBirth" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control"></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                        </div>
+                    </div>
+                </div>
+                                <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <asp:Label ID="lblBloodGroup" CssClass="control-label" runat="server" for="ddlBloodGroup" Text="Blood Group"></asp:Label>
+                    </div>
+                    <div class="col-md-7">
+                        <asp:DropDownList ID="ddlBloodGroup" runat="server" CssClass="form-control">
+                            <asp:ListItem Value="default">-- Please Select --</asp:ListItem>
+                            <asp:ListItem Value="O+">O +</asp:ListItem>
+                            <asp:ListItem Value="O-">O -</asp:ListItem>
+                            <asp:ListItem Value="A+">A +</asp:ListItem>
+                            <asp:ListItem Value="A-">A -</asp:ListItem>
+                            <asp:ListItem Value="B+">B +</asp:ListItem>
+                            <asp:ListItem Value="B-">B -</asp:ListItem>
+                            <asp:ListItem Value="AB+">AB +</asp:ListItem>
+                            <asp:ListItem Value="AB-">AB -</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
@@ -113,67 +173,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-4">
-                        <asp:Label ID="lblGender" CssClass="control-label" runat="server" for="ddlGender" Text="Gender"></asp:Label>
-                    </div>
-                    <div class="col-md-7">
-                        <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-control">
-                            <asp:ListItem Value="male">Male</asp:ListItem>
-                            <asp:ListItem Value="female">Female</asp:ListItem>
-                            <asp:ListItem Value="other">Other</asp:ListItem>
-                        </asp:DropDownList>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-4">
-                        <asp:Label ID="lblBloodGroup" CssClass="control-label" runat="server" for="ddlBloodGroup" Text="Blood Group"></asp:Label>
-                    </div>
-                    <div class="col-md-7">
-                        <asp:DropDownList ID="ddlBloodGroup" runat="server" CssClass="form-control">
-                            <asp:ListItem Value="default">-- Please Select --</asp:ListItem>
-                            <asp:ListItem Value="O+">O +</asp:ListItem>
-                            <asp:ListItem Value="O-">O -</asp:ListItem>
-                            <asp:ListItem Value="A+">A +</asp:ListItem>
-                            <asp:ListItem Value="A-">A -</asp:ListItem>
-                            <asp:ListItem Value="B+">B +</asp:ListItem>
-                            <asp:ListItem Value="B-">B -</asp:ListItem>
-                            <asp:ListItem Value="AB+">AB +</asp:ListItem>
-                            <asp:ListItem Value="AB-">AB -</asp:ListItem>
-                        </asp:DropDownList>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-4">
-                        <asp:Label ID="lblMaritalStatus" CssClass="control-label" runat="server" Text="Marital Status"></asp:Label>
-                    </div>
-                    <div class="col-md-2">
-                        <asp:Label ID="lblSingle" runat="server" for="radioStatusSingle" Text="Single"></asp:Label>
-                        <asp:RadioButton ID="radioStatusSingle" runat="server" GroupName="maritalStatus" Checked="True" />
-                    </div>
-                    <div class="col-md-3">
-                        <asp:Label ID="lblMarried" runat="server" for="radioStatusMarried" Text="Married"></asp:Label>
-                        <asp:RadioButton ID="radioStatusMarried" runat="server" GroupName="maritalStatus" />
-                    </div>
-                    <div class="col-md-2"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-4">
-                        <asp:Label ID="Label4" CssClass="control-label" runat="server" for="txtDateofBirth" Text="Date of Birth"></asp:Label>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="input-group date">
-                            <asp:TextBox ID="txtDateofBirth" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control"></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-                        </div>
-                    </div>
-                </div>
+               
 
                 <div class="form-group">
                     <div class="col-md-1"></div>
