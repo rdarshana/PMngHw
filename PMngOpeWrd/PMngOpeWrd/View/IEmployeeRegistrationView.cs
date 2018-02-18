@@ -11,6 +11,7 @@ namespace PMngOpeWrd.View
         string employeeType { get; set; }
         string employeeId { get; set; }
         string firstName { get; set; }
+        string password { get; set; }
         string lastName { get; set; }
         string NIC { get; set; }
         string address { get; set; }

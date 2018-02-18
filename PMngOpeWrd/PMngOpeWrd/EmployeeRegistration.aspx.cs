@@ -59,6 +59,19 @@ namespace PMngOpeWrd
             }
         }
 
+        public string password
+        {
+            get
+            {
+                return pwdPassword.Text;
+            }
+
+            set
+            {
+                pwdPassword.Text = value;
+            }
+        }
+
         public string lastName
         {
             get

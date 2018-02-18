@@ -115,6 +115,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Security.cs" />
     <Compile Include="EmployeeRegistration.aspx.cs">
       <DependentUpon>EmployeeRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

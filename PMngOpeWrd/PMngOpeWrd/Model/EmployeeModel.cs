@@ -38,16 +38,23 @@ namespace PMngOpeWrd.Model
 
         public bool RegisterEmployee(dynamic employee)
         {
+            Guid userGuid = System.Guid.NewGuid();
+
             if (sqlCon.State == ConnectionState.Closed)
             {
                 sqlCon.Open();
             }
 
+            // Hash the password together with our unique userGuid
+            string hashedPassword = Common.Security.HashSHA1(employee.password + userGuid.ToString());
+
+
             SqlCommand sqlCmd = new SqlCommand("EmployeeRegistration", sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.AddWithValue("@EmployeeId", employee.patientId);
-            sqlCmd.Parameters.AddWithValue("@EmployeeType", employee.employeeType); 
+            sqlCmd.Parameters.AddWithValue("@EmployeeType", employee.employeeType);
             sqlCmd.Parameters.AddWithValue("@IsNewEmployee", employee.isNewEmployee);
+            sqlCmd.Parameters.AddWithValue("@Password", hashedPassword);
             sqlCmd.Parameters.AddWithValue("@FirstName", employee.firstName);
             sqlCmd.Parameters.AddWithValue("@LastName", employee.lastName);
             sqlCmd.Parameters.AddWithValue("@NIC", employee.NIC);

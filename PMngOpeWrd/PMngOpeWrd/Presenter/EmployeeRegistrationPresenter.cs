@@ -31,6 +31,7 @@ namespace PMngOpeWrd.Presenter
             employee.patientId = employeeView.employeeId;
             employee.isNewEmployee = employeeView.isNewEmployee;
             employee.employeeType = employeeView.employeeType;
+            employee.password = employeeView.password;
             employee.firstName = employeeView.firstName;
             employee.lastName = employeeView.lastName;
             employee.NIC = employeeView.NIC;
