@@ -2,6 +2,7 @@
 	@EmployeeId VARCHAR (20),
 	@EmployeeType VARCHAR (15),
 	@Password VARCHAR (50),
+	@UserGuid VARCHAR (100),
 	@IsNewEmployee BIT,
 	@FirstName VARCHAR (50),
 	@LastName VARCHAR (50),
@@ -17,8 +18,8 @@ BEGIN
 
 	IF(@IsNewEmployee = 'true')
 		BEGIN
-			INSERT INTO [dbo].[Employee](EmployeeId, EmployeeType, Password, FirstName,LastName,NIC,Address,MobilePhone,LandPhone,Email,IsActive,CreationDate) 
-					VALUES (@EmployeeId, @EmployeeType, @Password, @FirstName, @LastName, @NIC, @Address, @MobilePhone, @LandPhone, @Email, @IsActive, getdate());
+			INSERT INTO [dbo].[Employee](EmployeeId, EmployeeType, Password, UserGuid, FirstName,LastName,NIC,Address,MobilePhone,LandPhone,Email,IsActive,CreationDate) 
+					VALUES (@EmployeeId, @EmployeeType, @Password,@UserGuid,  @FirstName, @LastName, @NIC, @Address, @MobilePhone, @LandPhone, @Email, @IsActive, getdate());
 	END
 
 	ELSE
