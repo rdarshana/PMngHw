@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Dynamic;
+using System.Data;
 
 namespace PMngOpeWrd.Presenter
 {
@@ -28,7 +29,7 @@ namespace PMngOpeWrd.Presenter
             dynamic employee = new ExpandoObject();
             bool transactionStatus = false;
 
-            employee.patientId = employeeView.employeeId;
+            employee.EmployeeId = employeeView.employeeId;
             employee.isNewEmployee = employeeView.isNewEmployee;
             employee.employeeType = employeeView.employeeType;
             employee.password = employeeView.password;
@@ -45,30 +46,46 @@ namespace PMngOpeWrd.Presenter
 
             if (transactionStatus)
             {
-                if (employeeView.employeeId == string.Empty)
+                if (employeeView.isNewEmployee == "true")
                 {
-                    employeeView.transactionStatusSuccess = "Patient has been Registered Successfully";
+                    employeeView.transactionStatusSuccess = "Employee has been Registered Successfully";
                 }
                 else
                 {
-                    employeeView.transactionStatusSuccess = "Patient has been Updated Successfully";
+                    employeeView.transactionStatusSuccess = "Employee has been Updated Successfully";
                 }
             }
             else
             {
-                if (employeeView.employeeId == string.Empty)
+                if (employeeView.isNewEmployee == "true")
                 {
-                    employeeView.transactionStatusFail = "Patient Registration has been Failed";
+                    employeeView.transactionStatusFail = "Employee Registration has been Failed";
                 }
                 else
                 {
-                    employeeView.transactionStatusFail = "Patient Update has been Failed";
+                    employeeView.transactionStatusFail = "Employee Update has been Failed";
                 }
 
             }
 
 
             ClearEmployeeData();
+        }
+
+        public void GetEmployeeById()
+        {
+
+            DataTable patientData = employeeModel.GetEmployeeById(employeeView.employeeId);
+            employeeView.firstName = patientData.Rows[0]["FirstName"].ToString();
+            employeeView.lastName = patientData.Rows[0]["LastName"].ToString();
+            employeeView.employeeType = patientData.Rows[0]["EmployeeType"].ToString();
+            employeeView.NIC = patientData.Rows[0]["NIC"].ToString();
+            employeeView.address = patientData.Rows[0]["Address"].ToString();
+            employeeView.mobilePhone = patientData.Rows[0]["MobilePhone"].ToString();
+            employeeView.landPhone = patientData.Rows[0]["LandPhone"].ToString();
+            employeeView.email = patientData.Rows[0]["Email"].ToString();
+            employeeView.isActive = patientData.Rows[0]["IsActive"].ToString();
+            employeeView.isNewEmployee = "false";
         }
 
         /// <summary>

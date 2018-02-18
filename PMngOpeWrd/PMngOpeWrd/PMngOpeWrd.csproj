@@ -73,7 +73,9 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\datepicker.css" />
     <Content Include="css\employee.css" />
+    <Content Include="css\employeeInquiry.css" />
     <Content Include="css\main.css" />
+    <Content Include="EmployeeInquiry.aspx" />
     <Content Include="EmployeeRegistration.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\leftImageMaster.png" />
@@ -116,6 +118,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Security.cs" />
+    <Compile Include="EmployeeInquiry.aspx.cs">
+      <DependentUpon>EmployeeInquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeInquiry.aspx.designer.cs">
+      <DependentUpon>EmployeeInquiry.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeRegistration.aspx.cs">
       <DependentUpon>EmployeeRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -149,6 +158,7 @@
     <Compile Include="PMng.Master.designer.cs">
       <DependentUpon>PMng.Master</DependentUpon>
     </Compile>
+    <Compile Include="Presenter\EmployeeInquiryPresenter.cs" />
     <Compile Include="Presenter\EmployeeRegistrationPresenter.cs" />
     <Compile Include="Presenter\PatientInquiryPresente.cs" />
     <Compile Include="Presenter\PatientRegistrationPresenter.cs" />
@@ -161,6 +171,7 @@
       <DependentUpon>TestPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\IEmployeeRegistrationView.cs" />
+    <Compile Include="View\IEmployeeInquiryView.cs" />
     <Compile Include="View\IPatientInquiryView.cs" />
     <Compile Include="View\IPatientRegistrationView.cs" />
     <Compile Include="WebForm1.aspx.cs">

@@ -54,7 +54,7 @@ namespace PMngOpeWrd.Presenter
 
             if (transactionStatus)
             {
-                if (patientView.patientId == string.Empty)
+                if (patientView.isNewPatient == "true")
                 {
                     patientView.transactionStatusSuccess = "Patient has been Registered Successfully";
                 }
@@ -65,7 +65,7 @@ namespace PMngOpeWrd.Presenter
             }
             else
             {
-                if (patientView.patientId == string.Empty)
+                if (patientView.isNewPatient == "true")
                 {
                     patientView.transactionStatusFail = "Patient Registration has been Failed";
                 }

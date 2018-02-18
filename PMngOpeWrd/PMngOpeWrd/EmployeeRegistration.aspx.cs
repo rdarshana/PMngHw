@@ -242,33 +242,16 @@ namespace PMngOpeWrd
 
             if (!IsPostBack)
             {
-                if (Request.QueryString["eid"] != null)
+                if (Request.QueryString["empid"] != null)
                 {
                     isNewEmployee = "false";
-                    string employeeId = Request.QueryString["eid"];
-                    string[] employeeIdSplit = employeeId.Split('-');
-                    string employeeIdPrefix = employeeIdSplit[0];
-                    string employeeType = string.Empty;
+                    employeeId = Request.QueryString["empid"];
+                    employeeType = Request.QueryString["emptyp"]; 
 
-                    switch (employeeIdPrefix)
-                    {
-                        case "DOC":
-                            employeeType = "doctor";
-                            break;
-                        case "ANE":
-                            employeeType = "anesthetist";
-                            break;
-                        case "DIR":
-                            employeeType = "director";
-                            break;
-                        case "MLT":
-                            employeeType = "mlt";
-                            break;
-                    }
-                    this.employeeType = employeeType;
-                    this.employeeId = employeeId;
-                    this.removeQueryString = "eid";
+                    removeQueryString = "empid";
+                    removeQueryString = "emptyp";
                     employeeTypeEnable = false;
+                    presenter.GetEmployeeById();
                     btnSubmit.Text = "Update";
                     employeeRegistration = false;
                     employeeUpdate = true;
@@ -290,6 +273,7 @@ namespace PMngOpeWrd
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             presenter.RegisterEmployee();
+            btnSubmit.Text = "Register";
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -301,7 +285,7 @@ namespace PMngOpeWrd
         {
             presenter.ClearEmployeeData();
             btnSubmit.Text = "Register";
-            this.removeQueryString = "eid";
+            this.removeQueryString = "empid";
             employeeRegistration = true;
             employeeUpdate = false;
         }
@@ -310,15 +294,6 @@ namespace PMngOpeWrd
         {
             presenter.GetNextEmployeeId();
         }
-
-        //private void removeQueryString(string id)
-        //{
-        //    PropertyInfo isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
-        //    // make collection editable
-        //    isreadonly.SetValue(this.Request.QueryString, false, null);
-        //    // remove
-        //    this.Request.QueryString.Remove(id);
-        //}
 
         public string removeQueryString
         {

@@ -12,6 +12,53 @@ namespace PMngOpeWrd.Model
         //database connection string
         SqlConnection sqlCon = new SqlConnection(@"Data Source=RDARSHANA;Initial Catalog=PntMngOpeWrd;MultipleActiveResultSets=true;Integrated Security=true;");
 
+        public DataTable GetAllEmployeeData()
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetAllEmployeeData", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
+        }
+
+        public DataTable GetEmployeeById(string employeeId)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetEmployeeById", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDa.SelectCommand.Parameters.AddWithValue("@EmployeeId", employeeId);
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
+        }
+
+        public DataTable GetEmployeeBySearchKey(string columnName, string searchValue)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetEmployeeBySearchKey", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDa.SelectCommand.Parameters.AddWithValue("@ColumnName", columnName);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@SearchValue", searchValue);
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
+        }
 
         public string GetNextEmployeeId(string employeeType)
         {
@@ -50,7 +97,7 @@ namespace PMngOpeWrd.Model
 
             SqlCommand sqlCmd = new SqlCommand("EmployeeRegistration", sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
-            sqlCmd.Parameters.AddWithValue("@EmployeeId", employee.patientId);
+            sqlCmd.Parameters.AddWithValue("@EmployeeId", employee.EmployeeId);
             sqlCmd.Parameters.AddWithValue("@EmployeeType", employee.employeeType);
             sqlCmd.Parameters.AddWithValue("@IsNewEmployee", employee.isNewEmployee);
             sqlCmd.Parameters.AddWithValue("@Password", hashedPassword);

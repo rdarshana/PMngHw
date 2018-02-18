@@ -1,33 +1,34 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PMng.Master" AutoEventWireup="true" CodeBehind="PatientInquiry.aspx.cs" Inherits="PMngOpeWrd.PatientInquiry" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PMng.Master" AutoEventWireup="true" CodeBehind="EmployeeInquiry.aspx.cs" Inherits="PMngOpeWrd.EmployeeInquiry" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="css/employeeInquiry.css" rel="stylesheet" />
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="formHeader" runat="server">
-    <h1>Patient Inquery</h1>
+<asp:Content ID="Content3" ContentPlaceHolderID="formHeader" runat="server">
+     <h1>Employee Inquery</h1>
 </asp:Content>
 
-<asp:Content ID="patientregLeftnav" ContentPlaceHolderID="formleftnav" runat="server">
-   <div class="patirnt-inq-formleftnav"></div>
+<asp:Content ID="Content2" ContentPlaceHolderID="formleftnav" runat="server">
+    <div class="employee-inq-formleftnav"></div>
 </asp:Content>
 
-<asp:Content ID="patientLeftColumn" ContentPlaceHolderID="formleftcolumn" runat="server">
-    <div class="patirnt-ing-formleft"></div>
+<asp:Content ID="Content4" ContentPlaceHolderID="formleftcolumn" runat="server">
+        <div class="employee-ing-formleft"></div>
 </asp:Content>
 
-<asp:Content ID="patientRightColumn" ContentPlaceHolderID="formrightcolumn" runat="server">
-    <div class="patirnt-inq-formright"></div>
+<asp:Content ID="Content6" ContentPlaceHolderID="formrightcolumn" runat="server">
+     <div class="employee-inq-formright"></div>
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
+<asp:Content ID="Content5" ContentPlaceHolderID="body" runat="server">
     <div class="form-group">
-        <asp:HiddenField ID="hdnPatientId" runat="server" />
+        <asp:HiddenField ID="hdnEmployeeId" runat="server" />
         <div class="gridview-search-margin">
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-3">
-                        <asp:DropDownList ID="ddlPatientFilter" runat="server" CssClass="form-control">
-                            <asp:ListItem Value="patientId">Patient Id</asp:ListItem>
+                        <asp:DropDownList ID="ddlEmployeeFilter" runat="server" CssClass="form-control">
+                            <asp:ListItem Value="employeeId">Employee Id</asp:ListItem>
                             <asp:ListItem Value="nic">NIC</asp:ListItem>
                             <asp:ListItem Value="firstName">First Name</asp:ListItem>
                         </asp:DropDownList>
@@ -47,25 +48,17 @@
             </div>
             <div class="row gridview-margin">
                 <div class="col-md-11">
-                    <asp:GridView ID="gridViewPatientData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="PatientView_SelectedIndexChanged" OnPageIndexChanging="gridViewPatientData_PageIndexChanging">
+                    <asp:GridView ID="gridViewEmployeeData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewEmployeeData_PageIndexChanging">
                         <Columns>
-                            <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
+                            <asp:BoundField DataField="EmployeeId" HeaderText="Patient Id" />
                             <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                             <asp:BoundField DataField="LastName" HeaderText="Last Name" />
-                            <asp:BoundField DataField="NIC" HeaderText="NIC" />
-                           <%--<asp:BoundField DataField="Address" HeaderText="Address" />--%>
+                            <asp:BoundField DataField="EmployeeType" HeaderText="Employee Type" />
+                            <asp:BoundField DataField="IsActive" HeaderText="Is Active" />
                             <asp:BoundField DataField="MobilePhone" HeaderText="Mobile Phone" />
-                            <%--<asp:BoundField DataField="LandPhone" HeaderText="Land Phone" />--%>
+                            <asp:BoundField DataField="LandPhone" HeaderText="Land Phone" />
                             <asp:BoundField DataField="Email" HeaderText="Email" />
-                            <asp:BoundField DataField="Gender" HeaderText="Gender" />
-                            <asp:BoundField DataField="MaritalStatus" HeaderText="Marital Status" />
-                            <asp:BoundField DataField="EmergencyContact" HeaderText="Emergency Contact" />
-                            <asp:BoundField DataField="DateOfBirth" HeaderText="Date Of Birth" />
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("PatientId") %>' OnClick="GridViewPatient_onClick">View</asp:LinkButton>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                            <asp:HyperLinkField DataNavigateUrlFields="EmployeeId, EmployeeType" DataNavigateUrlFormatString="EmployeeRegistration.aspx?empid={0}&emptyp={1}" Text="View" />
                         </Columns>
                     </asp:GridView>
                 </div>
@@ -84,5 +77,6 @@
             </div>
         <div class="col-md-2"></div>
     </div>
-
 </asp:Content>
+
+
