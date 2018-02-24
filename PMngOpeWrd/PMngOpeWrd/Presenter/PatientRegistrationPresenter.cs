@@ -26,6 +26,29 @@ namespace PMngOpeWrd.Presenter
         }
 
         /// <summary>
+        /// get patient information by given id
+        /// </summary>
+        public void GetPatientById()
+        {
+            DataTable patientData = patientRegistration.GetPatientById(patientView.patientId);
+            patientView.firstName = patientData.Rows[0]["FirstName"].ToString();
+            patientView.lastName = patientData.Rows[0]["LastName"].ToString();
+            patientView.NIC = patientData.Rows[0]["NIC"].ToString();
+            patientView.address = patientData.Rows[0]["Address"].ToString();
+            patientView.mobilePhone = patientData.Rows[0]["MobilePhone"].ToString();
+            patientView.landPhone = patientData.Rows[0]["LandPhone"].ToString();
+            patientView.email = patientData.Rows[0]["Email"].ToString();
+            patientView.bloodGroup = patientData.Rows[0]["BloodGroup"].ToString();
+            patientView.gender = patientData.Rows[0]["Gender"].ToString();
+            patientView.maritalStatus = patientData.Rows[0]["MaritalStatus"].ToString();
+            patientView.emergencyContact = patientData.Rows[0]["EmergencyContact"].ToString();
+            patientView.dateOfBirth = patientData.Rows[0]["DateOfBirth"].ToString();
+            patientView.gardianName = patientData.Rows[0]["GardianName"].ToString();
+            patientView.gardianAddress = patientData.Rows[0]["GardianAddress"].ToString();
+            patientView.isNewPatient = "false";
+        }
+
+        /// <summary>
         /// Register Patient
         /// </summary>
         /// <returns></returns>
@@ -82,29 +105,7 @@ namespace PMngOpeWrd.Presenter
         }
 
 
-        /// <summary>
-        /// get patient information by given id
-        /// </summary>
-        public void GetPatientById()
-        {
-
-            DataTable patientData = patientRegistration.GetPatientById(patientView.patientId);
-            patientView.firstName = patientData.Rows[0]["FirstName"].ToString();
-            patientView.lastName = patientData.Rows[0]["LastName"].ToString();
-            patientView.NIC = patientData.Rows[0]["NIC"].ToString();
-            patientView.address = patientData.Rows[0]["Address"].ToString();
-            patientView.mobilePhone = patientData.Rows[0]["MobilePhone"].ToString();
-            patientView.landPhone = patientData.Rows[0]["LandPhone"].ToString();
-            patientView.email = patientData.Rows[0]["Email"].ToString();
-            patientView.bloodGroup = patientData.Rows[0]["BloodGroup"].ToString();
-            patientView.gender = patientData.Rows[0]["Gender"].ToString();
-            patientView.maritalStatus = patientData.Rows[0]["MaritalStatus"].ToString();
-            patientView.emergencyContact = patientData.Rows[0]["EmergencyContact"].ToString();
-            patientView.dateOfBirth = patientData.Rows[0]["DateOfBirth"].ToString();
-            patientView.gardianName = patientData.Rows[0]["GardianName"].ToString();
-            patientView.gardianAddress = patientData.Rows[0]["GardianAddress"].ToString();
-            patientView.isNewPatient = "false";
-        }
+       
 
         /// <summary>
         ///Clear form data

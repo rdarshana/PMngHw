@@ -42,7 +42,7 @@
                             <asp:MenuItem Text="List" Value="surgeryList" NavigateUrl="#"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Registration" Value="registration" NavigateUrl="#">
-                            <asp:MenuItem Text="Theators" Value="theators" NavigateUrl="#"></asp:MenuItem>
+                            <asp:MenuItem Text="Theators" Value="theators" NavigateUrl="~/TheatorRegistration.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Ward" Value="ward" NavigateUrl="#"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Approval" Value="approval" NavigateUrl="#">

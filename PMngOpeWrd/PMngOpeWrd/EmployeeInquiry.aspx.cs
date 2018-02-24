@@ -41,10 +41,16 @@ namespace PMngOpeWrd
         protected void btnClearFilter_Click(object sender, EventArgs e)
         {
             presenter.ClearFilter();
-
         }
 
-      
+        protected void GridViewPatient_onClick(object sender, EventArgs e)
+        {
+            //string selectedPatientId = (sender as LinkButton).CommandArgument;
+            //patientId = selectedPatientId;
+
+            //Response.Redirect("PatientRegistration.aspx?pid=" + patientId);
+        }
+
         public DataTable employeeData
         {
             set
@@ -79,6 +85,18 @@ namespace PMngOpeWrd
             }
         }
 
+        public string searchValue
+        {
+            get
+            {
+                return txtSearchId.Text;
+            }
+            set
+            {
+                txtSearchId.Text = value;
+            }
+        }
+
         public string searchColumn
         {
             get
@@ -99,18 +117,6 @@ namespace PMngOpeWrd
                 }
 
                 return columnName;
-            }
-        }
-
-        public string searchValue
-        {
-            get
-            {
-                return txtSearchId.Text;
-            }
-            set
-            {
-                txtSearchId.Text = value;
             }
         }
     }
