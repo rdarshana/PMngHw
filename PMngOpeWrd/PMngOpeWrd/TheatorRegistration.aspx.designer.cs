@@ -10,8 +10,7 @@
 namespace PMngOpeWrd {
     
     
-    public partial class TheatorRegistration
-    {
+    public partial class TheatorRegistration {
         
         /// <summary>
         /// hdnIsNewTheator control.
@@ -113,13 +112,13 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.Label lblFail;
         
         /// <summary>
-        /// gridViewEmployeeData control.
+        /// gridViewTheatereData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewEmployeeData;
+        protected global::System.Web.UI.WebControls.GridView gridViewTheatereData;
         
         /// <summary>
         /// grdDisplayMessage control.

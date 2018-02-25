@@ -41,14 +41,22 @@ namespace PMngOpeWrd
 
         public DataTable theatorData
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
             set
             {
-                throw new NotImplementedException();
+                if (value != null)
+                {
+                    gridViewTheatereData.DataSource = value;
+                    gridViewTheatereData.DataBind();
+
+                    if (value.Rows.Count > 0)
+                    {
+                        grdDisplayMessage.Style["display"] = "none";
+                    }
+                    else
+                    {
+                        grdDisplayMessage.Style["display"] = "block";
+                    }
+                }
             }
         }
 
@@ -118,6 +126,8 @@ namespace PMngOpeWrd
         protected void Page_Load(object sender, EventArgs e)
         {
             isNewTheator = "true";
+            presenter.LoadNextTheatorId();
+            presenter.LoadAllTheaterData();
         }
 
 
@@ -129,25 +139,25 @@ namespace PMngOpeWrd
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            //presenter.ClearEmployeeData();
-            //btnSubmit.Text = "Register";
-            //this.removeQueryString = "empid";
+            presenter.ClearTheaterInfomation();
+            btnSubmit.Text = "Register";
+
             //employeeRegistration = true;
             //employeeUpdate = false;
         }
 
         protected void GridViewTheator_onClick(object sender, EventArgs e)
         {
-            //string selectedPatientId = (sender as LinkButton).CommandArgument;
-            //patientId = selectedPatientId;
-
-            //Response.Redirect("PatientRegistration.aspx?pid=" + patientId);
+           theatorId = (sender as LinkButton).CommandArgument;
+            presenter.GetTheaterById();
+            btnSubmit.Text = "Update";
+            isNewTheator = "true";
         }
 
         protected void gridViewTheaterData_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            //gridViewEmployeeData.PageIndex = e.NewPageIndex;
-            //presenter.FillPatientGrid();
+            gridViewTheatereData.PageIndex = e.NewPageIndex;
+            presenter.LoadAllTheaterData();
         }
 
     }

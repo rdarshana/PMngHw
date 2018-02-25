@@ -12,7 +12,7 @@ namespace PMngOpeWrd.View
         string theatorId { get; set; }
         string description { get; set; }
         string isNewTheator { get; set; }
-        DataTable theatorData { get; set; }
+        DataTable theatorData { set; }
         string isActive { get; set; }
         string transactionStatusSuccess { set; }
         string  transactionStatusFail { set;}

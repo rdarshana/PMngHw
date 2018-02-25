@@ -5,6 +5,7 @@ using System.Web;
 using PMngOpeWrd.View;
 using PMngOpeWrd.Model;
 using System.Dynamic;
+using System.Data;
 
 namespace PMngOpeWrd.Presenter
 {
@@ -42,6 +43,8 @@ namespace PMngOpeWrd.Presenter
                 {
                     theatorView.transactionStatusSuccess = "Theator has been Updated Successfully";
                 }
+
+                ClearTheaterData();
             }
             else
             {
@@ -55,8 +58,42 @@ namespace PMngOpeWrd.Presenter
                 }
 
             }
-
         }
 
+        internal void LoadNextTheatorId()
+        {
+            theatorView.theatorId = theatorModel.GetNextTheatorId();
+        }
+        
+        private void ClearTheaterData()
+        {
+            theatorView.isActive = "true";
+            theatorView.description = string.Empty;
+            LoadNextTheatorId();
+        }
+
+        internal void ClearTheaterInfomation()
+        {
+            ClearTheaterData();
+        }
+
+        internal void LoadAllTheaterData()
+        {
+            FillTheaterGrid();
+        }
+
+        private void FillTheaterGrid()
+        {
+            theatorView.theatorData = theatorModel.GetAllTheatorData();
+        }
+
+        internal void GetTheaterById()
+        {
+            DataTable theaterData = theatorModel.GetTheatorById(theatorView.theatorId);
+            theatorView.theatorId = theaterData.Rows[0]["TheatorId"].ToString();
+            theatorView.description = theaterData.Rows[0]["Description"].ToString();
+            theatorView.isActive = theaterData.Rows[0]["IsActive"].ToString();
+            theatorView.isNewTheator = "false";
+        }
     }
 }

@@ -32,7 +32,7 @@
                         <asp:Label ID="lblTheatorId" CssClass="control-label" runat="server" for="txtTheatorId" Text="Theator ID"></asp:Label>
                     </div>
                     <div class="col-md-7 col-xm-12">
-                        <asp:TextBox ID="txtTheatorId" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtTheatorId" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
             </div>
@@ -79,11 +79,13 @@
             <div class="form-group">
                 <div class="gridview-search-margin">
                     <div class="row gridview-margin">
-                        <div class="col-md-11">
-                            <asp:GridView ID="gridViewEmployeeData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewTheaterData_PageIndexChanging">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <asp:GridView ID="gridViewTheatereData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewTheaterData_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="TheatorId" HeaderText="Theator Id" />
                                     <asp:BoundField DataField="Description" HeaderText="Description" />
+                                    <asp:BoundField DataField="IsActive" HeaderText="Is Active" />
                                     <asp:TemplateField>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("TheatorId") %>' OnClick="GridViewTheator_onClick">View</asp:LinkButton>
