@@ -83,7 +83,7 @@
                         <div class="col-md-10">
                             <asp:GridView ID="gridViewTheatereData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewTheaterData_PageIndexChanging">
                                 <Columns>
-                                    <asp:BoundField DataField="TheatorId" HeaderText="Theator Id" />
+                                    <asp:BoundField DataField="TheatorId" HeaderText="Theater Id" />
                                     <asp:BoundField DataField="Description" HeaderText="Description" />
                                     <asp:BoundField DataField="IsActive" HeaderText="Is Active" />
                                     <asp:TemplateField>
