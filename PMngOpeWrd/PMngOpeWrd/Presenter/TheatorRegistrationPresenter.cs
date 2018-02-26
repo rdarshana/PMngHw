@@ -67,13 +67,15 @@ namespace PMngOpeWrd.Presenter
         
         private void ClearTheaterData()
         {
-            theatorView.isActive = "true";
+            theatorView.isNewTheator = "true";
             theatorView.description = string.Empty;
             LoadNextTheatorId();
         }
 
         internal void ClearTheaterInfomation()
         {
+            theatorView.transactionStatusSuccess = string.Empty;
+            theatorView.transactionStatusFail = string.Empty;
             ClearTheaterData();
         }
 

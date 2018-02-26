@@ -266,8 +266,6 @@ namespace PMngOpeWrd
                     employeeUpdate = false;
                 }
             }
-
-
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

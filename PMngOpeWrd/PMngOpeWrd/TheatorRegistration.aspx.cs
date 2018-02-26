@@ -125,15 +125,19 @@ namespace PMngOpeWrd
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            isNewTheator = "true";
-            presenter.LoadNextTheatorId();
-            presenter.LoadAllTheaterData();
+            if (!IsPostBack)
+            {
+                isNewTheator = "true";
+                presenter.LoadNextTheatorId();
+                presenter.LoadAllTheaterData();
+            }
         }
 
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             presenter.RegisterTheator();
+            presenter.LoadAllTheaterData();
             btnSubmit.Text = "Register";
         }
 
@@ -151,7 +155,9 @@ namespace PMngOpeWrd
            theatorId = (sender as LinkButton).CommandArgument;
             presenter.GetTheaterById();
             btnSubmit.Text = "Update";
-            isNewTheator = "true";
+            isNewTheator = "false";
+            transactionStatusSuccess = string.Empty;
+            transactionStatusFail = string.Empty;
         }
 
         protected void gridViewTheaterData_PageIndexChanging(object sender, GridViewPageEventArgs e)

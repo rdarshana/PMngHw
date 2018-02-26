@@ -67,8 +67,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-4"></div>
-                <div class="col-md-8    ">
+                <div class="col-md-5"></div>
+                <div class="col-md-7">
                     <div class="button-status">
                         <asp:Label ID="lblSuccess" runat="server" ForeColor="Green" Text=""></asp:Label>
                         <asp:Label ID="lblFail" runat="server" ForeColor="Red" Text=""></asp:Label>
@@ -100,9 +100,10 @@
             </div>
 
             <div class="row">
-                <div class="col-md-10 info-mzg">
+                <div class="col-md-1"></div>
+                <div class="col-md-9 info-mzg">
                     <div id="grdDisplayMessage" class="alert alert-info" style="display: none" runat="server">
-                        There are no matching records
+                        There are no records to show
                     </div>
                 </div>
                 <div class="col-md-2"></div>
