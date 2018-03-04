@@ -76,6 +76,7 @@
     <Content Include="css\employeeInquiry.css" />
     <Content Include="css\main.css" />
     <Content Include="css\theator.css" />
+    <Content Include="css\ward.css" />
     <Content Include="EmployeeInquiry.aspx" />
     <Content Include="EmployeeRegistration.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -91,6 +92,7 @@
     <Content Include="js\jquery-1.12.4.min.js" />
     <Content Include="js\jquery-3.0.0.min.js" />
     <Content Include="js\jquery-3.2.1.min.js" />
+    <Content Include="js\jquery.searchabledropdown-1.0.8.min.js" />
     <Content Include="js\npm.js" />
     <Content Include="js\pages\PatientRegistration.js" />
     <Content Include="packages.config" />
@@ -98,6 +100,7 @@
     <Content Include="PatientRegistration.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="TheatorRegistration.aspx" />
+    <Content Include="WardRegistration.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -139,8 +142,10 @@
     <Compile Include="Model\IEmployeeModel.cs" />
     <Compile Include="Model\IPatientRegistrationModel.cs" />
     <Compile Include="Model\ITheatorModel.cs" />
+    <Compile Include="Model\IWardModel.cs" />
     <Compile Include="Model\PatientRegistrationModel.cs" />
     <Compile Include="Model\TheatorModel.cs" />
+    <Compile Include="Model\WardModel.cs" />
     <Compile Include="PatientInquiry.aspx.cs">
       <DependentUpon>PatientInquiry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -167,6 +172,7 @@
     <Compile Include="Presenter\PatientInquiryPresente.cs" />
     <Compile Include="Presenter\PatientRegistrationPresenter.cs" />
     <Compile Include="Presenter\TheatorRegistrationPresenter.cs" />
+    <Compile Include="Presenter\WardRegistrationPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -187,6 +193,14 @@
     <Compile Include="View\IPatientInquiryView.cs" />
     <Compile Include="View\IPatientRegistrationView.cs" />
     <Compile Include="View\ITheatorRegistrationView.cs" />
+    <Compile Include="View\IWardRegistrationView.cs" />
+    <Compile Include="WardRegistration.aspx.cs">
+      <DependentUpon>WardRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WardRegistration.aspx.designer.cs">
+      <DependentUpon>WardRegistration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

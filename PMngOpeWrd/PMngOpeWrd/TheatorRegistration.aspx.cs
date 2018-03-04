@@ -145,9 +145,6 @@ namespace PMngOpeWrd
         {
             presenter.ClearTheaterInfomation();
             btnSubmit.Text = "Register";
-
-            //employeeRegistration = true;
-            //employeeUpdate = false;
         }
 
         protected void GridViewTheator_onClick(object sender, EventArgs e)
