@@ -15,6 +15,7 @@ namespace PMngOpeWrd.View
         string type { get; set; }
         int noOfBeds { get; set; }
         string isActive { get; set; }
+        DataTable loadWardOwners { set; } 
         DataTable wardData { set; }
         string transactionStatusSuccess { set; }
         string transactionStatusFail { set; }

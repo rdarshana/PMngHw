@@ -103,5 +103,11 @@ namespace PMngOpeWrd.Presenter
             wardView.isActive = wardData.Rows[0]["IsActive"].ToString();
             wardView.isNewWard = "false";
         }
+
+        internal void LoadWardOwners()
+        {
+            wardView.loadWardOwners = wardModel.LoadWardOwners();
+
+        }
     }
 }

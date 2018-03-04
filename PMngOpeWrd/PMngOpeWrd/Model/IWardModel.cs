@@ -13,5 +13,6 @@ namespace PMngOpeWrd.Model
         bool RegisterWard(dynamic ward);
         DataTable GetWardById(string wardNo);
         DataTable GetAllWardData();
+        DataTable LoadWardOwners();
     }
 }

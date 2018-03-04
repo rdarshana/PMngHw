@@ -157,6 +157,17 @@ namespace PMngOpeWrd
             }
         }
 
+        public DataTable loadWardOwners
+        {
+            set
+            {
+                ddlOwner.DataSource = value;
+                ddlOwner.DataTextField = "Owner";
+                ddlOwner.DataValueField = "EmployeeID";
+                ddlOwner.DataBind();
+            }
+        }
+
         public WardRegistration()
         {
             presenter = new WardRegistrationPresenter(this);
@@ -169,13 +180,8 @@ namespace PMngOpeWrd
                 isNewWard = "true";
                 presenter.LoadNextWardId();
                 presenter.LoadAllWardData();
-                presenter.
+                presenter.LoadWardOwners();
             }
-
-            //            dropdownlist1.datasource = DT
-            //dropdownlist1.datatextfield = "EmployeeName"
-            //dropdownlist1.datavaluefield = "EmployeeID"
-            //dropdownlist1.databind()
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

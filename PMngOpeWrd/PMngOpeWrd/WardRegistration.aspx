@@ -31,8 +31,6 @@
                         <asp:TextBox ID="txtWardNo" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
-
-
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-4 col-xm-12">
@@ -48,7 +46,12 @@
                         <asp:Label ID="lblType" CssClass="control-label" runat="server" for="ddlType" Text="Ward Type"></asp:Label>
                     </div>
                     <div class="col-md-7 col-xm-12">
-                        <asp:DropDownList ID="ddlType" CssClass="form-control" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlType" CssClass="form-control" runat="server">
+                            <asp:ListItem Value="general">General</asp:ListItem>
+                            <asp:ListItem Value="director">Director</asp:ListItem>
+                            <asp:ListItem Value="doctor">Doctor</asp:ListItem>
+                            <asp:ListItem Value="mlt">MLT</asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                 </div>
                 <div class="form-group">
@@ -98,7 +101,7 @@
                             <asp:GridView ID="gridViewWardData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewTheaterData_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="WardNo" HeaderText="Theater Id" />
-                                    <asp:BoundField DataField="Owner" HeaderText="Owner" />
+                                    <asp:BoundField DataField="Owner" HeaderText="Word Owner" />
                                     <asp:BoundField DataField="WardType" HeaderText="Ward Type" />
                                     <asp:BoundField DataField="NoOfBeds" HeaderText="Beds" />
                                     <asp:TemplateField>

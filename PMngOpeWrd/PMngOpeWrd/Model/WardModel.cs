@@ -69,7 +69,7 @@ namespace PMngOpeWrd.Model
                 sqlCon.Open();
             }
 
-            SqlCommand sqlCmd = new SqlCommand("TheatorRegistration", sqlCon);
+            SqlCommand sqlCmd = new SqlCommand("WardRegistration", sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.AddWithValue("@WardNo", ward.wardNo);
             sqlCmd.Parameters.AddWithValue("@Owner", ward.owner);
@@ -82,6 +82,21 @@ namespace PMngOpeWrd.Model
             sqlCon.Close();
 
             return true;
+        }
+
+        public DataTable LoadWardOwners()
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetAllWardOwners", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
         }
     }
 }
