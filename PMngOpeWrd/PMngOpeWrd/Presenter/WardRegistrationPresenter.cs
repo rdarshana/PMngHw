@@ -69,7 +69,7 @@ namespace PMngOpeWrd.Presenter
         {
             wardView.isNewWard = "true";
             wardView.owner = string.Empty;
-            wardView.type = "";
+            wardView.type = string.Empty;
             wardView.noOfBeds = 0;
             wardView.isActive = "true";
             wardView.isNewWard = "true";
@@ -95,10 +95,12 @@ namespace PMngOpeWrd.Presenter
 
         internal void GetWardById()
         {
+            string wartType = string.Empty;
             DataTable wardData = wardModel.GetWardById(wardView.wardNo);
             wardView.wardNo = wardData.Rows[0]["WardNo"].ToString();
             wardView.owner = wardData.Rows[0]["Owner"].ToString();
-            wardView.type = wardData.Rows[0]["WardType"].ToString();
+            wartType = wardData.Rows[0]["WardType"].ToString();
+            wardView.type = wartType;
             wardView.noOfBeds = Convert.ToInt32(wardData.Rows[0]["NoOfBeds"].ToString());
             wardView.isActive = wardData.Rows[0]["IsActive"].ToString();
             wardView.isNewWard = "false";

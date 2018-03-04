@@ -47,10 +47,17 @@
                     </div>
                     <div class="col-md-7 col-xm-12">
                         <asp:DropDownList ID="ddlType" CssClass="form-control" runat="server">
-                            <asp:ListItem Value="general">General</asp:ListItem>
-                            <asp:ListItem Value="director">Director</asp:ListItem>
-                            <asp:ListItem Value="doctor">Doctor</asp:ListItem>
-                            <asp:ListItem Value="mlt">MLT</asp:ListItem>
+                            <asp:ListItem Value="ENT">ENT</asp:ListItem>
+                            <asp:ListItem Value="General">General</asp:ListItem>
+                            <asp:ListItem Value="GI">GI</asp:ListItem>
+                            <asp:ListItem Value="GU">GU</asp:ListItem>
+                            <asp:ListItem Value="Gynecology">Gynecology</asp:ListItem>
+                            <asp:ListItem Value="Onco">Onco</asp:ListItem>
+                            <asp:ListItem Value="Oncology">Oncology</asp:ListItem>
+                            <asp:ListItem Value="Orthopedic">Orthopedic</asp:ListItem>
+                            <asp:ListItem Value="Plastic">Plastic</asp:ListItem>
+                            <asp:ListItem Value="Transplant">Transplant</asp:ListItem>
+                            <asp:ListItem Value="Vascular">Vascular</asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -104,9 +111,10 @@
                                     <asp:BoundField DataField="Owner" HeaderText="Word Owner" />
                                     <asp:BoundField DataField="WardType" HeaderText="Ward Type" />
                                     <asp:BoundField DataField="NoOfBeds" HeaderText="Beds" />
+                                     <asp:BoundField DataField="IsActive" HeaderText="Is Active" />
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("WardNo") %>' OnClick="GridViewTheator_onClick">View</asp:LinkButton>
+                                            <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("WardNo") %>' OnClick="GridViewWard_onClick">View</asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>

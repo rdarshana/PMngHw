@@ -108,14 +108,14 @@ namespace PMngOpeWrd
         {
             get
             {
-                return ddlType.SelectedValue;
+                return ddlType.SelectedItem.Text;
             }
 
             set
             {
                 string wardType = value.Trim();
-                ddlOwner.ClearSelection();
-                ListItem selectedType = ddlOwner.Items.FindByValue(wardType);
+                ddlType.ClearSelection();
+                ListItem selectedType = ddlType.Items.FindByText(wardType);
                 if (selectedType != null)
                 {
                     selectedType.Selected = true;
@@ -197,7 +197,7 @@ namespace PMngOpeWrd
             btnSubmit.Text = "Register";
         }
 
-        protected void GridViewTheator_onClick(object sender, EventArgs e)
+        protected void GridViewWard_onClick(object sender, EventArgs e)
         {
             wardNo = (sender as LinkButton).CommandArgument;
             presenter.GetWardById();
