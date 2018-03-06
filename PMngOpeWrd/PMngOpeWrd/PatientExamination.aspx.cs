@@ -49,5 +49,14 @@ namespace PMngOpeWrd
             //gridViewWardData.PageIndex = e.NewPageIndex;
             //presenter.LoadAllWardData();
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            //presenter.GetEmployeeByKey();
+        }
+        protected void btnClearFilter_Click(object sender, EventArgs e)
+        {
+           // presenter.ClearFilter();
+        }
     }
 }

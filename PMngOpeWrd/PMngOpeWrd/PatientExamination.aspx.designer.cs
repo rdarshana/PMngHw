@@ -13,6 +13,42 @@ namespace PMngOpeWrd {
     public partial class PatientExamination {
         
         /// <summary>
+        /// ddlEmployeeFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmployeeFilter;
+        
+        /// <summary>
+        /// txtSearchId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearchId;
+        
+        /// <summary>
+        /// btnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearch;
+        
+        /// <summary>
+        /// btnClearFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClearFilter;
+        
+        /// <summary>
         /// hdnIsxamine control.
         /// </summary>
         /// <remarks>
@@ -112,6 +148,15 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.TextBox txtComplain;
         
         /// <summary>
+        /// rfvComplain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvComplain;
+        
+        /// <summary>
         /// lblExamination control.
         /// </summary>
         /// <remarks>
@@ -130,6 +175,15 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.TextBox txtExamination;
         
         /// <summary>
+        /// rfvExamin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvExamin;
+        
+        /// <summary>
         /// lblDiagnosis control.
         /// </summary>
         /// <remarks>
@@ -146,6 +200,15 @@ namespace PMngOpeWrd {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDiagnosis;
+        
+        /// <summary>
+        /// rfvDiagnosis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDiagnosis;
         
         /// <summary>
         /// lblDrugs control.

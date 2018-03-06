@@ -19,3 +19,26 @@
     min-height: 882px;
     margin-right: -30px;
 }
+
+.examination-searchbox{
+    margin-left: 2px;
+    width: 380px;
+}
+
+.examination-searchbutton{
+    margin-left: -34px;
+}
+
+.examination-searchfield{
+    margin-left: -24px;
+}
+
+.examination-searchclear{
+    margin-left: 15px;
+}
+
+.examination-search {
+    margin-bottom: 24px;
+}
+
+
