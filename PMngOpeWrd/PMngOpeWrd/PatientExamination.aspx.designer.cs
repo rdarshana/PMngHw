@@ -13,22 +13,22 @@ namespace PMngOpeWrd {
     public partial class PatientExamination {
         
         /// <summary>
-        /// ddlEmployeeFilter control.
+        /// lblpatietId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEmployeeFilter;
+        protected global::System.Web.UI.WebControls.Label lblpatietId;
         
         /// <summary>
-        /// txtSearchId control.
+        /// txtPatientId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearchId;
+        protected global::System.Web.UI.WebControls.TextBox txtPatientId;
         
         /// <summary>
         /// btnSearch control.
@@ -56,24 +56,6 @@ namespace PMngOpeWrd {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnIsxamine;
-        
-        /// <summary>
-        /// lblPatinetId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPatinetId;
-        
-        /// <summary>
-        /// txtPatientId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPatientId;
         
         /// <summary>
         /// lblNIC control.
@@ -265,13 +247,13 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.Label lblFail;
         
         /// <summary>
-        /// gridViewWardData control.
+        /// gridViewPatientExaminData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewWardData;
+        protected global::System.Web.UI.WebControls.GridView gridViewPatientExaminData;
         
         /// <summary>
         /// grdDisplayMessage control.

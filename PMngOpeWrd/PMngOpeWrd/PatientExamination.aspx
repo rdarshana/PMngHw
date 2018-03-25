@@ -23,14 +23,10 @@
             <div class="form-group">
                 <div class="col-md-1"></div>
                 <div class="col-md-3 examination-searchfield">
-                    <asp:DropDownList ID="ddlEmployeeFilter" runat="server" CssClass="form-control">
-                        <asp:ListItem Value="employeeId">Employee Id</asp:ListItem>
-                        <asp:ListItem Value="nic">NIC</asp:ListItem>
-                        <asp:ListItem Value="firstName">First Name</asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:Label ID="lblpatietId" CssClass="control-label" runat="server" for="txtPatientId" Text="PatientId"></asp:Label>
                 </div>
                 <div class="col-md-5 examination-searchbox">
-                    <asp:TextBox ID="txtSearchId" CssClass="form-control" placeholder="Search Value..." runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPatientId" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-md-1 examination-searchbutton">
                     <span class="input-group-btn">
@@ -47,15 +43,6 @@
             <div class="col-md-9">
                 <div class="form-horizontal">
                     <asp:HiddenField ID="hdnIsxamine" runat="server" />
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblPatinetId" CssClass="control-label" runat="server" for="txtPatientId" Text="PatientId"></asp:Label>
-                        </div>
-                        <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtPatientId" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
@@ -90,7 +77,7 @@
                             <span class="required-field-star">*</span>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtComplain" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="4"></asp:TextBox>
+                            <asp:TextBox ID="txtComplain" CssClass="form-control" runat="server" MaxLength="500" TextMode="MultiLine" Rows="4"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvComplain" runat="server" ErrorMessage="This field is required" ControlToValidate="txtComplain" ValidationGroup="patientExamination" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -101,7 +88,7 @@
                             <span class="required-field-star">*</span>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtExamination" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="4"></asp:TextBox>
+                            <asp:TextBox ID="txtExamination" CssClass="form-control" runat="server" MaxLength="500" TextMode="MultiLine" Rows="4"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvExamin" runat="server" ErrorMessage="This field is required" ControlToValidate="txtExamination" ValidationGroup="patientExamination" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -149,16 +136,16 @@
                         <div class="row gridview-margin">
                             <div class="col-md-1"></div>
                             <div class="col-md-10">
-                                <asp:GridView ID="gridViewWardData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewExaminationData_PageIndexChanging">
+                                <asp:GridView ID="gridViewPatientExaminData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewExaminationData_PageIndexChanging">
                                     <Columns>
-                                        <asp:BoundField DataField="ExmID" HeaderText="No" />
+                                        <asp:BoundField DataField="EmployeeId" HeaderText="Doctor" />
                                         <asp:BoundField DataField="Complain" HeaderText="Complain" />
+                                        <asp:BoundField DataField="Examination" HeaderText="Diagnosis" />
                                         <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" />
-                                        <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
                                         <asp:BoundField DataField="Date" HeaderText="Date" />
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("ExmID") %>' OnClick="gridViewExaminationData_onClick">View</asp:LinkButton>
+                                                <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("EmployeeId") %>' OnClick="gridViewExaminationData_onClick">View</asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>

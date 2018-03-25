@@ -69,7 +69,7 @@ namespace PMngOpeWrd.Model
             sqlDa.SelectCommand.Parameters.AddWithValue("@PatientId", patientId);
             DataTable dataTable = new DataTable();
             sqlDa.Fill(dataTable);
-            sqlCon.Close();
+            sqlCon.Close(); 
             return dataTable;
         }
 
