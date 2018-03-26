@@ -9,7 +9,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="formHeader" runat="server">
-    <h1>Patient Examintion</h1>
+    <h1>Patient Examintions</h1>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="formleftcolumn" runat="server">
