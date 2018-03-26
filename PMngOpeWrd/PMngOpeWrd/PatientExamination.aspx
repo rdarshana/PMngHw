@@ -139,13 +139,26 @@
                                 <asp:GridView ID="gridViewPatientExaminData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewExaminationData_PageIndexChanging">
                                     <Columns>
                                         <asp:BoundField DataField="EmployeeId" HeaderText="Doctor" />
-                                        <asp:BoundField DataField="Complain" HeaderText="Complain" />
-                                        <asp:BoundField DataField="Examination" HeaderText="Diagnosis" />
-                                        <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" />
+                                        <%--<asp:BoundField DataField="Complain" HeaderText="Complain" />--%>
+                                        <asp:TemplateField  HeaderText="Complain">
+                                            <ItemTemplate>
+                                                <%# ((string)Eval("Complain")).Length < 20? Eval("Complain") :((string)Eval("Complain")).Substring(0,20) + "..."%>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField  HeaderText="Examination">
+                                            <ItemTemplate>
+                                                <%# ((string)Eval("Examination")).Length < 20? Eval("Examination") :((string)Eval("Examination")).Substring(0,20) + "..."%>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField  HeaderText="Diagnosis">
+                                            <ItemTemplate>
+                                                <%# ((string)Eval("Diagnosis")).Length < 20? Eval("Diagnosis") :((string)Eval("Diagnosis")).Substring(0,20) + "..."%>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                         <asp:BoundField DataField="Date" HeaderText="Date" />
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("EmployeeId") %>' OnClick="gridViewExaminationData_onClick">View</asp:LinkButton>
+                                                <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("ID") %>' OnClick="gridViewExaminationData_onClick">View</asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>

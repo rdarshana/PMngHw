@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [dbo].[Examiation] (
+	ID int IDENTITY(1,1),
     [PatientId]    VARCHAR (20)   NOT NULL,
     [EmployeeId]   VARCHAR (20) NOT NULL,
 	[Complain]     VARCHAR (500)  NOT NULL,
