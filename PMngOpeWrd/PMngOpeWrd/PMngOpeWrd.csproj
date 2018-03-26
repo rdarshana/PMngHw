@@ -74,6 +74,7 @@
     <Content Include="css\datepicker.css" />
     <Content Include="css\employee.css" />
     <Content Include="css\employeeInquiry.css" />
+    <Content Include="css\userlogin.css" />
     <Content Include="css\main.css" />
     <Content Include="css\patientExamination.css" />
     <Content Include="css\theator.css" />
@@ -83,6 +84,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\leftImageMaster.png" />
     <Content Include="images\logo.png" />
+    <Content Include="images\logoLH.png" />
     <Content Include="images\mission.png" />
     <Content Include="images\values.png" />
     <Content Include="images\vision.png" />
@@ -102,6 +104,7 @@
     <Content Include="PatientRegistration.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="TheatorRegistration.aspx" />
+    <Content Include="UserLogin.aspx" />
     <Content Include="WardRegistration.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -199,6 +202,13 @@
     </Compile>
     <Compile Include="TheatorRegistration.aspx.designer.cs">
       <DependentUpon>TheatorRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserLogin.aspx.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserLogin.aspx.designer.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\IEmployeeRegistrationView.cs" />
     <Compile Include="View\IEmployeeInquiryView.cs" />
