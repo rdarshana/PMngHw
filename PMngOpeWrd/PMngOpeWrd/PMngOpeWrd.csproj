@@ -149,6 +149,7 @@
     <Compile Include="Model\IPatientRegistrationModel.cs" />
     <Compile Include="Model\ITheatorModel.cs" />
     <Compile Include="Model\IWardModel.cs" />
+    <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\PatientExaminationModel.cs" />
     <Compile Include="Model\PatientRegistrationModel.cs" />
     <Compile Include="Model\TheatorModel.cs" />
@@ -183,6 +184,7 @@
     </Compile>
     <Compile Include="Presenter\EmployeeInquiryPresenter.cs" />
     <Compile Include="Presenter\EmployeeRegistrationPresenter.cs" />
+    <Compile Include="Presenter\LoginPresenter.cs" />
     <Compile Include="Presenter\PatientExaminationPresenter.cs" />
     <Compile Include="Presenter\PatientInquiryPresente.cs" />
     <Compile Include="Presenter\PatientRegistrationPresenter.cs" />
@@ -212,6 +214,7 @@
     </Compile>
     <Compile Include="View\IEmployeeRegistrationView.cs" />
     <Compile Include="View\IEmployeeInquiryView.cs" />
+    <Compile Include="View\ILoginView.cs" />
     <Compile Include="View\IPatientExaminationView.cs" />
     <Compile Include="View\IPatientInquiryView.cs" />
     <Compile Include="View\IPatientRegistrationView.cs" />
