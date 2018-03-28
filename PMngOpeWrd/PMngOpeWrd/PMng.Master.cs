@@ -11,7 +11,17 @@ namespace PMngOpeWrd
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(Session["name"] as string))
+            {
+                lblUserName.Text = Session["name"].ToString();
+            }
+         
+        }
 
+        protected void txtLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("UserLogin.aspx");
         }
     }
 }
