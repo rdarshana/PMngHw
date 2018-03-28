@@ -116,3 +116,13 @@ body {
   text-align: center;
   font-size: 12px;
 }
+
+.error-message {
+    color: red;
+    font-size: small;
+    position: relative;
+}
+
+.error-label {
+    margin-left: -135px;
+}

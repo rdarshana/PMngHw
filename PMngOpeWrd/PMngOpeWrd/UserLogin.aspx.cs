@@ -28,6 +28,17 @@ namespace PMngOpeWrd
             }
         }
 
+        public bool isValidLogin
+        {
+            set
+            {
+                if (value)
+                {
+                    Response.Redirect("Home.aspx");
+                }
+            }
+        }
+
         public string name
         {
             set

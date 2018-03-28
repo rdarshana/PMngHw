@@ -14,5 +14,6 @@ namespace PMngOpeWrd.View
         string userRole { set; }
         string name { set; }
         string errorMessage { set; }
+        bool isValidLogin { set; }
     }
 }

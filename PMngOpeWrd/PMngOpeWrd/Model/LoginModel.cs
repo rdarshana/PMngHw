@@ -20,13 +20,14 @@ namespace PMngOpeWrd.Model
             {
                 sqlCon.Open();
             }
-
+            dynamic logedinUser = new ExpandoObject();
+            logedinUser.valid = false;
             SqlCommand sqlCmd = new SqlCommand("GetUserDetailsById", sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.AddWithValue("@EmployeeId", login.userName);
             SqlDataReader reader = sqlCmd.ExecuteReader();
             string userId = string.Empty;
-            dynamic logedinUser = new ExpandoObject();
+            
 
             if (reader.Read())
             {
@@ -43,12 +44,13 @@ namespace PMngOpeWrd.Model
                 {
                     // The password is correct
                     logedinUser.userType = dbUserType;
-                    logedinUser.password = dbUserName;
+                    logedinUser.userName = dbUserName;
+                    logedinUser.name = dbUserName;
                     logedinUser.valid = true;
                 }
                 else
                 {
-                    login.valid = false;
+                    logedinUser.valid = false;
                 }
             }
 

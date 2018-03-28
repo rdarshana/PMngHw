@@ -15,10 +15,13 @@
         <br />
         <form runat="server">
             <label class="context">Sign in with your organizational account</label>
-            <asp:TextBox ID="txtUserName" name="user" runat="server" placeholder="Username"></asp:TextBox>
-            <asp:TextBox ID="txtPassword" name="pass" placeholder="Password" runat="server" TextMode="Password"></asp:TextBox>
-            <asp:Button ID="txtLogin" name="login" CssClass="login login-submit" runat="server" Text="Log in" value="login" OnClick="txtLogin_Click" />
-            <asp:Label ID="lblErrorMessage" CssClass="error-message" runat="server" Text="Invalid login, please try again"></asp:Label>
+            <asp:TextBox ID="txtUserName" name="user" runat="server" placeholder="Username" MaxLength="20"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ErrorMessage="Please Enter User Name" ControlToValidate="txtUserName" ForeColor="Red" ValidationGroup="userLoginValidate" Font-Size="Small"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="txtPassword" name="pass" placeholder="Password" runat="server" TextMode="Password" MaxLength="12"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Please Enter Password" ControlToValidate="txtPassword" ForeColor="Red" ValidationGroup="userLoginValidate" Font-Size="Small"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator CssClass="error-label" Display = "Dynamic" ControlToValidate = "txtPassword" ID="regexPaasswordLength" ForeColor="Red" ValidationExpression = "^[\s\S]{5,12}$" ValidationGroup="userLoginValidate" runat="server" ErrorMessage="Minimum 5 and Maximum 12 characters required." Font-Size="Small"></asp:RegularExpressionValidator>
+            <asp:Button ID="txtLogin" name="login" CssClass="login login-submit" runat="server" Text="Log in" value="login" OnClick="txtLogin_Click" ValidationGroup="userLoginValidate" Font-Size="Small" />
+            <asp:Label ID="lblErrorMessage" Visible="false" CssClass="error-message" runat="server" Text=""></asp:Label>
         </form>
 
         <div id="errorLogin" runat="server" class="login-help">

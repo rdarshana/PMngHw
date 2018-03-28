@@ -25,7 +25,20 @@ namespace PMngOpeWrd.Presenter
             dynamic login = new ExpandoObject();
             login.userName = loginView.userName;
             login.password = loginView.password;
-            dynamic logedinDetails = loginModel.AuthenticateUser(login);
+            dynamic logedInDetails = loginModel.AuthenticateUser(login);
+            if (logedInDetails.valid) {
+                loginView.name = logedInDetails.name;
+                loginView.userName = loginView.userName;
+                loginView.userRole = logedInDetails.userType;
+                loginView.errorMessage = string.Empty;
+                loginView.showErrorMessage = false;
+                loginView.isValidLogin = true;
+            }
+            else
+            {
+                loginView.errorMessage = "Invalid login, please try again";
+                loginView.showErrorMessage = true;
+            }
         }
     }
 }
