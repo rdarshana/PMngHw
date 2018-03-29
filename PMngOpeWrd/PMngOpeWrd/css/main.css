@@ -299,3 +299,8 @@ h6 {
 	color: #444;
     font-family: 'Open Sans', sans-serif;
 }
+
+.login-name {
+    margin-top: 51px;
+    margin-left: 0px;
+}

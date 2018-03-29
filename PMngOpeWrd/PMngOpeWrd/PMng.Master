@@ -53,9 +53,14 @@
                     </Items>
                 </asp:Menu>
             </div>
-            <div class="col-md-3">
-                Hi <asp:Label ID="lblUserName" runat="server" Text=""></asp:Label>
-                <asp:Button ID="txtLogout" name="logout" CssClass="" runat="server" Text="Log Out" Font-Size="Small" OnClick="txtLogout_Click" />
+            <div class="col-md-3 login-name">
+                <div class="row">
+                    <div class="col-md-8 text-right">Hi, <asp:Label ID="lblUserName" runat="server" Text=""></asp:Label></div>
+                    <div class="col-md-4 text-left">
+                    <asp:Button ID="txtLogout" name="logout" CssClass="btn btn-default btn-sm" runat="server" Text="Log Out" Font-Size="Small" OnClick="txtLogout_Click" />
+                    </div>
+
+                </div>
             </div>
         </div>
         <div class="row">

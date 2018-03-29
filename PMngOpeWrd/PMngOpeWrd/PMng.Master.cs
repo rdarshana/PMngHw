@@ -15,6 +15,11 @@ namespace PMngOpeWrd
             {
                 lblUserName.Text = Session["name"].ToString();
             }
+            else
+            {
+                Session.Clear();
+                Response.Redirect("UserLogin.aspx");
+            }
          
         }
 
