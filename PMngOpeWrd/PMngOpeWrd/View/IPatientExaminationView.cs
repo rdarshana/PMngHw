@@ -10,6 +10,7 @@ namespace PMngOpeWrd.View
     public interface IPatientExaminationView
     {
         string patientId { get; set; }
+        string employeeId { get; }
         DataTable patientData { set; }
         string firstName { get; set; }
         string lastName { get; set; }

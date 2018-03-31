@@ -28,5 +28,26 @@ namespace PMngOpeWrd.Model
             return dataTable;
         }
 
+        internal bool AddPatientExamination(dynamic patient)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlCommand sqlCmd = new SqlCommand("AddPatientExamination", sqlCon);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.Parameters.AddWithValue("@PatientId", patient.PatientId);
+            sqlCmd.Parameters.AddWithValue("@EmployeeId", patient.EmployeeId);
+            sqlCmd.Parameters.AddWithValue("@Complain", patient.Complain);
+            sqlCmd.Parameters.AddWithValue("@Examination", patient.Examination);
+            sqlCmd.Parameters.AddWithValue("@Diagnosis", patient.Diagnosis);
+            sqlCmd.Parameters.AddWithValue("@Drugs", patient.Drugs);
+            sqlCmd.Parameters.AddWithValue("@IsNewExamine", patient.IsNewExamine);
+            sqlCmd.ExecuteNonQuery();
+            sqlCon.Close();
+
+            return true;
+        }
     }
 }

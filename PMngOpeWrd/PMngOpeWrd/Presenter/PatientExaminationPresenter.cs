@@ -5,6 +5,7 @@ using System.Web;
 using PMngOpeWrd.View;
 using PMngOpeWrd.Model;
 using System.Data;
+using System.Dynamic;
 
 namespace PMngOpeWrd.Presenter
 {
@@ -27,6 +28,46 @@ namespace PMngOpeWrd.Presenter
             patientView.firstName = patientData.Rows[0]["FirstName"].ToString();
             patientView.lastName = patientData.Rows[0]["LastName"].ToString();
             patientView.NIC = patientData.Rows[0]["NIC"].ToString();
+        }
+
+        internal void AddPatientexamination()
+        {
+            dynamic patientExamine = new ExpandoObject();
+            bool transactionStatus = false;
+            patientExamine.PatientId = patientView.patientId;
+            patientExamine.EmployeeId = patientView.employeeId;
+            patientExamine.Complain = patientView.complain;
+            patientExamine.Examination = patientView.examination;
+            patientExamine.Diagnosis = patientView.diagnosis;
+            patientExamine.Drugs = patientView.drugs;
+            patientExamine.IsNewExamine = patientView.isNewExamine;
+
+            transactionStatus = patientExaminModel.AddPatientExamination(patientExamine);
+
+            if (transactionStatus)
+            {
+                if (patientView.isNewExamine == "true")
+                {
+                    patientView.transactionStatusSuccess = "Record Inserted Successfully";
+                }
+                else
+                {
+                    patientView.transactionStatusSuccess = "Record Updated Successfully";
+                }
+            }
+            else
+            {
+                if (patientView.isNewExamine == "true")
+                {
+                    patientView.transactionStatusFail = "Record Inserted Failed";
+                }
+                else
+                {
+                    patientView.transactionStatusFail = "Record Updated Failed";
+                }
+
+            }
+            //ClearEmployeeData();
         }
     }
 }

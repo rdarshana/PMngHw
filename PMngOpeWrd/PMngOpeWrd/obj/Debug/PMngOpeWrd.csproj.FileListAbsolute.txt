@@ -35,6 +35,5 @@ H:\IndividualProject\SourceCode\Source\trunk\PMngOpeWrd\PMngOpeWrd\bin\PMngOpeWr
 H:\IndividualProject\SourceCode\Source\trunk\PMngOpeWrd\PMngOpeWrd\bin\PMngOpeWrd.pdb
 H:\IndividualProject\SourceCode\Source\trunk\PMngOpeWrd\PMngOpeWrd\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 H:\IndividualProject\SourceCode\Source\trunk\PMngOpeWrd\PMngOpeWrd\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-H:\IndividualProject\SourceCode\Source\trunk\PMngOpeWrd\PMngOpeWrd\obj\Debug\PMngOpeWrd.csprojResolveAssemblyReference.cache
 H:\IndividualProject\SourceCode\Source\trunk\PMngOpeWrd\PMngOpeWrd\obj\Debug\PMngOpeWrd.dll
 H:\IndividualProject\SourceCode\Source\trunk\PMngOpeWrd\PMngOpeWrd\obj\Debug\PMngOpeWrd.pdb

@@ -9,7 +9,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="formHeader" runat="server">
-    <h1>Patient Examintions</h1>
+    <h1>Patient Examintion</h1>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="formleftcolumn" runat="server">
@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="form-horizontal">
-                    <asp:HiddenField ID="hdnIsxamine" runat="server" />
+                    <asp:HiddenField ID="hdnIsNewExamine" runat="server" />
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
@@ -155,7 +155,7 @@
                                                 <%# ((string)Eval("Diagnosis")).Length < 20? Eval("Diagnosis") :((string)Eval("Diagnosis")).Substring(0,20) + "..."%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:BoundField DataField="Date" HeaderText="Date" />
+                                        <asp:BoundField DataField="ExamineDate" HeaderText="Examine Date" />
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("ID") %>' OnClick="gridViewExaminationData_onClick">View</asp:LinkButton>

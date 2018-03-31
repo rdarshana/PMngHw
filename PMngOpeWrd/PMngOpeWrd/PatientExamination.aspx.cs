@@ -23,7 +23,7 @@ namespace PMngOpeWrd
         {
             set
             {
-                throw new NotImplementedException();
+                lblSuccess.Text = value;
             }
         }
 
@@ -31,7 +31,7 @@ namespace PMngOpeWrd
         {
             set
             {
-                throw new NotImplementedException();
+                lblFail.Text = value;
             }
         }
 
@@ -125,12 +125,12 @@ namespace PMngOpeWrd
         {
             get
             {
-                throw new NotImplementedException();
+                return hdnIsNewExamine.Value;
             }
 
             set
             {
-                throw new NotImplementedException();
+                hdnIsNewExamine.Value = value;
             }
         }
 
@@ -173,21 +173,26 @@ namespace PMngOpeWrd
             }
         }
 
+        public string employeeId
+        {
+            get
+            {
+                return Session["id"].ToString();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //isNewWard = "true";
-                //presenter.LoadNextWardId();
-                //presenter.LoadAllWardData();
-                //presenter.LoadWardOwners();
+                isNewExamine = "true";
             }
         }
 
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            //presenter.RegisterWard();
+            presenter.AddPatientexamination();
             //presenter.LoadAllWardData();
             //btnSubmit.Text = "Register";
         }
