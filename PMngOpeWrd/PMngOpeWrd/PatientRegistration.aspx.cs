@@ -354,16 +354,5 @@ namespace PMngOpeWrd
             btnSubmit.Text = "Register";
             this.removeQueryString ="pid";
         }
-
-        //private void removeQueryString(string id)
-        //{
-        //    PropertyInfo isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
-        //    // make collection editable
-        //    isreadonly.SetValue(this.Request.QueryString, false, null);
-        //    // remove
-        //    this.Request.QueryString.Remove(id);
-        //}
-
-      
     }
 }

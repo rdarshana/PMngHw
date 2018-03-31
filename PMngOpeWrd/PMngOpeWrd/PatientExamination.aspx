@@ -43,6 +43,7 @@
             <div class="col-md-9">
                 <div class="form-horizontal">
                     <asp:HiddenField ID="hdnIsNewExamine" runat="server" />
+                     <asp:HiddenField ID="hdnExamineId" runat="server" />
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
@@ -117,7 +118,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-4"></div>
                     <div class="col-md-7 button-group">
-                        <asp:Button ID="btnSubmit" CssClass="btn btn-primary primary-button-style" runat="server" Text="Register" OnClick="btnSubmit_Click" ValidationGroup="patientExamination" />
+                        <asp:Button ID="btnSubmit" CssClass="btn btn-primary primary-button-style" runat="server" Text="Add" OnClick="btnSubmit_Click" ValidationGroup="patientExamination" />
                         <asp:Button ID="btnClear" CssClass="btn btn-primary primary-button-style" runat="server" Text="Clear" OnClick="btnClear_Click" />
                     </div>
                 </div>
@@ -139,7 +140,6 @@
                                 <asp:GridView ID="gridViewPatientExaminData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewExaminationData_PageIndexChanging">
                                     <Columns>
                                         <asp:BoundField DataField="EmployeeId" HeaderText="Doctor" />
-                                        <%--<asp:BoundField DataField="Complain" HeaderText="Complain" />--%>
                                         <asp:TemplateField  HeaderText="Complain">
                                             <ItemTemplate>
                                                 <%# ((string)Eval("Complain")).Length < 20? Eval("Complain") :((string)Eval("Complain")).Substring(0,20) + "..."%>

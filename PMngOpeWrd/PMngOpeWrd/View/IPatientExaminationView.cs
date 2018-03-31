@@ -11,7 +11,7 @@ namespace PMngOpeWrd.View
     {
         string patientId { get; set; }
         string employeeId { get; }
-        DataTable patientData { set; }
+        DataTable patientData { get;  set; }
         string firstName { get; set; }
         string lastName { get; set; }
         string NIC { get; set; }
@@ -22,5 +22,6 @@ namespace PMngOpeWrd.View
         string isNewExamine { get; set; }
         string transactionStatusSuccess { set; }
         string transactionStatusFail { set; }
+        int examineId { get; set; }
     }
 }

@@ -50,10 +50,16 @@ namespace PMngOpeWrd
 
         public DataTable patientData
         {
+            get
+            {
+                DataTable examineData = (DataTable)Session["examinedData"];
+                return examineData;
+            }
             set
             {
                 if (value != null)
                 {
+                    Session["examinedData"] = value;
                     gridViewPatientExaminData.DataSource = value;
                     gridViewPatientExaminData.DataBind();
 
@@ -181,6 +187,18 @@ namespace PMngOpeWrd
             }
         }
 
+        public int examineId
+        {
+            get
+            {
+                return Convert.ToInt32(hdnExamineId.Value);
+            }
+            set
+            {
+                hdnExamineId.Value = value.ToString();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -189,43 +207,42 @@ namespace PMngOpeWrd
             }
         }
 
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             presenter.AddPatientexamination();
-            //presenter.LoadAllWardData();
-            //btnSubmit.Text = "Register";
+            btnSubmit.Text = "Add";
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            //presenter.ClearWardInfomation();
-            //btnSubmit.Text = "Register";
+            presenter.ClearPatientData();
+            btnSubmit.Text = "Add";
         }
 
         protected void gridViewExaminationData_onClick(object sender, EventArgs e)
         {
-            //wardNo = (sender as LinkButton).CommandArgument;
-            //presenter.GetWardById();
-            //btnSubmit.Text = "Update";
-            //isNewWard = "false";
-            //transactionStatusSuccess = string.Empty;
-            //transactionStatusFail = string.Empty;
+             examineId =Convert.ToInt32((sender as LinkButton).CommandArgument);
+             isNewExamine = "false";
+            btnSubmit.Text = "Update";
+            transactionStatusSuccess = string.Empty;
+             transactionStatusFail = string.Empty;
+            presenter.GetDataSelectedById();
         }
 
         protected void gridViewExaminationData_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            //gridViewWardData.PageIndex = e.NewPageIndex;
-            //presenter.LoadAllWardData();
+            gridViewPatientExaminData.PageIndex = e.NewPageIndex;
+            presenter.GetPatientHistoryInformation();
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             presenter.GetPatientById();
+            presenter.ClearHistoryInformation();
         }
         protected void btnClearFilter_Click(object sender, EventArgs e)
         {
-           // presenter.ClearFilter();
+           presenter.ClearPatientData();
         }
 
 
