@@ -136,10 +136,10 @@
                     <div class="gridview-search-margin">
                         <div class="row gridview-margin">
                             <div class="col-md-1"></div>
-                            <div class="col-md-10">
+                            <div class="col-md-11">
                                 <asp:GridView ID="gridViewPatientExaminData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewExaminationData_PageIndexChanging">
                                     <Columns>
-                                        <asp:BoundField DataField="EmployeeId" HeaderText="Doctor" />
+                                        <asp:BoundField DataField="Employee" HeaderText="Doctor" />
                                         <asp:TemplateField  HeaderText="Complain">
                                             <ItemTemplate>
                                                 <%# ((string)Eval("Complain")).Length < 20? Eval("Complain") :((string)Eval("Complain")).Substring(0,20) + "..."%>
@@ -165,7 +165,6 @@
                                     </Columns>
                                 </asp:GridView>
                             </div>
-                            <div class="col-md-1"></div>
                         </div>
                     </div>
                 </div>
