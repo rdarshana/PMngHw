@@ -19,6 +19,23 @@ namespace PMngOpeWrd
         {
             presenter = new PatientExaminationPresenter(this);
         }
+
+        public string noRecordFould
+        {
+            set
+            {
+                lblNoPatientRecord.Text = value;
+                if(lblNoPatientRecord.Text.Trim() == null || lblNoPatientRecord.Text.Trim() == "")
+                {
+                    btnSubmit.Enabled = true;
+                }
+                else
+                {
+                    btnSubmit.Enabled = false;
+                }
+            }
+        }
+     
         public string transactionStatusSuccess
         {
             set
@@ -57,12 +74,12 @@ namespace PMngOpeWrd
             }
             set
             {
-                if (value != null)
-                {
+               
                     Session["examinedData"] = value;
                     gridViewPatientExaminData.DataSource = value;
                     gridViewPatientExaminData.DataBind();
-
+                if (value != null)
+                {
                     if (value.Rows.Count > 0)
                     {
                         grdDisplayMessage.Style["display"] = "none";
@@ -71,6 +88,10 @@ namespace PMngOpeWrd
                     {
                         grdDisplayMessage.Style["display"] = "block";
                     }
+                }
+                else
+                {
+                    grdDisplayMessage.Style["display"] = "block";
                 }
             }
         }
@@ -191,7 +212,17 @@ namespace PMngOpeWrd
         {
             get
             {
-                return Convert.ToInt32(hdnExamineId.Value);
+                int id;
+                if(hdnExamineId.Value == null || hdnExamineId.Value == "")
+                {
+                    id = 0; 
+                }
+                else
+                {
+                    id = Convert.ToInt32(hdnExamineId.Value);
+                }
+
+                return id;
             }
             set
             {
@@ -210,13 +241,18 @@ namespace PMngOpeWrd
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             presenter.AddPatientexamination();
+            presenter.GetPatientHistoryInformation();
             btnSubmit.Text = "Add";
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
             presenter.ClearPatientData();
+            presenter.ClearSearchPatientId();
             btnSubmit.Text = "Add";
+            btnSubmit.Enabled = false;
+            this.patientData = null;
+
         }
 
         protected void gridViewExaminationData_onClick(object sender, EventArgs e)
@@ -240,11 +276,5 @@ namespace PMngOpeWrd
             presenter.GetPatientById();
             presenter.ClearHistoryInformation();
         }
-        protected void btnClearFilter_Click(object sender, EventArgs e)
-        {
-           presenter.ClearPatientData();
-        }
-
-
     }
 }

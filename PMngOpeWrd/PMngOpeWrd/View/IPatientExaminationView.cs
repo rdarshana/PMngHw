@@ -23,5 +23,6 @@ namespace PMngOpeWrd.View
         string transactionStatusSuccess { set; }
         string transactionStatusFail { set; }
         int examineId { get; set; }
+        string noRecordFould { set; }
     }
 }

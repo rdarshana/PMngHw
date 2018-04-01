@@ -37,6 +37,7 @@ namespace PMngOpeWrd.Model
 
             SqlCommand sqlCmd = new SqlCommand("AddPatientExamination", sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.Parameters.AddWithValue("@ID", patient.ID);
             sqlCmd.Parameters.AddWithValue("@PatientId", patient.PatientId);
             sqlCmd.Parameters.AddWithValue("@EmployeeId", patient.EmployeeId);
             sqlCmd.Parameters.AddWithValue("@Complain", patient.Complain);

@@ -1,4 +1,5 @@
 CREATE PROCEDURE [dbo].[AddPatientExamination]
+	@ID INTEGER,
 	@PatientId VARCHAR (20),
 	@EmployeeId VARCHAR(20),
     @Complain VARCHAR (500),
@@ -17,7 +18,7 @@ BEGIN
 	ELSE
 		BEGIN
 			UPDATE [dbo].[Examiation]
-			SET Complain = @Complain, Examination = @Examination, Diagnosis= @Diagnosis,Drugs = @Drugs
-			WHERE PatientId = @PatientId and EmployeeId = @EmployeeId
+			SET Complain = @Complain, Examination = @Examination, Diagnosis= @Diagnosis,Drugs = @Drugs,EmployeeId = @EmployeeId, ExamineDate = getdate()
+			WHERE ID = @ID
 		END
 END

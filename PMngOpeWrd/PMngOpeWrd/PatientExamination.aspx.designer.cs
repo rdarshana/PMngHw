@@ -31,6 +31,15 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.TextBox txtPatientId;
         
         /// <summary>
+        /// lblNoPatientRecord control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoPatientRecord;
+        
+        /// <summary>
         /// btnSearch control.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace PMngOpeWrd {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearch;
-        
-        /// <summary>
-        /// btnClearFilter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClearFilter;
         
         /// <summary>
         /// hdnIsNewExamine control.

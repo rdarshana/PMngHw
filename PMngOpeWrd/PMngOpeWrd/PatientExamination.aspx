@@ -27,14 +27,14 @@
                 </div>
                 <div class="col-md-5 examination-searchbox">
                     <asp:TextBox ID="txtPatientId" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblNoPatientRecord" runat="server" ForeColor="Red"></asp:Label><br />
                 </div>
                 <div class="col-md-1 examination-searchbutton">
                     <span class="input-group-btn">
-                        <asp:Button ID="btnSearch" CssClass="btn btn-default" runat="server" Text="Search" OnClick="btnSearch_Click" /><span class="glyphicon glyphicon-search"></span>
+                        <asp:Button ID="btnSearch" CssClass="btn btn-default" runat="server" ValidationGroup="SearchPatientID" Text="Search" OnClick="btnSearch_Click" /><span class="glyphicon glyphicon-search"></span>
                     </span>
                 </div>
-                <div class="col-md-2 examination-searchclear">
-                    <asp:Button ID="btnClearFilter" CssClass="btn btn-default primary-button-style" runat="server" Text="Clear Filter" OnClick="btnClearFilter_Click" />
+                <div class="col-md-2">
                 </div>
             </div>
         </div>
@@ -118,7 +118,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-4"></div>
                     <div class="col-md-7 button-group">
-                        <asp:Button ID="btnSubmit" CssClass="btn btn-primary primary-button-style" runat="server" Text="Add" OnClick="btnSubmit_Click" ValidationGroup="patientExamination" />
+                        <asp:Button ID="btnSubmit" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Add" OnClick="btnSubmit_Click" ValidationGroup="patientExamination" />
                         <asp:Button ID="btnClear" CssClass="btn btn-primary primary-button-style" runat="server" Text="Clear" OnClick="btnClear_Click" />
                     </div>
                 </div>
@@ -155,7 +155,8 @@
                                                 <%# ((string)Eval("Diagnosis")).Length < 20? Eval("Diagnosis") :((string)Eval("Diagnosis")).Substring(0,20) + "..."%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:BoundField DataField="ExamineDate" HeaderText="Examine Date" />
+                                        <%--<asp:BoundField DataField="ExamineDate" HeaderText="Examine Date" />--%>
+                                        <asp:BoundField DataField="ExamineDate" HeaderText="Examine Date" DataFormatString="{0:MM/dd/yyyy}" />
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("ID") %>' OnClick="gridViewExaminationData_onClick">View</asp:LinkButton>
