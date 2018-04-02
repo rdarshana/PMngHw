@@ -240,13 +240,12 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            <%--var dp = $('#<%=txtStartDate.ClientID%>');
-            dp.datepicker({--%>
             $('.input-group.date').datepicker({
                 changeMonth: true,
                 changeYear: true,
                 format: "dd/mm/yyyy",
-                language: "tr"
+                language: "tr",
+                endDate: '+0d'
             }).on('changeDate', function (ev) {
                 $(this).blur();
                 $(this).datepicker('hide');
