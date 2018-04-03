@@ -17,8 +17,8 @@ namespace PMngOpeWrd
             }
             else
             {
-                Session.Clear();
-                Response.Redirect("UserLogin.aspx");
+                //Session.Clear();
+                //Response.Redirect("UserLogin.aspx");
             }
          
         }
