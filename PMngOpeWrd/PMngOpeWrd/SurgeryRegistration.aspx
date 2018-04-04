@@ -125,7 +125,7 @@
                             <asp:DropDownList ID="ddlTheators" Width="229px" CssClass="form-control" runat="server"></asp:DropDownList>
                         </div>
                         <div class="col-md-2">
-                            <asp:Button ID="btnSearchTheator" CssClass="form-control theater-search" runat="server" Text="Search Availability" />
+                            <asp:Button ID="btnSearchTheator" CssClass="form-control theater-search btn btn-default" runat="server" Text="Search Availability" />
                         </div>
                     </div>
 
