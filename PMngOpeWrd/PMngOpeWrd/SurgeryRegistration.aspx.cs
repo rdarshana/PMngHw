@@ -4,17 +4,403 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using PMngOpeWrd.View;
+using PMngOpeWrd.Presenter;
+using System.Data;
 
 namespace PMngOpeWrd
 {
-    public partial class SurgeryRegistration : System.Web.UI.Page
+    public partial class SurgeryRegistration : System.Web.UI.Page, ISurgeryView
     {
+        SurgeryPresenter presenter;
+
+        public string patientId
+        {
+            get
+            {
+                return txtPatientId.Text;
+            }
+
+            set
+            {
+                txtPatientId.Text = value;
+            }
+        }
+
+        public string firstName
+        {
+            get
+            {
+                return txtFirstName.Text;
+            }
+
+            set
+            {
+                txtFirstName.Text = value;
+            }
+        }
+
+        public string lastName
+        {
+            get
+            {
+                return txtLastName.Text;
+            }
+
+            set
+            {
+                txtLastName.Text = value;
+            }
+        }
+
+        public string NIC
+        {
+            get
+            {
+                return txtNIC.Text;
+            }
+
+            set
+            {
+                txtNIC.Text = value;
+            }
+        }
+
+        public string isNewSurgery
+        {
+            get
+            {
+                return hdnIsNewSurgery.Value;
+            }
+
+            set
+            {
+                hdnIsNewSurgery.Value = value;
+            }
+        }
+
+        public string transactionStatusSuccess
+        {
+            set
+            {
+                lblSuccess.Text = value;
+            }
+        }
+
+        public string transactionStatusFail
+        {
+            set
+            {
+                lblFail.Text = value;
+            }
+        }
+
+        public int surgeryId
+        {
+            get
+            {
+                int id;
+                if (hdnSurgeryId.Value == null || hdnSurgeryId.Value == "")
+                {
+                    id = 0;
+                }
+                else
+                {
+                    id = Convert.ToInt32(hdnSurgeryId.Value);
+                }
+
+                return id;
+            }
+
+            set
+            {
+                hdnSurgeryId.Value = value.ToString();
+            }
+        }
+
+        //public string noRecordFound
+        //{
+        //    set
+        //    {
+        //        grdDisplayMessage.
+        //    }
+        //}
+
+        public string doctor
+        {
+            get
+            {
+                return ddlDoctors.SelectedValue;
+            }
+
+            set
+            {
+                string wardOwner = value.Trim();
+                ddlDoctors.ClearSelection();
+                ListItem selectedOwner = ddlDoctors.Items.FindByValue(wardOwner);
+                if (selectedOwner != null)
+                {
+                    selectedOwner.Selected = true;
+                }
+            }
+        }
+
+        public string wardNo
+        {
+            get
+            {
+                return ddlWardNo.SelectedValue;
+            }
+
+            set
+            {
+                string wardOwner = value.Trim();
+                ddlWardNo.ClearSelection();
+                ListItem selectedOwner = ddlWardNo.Items.FindByValue(wardOwner);
+                if (selectedOwner != null)
+                {
+                    selectedOwner.Selected = true;
+                }
+            }
+        }
+
+        public DataTable wardDoctors
+        {
+            set
+            {
+                ddlDoctors.DataSource = value;
+                ddlDoctors.DataTextField = "Owner";
+                ddlDoctors.DataValueField = "EmployeeId";
+                ddlDoctors.DataBind();
+            }
+        }
+
+        public DataTable Wards
+        {
+            set
+            {
+                ddlWardNo.DataSource = value;
+                ddlWardNo.DataTextField = "WardNo";
+                ddlWardNo.DataValueField = "WardNo";
+                ddlWardNo.DataBind();
+            }
+        }
+
+        public string admissionDate
+        {
+            get
+            {
+                return txtAdmissionDate.Text;
+            }
+
+            set
+            {
+                txtAdmissionDate.Text = value;
+            }
+        }
+
+        public string surgeryDescription
+        {
+            get
+            {
+                return txtSurgeonDescription.Text;
+            }
+
+            set
+            {
+                txtSurgeonDescription.Text = value;
+            }
+        }
+
+        public string surgeryDate
+        {
+            get
+            {
+                return txtSurgeryDate.Text;
+            }
+
+            set
+            {
+                txtSurgeryDate.Text = value;
+            }
+        }
+
+        public string theatorId
+        {
+            get
+            {
+                return ddlTheators.SelectedValue;
+            }
+
+            set
+            {
+                string theator = value.Trim();
+                ddlDoctors.ClearSelection();
+                ListItem selectedTheator = ddlTheators.Items.FindByValue(theator);
+                if (selectedTheator != null)
+                {
+                    selectedTheator.Selected = true;
+                }
+            }
+        }
+
+        public DataTable availableTheators
+        {
+            set
+            {
+                if (value != null)
+                {
+                    gridViewTheators.DataSource = value;
+                    gridViewTheators.DataBind();
+
+                    if (value.Rows.Count > 0)
+                    {
+                        grdDisplayMessage.Style["display"] = "none";
+                    }
+                    else
+                    {
+                        grdDisplayMessage.Style["display"] = "block";
+                    }
+                }
+            }
+        }
+
+        public DataTable theators
+        {
+            set
+            {
+                ddlTheators.DataSource = value;
+                ddlTheators.DataTextField = "TheatorId";
+                ddlTheators.DataValueField = "TheatorName";
+                ddlTheators.DataBind();
+            }
+        }
+
+        public string surgeonApproval
+        {
+            get
+            {
+                return ddlSurgeonApprove.SelectedValue;
+            }
+
+            set
+            {
+                string surgeonApprove = value.Trim();
+                ddlSurgeonApprove.ClearSelection();
+                ListItem selectedApprove = ddlSurgeonApprove.Items.FindByValue(surgeonApprove);
+                if (selectedApprove != null)
+                {
+                    selectedApprove.Selected = true;
+                }
+            }
+        }
+
+        public string surgeonDescription
+        {
+            get
+            {
+                return txtSurgeonDescription.Text;
+            }
+
+            set
+            {
+                txtSurgeonDescription.Text = value;
+            }
+        }
+
+        public string anesthetistApproval
+        {
+            get
+            {
+                return ddlSurgeonApprove.SelectedValue;
+            }
+
+            set
+            {
+                string surgeonApprove = value.Trim();
+                ddlSurgeonApprove.ClearSelection();
+                ListItem selectedApprove = ddlSurgeonApprove.Items.FindByValue(surgeonApprove);
+                if (selectedApprove != null)
+                {
+                    selectedApprove.Selected = true;
+                }
+            }
+        }
+
+        public string anesthetistProblem
+        {
+            get
+            {
+                return txtAnestheticsProblems.Text;
+            }
+
+            set
+            {
+                txtAnestheticsProblems.Text = value;
+            }
+        }
+
+        public string modeOfAnesthesia
+        {
+            get
+            {
+                return txtModeOfAnesthesia.Text;
+            }
+
+            set
+            {
+                txtModeOfAnesthesia.Text = value;
+            }
+        }
+
+        public string directorApproval
+        {
+            get
+            {
+                return ddlDirectorApprove.SelectedValue;
+            }
+
+            set
+            {
+                string directorApprove = value.Trim();
+                ddlSurgeonApprove.ClearSelection();
+                ListItem selectedApprove = ddlSurgeonApprove.Items.FindByValue(directorApprove);
+                if (selectedApprove != null)
+                {
+                    selectedApprove.Selected = true;
+                }
+            }
+        }
+
+        public string directorDescription
+        {
+            get
+            {
+                return txtDirectorDescription.Text;
+            }
+
+            set
+            {
+                txtDirectorDescription.Text = value;
+            }
+        }
+
+        public SurgeryRegistration()
+        {
+            presenter = new SurgeryPresenter(this);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //isNewExamine = "true";
+                isNewSurgery = "true";
+                presenter.LoadWardOwners();
+                presenter.LoadWardsByDoctor();
             }
+           
+
+
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -54,6 +440,11 @@ namespace PMngOpeWrd
         {
             //presenter.GetPatientById();
             //presenter.ClearHistoryInformation();
+        }
+
+        protected void SelectedDocorChanged(object sender, EventArgs e)
+        {
+            presenter.LoadWardsByDoctor();
         }
     }
 }

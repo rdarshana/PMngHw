@@ -50,7 +50,7 @@
                 <div class="col-md-11">
                     <asp:GridView ID="gridViewEmployeeData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewEmployeeData_PageIndexChanging">
                         <Columns>
-                            <asp:BoundField DataField="EmployeeId" HeaderText="Patient Id" />
+                            <asp:BoundField DataField="EmployeeId" HeaderText="Employee Id" />
                             <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                             <asp:BoundField DataField="LastName" HeaderText="Last Name" />
                             <asp:BoundField DataField="NIC" HeaderText="NIC" />

@@ -27,22 +27,22 @@
                     <Items>
                         <asp:MenuItem Text="Home" Value="home" NavigateUrl="~/Home.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Patient" Value="patientregistration" NavigateUrl="#">
-                            <asp:MenuItem Text="Registeration" Value="registration" NavigateUrl="~/PatientRegistration.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Registration" Value="registration" NavigateUrl="~/PatientRegistration.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Inquiry" Value="inquiry" NavigateUrl="~/PatientInquiry.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Admition" Value="admition" NavigateUrl="#"></asp:MenuItem>
+                            <asp:MenuItem Text="Admission" Value="admition" NavigateUrl="#"></asp:MenuItem>
                             <asp:MenuItem Text="Examination" Value="examination" NavigateUrl="~/PatientExamination.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="History" Value="history" NavigateUrl="#"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Employee" Value="employee" NavigateUrl="#">
-                            <asp:MenuItem Text="Registeration" Value="employeeRegistration" NavigateUrl="~/EmployeeRegistration.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Registration" Value="employeeRegistration" NavigateUrl="~/EmployeeRegistration.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Inquiry" Value="employeeInquiry" NavigateUrl="~/EmployeeInquiry.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Surgery" Value="surgery" NavigateUrl="#">
-                            <asp:MenuItem Text="Registeration" Value="surgeryRegistration" NavigateUrl="~/SurgeryRegistration.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Registration" Value="surgeryRegistration" NavigateUrl="~/SurgeryRegistration.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="List" Value="surgeryList" NavigateUrl="#"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Registration" Value="registration" NavigateUrl="#">
-                            <asp:MenuItem Text="Theators" Value="theators" NavigateUrl="~/TheatorRegistration.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Theaters" Value="theators" NavigateUrl="~/TheatorRegistration.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Ward" Value="ward" NavigateUrl="~/WardRegistration.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Approval" Value="approval" NavigateUrl="#">

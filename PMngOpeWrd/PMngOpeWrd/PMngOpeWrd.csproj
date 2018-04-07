@@ -256,6 +256,7 @@
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\PatientExaminationModel.cs" />
     <Compile Include="Model\PatientRegistrationModel.cs" />
+    <Compile Include="Model\SurgeryModel.cs" />
     <Compile Include="Model\TheatorModel.cs" />
     <Compile Include="Model\WardModel.cs" />
     <Compile Include="PatientExamination.aspx.cs">
@@ -292,6 +293,7 @@
     <Compile Include="Presenter\PatientExaminationPresenter.cs" />
     <Compile Include="Presenter\PatientInquiryPresente.cs" />
     <Compile Include="Presenter\PatientRegistrationPresenter.cs" />
+    <Compile Include="Presenter\SurgeryPresenter.cs" />
     <Compile Include="Presenter\TheatorRegistrationPresenter.cs" />
     <Compile Include="Presenter\WardRegistrationPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -329,6 +331,7 @@
     <Compile Include="View\IPatientExaminationView.cs" />
     <Compile Include="View\IPatientInquiryView.cs" />
     <Compile Include="View\IPatientRegistrationView.cs" />
+    <Compile Include="View\ISurgeryView.cs" />
     <Compile Include="View\ITheatorRegistrationView.cs" />
     <Compile Include="View\IWardRegistrationView.cs" />
     <Compile Include="WardRegistration.aspx.cs">

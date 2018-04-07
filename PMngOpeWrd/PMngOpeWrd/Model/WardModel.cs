@@ -91,7 +91,7 @@ namespace PMngOpeWrd.Model
                 sqlCon.Open();
             }
 
-            SqlDataAdapter sqlDa = new SqlDataAdapter("GetAllWardOwners", sqlCon);
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetAllDoctors", sqlCon);
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dataTable = new DataTable();
             sqlDa.Fill(dataTable);

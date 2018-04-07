@@ -38,8 +38,8 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="form-horizontal">
-                    <asp:HiddenField ID="hdnIsNewExamine" runat="server" />
-                    <asp:HiddenField ID="hdnExamineId" runat="server" />
+                    <asp:HiddenField ID="hdnIsNewSurgery" runat="server" />
+                    <asp:HiddenField ID="hdnSurgeryId" runat="server" />
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
@@ -73,7 +73,7 @@
                             <asp:Label ID="lblDoctor" CssClass="control-label" runat="server" for="ddlDoctors" Text="Doctor"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:DropDownList ID="ddlDoctors" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlDoctors" CssClass="form-control" AutoPostBack = "true" runat="server" OnSelectedIndexChanged="SelectedDocorChanged"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
@@ -119,7 +119,7 @@
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblTheators" CssClass="control-label" runat="server" for="ddlTheators" Text="Thetors"></asp:Label>
+                            <asp:Label ID="lblTheators" CssClass="control-label" runat="server" for="ddlTheators" Text="Theators"></asp:Label>
                         </div>
                         <div class="col-md-5 col-xm-12">
                             <asp:DropDownList ID="ddlTheators" Width="229px" CssClass="form-control" runat="server"></asp:DropDownList>
@@ -134,7 +134,7 @@
                             <div class="row gridview-margin">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-11">
-                                    <asp:GridView ID="gridViewPatientRegistration" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewSurgeryRegistration_PageIndexChanging">
+                                    <asp:GridView ID="gridViewTheators" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewSurgeryRegistration_PageIndexChanging">
                                         <Columns>
                                             <asp:BoundField DataField="SurgeryID" HeaderText="Surgery ID" />
                                             <asp:BoundField DataField="SurgeryDate" HeaderText="Surgery Date" />

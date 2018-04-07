@@ -49,22 +49,22 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// hdnIsNewExamine control.
+        /// hdnIsNewSurgery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnIsNewExamine;
+        protected global::System.Web.UI.WebControls.HiddenField hdnIsNewSurgery;
         
         /// <summary>
-        /// hdnExamineId control.
+        /// hdnSurgeryId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnExamineId;
+        protected global::System.Web.UI.WebControls.HiddenField hdnSurgeryId;
         
         /// <summary>
         /// lblNIC control.
@@ -247,13 +247,13 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.Button btnSearchTheator;
         
         /// <summary>
-        /// gridViewPatientRegistration control.
+        /// gridViewTheators control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewPatientRegistration;
+        protected global::System.Web.UI.WebControls.GridView gridViewTheators;
         
         /// <summary>
         /// grdDisplayMessage control.

@@ -17,7 +17,7 @@ namespace PMngOpeWrd
             }
             else
             {
-                //Session.Clear();
+               //Session.Clear();
                 //Response.Redirect("UserLogin.aspx");
             }
          
@@ -25,8 +25,8 @@ namespace PMngOpeWrd
 
         protected void txtLogout_Click(object sender, EventArgs e)
         {
-            Session.Clear();
-            Response.Redirect("UserLogin.aspx");
+            //Session.Clear();
+            //Response.Redirect("UserLogin.aspx");
         }
     }
 }
