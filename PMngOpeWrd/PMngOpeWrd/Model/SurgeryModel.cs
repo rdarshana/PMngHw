@@ -42,5 +42,20 @@ namespace PMngOpeWrd.Model
             sqlCon.Close();
             return dataTable;
         }
+
+        public DataTable LoadAllTheaters()
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetAllTheaters", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
+        }
     }
 }

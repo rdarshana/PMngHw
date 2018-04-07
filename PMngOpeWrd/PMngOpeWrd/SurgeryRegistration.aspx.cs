@@ -203,12 +203,12 @@ namespace PMngOpeWrd
         {
             get
             {
-                return txtSurgeonDescription.Text;
+                return txtSurgeryDescription.Text;
             }
 
             set
             {
-                txtSurgeonDescription.Text = value;
+                txtSurgeryDescription.Text = value;
             }
         }
 
@@ -271,7 +271,7 @@ namespace PMngOpeWrd
             {
                 ddlTheators.DataSource = value;
                 ddlTheators.DataTextField = "TheatorId";
-                ddlTheators.DataValueField = "TheatorName";
+                ddlTheators.DataValueField = "TheatorId";
                 ddlTheators.DataBind();
             }
         }
@@ -385,6 +385,22 @@ namespace PMngOpeWrd
             }
         }
 
+        public string noRecordFould
+        {
+            set
+            {
+                lblNoPatientRecord.Text = value;
+                if (lblNoPatientRecord.Text.Trim() == null || lblNoPatientRecord.Text.Trim() == "")
+                {
+                    btnSubmit.Enabled = true;
+                }
+                else
+                {
+                    btnSubmit.Enabled = false;
+                }
+            }
+        }
+
         public SurgeryRegistration()
         {
             presenter = new SurgeryPresenter(this);
@@ -397,6 +413,7 @@ namespace PMngOpeWrd
                 isNewSurgery = "true";
                 presenter.LoadWardOwners();
                 presenter.LoadWardsByDoctor();
+                presenter.LoadTheaters();
             }
            
 
@@ -412,11 +429,10 @@ namespace PMngOpeWrd
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            //presenter.ClearPatientData();
-            //presenter.ClearSearchPatientId();
-            //btnSubmit.Text = "Add";
-            //btnSubmit.Enabled = false;
-            //this.patientData = null;
+            presenter.ClearHeaderInformation();
+            presenter.ClearRegistrationInformation();
+            btnSubmit.Text = "Register";
+            btnSubmit.Enabled = false;
 
         }
 
@@ -438,7 +454,7 @@ namespace PMngOpeWrd
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            //presenter.GetPatientById();
+            presenter.GetPatientById();
             //presenter.ClearHistoryInformation();
         }
 

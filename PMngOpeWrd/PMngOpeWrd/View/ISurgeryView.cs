@@ -25,6 +25,7 @@ namespace PMngOpeWrd.View
         string surgeryDate { get; set; }
         string theatorId { get; set; }
         DataTable theators { set; }
+        string noRecordFould { set; }
         string surgeonApproval { get; set; }
         string surgeonDescription { get; set; }
         string anesthetistApproval { get; set; }
