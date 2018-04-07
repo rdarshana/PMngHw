@@ -51,7 +51,7 @@
 }
 
 .theater-search {
-    width: 135px;
+    width: 135px !important;
     margin-left: -53px;
 }
 

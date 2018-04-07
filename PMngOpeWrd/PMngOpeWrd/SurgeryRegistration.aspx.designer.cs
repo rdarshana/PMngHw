@@ -175,13 +175,13 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.TextBox txtAdmissionDate;
         
         /// <summary>
-        /// rfvAdmissionDate control.
+        /// reqAdmissionDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAdmissionDate;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqAdmissionDate;
         
         /// <summary>
         /// lblSurgeryDescription control.
@@ -202,22 +202,58 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.TextBox txtSurgeryDescription;
         
         /// <summary>
-        /// lblDiagnosis control.
+        /// lblFromSurgery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDiagnosis;
+        protected global::System.Web.UI.WebControls.Label lblFromSurgery;
         
         /// <summary>
-        /// txtSurgeryDate control.
+        /// txtSurgeryDateFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSurgeryDate;
+        protected global::System.Web.UI.WebControls.TextBox txtSurgeryDateFrom;
+        
+        /// <summary>
+        /// reqDateFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqDateFrom;
+        
+        /// <summary>
+        /// lblSurgeryTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSurgeryTo;
+        
+        /// <summary>
+        /// txtSurgeryDateTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSurgeryDateTo;
+        
+        /// <summary>
+        /// reqToDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqToDate;
         
         /// <summary>
         /// lblTheators control.

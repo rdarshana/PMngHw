@@ -22,7 +22,7 @@ namespace PMngOpeWrd.View
         string wardNo { get; set; }
         string admissionDate { get; set; }
         string surgeryDescription { get; set; }
-        string surgeryDate { get; set; }
+        string surgeryDateFrom { get; set; }
         string theatorId { get; set; }
         DataTable theators { set; }
         string noRecordFould { set; }

@@ -212,16 +212,16 @@ namespace PMngOpeWrd
             }
         }
 
-        public string surgeryDate
+        public string surgeryDateFrom
         {
             get
             {
-                return txtSurgeryDate.Text;
+                return txtSurgeryDateFrom.Text;
             }
 
             set
             {
-                txtSurgeryDate.Text = value;
+                txtSurgeryDateFrom.Text = value;
             }
         }
 

@@ -90,7 +90,7 @@ namespace PMngOpeWrd.Presenter
             surgeryView.isNewSurgery = "true";
             surgeryView.admissionDate = string.Empty;
             surgeryView.surgeryDescription = string.Empty;
-            surgeryView.surgeryDate = string.Empty;
+            surgeryView.surgeryDateFrom = string.Empty;
 
         }
     }

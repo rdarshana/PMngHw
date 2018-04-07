@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/surgery-registration.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-datetimepicker.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="formleftnav" runat="server">
     <div class="surgery-formleftnav"></div>
@@ -73,7 +76,7 @@
                             <asp:Label ID="lblDoctor" CssClass="control-label" runat="server" for="ddlDoctors" Text="Doctor"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:DropDownList ID="ddlDoctors" CssClass="form-control" AutoPostBack = "true" runat="server" OnSelectedIndexChanged="SelectedDocorChanged"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlDoctors" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="SelectedDocorChanged"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
@@ -85,6 +88,7 @@
                             <asp:DropDownList ID="ddlWardNo" CssClass="form-control" runat="server"></asp:DropDownList>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
@@ -92,10 +96,16 @@
                             <span class="required-field-star">*</span>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtAdmissionDate" CssClass="form-control" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvAdmissionDate" runat="server" ErrorMessage="This field is required" ControlToValidate="txtAdmissionDate" ValidationGroup="patientAdmission" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <div class="input-group date" id='admissionDate'>
+                                <asp:TextBox ID="txtAdmissionDate" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" MaxLength="10" runat="server"></asp:TextBox>
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </div>
+                                 <asp:RequiredFieldValidator ID="reqAdmissionDate" runat="server" ErrorMessage="This field is required" ControlToValidate="txtAdmissionDate" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
@@ -109,11 +119,33 @@
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblDiagnosis" CssClass="control-label" runat="server" for="txtSurgeryDate" Text="Surgery Date"></asp:Label>
+                            <asp:Label ID="lblFromSurgery" CssClass="control-label" runat="server" for="txtSurgeryDateFrom" Text="Surgery Start At"></asp:Label>
                             <span class="required-field-star">*</span>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtSurgeryDate" CssClass="form-control" MaxLength="10" runat="server"></asp:TextBox>
+                            <div class="input-group date" id='datetimepickerFrom'>
+                                <asp:TextBox ID="txtSurgeryDateFrom" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" MaxLength="10" runat="server"></asp:TextBox>
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </div>
+                                 <asp:RequiredFieldValidator ID="reqDateFrom" runat="server" ErrorMessage="This field is required" ControlToValidate="txtSurgeryDateFrom" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4 col-xm-12">
+                            <asp:Label ID="lblSurgeryTo" CssClass="control-label" runat="server" for="txtSurgeryDateTo" Text="Surgery End At"></asp:Label>
+                            <span class="required-field-star">*</span>
+                        </div>
+                        <div class="col-md-7 col-xm-12">
+                            <div class="input-group date" id='datetimepickerTo'>
+                                <asp:TextBox ID="txtSurgeryDateTo" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" MaxLength="10" runat="server"></asp:TextBox>
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </div>
+                                <asp:RequiredFieldValidator ID="reqToDate" runat="server" ErrorMessage="This field is required" ControlToValidate="txtSurgeryDateTo" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
@@ -169,7 +201,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-4"></div>
                     <div class="col-md-7 button-group">
-                        <asp:Button ID="btnSubmit" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Register" OnClick="btnSubmit_Click" ValidationGroup="patientExamination" />
+                        <asp:Button ID="btnSubmit" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Register" OnClick="btnSubmit_Click" ValidationGroup="surgeryRegistration" />
                         <asp:Button ID="btnClear" CssClass="btn btn-primary primary-button-style" runat="server" Text="Clear" OnClick="btnClear_Click" />
                     </div>
                 </div>
@@ -186,8 +218,8 @@
 
             <div class="col-md-3"></div>
         </div>
-        
-         <div class="row">
+
+        <div class="row">
             <div class="col-md-9">
                 <div class="form-horizontal box box-primary">
                     <div class="form-group approval-box-header">
@@ -305,6 +337,47 @@
         </div>
 
     </div>
+
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/moment.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(function () {
+                $('#datetimepickerFrom').datetimepicker({
+                    format: 'YYYY/MM/DD hh:mm A',
+                    minDate: moment()
+                });
+            });
+
+            $(function () {
+                $('#datetimepickerTo').datetimepicker({
+                    format: 'YYYY/MM/DD hh:mm A',
+                    minDate: moment()
+                });
+            });
+
+            $("#datetimepickerFrom").on("dp.change", function (e) {
+                $('#datetimepickerTo').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepickerTo").on("dp.change", function (e) {
+                $('#datetimepickerFrom').data("DateTimePicker").maxDate(e.date);
+            });
+
+            $(function () {
+                $('#admissionDate').datetimepicker({
+                    format: 'YYYY/MM/DD',
+                    minDate: moment()
+                });
+            });
+
+            
+        });
+    </script>
+    
+
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="formrightcolumn" runat="server">
     <div class="surgery-formright"></div>
