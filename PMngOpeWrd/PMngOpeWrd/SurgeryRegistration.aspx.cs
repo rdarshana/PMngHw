@@ -454,7 +454,7 @@ namespace PMngOpeWrd
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            presenter.GetPatientById();
+             presenter.GetPatientById();
             //presenter.ClearHistoryInformation();
         }
 
