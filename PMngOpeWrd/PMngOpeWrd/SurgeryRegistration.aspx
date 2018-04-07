@@ -359,6 +359,19 @@
                 });
             });
 
+            $(function () {
+                $('#admissionDate').datetimepicker({
+                    defaultDate: moment(),
+                    format: 'YYYY/MM/DD',
+                    minDate: moment()
+                });
+            });
+
+            $("#admissionDate").on("dp.change", function (e) {
+                //$('#datetimepickerFrom').data("DateTimePicker").minDate(e.date);
+                //$('#datetimepickerTo').data("DateTimePicker").minDate(e.date);
+            });
+
             $("#datetimepickerFrom").on("dp.change", function (e) {
                 $('#datetimepickerTo').data("DateTimePicker").minDate(e.date);
             });
@@ -366,12 +379,7 @@
                 $('#datetimepickerFrom').data("DateTimePicker").maxDate(e.date);
             });
 
-            $(function () {
-                $('#admissionDate').datetimepicker({
-                    format: 'YYYY/MM/DD',
-                    minDate: moment()
-                });
-            });
+
 
             
         });
