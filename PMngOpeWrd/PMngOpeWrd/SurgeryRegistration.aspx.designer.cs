@@ -40,6 +40,15 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.Label lblNoPatientRecord;
         
         /// <summary>
+        /// reqPatientId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqPatientId;
+        
+        /// <summary>
         /// btnSearch control.
         /// </summary>
         /// <remarks>

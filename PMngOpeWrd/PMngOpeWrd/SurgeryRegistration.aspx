@@ -23,10 +23,12 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-3 examination-searchfield">
                     <asp:Label ID="lblpatietId" CssClass="control-label" runat="server" for="txtPatientId" Text="Patient Id"></asp:Label>
+                    <span class="required-field-star">*</span>
                 </div>
                 <div class="col-md-5 examination-searchbox">
                     <asp:TextBox ID="txtPatientId" CssClass="form-control" runat="server"></asp:TextBox>
                     <asp:Label ID="lblNoPatientRecord" runat="server" ForeColor="Red"></asp:Label><br />
+                    <asp:RequiredFieldValidator ID="reqPatientId" runat="server" ErrorMessage="This field is required" ControlToValidate="txtPatientId" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-md-1 examination-searchbutton">
                     <span class="input-group-btn">
