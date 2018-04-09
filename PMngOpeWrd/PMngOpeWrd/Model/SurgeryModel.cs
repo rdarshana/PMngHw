@@ -57,5 +57,37 @@ namespace PMngOpeWrd.Model
             sqlCon.Close();
             return dataTable;
         }
+
+        public bool RegisterSurgery(dynamic surgery)
+        {
+            try
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+
+                SqlCommand sqlCmd = new SqlCommand("SurgeryRegistration", sqlCon);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue("@SurgeryId", surgery.SurgeryId);
+                sqlCmd.Parameters.AddWithValue("@DoctorId", surgery.DoctorId);
+                sqlCmd.Parameters.AddWithValue("@AdmissionDate", Convert.ToDateTime(surgery.AdmissionDate));
+                sqlCmd.Parameters.AddWithValue("@Description", surgery.Description);
+                sqlCmd.Parameters.AddWithValue("@SurgeryStart", Convert.ToDateTime(surgery.SurgeryStart));
+                sqlCmd.Parameters.AddWithValue("@SurgeryEnd", Convert.ToDateTime(surgery.SurgeryEnd));
+                sqlCmd.Parameters.AddWithValue("@TheatorId", surgery.TheatorId);
+                sqlCmd.Parameters.AddWithValue("@PatientId", surgery.PatientId);
+                sqlCmd.Parameters.AddWithValue("@IsNewSurgery", true);
+                
+                sqlCmd.ExecuteNonQuery();
+                sqlCon.Close();
+
+                return true;
+            }
+            catch(Exception exception)
+            {
+                throw exception;
+            }
+        }
     }
 }

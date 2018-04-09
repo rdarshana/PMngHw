@@ -85,7 +85,7 @@ namespace PMngOpeWrd.Model
             {
                 sqlCon.Open();
             }
-
+          
             SqlCommand sqlCmd = new SqlCommand("PatientRegistration", sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.AddWithValue("@PatientId", patient.patientId);

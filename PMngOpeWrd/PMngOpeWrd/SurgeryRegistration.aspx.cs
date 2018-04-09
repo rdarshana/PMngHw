@@ -225,6 +225,20 @@ namespace PMngOpeWrd
             }
         }
 
+        public string surgeryDateTo
+        {
+            get
+            {
+                return txtSurgeryDateTo.Text;
+            }
+
+            set
+            {
+                txtSurgeryDateTo.Text = value;
+            }
+        }
+
+
         public string theatorId
         {
             get
@@ -422,9 +436,9 @@ namespace PMngOpeWrd
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            //presenter.AddPatientexamination();
+            presenter.RegisterSurgery();
             //presenter.GetPatientHistoryInformation();
-            //btnSubmit.Text = "Add";
+            btnSubmit.Text = "Register";
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

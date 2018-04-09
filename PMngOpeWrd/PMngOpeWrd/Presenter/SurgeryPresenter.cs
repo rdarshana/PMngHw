@@ -77,6 +77,7 @@ namespace PMngOpeWrd.Presenter
 
         internal void ClearHeaderInformation()
         {
+            surgeryView.patientId = string.Empty;
             surgeryView.NIC = string.Empty;
             surgeryView.firstName = string.Empty;
             surgeryView.lastName = string.Empty;
@@ -91,7 +92,53 @@ namespace PMngOpeWrd.Presenter
             surgeryView.admissionDate = string.Empty;
             surgeryView.surgeryDescription = string.Empty;
             surgeryView.surgeryDateFrom = string.Empty;
+            surgeryView.surgeryDateFrom = string.Empty;
+            surgeryView.surgeryDateTo = string.Empty;
 
+        }
+
+        internal void RegisterSurgery()
+        {
+            dynamic surgery = new ExpandoObject();
+            bool transactionStatus = false;
+            surgery.SurgeryId = surgeryView.surgeryId;
+            surgery.DoctorId = surgeryView.doctor;
+            surgery.AdmissionDate = surgeryView.admissionDate;
+            surgery.Description = surgeryView.surgeryDescription;
+            surgery.SurgeryStart = surgeryView.surgeryDateFrom;
+            surgery.SurgeryEnd = surgeryView.surgeryDateTo;
+            surgery.TheatorId = surgeryView.theatorId;
+            surgery.PatientId = surgeryView.patientId;
+            surgery.IsNewSurgery = surgeryView.isNewSurgery;
+
+            transactionStatus = surgeryModel.RegisterSurgery(surgery);
+
+            if (transactionStatus)
+            {
+                if (surgeryView.isNewSurgery == "true")
+                {
+                    surgeryView.transactionStatusSuccess = "Surgery has been Registered Successfully";
+                }
+                else
+                {
+                    surgeryView.transactionStatusSuccess = "Surgery has been Updated Successfully";
+                }
+            }
+            else
+            {
+                if (surgeryView.isNewSurgery == "true")
+                {
+                    surgeryView.transactionStatusFail = "Surgery Registration has been Failed";
+                }
+                else
+                {
+                    surgeryView.transactionStatusFail = "Surgery Update has been Failed";
+                }
+
+            }
+
+
+            ClearRegistrationInformation();
         }
     }
 }

@@ -285,7 +285,7 @@
                             <asp:Label ID="lblModeOfAnesthesia" CssClass="control-label" runat="server" for="txtModeOfAnesthesia" Text="Mode Of Anesthesia"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtModeOfAnesthesia" CssClass="form-control" runat="server" TextMode="SingleLine"></asp:TextBox>
+                            <asp:TextBox ID="txtModeOfAnesthesia" CssClass="form-control" MaxLength="100" runat="server" TextMode="SingleLine"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">

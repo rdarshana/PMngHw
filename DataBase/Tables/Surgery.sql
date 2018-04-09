@@ -1,0 +1,23 @@
+CREATE TABLE [dbo].[Surgery] (
+    [SurgeryId]			  INT IDENTITY(1,1),
+	[AdmissionDate]		  DATE NOT NULL,
+	[Description]		  VARCHAR (200) NOT NULL,
+	[SurgeryStart]		  DATETIME NOT NULL,
+	[SurgeryEnd]		  DATETIME NOT NULL,
+	[Status]			  VARCHAR (10)   NOT NULL,
+	[PostOperationMng]    VARCHAR(500) NULL,
+	[RegistrationDate]	  DATE NOT NULL,
+	[TheatorId]			  VARCHAR(5) NOT NULL,
+	[DoctorId]			  VARCHAR(20) NOT NULL,
+	[PatientId]			  VARCHAR(20) NOT NULL,
+	[SurgeonApproval]	  VARCHAR(3) NULL,
+	[SurgeonDescription]  VARCHAR(200) NULL,
+	[AnesthetistApproval] VARCHAR(3) NULL,
+	[AnesthetistProlems]  VARCHAR(200) NULL,
+	[ModeOfAnesthesia]    VARCHAR(100) NULL,
+	[DirectorApproval]    VARCHAR(3) NULL,
+	[DirectorDescription] VARCHAR(200) NULL,
+    PRIMARY KEY CLUSTERED ([SurgeryId]),
+	CONSTRAINT FK_SurgeryTheator FOREIGN KEY (TheatorId) REFERENCES [Theator](TheatorId),
+	CONSTRAINT FK_SurgeryEmployeer FOREIGN KEY (DoctorId) REFERENCES [Employee](EmployeeId)
+);
