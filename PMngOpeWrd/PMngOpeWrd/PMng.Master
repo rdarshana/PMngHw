@@ -20,7 +20,7 @@
     <form id="form1" runat="server">
         <div class="row master-header">
             <div class="col-md-12 inside-header grid-container grid-parent">
-                <img src="images/logo.png" />
+                <img src="images/logo.jpg" />
             </div>
             <div class="col-md-9 main-navigation">
                 <asp:Menu ID="Menu1" StaticDisplayLevels="1" Orientation="Horizontal" RenderingMode="List" runat="server" IncludeStyleBlock="false" StaticMenuStyle-CssClass="nav navbar-nav header-menu" DynamicMenuStyle-CssClass="dropdown-menu">
