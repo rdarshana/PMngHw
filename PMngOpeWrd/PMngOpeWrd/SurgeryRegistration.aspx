@@ -233,7 +233,11 @@
                             <asp:Label ID="Label2" CssClass="control-label" runat="server" for="ddlSurgeonApprove" Text="Approval"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:DropDownList ID="ddlSurgeonApprove" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlSurgeonApprove" Enabled="false" CssClass="form-control" runat="server">
+                                <asp:ListItem Value="approve">Approve</asp:ListItem>
+                                <asp:ListItem Value="pending" Selected="True">Pending</asp:ListItem>
+                                <asp:ListItem Value="reject">Reject</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
@@ -242,7 +246,7 @@
                             <asp:Label ID="lblSurgeonDescription" CssClass="control-label" runat="server" for="txtSurgeonDescription" Text="Description"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtSurgeonDescription" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                            <asp:TextBox ID="txtSurgeonDescription" Enabled="false" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
@@ -269,7 +273,11 @@
                             <asp:Label ID="lblApproved" CssClass="control-label" runat="server" for="ddlAnesthetistApprove" Text="Approval"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:DropDownList ID="ddlAnesthetistApprove" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlAnesthetistApprove" Enabled="false" CssClass="form-control" runat="server">
+                                <asp:ListItem Value="approve">Approve</asp:ListItem>
+                                <asp:ListItem Value="pending" Selected="True">Pending</asp:ListItem>
+                                <asp:ListItem Value="reject">Reject</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
@@ -278,7 +286,7 @@
                             <asp:Label ID="lblProblems" CssClass="control-label" runat="server" for="txtAnestheticsProblems" Text="Problems"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtAnestheticsProblems" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                            <asp:TextBox ID="txtAnestheticsProblems" Enabled="false" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
@@ -287,7 +295,7 @@
                             <asp:Label ID="lblModeOfAnesthesia" CssClass="control-label" runat="server" for="txtModeOfAnesthesia" Text="Mode Of Anesthesia"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtModeOfAnesthesia" CssClass="form-control" MaxLength="100" runat="server" TextMode="SingleLine"></asp:TextBox>
+                            <asp:TextBox ID="txtModeOfAnesthesia" Enabled="false" CssClass="form-control" MaxLength="100" runat="server" TextMode="SingleLine"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
@@ -314,7 +322,11 @@
                             <asp:Label ID="lblDirectorApproval" CssClass="control-label" runat="server" for="ddlDirectorApprove" Text="Approval"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:DropDownList ID="ddlDirectorApprove" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlDirectorApprove" Enabled="false" CssClass="form-control" runat="server">
+                                 <asp:ListItem Value="approve">Approve</asp:ListItem>
+                                <asp:ListItem Value="pending" Selected="True">Pending</asp:ListItem>
+                                <asp:ListItem Value="reject">Reject</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
@@ -323,7 +335,7 @@
                             <asp:Label ID="Label4" CssClass="control-label" runat="server" for="txtDirectorDescription" Text="Description"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtDirectorDescription" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                            <asp:TextBox ID="txtDirectorDescription" Enabled="false" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
