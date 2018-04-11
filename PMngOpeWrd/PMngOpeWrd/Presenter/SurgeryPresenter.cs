@@ -63,6 +63,7 @@ namespace PMngOpeWrd.Presenter
                 surgeryView.lastName = patientData.Rows[0]["LastName"].ToString();
                 surgeryView.NIC = patientData.Rows[0]["NIC"].ToString();
                 surgeryView.noRecordFould = null;
+                ClearRegistrationInformation();
             }
             else
             {
@@ -70,6 +71,7 @@ namespace PMngOpeWrd.Presenter
                 surgeryView.transactionStatusSuccess = string.Empty;
                 surgeryView.transactionStatusFail = string.Empty;
                 surgeryView.isNewSurgery = "true";
+                
                 ClearHeaderInformation();
                 ClearRegistrationInformation();
             }
@@ -94,56 +96,66 @@ namespace PMngOpeWrd.Presenter
             surgeryView.surgeryDateFrom = string.Empty;
             surgeryView.surgeryDateFrom = string.Empty;
             surgeryView.surgeryDateTo = string.Empty;
+            surgeryView.availableTheators = null;
+            surgeryView.transactionStatusFail = string.Empty;   
 
         }
 
         internal void RegisterSurgery()
         {
-            dynamic surgery = new ExpandoObject();
-            bool transactionStatus = false;
-            surgery.SurgeryId = surgeryView.surgeryId;
-            surgery.DoctorId = surgeryView.doctor;
-            surgery.AdmissionDate = surgeryView.admissionDate;
-            surgery.Description = surgeryView.surgeryDescription;
-            surgery.SurgeryStart = surgeryView.surgeryDateFrom;
-            surgery.SurgeryEnd = surgeryView.surgeryDateTo;
-            surgery.TheatorId = surgeryView.theatorId;
-            surgery.PatientId = surgeryView.patientId;
-            surgery.IsNewSurgery = surgeryView.isNewSurgery;
-
-            transactionStatus = surgeryModel.RegisterSurgery(surgery);
-
-            if (transactionStatus)
+            bool isValidTheaterSelection = surgeryModel.IsValidTheaterSelection(surgeryView.surgeryDateFrom, surgeryView.surgeryDateTo);
+            if (isValidTheaterSelection)
             {
-                if (surgeryView.isNewSurgery == "true")
+                dynamic surgery = new ExpandoObject();
+                bool transactionStatus = false;
+                surgery.SurgeryId = surgeryView.surgeryId;
+                surgery.DoctorId = surgeryView.doctor;
+                surgery.AdmissionDate = surgeryView.admissionDate;
+                surgery.Description = surgeryView.surgeryDescription;
+                surgery.SurgeryStart = surgeryView.surgeryDateFrom;
+                surgery.SurgeryEnd = surgeryView.surgeryDateTo;
+                surgery.TheatorId = surgeryView.theatorId;
+                surgery.PatientId = surgeryView.patientId;
+                surgery.IsNewSurgery = surgeryView.isNewSurgery;
+
+                transactionStatus = surgeryModel.RegisterSurgery(surgery);
+                surgeryView.transactionStatusFail = string.Empty;
+                if (transactionStatus)
                 {
-                    surgeryView.transactionStatusSuccess = "Surgery has been Registered Successfully";
+                    if (surgeryView.isNewSurgery == "true")
+                    {
+                        surgeryView.transactionStatusSuccess = "Surgery has been Registered Successfully";
+                    }
+                    else
+                    {
+                        surgeryView.transactionStatusSuccess = "Surgery has been Updated Successfully";
+                    }
                 }
                 else
                 {
-                    surgeryView.transactionStatusSuccess = "Surgery has been Updated Successfully";
+                    if (surgeryView.isNewSurgery == "true")
+                    {
+                        surgeryView.transactionStatusFail = "Surgery Registration has been Failed";
+                    }
+                    else
+                    {
+                        surgeryView.transactionStatusFail = "Surgery Update has been Failed";
+                    }
+
                 }
+                ClearRegistrationInformation();
             }
             else
             {
-                if (surgeryView.isNewSurgery == "true")
-                {
-                    surgeryView.transactionStatusFail = "Surgery Registration has been Failed";
-                }
-                else
-                {
-                    surgeryView.transactionStatusFail = "Surgery Update has been Failed";
-                }
-
+                surgeryView.transactionStatusFail = "Registration Failed. Theater is not available in selected time range";
             }
-
-
-            ClearRegistrationInformation();
         }
 
         internal void GetReservedTheators()
         {
+            surgeryView.availableTheators = null;
             surgeryView.availableTheators = surgeryModel.GetReservedTheators(surgeryView.surgeryDateFrom, surgeryView.surgeryDateTo);
         }
+
     }
 }

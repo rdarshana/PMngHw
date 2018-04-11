@@ -62,3 +62,8 @@
     margin-top: 15px;
     color: #172fe3;
 }
+
+.disable-control {
+    pointer-events: none;
+    background-color:#dddddd;
+}

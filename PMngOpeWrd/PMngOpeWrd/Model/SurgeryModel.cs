@@ -78,13 +78,13 @@ namespace PMngOpeWrd.Model
                 sqlCmd.Parameters.AddWithValue("@TheatorId", surgery.TheatorId);
                 sqlCmd.Parameters.AddWithValue("@PatientId", surgery.PatientId);
                 sqlCmd.Parameters.AddWithValue("@IsNewSurgery", true);
-                
+
                 sqlCmd.ExecuteNonQuery();
                 sqlCon.Close();
 
                 return true;
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 throw exception;
             }
@@ -108,6 +108,33 @@ namespace PMngOpeWrd.Model
             sqlDa.Fill(dataTable);
             sqlCon.Close();
             return dataTable;
+        }
+
+        internal bool IsValidTheaterSelection(string surgeryDateFrom, string surgeryDateTo)
+        {
+            bool validTheatorSelection = false;
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetIsValidTheatorDateTimeRangne", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDa.SelectCommand.Parameters.AddWithValue("@FromDate", surgeryDateFrom);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@ToDate", surgeryDateTo);
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+
+            if (dataTable.Rows.Count > 0)
+            {
+                validTheatorSelection = false;
+            }
+            else
+            {
+                validTheatorSelection = true;
+            }
+            return validTheatorSelection;
         }
     }
 }

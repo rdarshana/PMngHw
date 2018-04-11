@@ -277,6 +277,13 @@ namespace PMngOpeWrd
                         grdDisplayMessage.Style["display"] = "block";
                     }
                 }
+                else
+                {
+                    DataTable emptyData = new DataTable();
+                    gridViewTheators.DataSource = emptyData;
+                    gridViewTheators.DataBind();
+                    grdDisplayMessage.Style["display"] = "none";
+                }
             }
         }
 
@@ -465,8 +472,8 @@ namespace PMngOpeWrd
 
         protected void gridViewSurgeryRegistration_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            //gridViewPatientExaminData.PageIndex = e.NewPageIndex;
-            //presenter.GetPatientHistoryInformation();
+            gridViewTheators.PageIndex = e.NewPageIndex;
+            presenter.GetReservedTheators();
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -482,14 +489,14 @@ namespace PMngOpeWrd
 
         protected void btnSearchTheator_Click(object sender, EventArgs e)
         {
-            hdnAdmissionDate.Value = admissionDate;
-            hdnSurgeryStart.Value = surgeryDateFrom;
-            hdnSurgeryEnd.Value = surgeryDateTo;
+            //hdnAdmissionDate.Value = admissionDate;
+            //hdnSurgeryStart.Value = surgeryDateFrom;
+            //hdnSurgeryEnd.Value = surgeryDateTo;
             presenter.GetReservedTheators();
-            Thread.Sleep(5000);
-            admissionDate = hdnAdmissionDate.Value;
-            surgeryDateFrom = hdnSurgeryStart.Value;
-            surgeryDateTo = hdnSurgeryEnd.Value;
+            //Thread.Sleep(5000);
+            //admissionDate = hdnAdmissionDate.Value;
+            //surgeryDateFrom = hdnSurgeryStart.Value;
+            //surgeryDateTo = hdnSurgeryEnd.Value;
         }
     }
 }

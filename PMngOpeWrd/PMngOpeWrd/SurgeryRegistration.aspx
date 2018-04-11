@@ -108,7 +108,7 @@
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </span>
                             </div>
-                                 <asp:RequiredFieldValidator ID="reqAdmissionDate" runat="server" ErrorMessage="This field is required" ControlToValidate="txtAdmissionDate" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="reqAdmissionDate" runat="server" ErrorMessage="This field is required" ControlToValidate="txtAdmissionDate" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
 
@@ -130,12 +130,13 @@
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <div class="input-group date" id='datetimepickerFrom'>
-                                <asp:TextBox ID="txtSurgeryDateFrom" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" MaxLength="19" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtSurgeryDateFrom" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" Style="pointer-events: none; background-color: #f2f2f2;" MaxLength="19" runat="server"></asp:TextBox>
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </span>
                             </div>
-                                 <asp:RequiredFieldValidator ID="reqDateFrom" runat="server" ErrorMessage="This field is required" ControlToValidate="txtSurgeryDateFrom" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="reqDateFrom" runat="server" ErrorMessage="This field is required" ControlToValidate="txtSurgeryDateFrom" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="reqDateFromSearch" runat="server" ErrorMessage="This field is required" ControlToValidate="txtSurgeryDateFrom" ValidationGroup="surgerySearch" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
@@ -143,35 +144,40 @@
                         <div class="col-md-4 col-xm-12">
                             <asp:Label ID="lblSurgeryTo" CssClass="control-label" runat="server" for="txtSurgeryDateTo" Text="Surgery End At"></asp:Label>
                             <span class="required-field-star">*</span>
-                        </div>  
+                        </div>
                         <div class="col-md-7 col-xm-12">
                             <div class="input-group date" id='datetimepickerTo'>
-                                <asp:TextBox ID="txtSurgeryDateTo" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" MaxLength="19" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtSurgeryDateTo" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" Style="pointer-events: none; background-color: #f2f2f2;" MaxLength="19" runat="server"></asp:TextBox>
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </span>
                             </div>
-                                <asp:RequiredFieldValidator ID="reqToDate" runat="server" ErrorMessage="This field is required" ControlToValidate="txtSurgeryDateTo" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblTheators" CssClass="control-label" runat="server" for="ddlTheators" Text="Theators"></asp:Label>
-                        </div>
-                        <div class="col-md-5 col-xm-12">
-                            <asp:DropDownList ID="ddlTheators" Width="229px" CssClass="form-control" runat="server"></asp:DropDownList>
-                        </div>
-                        <div class="col-md-2">
-                            <asp:Button ID="btnSearchTheator" CssClass="form-control theater-search btn btn-default" runat="server" Text="Search Availability" OnClick="btnSearchTheator_Click" />
+                            <asp:RequiredFieldValidator ID="reqToDate" runat="server" ErrorMessage="This field is required" ControlToValidate="txtSurgeryDateTo" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="reqToDateSearch" runat="server" ErrorMessage="This field is required" ControlToValidate="txtSurgeryDateTo" ValidationGroup="surgerySearch" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
 
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-4 col-xm-12">
+                                <asp:Label ID="lblTheators" CssClass="control-label" runat="server" for="ddlTheators" Text="Theators"></asp:Label>
+                            </div>
+                            <div class="col-md-5 col-xm-12">
+                                <asp:DropDownList ID="ddlTheators" Width="229px" CssClass="form-control" runat="server"></asp:DropDownList>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Button ID="btnSearchTheator" ValidationGroup="surgerySearch" CssClass="form-control theater-search btn btn-default" runat="server" Style="margin-left: -40px;" Text="Search Availability" OnClick="btnSearchTheator_Click" />
+                            </div>
+                            </div>
+
+                    
                     <div class="form-group">
-                        <div class="gridview-search-margin">
+                        <div style="margin-top: -15px;">
                             <div class="row gridview-margin">
                                 <div class="col-md-1"></div>
-                                <div class="col-md-11">
+                                <div class="col-md-11" style="margin-top: 23px;">
                                     <asp:GridView ID="gridViewTheators" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewSurgeryRegistration_PageIndexChanging">
                                         <Columns>
                                             <asp:BoundField DataField="SurgeryID" HeaderText="Surgery ID" />
@@ -179,21 +185,29 @@
                                             <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
                                             <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
                                             <asp:BoundField DataField="SurgeryEnd" HeaderText="Surgery End" />
+                                            <asp:TemplateField HeaderText="Status">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label1" runat="server" Text="Reserved"></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-9 info-mzg">
-                            <div id="grdDisplayMessage" class="alert alert-info" style="display: none" runat="server">
-                                There are no records to show
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-9 info-mzg">
+                                    <div id="grdDisplayMessage" class="alert alert-info" style="display: none" runat="server">
+                                        There are no Reserved Theaters
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
                             </div>
-                        </div>
-                        <div class="col-md-2"></div>
-                    </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+
                 </div>
                 <div class="form-group">
                     <div class="col-md-1"></div>
@@ -206,7 +220,7 @@
                 <div class="form-group">
                     <div class="col-md-5"></div>
                     <div class="col-md-7">
-                        <div class="button-status">
+                        <div class="button-status" style="margin-left: -76px;">
                             <asp:Label ID="lblSuccess" runat="server" ForeColor="Green" Text=""></asp:Label>
                             <asp:Label ID="lblFail" runat="server" ForeColor="Red" Text=""></asp:Label>
                         </div>
@@ -319,7 +333,7 @@
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <asp:DropDownList ID="ddlDirectorApprove" Enabled="false" CssClass="form-control" runat="server">
-                                 <asp:ListItem Value="approve">Approve</asp:ListItem>
+                                <asp:ListItem Value="approve">Approve</asp:ListItem>
                                 <asp:ListItem Value="pending" Selected="True">Pending</asp:ListItem>
                                 <asp:ListItem Value="reject">Reject</asp:ListItem>
                             </asp:DropDownList>
@@ -391,10 +405,10 @@
 
 
 
-            
+
         });
     </script>
-    
+
 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="formrightcolumn" runat="server">
