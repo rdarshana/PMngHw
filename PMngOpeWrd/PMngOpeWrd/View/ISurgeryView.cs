@@ -36,5 +36,6 @@ namespace PMngOpeWrd.View
         string directorDescription { get; set; }
         DataTable wardDoctors { set; }
         DataTable Wards { set; }
+        DataTable availableTheators { set; }
     }
 }

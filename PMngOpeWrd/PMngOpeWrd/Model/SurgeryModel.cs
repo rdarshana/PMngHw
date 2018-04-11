@@ -89,5 +89,25 @@ namespace PMngOpeWrd.Model
                 throw exception;
             }
         }
+
+        public DataTable GetReservedTheators(string surgeryDateFrom, string surgeryDateTo)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            string fromDate = surgeryDateFrom.Split(' ')[0];
+            string toDate = surgeryDateTo.Split(' ')[0];
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetTheatorsByDateRange", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDa.SelectCommand.Parameters.AddWithValue("@FromDate", fromDate);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@ToDate", toDate);
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
+        }
     }
 }

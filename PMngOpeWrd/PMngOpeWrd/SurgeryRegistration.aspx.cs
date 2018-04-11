@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using PMngOpeWrd.View;
 using PMngOpeWrd.Presenter;
 using System.Data;
+using System.Threading;
 
 namespace PMngOpeWrd
 {
@@ -429,9 +430,11 @@ namespace PMngOpeWrd
                 presenter.LoadWardsByDoctor();
                 presenter.LoadTheaters();
             }
+            else
+            {
+
+            }
            
-
-
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -475,6 +478,18 @@ namespace PMngOpeWrd
         protected void SelectedDocorChanged(object sender, EventArgs e)
         {
             presenter.LoadWardsByDoctor();
+        }
+
+        protected void btnSearchTheator_Click(object sender, EventArgs e)
+        {
+            hdnAdmissionDate.Value = admissionDate;
+            hdnSurgeryStart.Value = surgeryDateFrom;
+            hdnSurgeryEnd.Value = surgeryDateTo;
+            presenter.GetReservedTheators();
+            Thread.Sleep(5000);
+            admissionDate = hdnAdmissionDate.Value;
+            surgeryDateFrom = hdnSurgeryStart.Value;
+            surgeryDateTo = hdnSurgeryEnd.Value;
         }
     }
 }

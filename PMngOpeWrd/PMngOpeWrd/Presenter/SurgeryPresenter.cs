@@ -140,5 +140,10 @@ namespace PMngOpeWrd.Presenter
 
             ClearRegistrationInformation();
         }
+
+        internal void GetReservedTheators()
+        {
+            surgeryView.availableTheators = surgeryModel.GetReservedTheators(surgeryView.surgeryDateFrom, surgeryView.surgeryDateTo);
+        }
     }
 }

@@ -76,6 +76,33 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.HiddenField hdnSurgeryId;
         
         /// <summary>
+        /// hdnAdmissionDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnAdmissionDate;
+        
+        /// <summary>
+        /// hdnSurgeryStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnSurgeryStart;
+        
+        /// <summary>
+        /// hdnSurgeryEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnSurgeryEnd;
+        
+        /// <summary>
         /// lblNIC control.
         /// </summary>
         /// <remarks>

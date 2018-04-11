@@ -45,6 +45,10 @@
                 <div class="form-horizontal">
                     <asp:HiddenField ID="hdnIsNewSurgery" runat="server" />
                     <asp:HiddenField ID="hdnSurgeryId" runat="server" />
+                    <asp:HiddenField ID="hdnAdmissionDate" runat="server" />
+                    <asp:HiddenField ID="hdnSurgeryStart" runat="server" />
+                    <asp:HiddenField ID="hdnSurgeryEnd" runat="server" />
+
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
@@ -126,7 +130,7 @@
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <div class="input-group date" id='datetimepickerFrom'>
-                                <asp:TextBox ID="txtSurgeryDateFrom" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" MaxLength="10" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtSurgeryDateFrom" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" MaxLength="19" runat="server"></asp:TextBox>
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </span>
@@ -139,10 +143,10 @@
                         <div class="col-md-4 col-xm-12">
                             <asp:Label ID="lblSurgeryTo" CssClass="control-label" runat="server" for="txtSurgeryDateTo" Text="Surgery End At"></asp:Label>
                             <span class="required-field-star">*</span>
-                        </div>
+                        </div>  
                         <div class="col-md-7 col-xm-12">
                             <div class="input-group date" id='datetimepickerTo'>
-                                <asp:TextBox ID="txtSurgeryDateTo" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" MaxLength="10" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtSurgeryDateTo" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" MaxLength="19" runat="server"></asp:TextBox>
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </span>
@@ -159,7 +163,7 @@
                             <asp:DropDownList ID="ddlTheators" Width="229px" CssClass="form-control" runat="server"></asp:DropDownList>
                         </div>
                         <div class="col-md-2">
-                            <asp:Button ID="btnSearchTheator" CssClass="form-control theater-search btn btn-default" runat="server" Text="Search Availability" />
+                            <asp:Button ID="btnSearchTheator" CssClass="form-control theater-search btn btn-default" runat="server" Text="Search Availability" OnClick="btnSearchTheator_Click" />
                         </div>
                     </div>
 
@@ -171,18 +175,10 @@
                                     <asp:GridView ID="gridViewTheators" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewSurgeryRegistration_PageIndexChanging">
                                         <Columns>
                                             <asp:BoundField DataField="SurgeryID" HeaderText="Surgery ID" />
-                                            <asp:BoundField DataField="SurgeryDate" HeaderText="Surgery Date" />
                                             <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
-                                            <asp:TemplateField HeaderText="Desctiption">
-                                                <ItemTemplate>
-                                                    <%# ((string)Eval("Complain")).Length < 20? Eval("Complain") :((string)Eval("Description")).Substring(0,20) + "..."%>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField>
-                                                <ItemTemplate>
-                                                    <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("SurgeryID") %>' OnClick="gridViewSurgeryData_onClick">View</asp:LinkButton>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
+                                            <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
+                                            <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
+                                            <asp:BoundField DataField="SurgeryEnd" HeaderText="Surgery End" />
                                         </Columns>
                                     </asp:GridView>
                                 </div>
