@@ -42,6 +42,8 @@ namespace PMngOpeWrd.Presenter
 
         internal void GetPatientById()
         {
+            ClearErrorMessages();
+
             if (surgeryView.patientId.Trim() == null || surgeryView.patientId.Trim() == "")
             {
                 surgeryView.noRecordFould = "Please Enter Patient ID";
@@ -103,7 +105,9 @@ namespace PMngOpeWrd.Presenter
 
         internal void RegisterSurgery()
         {
-            bool isValidTheaterSelection = surgeryModel.IsValidTheaterSelection(surgeryView.surgeryDateFrom, surgeryView.surgeryDateTo);
+            ClearErrorMessages();
+
+            bool isValidTheaterSelection = surgeryModel.IsValidTheaterSelection(surgeryView.surgeryDateFrom, surgeryView.surgeryDateTo, surgeryView.theatorId);
             if (isValidTheaterSelection)
             {
                 dynamic surgery = new ExpandoObject();
@@ -144,6 +148,7 @@ namespace PMngOpeWrd.Presenter
 
                 }
                 ClearRegistrationInformation();
+                ClearHeaderInformation();
             }
             else
             {
@@ -154,7 +159,13 @@ namespace PMngOpeWrd.Presenter
         internal void GetReservedTheators()
         {
             surgeryView.availableTheators = null;
-            surgeryView.availableTheators = surgeryModel.GetReservedTheators(surgeryView.surgeryDateFrom, surgeryView.surgeryDateTo);
+            surgeryView.availableTheators = surgeryModel.GetReservedTheators(surgeryView.surgeryDateFrom, surgeryView.surgeryDateTo, surgeryView.theatorId);
+        }
+
+        private void ClearErrorMessages()
+        {
+            surgeryView.transactionStatusSuccess = string.Empty;
+            surgeryView.transactionStatusFail = string.Empty;
         }
 
     }

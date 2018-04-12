@@ -238,6 +238,15 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.TextBox txtSurgeryDescription;
         
         /// <summary>
+        /// reqSurgeryDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqSurgeryDescription;
+        
+        /// <summary>
         /// lblFromSurgery control.
         /// </summary>
         /// <remarks>

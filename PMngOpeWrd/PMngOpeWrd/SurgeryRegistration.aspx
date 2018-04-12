@@ -120,6 +120,7 @@
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <asp:TextBox ID="txtSurgeryDescription" CssClass="form-control" runat="server" MaxLength="500" TextMode="MultiLine" Rows="4"></asp:TextBox>
+                             <asp:RequiredFieldValidator ID="reqSurgeryDescription" runat="server" ErrorMessage="This field is required" ControlToValidate="txtSurgeryDescription" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
@@ -130,7 +131,7 @@
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <div class="input-group date" id='datetimepickerFrom'>
-                                <asp:TextBox ID="txtSurgeryDateFrom" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" Style="pointer-events: none; background-color: #f2f2f2;" MaxLength="19" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtSurgeryDateFrom" CssClass="m-wrap span12 date form_datetime form-control" Style="pointer-events: none; background-color: #f2f2f2;" MaxLength="19" runat="server"></asp:TextBox>
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </span>
@@ -147,7 +148,7 @@
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <div class="input-group date" id='datetimepickerTo'>
-                                <asp:TextBox ID="txtSurgeryDateTo" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" Style="pointer-events: none; background-color: #f2f2f2;" MaxLength="19" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtSurgeryDateTo" CssClass="m-wrap span12 date form_datetime form-control" Style="pointer-events: none; background-color: #f2f2f2;" MaxLength="19" runat="server"></asp:TextBox>
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </span>

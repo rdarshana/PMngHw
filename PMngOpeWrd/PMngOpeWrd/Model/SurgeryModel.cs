@@ -90,7 +90,7 @@ namespace PMngOpeWrd.Model
             }
         }
 
-        public DataTable GetReservedTheators(string surgeryDateFrom, string surgeryDateTo)
+        public DataTable GetReservedTheators(string surgeryDateFrom, string surgeryDateTo, string theatorId )
         {
             if (sqlCon.State == ConnectionState.Closed)
             {
@@ -104,13 +104,14 @@ namespace PMngOpeWrd.Model
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             sqlDa.SelectCommand.Parameters.AddWithValue("@FromDate", fromDate);
             sqlDa.SelectCommand.Parameters.AddWithValue("@ToDate", toDate);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@TheatorId", theatorId);
             DataTable dataTable = new DataTable();
             sqlDa.Fill(dataTable);
             sqlCon.Close();
             return dataTable;
         }
 
-        internal bool IsValidTheaterSelection(string surgeryDateFrom, string surgeryDateTo)
+        internal bool IsValidTheaterSelection(string surgeryDateFrom, string surgeryDateTo, string theatorId)
         {
             bool validTheatorSelection = false;
             if (sqlCon.State == ConnectionState.Closed)
@@ -122,6 +123,7 @@ namespace PMngOpeWrd.Model
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             sqlDa.SelectCommand.Parameters.AddWithValue("@FromDate", surgeryDateFrom);
             sqlDa.SelectCommand.Parameters.AddWithValue("@ToDate", surgeryDateTo);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@TheatorId", theatorId);
             DataTable dataTable = new DataTable();
             sqlDa.Fill(dataTable);
             sqlCon.Close();
