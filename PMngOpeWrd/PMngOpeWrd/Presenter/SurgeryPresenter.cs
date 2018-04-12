@@ -121,6 +121,7 @@ namespace PMngOpeWrd.Presenter
                 surgery.TheatorId = surgeryView.theatorId;
                 surgery.PatientId = surgeryView.patientId;
                 surgery.IsNewSurgery = surgeryView.isNewSurgery;
+                surgery.WardNo = surgeryView.wardNo;
 
                 transactionStatus = surgeryModel.RegisterSurgery(surgery);
                 surgeryView.transactionStatusFail = string.Empty;

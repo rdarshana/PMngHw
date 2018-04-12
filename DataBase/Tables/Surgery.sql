@@ -10,6 +10,7 @@ CREATE TABLE [dbo].[Surgery] (
 	[TheatorId]			  VARCHAR(5) NOT NULL,
 	[DoctorId]			  VARCHAR(20) NOT NULL,
 	[PatientId]			  VARCHAR(20) NOT NULL,
+	[WardNo]		      VARCHAR(5) NOT NULL,
 	[SurgeonApproval]	  VARCHAR(3) NULL,
 	[SurgeonDescription]  VARCHAR(200) NULL,
 	[AnesthetistApproval] VARCHAR(3) NULL,
@@ -19,5 +20,6 @@ CREATE TABLE [dbo].[Surgery] (
 	[DirectorDescription] VARCHAR(200) NULL,
     PRIMARY KEY CLUSTERED ([SurgeryId]),
 	CONSTRAINT FK_SurgeryTheator FOREIGN KEY (TheatorId) REFERENCES [Theator](TheatorId),
-	CONSTRAINT FK_SurgeryEmployeer FOREIGN KEY (DoctorId) REFERENCES [Employee](EmployeeId)
+	CONSTRAINT FK_SurgeryEmployeer FOREIGN KEY (DoctorId) REFERENCES [Employee](EmployeeId),
+	CONSTRAINT FK_SurgeryWard FOREIGN KEY (WardNo) REFERENCES [Ward](WardNo)
 );

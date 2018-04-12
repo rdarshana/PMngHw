@@ -77,6 +77,7 @@ namespace PMngOpeWrd.Model
                 sqlCmd.Parameters.AddWithValue("@SurgeryEnd", Convert.ToDateTime(surgery.SurgeryEnd));
                 sqlCmd.Parameters.AddWithValue("@TheatorId", surgery.TheatorId);
                 sqlCmd.Parameters.AddWithValue("@PatientId", surgery.PatientId);
+                sqlCmd.Parameters.AddWithValue("@WardNo", surgery.WardNo);
                 sqlCmd.Parameters.AddWithValue("@IsNewSurgery", true);
 
                 sqlCmd.ExecuteNonQuery();

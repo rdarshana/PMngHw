@@ -76,25 +76,29 @@
                             <asp:TextBox ID="txtLastName" Enabled="false" CssClass="form-control" MaxLength="50" runat="server"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblDoctor" CssClass="control-label" runat="server" for="ddlDoctors" Text="Doctor"></asp:Label>
-                        </div>
-                        <div class="col-md-7 col-xm-12">
-                            <asp:DropDownList ID="ddlDoctors" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="SelectedDocorChanged"></asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblWardNo" CssClass="control-label" runat="server" for="ddlWardNo" Text="Ward No"></asp:Label>
-                        </div>
-                        <div class="col-md-7 col-xm-12">
-                            <asp:DropDownList ID="ddlWardNo" CssClass="form-control" runat="server"></asp:DropDownList>
-                        </div>
-                    </div>
-
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <ContentTemplate>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4 col-xm-12">
+                                    <asp:Label ID="lblDoctor" CssClass="control-label" runat="server" for="ddlDoctors" Text="Doctor"></asp:Label>
+                                </div>
+                                <div class="col-md-7 col-xm-12">
+                                    <asp:DropDownList ID="ddlDoctors" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="SelectedDocorChanged"></asp:DropDownList>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4 col-xm-12">
+                                    <asp:Label ID="lblWardNo" CssClass="control-label" runat="server" for="ddlWardNo" Text="Ward No"></asp:Label>
+                                </div>
+                                <div class="col-md-7 col-xm-12">
+                                    <asp:DropDownList ID="ddlWardNo" CssClass="form-control" runat="server"></asp:DropDownList>
+                                </div>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
@@ -120,7 +124,7 @@
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <asp:TextBox ID="txtSurgeryDescription" CssClass="form-control" runat="server" MaxLength="500" TextMode="MultiLine" Rows="4"></asp:TextBox>
-                             <asp:RequiredFieldValidator ID="reqSurgeryDescription" runat="server" ErrorMessage="This field is required" ControlToValidate="txtSurgeryDescription" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="reqSurgeryDescription" runat="server" ErrorMessage="This field is required" ControlToValidate="txtSurgeryDescription" ValidationGroup="surgeryRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
@@ -158,7 +162,6 @@
                         </div>
                     </div>
 
-                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <div class="col-md-1"></div>
