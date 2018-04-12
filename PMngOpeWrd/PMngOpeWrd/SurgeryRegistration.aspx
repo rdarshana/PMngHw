@@ -13,8 +13,13 @@
     <h1>Surgery Registration</h1>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="formleftcolumn" runat="server">
-    <div class="surgey-formleft"></div>
+    <div class="surgery-formleft"></div>
 </asp:Content>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="formrightcolumn" runat="server">
+    <div class="surgery-formright"></div>
+</asp:Content>
+
 <asp:Content ID="Content5" ContentPlaceHolderID="body" runat="server">
     <div class="form-body">
 
@@ -164,42 +169,43 @@
 
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-4 col-xm-12">
-                                <asp:Label ID="lblTheators" CssClass="control-label" runat="server" for="ddlTheators" Text="Theators"></asp:Label>
-                            </div>
-                            <div class="col-md-5 col-xm-12">
-                                <asp:DropDownList ID="ddlTheators" Width="229px" CssClass="form-control" runat="server"></asp:DropDownList>
-                            </div>
-                            <div class="col-md-2">
-                                <asp:Button ID="btnSearchTheator" ValidationGroup="surgerySearch" CssClass="form-control theater-search btn btn-default" runat="server" Style="margin-left: -40px;" Text="Search Availability" OnClick="btnSearchTheator_Click" />
-                            </div>
-                            </div>
-
-                    
-                    <div class="form-group">
-                        <div style="margin-top: -15px;">
-                            <div class="row gridview-margin">
+                            <div class="form-group">
                                 <div class="col-md-1"></div>
-                                <div class="col-md-11" style="margin-top: 23px;">
-                                    <asp:GridView ID="gridViewTheators" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewSurgeryRegistration_PageIndexChanging">
-                                        <Columns>
-                                            <asp:BoundField DataField="SurgeryID" HeaderText="Surgery ID" />
-                                            <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
-                                            <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
-                                            <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
-                                            <asp:BoundField DataField="SurgeryEnd" HeaderText="Surgery End" />
-                                            <asp:TemplateField HeaderText="Status">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="Label1" runat="server" Text="Reserved"></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        </Columns>
-                                    </asp:GridView>
+                                <div class="col-md-4 col-xm-12">
+                                    <asp:Label ID="lblTheators" CssClass="control-label" runat="server" for="ddlTheators" Text="Theators"></asp:Label>
+                                </div>
+                                <div class="col-md-5 col-xm-12">
+                                    <asp:DropDownList ID="ddlTheators" Width="229px" CssClass="form-control" runat="server"></asp:DropDownList>
+                                </div>
+                                <div class="col-md-2">
+                                    <asp:Button ID="btnSearchTheator" ValidationGroup="surgerySearch" CssClass="form-control theater-search btn btn-default" runat="server" Style="margin-left: -40px;" Text="Search Availability" OnClick="btnSearchTheator_Click" />
                                 </div>
                             </div>
-                        </div>
-                    </div>
+
+
+                            <div class="form-group">
+                                <div style="margin-top: -15px;">
+                                    <div class="row gridview-margin">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-11" style="margin-top: 23px;">
+                                            <asp:GridView ID="gridViewTheators" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewSurgeryRegistration_PageIndexChanging">
+                                                <Columns>
+                                                    <asp:BoundField DataField="SurgeryID" HeaderText="Surgery ID" />
+                                                    <asp:BoundField DataField="Doctor" HeaderText="Doctor" />
+                                                    <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
+                                                    <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
+                                                    <asp:BoundField DataField="SurgeryEnd" HeaderText="Surgery End" />
+                                                    <asp:TemplateField HeaderText="Status">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label1" runat="server" Text="Reserved"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                </Columns>
+                                            </asp:GridView>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-9 info-mzg">
@@ -213,6 +219,7 @@
                     </asp:UpdatePanel>
 
                 </div>
+
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-4"></div>
@@ -363,7 +370,6 @@
                 <div class="col-md-3"></div>
             </div>
         </div>
-
     </div>
 
     <script src="Scripts/jquery-1.9.1.min.js"></script>
@@ -407,16 +413,10 @@
                 $('#datetimepickerFrom').data("DateTimePicker").maxDate(e.date);
             });
 
-
-
-
         });
     </script>
 
 
-</asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="formrightcolumn" runat="server">
-    <div class="surgery-formright"></div>
 </asp:Content>
 
 
