@@ -139,5 +139,27 @@ namespace PMngOpeWrd.Model
             }
             return validTheatorSelection;
         }
+
+        internal DataTable GetAllSurgeryApprovalData(string userType)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetAllSurgeryPendingAprovalData", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure; 
+            sqlDa.SelectCommand.Parameters.AddWithValue("@userType", userType);
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
+        }
+
+        internal DataTable GetSurgeryBySearchKey(string searchColumn, string searchValue)
+        {
+            throw new NotImplementedException();
+
+        }
     }
 }
