@@ -216,6 +216,22 @@ namespace PMngOpeWrd
             }
         }
 
+        public string noRecordFould
+        {
+            set
+            {
+                lblNoPatientRecord.Text = value;
+                if (lblNoPatientRecord.Text.Trim() == null || lblNoPatientRecord.Text.Trim() == "")
+                {
+                    btnSubmit.Enabled = true;
+                }
+                else
+                {
+                    btnSubmit.Enabled = false;
+                }
+            }
+        }
+
         public string removeQueryString
         {
             set
@@ -245,7 +261,7 @@ namespace PMngOpeWrd
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            //presenter.GetPatientById();
+            presenter.GetPatientById();
             //presenter.ClearHistoryInformation();
         }
 

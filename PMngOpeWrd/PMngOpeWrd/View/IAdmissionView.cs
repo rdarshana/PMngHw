@@ -23,5 +23,6 @@ namespace PMngOpeWrd.View
         int availableBeds { set; }
         string admissionDescription { get; set; }
         string dischargeDescription { get; set; }
+        string noRecordFould { set; }
     }
 }
