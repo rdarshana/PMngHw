@@ -48,6 +48,22 @@ namespace PMngOpeWrd.Model
             return availableBeds;
         }
 
+        internal DataTable GetAdmissionDetailById(int admissionId)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetPatientAdmissionById", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDa.SelectCommand.Parameters.AddWithValue("@AdmissionId", admissionId);
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
+        }
+
         internal string GetPatientAdmissionStatus(string patientId)
         {
             if (sqlCon.State == ConnectionState.Closed)

@@ -40,6 +40,20 @@ namespace PMngOpeWrd.Presenter
             }
         }
 
+        internal void GetAdmissionDetailById()
+        {
+            DataTable patientData = admissionModel.GetAdmissionDetailById(Convert.ToInt32(admissionView.admissionId));
+            
+            admissionView.patientId = patientData.Rows[0]["PatientId"].ToString();
+            admissionView.firstName = patientData.Rows[0]["FirstName"].ToString();
+            admissionView.lastName = patientData.Rows[0]["LastName"].ToString();
+            admissionView.NIC = patientData.Rows[0]["NIC"].ToString();
+            admissionView.wardNo = patientData.Rows[0]["WardNo"].ToString();
+            admissionView.admissionDescription = patientData.Rows[0]["AdmissionDescription"].ToString();
+            admissionView.dischargeDescription = patientData.Rows[0]["DischargeDescription"].ToString();
+            admissionView.isNewAdmission = "false";
+        }
+
         internal void GetPatientAmissionStatusById()
         {
             admissionView.admissionStatus = admissionModel.GetPatientAdmissionStatus(admissionView.patientId);

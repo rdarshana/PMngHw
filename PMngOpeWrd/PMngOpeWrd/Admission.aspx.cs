@@ -18,35 +18,7 @@ namespace PMngOpeWrd
         {
             presenter = new AdmissionPresenter(this);
         }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                presenter.LoadWardOwners();
-                presenter.GetAvailableBeds();
-                
-
-                if (Request.QueryString["admid"] != null)
-                {
-                    isNewAdmission = "false";
-                    admissionId = Request.QueryString["admid"];
-                    presenter.GetPatientAmissionStatusById();
-                    removeQueryString = "admid";
-                    removeQueryString = "admid";
-                    txtPatientId.Enabled = false;
-                    //presenter.GetEmployeeById();
-                    btnSubmit.Text = "Update Admission";
-                }
-                else
-                {
-                    btnSubmit.Text = "Submit Admission";
-                    isNewAdmission = "true";
-                    //presenter.GetNextEmployeeId();
-                    txtPatientId.Enabled = true;
-                 }
-            }
-        }
-
+       
         public string admissionId
         {
             get
@@ -247,10 +219,13 @@ namespace PMngOpeWrd
                 if (value == "admitted")
                 {
                     hdnAdmissionStatus.Value = "updateAdmission";
+                    divDischarge.Visible = true;
+                    btnSubmit.Text = "Discharge";
                 }
                 else if (value == "discharged")
                 {
                     hdnAdmissionStatus.Value = "dischargeAdmission";
+                    divDischarge.Visible = true;
                 }
                 else
                 {
@@ -272,7 +247,36 @@ namespace PMngOpeWrd
             }
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                presenter.LoadWardOwners();
+                presenter.GetAvailableBeds();
 
+                if (Request.QueryString["admid"] != null)
+                {
+                    isNewAdmission = "false";
+                    admissionId = Request.QueryString["admid"];
+                    presenter.GetPatientAmissionStatusById();
+                    removeQueryString = "admid";
+                    removeQueryString = "admid";
+                    txtPatientId.Enabled = false;
+                    btnSearch.Enabled = false;
+                    presenter.GetAdmissionDetailById();
+                    presenter.GetAvailableBeds();
+                    btnUpdate.Enabled = true;
+                }
+                else
+                {
+                    btnSubmit.Text = "Admit";
+                    isNewAdmission = "true";
+                    btnUpdate.Enabled = false;
+                    btnSearch.Enabled = true;
+                    txtPatientId.Enabled = true;
+                }
+            }
+        }
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
@@ -288,6 +292,12 @@ namespace PMngOpeWrd
             presenter.AdmitPatient();
             btnSubmit.Text = "Submit Admission";
         }
+
+        protected void btnSubmitUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {

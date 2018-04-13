@@ -72,6 +72,14 @@
                             <asp:TextBox ID="txtLastName" Enabled="false" CssClass="form-control" MaxLength="50" runat="server"></asp:TextBox>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4 col-xm-12">
+                        </div>
+                        <div class="col-md-7 col-xm-12">
+                            <asp:Label ID="lblSurgeryNotification" Visible="false" CssClass="control-label" runat="server" for="txtComplain" Text="This Patient Registered for Surgery" ForeColor="#00CC00"></asp:Label>
+                        </div>
+                    </div>
 
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -100,20 +108,13 @@
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
-                        </div>
-                        <div class="col-md-7 col-xm-12">
-                            <asp:Label ID="lblSurgeryNotification" Visible="true" CssClass="control-label" runat="server" for="txtComplain" Text="This Patient Registered for Surgery" ForeColor="#00CC00"></asp:Label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
                             <asp:Label ID="lblAdmission" CssClass="control-label" runat="server" for="txtAdmission" Text="Admission Description"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <asp:TextBox ID="txtAdmission" CssClass="form-control" runat="server" MaxLength="500" TextMode="MultiLine" Rows="4"></asp:TextBox>
                         </div>
                     </div>
+                    <div runat="server" id="divDischarge" visible="false">
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
@@ -123,12 +124,14 @@
                             <asp:TextBox ID="txtDischarge" CssClass="form-control" MaxLength="500" TextMode="MultiLine" Rows="4" runat="server"></asp:TextBox>
                         </div>
                     </div>
+                        </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-4"></div>
                     <div class="col-md-7 button-group">
-                        <asp:Button ID="btnSubmit" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Submit Admission" OnClick="btnSubmit_Click" ValidationGroup="patientExamination" />
+                        <asp:Button ID="btnSubmit" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Admit" OnClick="btnSubmit_Click" ValidationGroup="patientAdmission" />
+                        <asp:Button ID="btnUpdate" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Update" OnClick="btnSubmitUpdate_Click" ValidationGroup="patientAdmission" />
                         <asp:Button ID="btnClear" CssClass="btn btn-primary primary-button-style" runat="server" Text="Clear" OnClick="btnClear_Click" />
                     </div>
                 </div>
