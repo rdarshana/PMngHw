@@ -8,5 +8,5 @@ SELECT *
 FROM [dbo].[Surgery]
 WHERE (((@FromDate <= SurgeryStart) AND (@ToDate >= SurgeryEnd)) OR
       (@FromDate BETWEEN SurgeryStart AND SurgeryEnd) OR 
-	  (@ToDate BETWEEN SurgeryStart AND SurgeryEnd) AND TheatorId = @TheatorId)
+	  (@ToDate BETWEEN SurgeryStart AND SurgeryEnd)) AND TheatorId = @TheatorId
 END
