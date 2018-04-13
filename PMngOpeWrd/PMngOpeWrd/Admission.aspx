@@ -43,6 +43,7 @@
             <div class="col-md-9">
                 <div class="form-horizontal">
                     <asp:HiddenField ID="hdnIsNewAdmission" runat="server" />
+                    <asp:HiddenField ID="hdnAdmissionStatus"  Value="newAdmission" runat="server" />
                     <asp:HiddenField ID="hdnAdmissionId" runat="server" />
                     <div class="form-group">
                         <div class="col-md-1"></div>
@@ -71,13 +72,17 @@
                             <asp:TextBox ID="txtLastName" Enabled="false" CssClass="form-control" MaxLength="50" runat="server"></asp:TextBox>
                         </div>
                     </div>
+
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                     <ContentTemplate>
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblWardNo" CssClass="control-label" runat="server" for="ddlWardNo" Text="Ward No"></asp:Label>
+                            <asp:Label ID="lblWardNo" CssClass="control-label" runat="server" for="ddlWardNo" Text="Ward"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:DropDownList ID="ddlWardNo" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlWardNo" AutoPostBack="true" CssClass="form-control" runat="server" OnSelectedIndexChanged="WardChanged"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
@@ -89,6 +94,9 @@
                             <asp:Label ID="txtAvailableBeds" CssClass="form-control" Text="" runat="server"></asp:Label>
                         </div>
                     </div>
+                    </ContentTemplate>
+                    </asp:UpdatePanel>
+
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">

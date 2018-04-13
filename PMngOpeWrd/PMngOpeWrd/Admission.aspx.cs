@@ -22,12 +22,15 @@ namespace PMngOpeWrd
         {
             if (!IsPostBack)
             {
+                presenter.LoadWardOwners();
+                presenter.GetAvailableBeds();
                 
+
                 if (Request.QueryString["admid"] != null)
                 {
                     isNewAdmission = "false";
                     admissionId = Request.QueryString["admid"];
-
+                    presenter.GetPatientAmissionStatusById();
                     removeQueryString = "admid";
                     removeQueryString = "admid";
                     txtPatientId.Enabled = false;
@@ -80,7 +83,7 @@ namespace PMngOpeWrd
             set
             {
                 ddlWardNo.DataSource = value;
-                ddlWardNo.DataTextField = "WardNo";
+                ddlWardNo.DataTextField = "Wards";
                 ddlWardNo.DataValueField = "WardNo";
                 ddlWardNo.DataBind();
             }
@@ -232,6 +235,31 @@ namespace PMngOpeWrd
             }
         }
 
+        public string admissionStatus
+        {
+            get
+            {
+                return hdnAdmissionStatus.Value;
+            }
+
+            set
+            {
+                if (value == "admitted")
+                {
+                    hdnAdmissionStatus.Value = "updateAdmission";
+                }
+                else if (value == "discharged")
+                {
+                    hdnAdmissionStatus.Value = "dischargeAdmission";
+                }
+                else
+                {
+                    hdnAdmissionStatus.Value = "newAdmission";
+                    isNewAdmission = "true";
+                }
+            }
+        }
+
         public string removeQueryString
         {
             set
@@ -244,6 +272,8 @@ namespace PMngOpeWrd
             }
         }
 
+
+
         protected void btnClear_Click(object sender, EventArgs e)
         {
             //presenter.ClearEmployeeData();
@@ -255,15 +285,20 @@ namespace PMngOpeWrd
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            //presenter.RegisterEmployee();
+            presenter.AdmitPatient();
             btnSubmit.Text = "Submit Admission";
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             presenter.GetPatientById();
+            presenter.GetPatientAmissionStatusById();
             //presenter.ClearHistoryInformation();
         }
 
+        protected void WardChanged(object sender, EventArgs e)
+        {
+            presenter.GetAvailableBeds();
+        }
     }
 }

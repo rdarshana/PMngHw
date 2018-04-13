@@ -3,6 +3,7 @@ using PMngOpeWrd.View;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 
@@ -13,12 +14,14 @@ namespace PMngOpeWrd.Presenter
         IAdmissionView admissionView;
         AdmissionModel admissionModel;
         PatientRegistrationModel patientRegModel;
+        WardModel wardModel;
 
         public AdmissionPresenter(IAdmissionView view)
         {
             admissionView = view;
             admissionModel = new AdmissionModel();
             patientRegModel = new PatientRegistrationModel();
+            wardModel = new WardModel();
         }
 
         internal void GetPatientById()
@@ -35,6 +38,17 @@ namespace PMngOpeWrd.Presenter
             {
                 GetPatientBasicInformation();
             }
+        }
+
+        internal void GetPatientAmissionStatusById()
+        {
+            admissionView.admissionStatus = admissionModel.GetPatientAdmissionStatus(admissionView.patientId);
+
+        }
+
+        internal void GetAvailableBeds()
+        {
+            admissionView.availableBeds = admissionModel.GetAvailableBeds(admissionView.wardNo);
         }
 
         private void GetPatientBasicInformation()
@@ -64,6 +78,56 @@ namespace PMngOpeWrd.Presenter
         {
             admissionView.transactionStatusSuccess = string.Empty;
             admissionView.transactionStatusFail = string.Empty;
+        }
+
+        internal void LoadWardOwners()
+        {
+            admissionView.Wards = admissionModel.GetAllWardDataWithType();
+        }
+
+        internal void AdmitPatient()
+        {
+            ClearErrorMessages();
+
+            dynamic surgery = new ExpandoObject();
+            bool transactionStatus = false;
+            surgery.AdmissionId = admissionView.admissionId;
+            surgery.WardNo = admissionView.wardNo;
+            surgery.PatientId = admissionView.patientId;
+            surgery.AdmissionDescription = admissionView.admissionDescription;
+            surgery.AdmittedBy = admissionView.employeeId;
+            surgery.DischargeDescription = admissionView.dischargeDescription;
+            surgery.IsNewAdmission = admissionView.isNewAdmission;
+            surgery.AdmissionStatus = admissionView.admissionStatus;
+
+            transactionStatus = admissionModel.AdmitPatient(surgery);
+            admissionView.transactionStatusFail = string.Empty;
+            if (transactionStatus)
+            {
+                if (admissionView.isNewAdmission == "true")
+                {
+                    admissionView.transactionStatusSuccess = "Patinet has been Admitted Successfully";
+                }
+                else
+                {
+                    admissionView.transactionStatusSuccess = "Patient Admission Updated Successfully";
+                }
+            }
+            else
+            {
+                if (admissionView.isNewAdmission == "true")
+                {
+                    admissionView.transactionStatusFail = "Patient Admission has been Failed";
+                }
+                else
+                {
+                    admissionView.transactionStatusFail = "Patient Update has been Failed";
+                }
+
+            }
+            //ClearRegistrationInformation();
+            //ClearHeaderInformation();
+
         }
     }
 }
