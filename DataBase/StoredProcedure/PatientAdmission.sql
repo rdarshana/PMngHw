@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[PatientWardAdmission]
+ALTER PROCEDURE [dbo].[PatientWardAdmission]
 	@AdmissionId INT,
 	@WardNo	VARCHAR (5),
 	@PatientId VARCHAR (20),
@@ -26,7 +26,7 @@ BEGIN
 				END
 			ELSE
 				BEGIN
-					UPDATE [dbo].[PatientAdmission] SET WardNo = @WardNo, PatientId= @PatientId, DischargeDescription = @DischargeDescription, AdmissionStatus = 'discharged' , DischageDate = getdate() 
+					UPDATE [dbo].[PatientAdmission] SET WardNo = @WardNo, PatientId= @PatientId, DischargedBy = @AdmittedBy, DischargeDescription = @DischargeDescription, AdmissionStatus = 'discharged' , DischageDate = getdate() 
 					WHERE AdmissionId= @AdmissionId;
 				END
 		END

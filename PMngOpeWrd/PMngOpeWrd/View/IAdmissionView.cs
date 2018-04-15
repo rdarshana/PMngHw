@@ -25,5 +25,7 @@ namespace PMngOpeWrd.View
         string dischargeDescription { get; set; }
         string noRecordFould { set; }
         string admissionStatus { get; set; }
+        string dataFrom { get; set; }
+        dynamic admissionHistory { set; }
     }
 }

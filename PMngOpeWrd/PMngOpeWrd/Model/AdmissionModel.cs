@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 
@@ -64,7 +65,7 @@ namespace PMngOpeWrd.Model
             return dataTable;
         }
 
-        internal string GetPatientAdmissionStatus(string patientId)
+        internal dynamic GetPatientAdmissionStatus(string patientId, int admissionId)
         {
             if (sqlCon.State == ConnectionState.Closed)
             {
@@ -73,15 +74,21 @@ namespace PMngOpeWrd.Model
             SqlCommand sqlCmd = new SqlCommand("GetPatientAdmissionStatus", sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.AddWithValue("@PatientId", patientId);
+            sqlCmd.Parameters.AddWithValue("@AdmissionId", admissionId);
             SqlDataReader reader = sqlCmd.ExecuteReader();
             string status = string.Empty;
+            dynamic surgeryDetails = new ExpandoObject();
 
             if (reader.Read())
             {
-                status = Convert.ToString(reader["AdmissionStatus"]);
+                surgeryDetails.Id = Convert.ToInt32(reader["AdmissionId"]);
+                surgeryDetails.WardNo = Convert.ToString(reader["WardNo"]);
+                surgeryDetails.status = Convert.ToString(reader["AdmissionStatus"]);
+                surgeryDetails.AdmissionDescription = Convert.ToString(reader["AdmissionDescription"]);
+                surgeryDetails.DischargeDescription= Convert.ToString(reader["DischargeDescription"]);
             }
 
-            return status;
+            return surgeryDetails;
         }
 
         internal bool AdmitPatient(dynamic surgery)

@@ -26,7 +26,7 @@
                     <asp:Label ID="lblpatietId" CssClass="control-label" runat="server" for="txtPatientId" Text="PatientId"></asp:Label>
                 </div>
                 <div class="col-md-5 examination-searchbox">
-                    <asp:TextBox ID="txtPatientId" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPatientId" MaxLength="20" CssClass="form-control" runat="server"></asp:TextBox>
                     <asp:Label ID="lblNoPatientRecord" runat="server" ForeColor="Red"></asp:Label><br />
                 </div>
                 <div class="col-md-1 examination-searchbutton">
@@ -45,6 +45,7 @@
                     <asp:HiddenField ID="hdnIsNewAdmission" runat="server" />
                     <asp:HiddenField ID="hdnAdmissionStatus"  Value="newAdmission" runat="server" />
                     <asp:HiddenField ID="hdnAdmissionId" runat="server" />
+                    <asp:HiddenField ID="hdnDataFrom" runat="server" />
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">

@@ -1,8 +1,10 @@
-﻿using PMngOpeWrd.Presenter;
+﻿using Microsoft.CSharp.RuntimeBinder;
+using PMngOpeWrd.Presenter;
 using PMngOpeWrd.View;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -18,7 +20,7 @@ namespace PMngOpeWrd
         {
             presenter = new AdmissionPresenter(this);
         }
-       
+
         public string admissionId
         {
             get
@@ -162,7 +164,8 @@ namespace PMngOpeWrd
 
         public int availableBeds
         {
-            set {
+            set
+            {
                 txtAvailableBeds.Text = Convert.ToString(value);
             }
         }
@@ -216,22 +219,112 @@ namespace PMngOpeWrd
 
             set
             {
-                if (value == "admitted")
+                    hdnAdmissionStatus.Value = value;
+            }
+        }
+
+        public dynamic admissionHistory
+        {
+            set
+            {
+         
+                object valueProperty = ((ExpandoObject)value);
+
+                if (IsPropertyExist(value))
                 {
-                    hdnAdmissionStatus.Value = "updateAdmission";
-                    divDischarge.Visible = true;
-                    btnSubmit.Text = "Discharge";
-                }
-                else if (value == "discharged")
-                {
-                    hdnAdmissionStatus.Value = "dischargeAdmission";
-                    divDischarge.Visible = true;
+                    admissionStatus = value.status;
+
+                    if (value.status == "admitted")
+                    {
+                        admissionId = Convert.ToString(value.Id);
+                        admissionDescription = value.AdmissionDescription;
+                        dischargeDescription = value.DischargeDescription;
+                        wardNo = value.WardNo;
+                        txtAdmission.Enabled = true;
+                        txtDischarge.Enabled = true;
+                        ddlWardNo.Enabled = true;
+                        btnSubmit.Enabled = true;
+                        btnUpdate.Enabled = true;
+                        btnSubmit.Text = "Discharge";
+                        admissionStatus = "dischargeAdmission";
+                        divDischarge.Visible = true;
+                        isNewAdmission = "false";
+                    }
+                    else
+                    {
+                        if (value.status == "discharged" && dataFrom == "query")
+                        {
+                            admissionId = Convert.ToString(value.Id);
+                            admissionDescription = value.AdmissionDescription;
+                            dischargeDescription = value.DischargeDescription;
+                            wardNo = value.WardNo;
+                            btnSubmit.Text = "Discharge";
+                            btnSubmit.Enabled = false;
+                            btnUpdate.Enabled = false;
+                            ddlWardNo.Enabled = false;
+                            txtAdmission.Enabled = false;
+                            txtDischarge.Enabled = false;
+                            divDischarge.Visible = true;
+                            isNewAdmission = "false";
+                            admissionStatus = "dischargeAdmission";
+                        }
+                        else if (value.status == "discharged" && dataFrom == "search")
+                        {
+                            admissionId = Convert.ToString(value.Id);
+                            admissionDescription = string.Empty;
+                            dischargeDescription = string.Empty;
+                            txtDischarge.Enabled = true;
+                            txtAdmission.Enabled = true;
+                            ddlWardNo.Enabled = true;
+                            btnSubmit.Text = "Admit";
+                            btnSubmit.Enabled = true;
+                            btnUpdate.Enabled = false;
+                            isNewAdmission = "true";
+                            divDischarge.Visible = false;
+                            admissionStatus = "newAdmission";
+                        }
+                        else
+                        {
+                            admissionId = Convert.ToString(value.Id);
+                            admissionDescription = string.Empty;
+                            dischargeDescription = string.Empty;
+                            txtDischarge.Enabled = true;
+                            txtAdmission.Enabled = true;
+                            ddlWardNo.Enabled = true;
+                            btnSubmit.Text = "Admit";
+                            btnSubmit.Enabled = true;
+                            btnUpdate.Enabled = false;
+                            divDischarge.Visible = false;
+                            isNewAdmission = "true";
+                        }
+                    }
                 }
                 else
                 {
-                    hdnAdmissionStatus.Value = "newAdmission";
+                    admissionDescription = string.Empty;
+                    dischargeDescription = string.Empty;
+                    txtAdmission.Enabled = true;
+                    txtDischarge.Enabled = true;
+                    ddlWardNo.Enabled = true;
+                    btnSubmit.Text = "Admit";
+                    btnSubmit.Enabled = true;
+                    btnUpdate.Enabled = false;
+                    admissionStatus = "newAdmission";
+                    divDischarge.Visible = false;
                     isNewAdmission = "true";
                 }
+            }
+        }
+
+        public string dataFrom
+        {
+            get
+            {
+                return hdnDataFrom.Value;
+            }
+            set
+            {
+                hdnDataFrom.Value = value;
             }
         }
 
@@ -256,6 +349,7 @@ namespace PMngOpeWrd
 
                 if (Request.QueryString["admid"] != null)
                 {
+                    dataFrom = "query";
                     isNewAdmission = "false";
                     admissionId = Request.QueryString["admid"];
                     presenter.GetPatientAmissionStatusById();
@@ -269,12 +363,14 @@ namespace PMngOpeWrd
                 }
                 else
                 {
+                    dataFrom = "search";
                     btnSubmit.Text = "Admit";
                     isNewAdmission = "true";
                     btnUpdate.Enabled = false;
                     btnSearch.Enabled = true;
                     txtPatientId.Enabled = true;
                 }
+                presenter.GetPatientAmissionStatusById();
             }
         }
 
@@ -290,17 +386,19 @@ namespace PMngOpeWrd
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             presenter.AdmitPatient();
-            btnSubmit.Text = "Submit Admission";
+            btnSubmit.Text = "Admit";
         }
 
         protected void btnSubmitUpdate_Click(object sender, EventArgs e)
         {
-
+            admissionStatus = "updateAdmission";
+            presenter.AdmitPatient();
         }
 
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            dataFrom = "search";
             presenter.GetPatientById();
             presenter.GetPatientAmissionStatusById();
             //presenter.ClearHistoryInformation();
@@ -310,5 +408,21 @@ namespace PMngOpeWrd
         {
             presenter.GetAvailableBeds();
         }
+
+        public static bool IsPropertyExist(dynamic dynamicObj)
+        {
+            try
+            {
+                var value = dynamicObj.status;
+                return true;
+            }
+            catch (RuntimeBinderException)
+            {
+
+                return false;
+            }
+
+        }
+
     }
 }

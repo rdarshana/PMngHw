@@ -56,8 +56,14 @@ namespace PMngOpeWrd.Presenter
 
         internal void GetPatientAmissionStatusById()
         {
-            admissionView.admissionStatus = admissionModel.GetPatientAdmissionStatus(admissionView.patientId);
+            dynamic surgery = new ExpandoObject();
+            int admissionId = 0;
+            if(admissionView.dataFrom == "query")
+            {
+                admissionId = Convert.ToInt32(admissionView.admissionId);
+            }
 
+            admissionView.admissionHistory = admissionModel.GetPatientAdmissionStatus(admissionView.patientId, admissionId);
         }
 
         internal void GetAvailableBeds()
