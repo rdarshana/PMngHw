@@ -401,6 +401,7 @@ namespace PMngOpeWrd
             dataFrom = "search";
             presenter.GetPatientById();
             presenter.GetPatientAmissionStatusById();
+            presenter.GetAvailableBeds();
             //presenter.ClearHistoryInformation();
         }
 
