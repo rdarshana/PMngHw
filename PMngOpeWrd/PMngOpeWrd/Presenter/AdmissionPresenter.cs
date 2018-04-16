@@ -31,8 +31,8 @@ namespace PMngOpeWrd.Presenter
             if (admissionView.patientId.Trim() == null || admissionView.patientId.Trim() == "")
             {
                 admissionView.noRecordFould = "Please Enter Patient ID";
-                //ClearRegistrationInformation();
-                //ClearHeaderInformation();
+                ClearAdmissionInformation();
+                ClearHeaderInformation();
             }
             else
             {
@@ -80,7 +80,7 @@ namespace PMngOpeWrd.Presenter
                 admissionView.lastName = patientData.Rows[0]["LastName"].ToString();
                 admissionView.NIC = patientData.Rows[0]["NIC"].ToString();
                 admissionView.noRecordFould = null;
-                //ClearRegistrationInformation();
+                ClearAdmissionInformation();
             }
             else
             {
@@ -89,8 +89,8 @@ namespace PMngOpeWrd.Presenter
                 admissionView.transactionStatusFail = string.Empty;
                 admissionView.isNewAdmission = "true";
 
-                //ClearHeaderInformation();
-                //ClearRegistrationInformation();
+                ClearHeaderInformation();
+                ClearAdmissionInformation();
             }
         }
 
@@ -98,6 +98,7 @@ namespace PMngOpeWrd.Presenter
         {
             admissionView.transactionStatusSuccess = string.Empty;
             admissionView.transactionStatusFail = string.Empty;
+            admissionView.noRecordFould = string.Empty;
         }
 
         internal void LoadWardOwners()
@@ -145,9 +146,40 @@ namespace PMngOpeWrd.Presenter
                 }
 
             }
-            //ClearRegistrationInformation();
-            //ClearHeaderInformation();
+            ClearAdmissionInformation();
+            ClearHeaderInformation();
+        }
 
+        internal void ClearAdmissionInformation()
+        {
+            admissionView.admissionDescription = string.Empty;
+            admissionView.dischargeDescription = string.Empty;
+            admissionView.wardNo = "1";
+        }
+
+        internal void ClearHeaderInformation()
+        {
+            admissionView.patientId = string.Empty;
+            admissionView.NIC = string.Empty;
+            admissionView.firstName = string.Empty;
+            admissionView.lastName = string.Empty;
+        }
+
+        internal void ClearAdmissionData()
+        {
+            ClearAdmissionInformation();
+            ClearHeaderInformation();
+            ClearErrorMessages();
+        }
+
+        internal void GetIsPatientAdmitForSurgery()
+        {
+            string wardNo = admissionModel.GetIsPatientAdmitForSurgery(admissionView.patientId);
+            if(wardNo != string.Empty)
+            {
+                admissionView.wardNo = wardNo;
+                admissionView.wardNoEnable = false;
+            }
         }
     }
 }

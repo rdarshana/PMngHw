@@ -27,5 +27,6 @@ namespace PMngOpeWrd.View
         string admissionStatus { get; set; }
         string dataFrom { get; set; }
         dynamic admissionHistory { set; }
+        bool wardNoEnable { set; }
     }
 }

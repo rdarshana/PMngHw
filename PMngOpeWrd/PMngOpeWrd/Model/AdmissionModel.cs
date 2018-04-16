@@ -113,5 +113,25 @@ namespace PMngOpeWrd.Model
 
             return true;
         }
+
+        internal string GetIsPatientAdmitForSurgery(string patientId)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+            SqlCommand sqlCmd = new SqlCommand("GetIsPatientAdmitForSurgery", sqlCon);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.Parameters.AddWithValue("@patientId", patientId);
+            SqlDataReader reader = sqlCmd.ExecuteReader();
+            string wardNo = string.Empty;
+
+            if (reader.Read())
+            {
+                wardNo = Convert.ToString(reader["WardNo"]);
+            }
+
+            return wardNo;
+        }
     }
 }

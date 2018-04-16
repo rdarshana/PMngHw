@@ -100,7 +100,7 @@
                             <asp:Label ID="lblAvailableBeds" CssClass="control-label" runat="server" for="txtAvailableBeds" Text="Available Beds"></asp:Label>
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:Label ID="txtAvailableBeds" CssClass="form-control" Text="" runat="server"></asp:Label>
+                            <asp:TextBox ID="txtAvailableBeds" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     </ContentTemplate>

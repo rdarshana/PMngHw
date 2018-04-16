@@ -328,6 +328,15 @@ namespace PMngOpeWrd
             }
         }
 
+        public bool wardNoEnable
+        {
+            set
+            {
+                ddlWardNo.Enabled = value;
+                lblSurgeryNotification.Visible = !value;
+            }
+        }
+
         public string removeQueryString
         {
             set
@@ -353,6 +362,8 @@ namespace PMngOpeWrd
                     isNewAdmission = "false";
                     admissionId = Request.QueryString["admid"];
                     presenter.GetPatientAmissionStatusById();
+                    //lblSurgeryNotification.Visible = false;
+                    //presenter.GetIsPatientAdmitForSurgery();
                     removeQueryString = "admid";
                     removeQueryString = "admid";
                     txtPatientId.Enabled = false;
@@ -376,17 +387,21 @@ namespace PMngOpeWrd
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            //presenter.ClearEmployeeData();
-            btnSubmit.Text = "Submit Admission";
-            this.removeQueryString = "admid";
-            //employeeRegistration = true;
-            //employeeUpdate = false;
+            lblSurgeryNotification.Visible = false;
+            presenter.ClearAdmissionData();
+            btnSubmit.Text = "Admit";
+            removeQueryString = "admid";
+            divDischarge.Visible = false;
+            txtPatientId.Enabled = true;
+            btnSearch.Enabled = true;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             presenter.AdmitPatient();
             btnSubmit.Text = "Admit";
+            txtPatientId.Enabled = true;
+            btnSearch.Enabled = true;
         }
 
         protected void btnSubmitUpdate_Click(object sender, EventArgs e)
@@ -398,11 +413,14 @@ namespace PMngOpeWrd
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            lblSurgeryNotification.Visible = false;
             dataFrom = "search";
             presenter.GetPatientById();
             presenter.GetPatientAmissionStatusById();
             presenter.GetAvailableBeds();
-            //presenter.ClearHistoryInformation();
+            presenter.GetIsPatientAdmitForSurgery();
+            txtPatientId.Enabled = false;
+            btnSearch.Enabled = false;
         }
 
         protected void WardChanged(object sender, EventArgs e)
