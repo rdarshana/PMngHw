@@ -133,5 +133,22 @@ namespace PMngOpeWrd.Model
 
             return wardNo;
         }
+
+        internal DataTable GetPatientAdmissionDetails(string patientId, string status)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetPatientAdmissionDetailsById", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDa.SelectCommand.Parameters.AddWithValue("@PatientId", patientId);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@Status", status);
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
+        }
     }
 }

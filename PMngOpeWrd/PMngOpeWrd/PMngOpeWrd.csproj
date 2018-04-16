@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admission.aspx" />
+    <Content Include="AdmissionInquery.aspx" />
     <Content Include="Content\bootstrap-datetimepicker.css" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -76,6 +77,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="css\admission-inquiry.css" />
     <Content Include="css\admission.css" />
     <Content Include="css\bootstrap-datepicker.css" />
     <Content Include="css\bootstrap-theme.css" />
@@ -242,6 +244,13 @@
     <Compile Include="Admission.aspx.designer.cs">
       <DependentUpon>Admission.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdmissionInquery.aspx.cs">
+      <DependentUpon>AdmissionInquery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdmissionInquery.aspx.designer.cs">
+      <DependentUpon>AdmissionInquery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\Security.cs" />
     <Compile Include="EmployeeInquiry.aspx.cs">
       <DependentUpon>EmployeeInquiry.aspx</DependentUpon>
@@ -258,6 +267,7 @@
       <DependentUpon>EmployeeRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Patient.cs" />
+    <Compile Include="Model\AdmissionInqueryModel.cs" />
     <Compile Include="Model\AdmissionModel.cs" />
     <Compile Include="Model\EmployeeModel.cs" />
     <Compile Include="Model\IEmployeeModel.cs" />
@@ -299,6 +309,7 @@
     <Compile Include="PMng.Master.designer.cs">
       <DependentUpon>PMng.Master</DependentUpon>
     </Compile>
+    <Compile Include="Presenter\AdmissionInqueryPresenter.cs" />
     <Compile Include="Presenter\AdmissionPresenter.cs" />
     <Compile Include="Presenter\EmployeeInquiryPresenter.cs" />
     <Compile Include="Presenter\EmployeeRegistrationPresenter.cs" />
@@ -346,6 +357,7 @@
     <Compile Include="UserLogin.aspx.designer.cs">
       <DependentUpon>UserLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\IAdmissionInqueryView.cs" />
     <Compile Include="View\IAdmissionView.cs" />
     <Compile Include="View\IEmployeeRegistrationView.cs" />
     <Compile Include="View\IEmployeeInquiryView.cs" />
