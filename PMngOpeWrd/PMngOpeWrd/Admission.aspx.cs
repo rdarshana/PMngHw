@@ -394,6 +394,8 @@ namespace PMngOpeWrd
             divDischarge.Visible = false;
             txtPatientId.Enabled = true;
             btnSearch.Enabled = true;
+            btnSubmit.Enabled = false;
+            btnUpdate.Enabled = false;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -402,12 +404,20 @@ namespace PMngOpeWrd
             btnSubmit.Text = "Admit";
             txtPatientId.Enabled = true;
             btnSearch.Enabled = true;
+            btnSubmit.Enabled = false;
+            btnUpdate.Enabled = false;
+            lblSurgeryNotification.Visible = false;
         }
 
         protected void btnSubmitUpdate_Click(object sender, EventArgs e)
         {
             admissionStatus = "updateAdmission";
             presenter.AdmitPatient();
+            txtPatientId.Enabled = true;
+            btnSearch.Enabled = true;
+            btnSubmit.Enabled = false;
+            btnUpdate.Enabled = false;
+            lblSurgeryNotification.Visible = false;
         }
 
 

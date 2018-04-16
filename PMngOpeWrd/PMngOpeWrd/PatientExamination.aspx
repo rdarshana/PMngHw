@@ -156,7 +156,7 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <%--<asp:BoundField DataField="ExamineDate" HeaderText="Examine Date" />--%>
-                                        <asp:BoundField DataField="ExamineDate" HeaderText="Examine Date" DataFormatString="{0:MM/dd/yyyy}" />
+                                        <asp:BoundField DataField="ExamineDate" HeaderText="Examine Date" DataFormatString="{0:yyyy/MM/dd}" />
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("ID") %>' OnClick="gridViewExaminationData_onClick">View</asp:LinkButton>

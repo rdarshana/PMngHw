@@ -66,11 +66,12 @@
                         <Columns>
                             <asp:BoundField DataField="AdmissionId" HeaderText="Admission Id" />
                             <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
-                            <%--<asp:BoundField DataField="Patient" HeaderText="Patient Name" />
-                            <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
-                            <asp:BoundField DataField="NIC" HeaderText="NIC" />
-                            <asp:BoundField DataField="TheatorId" HeaderText="Theator Id" />--%>
-                            <asp:HyperLinkField DataNavigateUrlFields="AdmissionId" DataNavigateUrlFormatString="SurgeryRegistration.aspx?admid={0}" Text="View" />
+                            <asp:BoundField DataField="Patient" HeaderText="Patient Name" />
+                            <asp:BoundField DataField="WardNo" HeaderText="Ward No" />
+                            <asp:BoundField DataField="AdmissionDate" HeaderText="Admission Date" DataFormatString="{0:yyyy/MM/dd}" />
+                            <asp:BoundField DataField="DischageDate" HeaderText="Discharge Date" DataFormatString="{0:yyyy/MM/dd}"/>
+                            <asp:BoundField DataField="AdmissionStatus" HeaderText="Admission Status" />
+                            <asp:HyperLinkField DataNavigateUrlFields="AdmissionId" DataNavigateUrlFormatString="Admission.aspx?admid={0}" Text="View" />
                         </Columns>
                     </asp:GridView>
                 </div>
