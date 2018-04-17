@@ -25,7 +25,7 @@ namespace PMngOpeWrd.Presenter
         //Get all ptient information
         public void FillPatientGrid()
         {
-            surgeryView.surgeryData = surgeruyModel.GetAllSurgeryApprovalData(surgeryView.userType);
+            surgeryView.surgeryData = surgeruyModel.GetAllSurgeryApprovalData(surgeryView.userType, surgeryView.searchColumn, surgeryView.searchValue);
         }
 
         public void GetEmployeeByKey()

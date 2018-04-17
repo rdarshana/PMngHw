@@ -140,7 +140,7 @@ namespace PMngOpeWrd.Model
             return validTheatorSelection;
         }
 
-        internal DataTable GetAllSurgeryApprovalData(string userType)
+        internal DataTable GetAllSurgeryApprovalData(string userType,string searchColumn, string searchValue)
         {
             if (sqlCon.State == ConnectionState.Closed)
             {
@@ -150,6 +150,8 @@ namespace PMngOpeWrd.Model
             SqlDataAdapter sqlDa = new SqlDataAdapter("GetAllSurgeryPendingAprovalData", sqlCon);
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure; 
             sqlDa.SelectCommand.Parameters.AddWithValue("@userType", userType);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@SearchColumn", searchColumn);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@SearchValue", searchValue);
             DataTable dataTable = new DataTable();
             sqlDa.Fill(dataTable);
             sqlCon.Close();

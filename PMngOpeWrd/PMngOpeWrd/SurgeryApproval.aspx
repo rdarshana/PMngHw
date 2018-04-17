@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-3">
-                        <asp:DropDownList ID="ddlEmployeeFilter" runat="server" CssClass="form-control">
+                        <asp:DropDownList ID="ddlPatientFilter" runat="server" CssClass="form-control">
                             <asp:ListItem Value="patientId">Patient Id</asp:ListItem>
                             <asp:ListItem Value="surgeryId">Surgery Id</asp:ListItem>
                         </asp:DropDownList>

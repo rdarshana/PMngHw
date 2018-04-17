@@ -35,7 +35,7 @@ namespace PMngOpeWrd
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            presenter.GetEmployeeByKey();
+            presenter.FillPatientGrid();
         }
 
         protected void btnClearFilter_Click(object sender, EventArgs e)
@@ -101,7 +101,7 @@ namespace PMngOpeWrd
         {
             get
             {
-                string selectedValue = ddlEmployeeFilter.SelectedValue;
+                string selectedValue = ddlPatientFilter.SelectedValue;
                 string columnName = string.Empty;
                 switch (selectedValue)
                 {
