@@ -35,6 +35,18 @@ namespace PMngOpeWrd
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            int parsedValue;
+            if (searchColumn == "SurgeryId")
+            {
+                if(!int.TryParse(searchValue, out parsedValue))
+                {
+                    lblSurgeryIdInValid.Text = "Surgery Id Should be a Number";
+                    DataTable emptyData = new DataTable();
+                    surgeryData = emptyData;
+                    return;
+                }
+            }
+            lblSurgeryIdInValid.Text = string.Empty;
             presenter.FillPatientGrid();
         }
 

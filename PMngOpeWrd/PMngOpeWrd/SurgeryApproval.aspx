@@ -32,7 +32,7 @@
                         </asp:DropDownList>
                     </div>
                     <div class="col-md-5 search-left-margin">
-                        <asp:TextBox ID="txtSearchId" CssClass="form-control" placeholder="Search Value..." runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtSearchId" CssClass="form-control" MaxLength="20" placeholder="Search Value..." runat="server"></asp:TextBox>
                     </div>
                     <div class="col-md-1">
                         <span class="input-group-btn">
@@ -40,7 +40,7 @@
                         </span>
                     </div>
                     <div class="col-md-3">
-                        <asp:Button ID="btnClearFilter" CssClass="btn btn-default primary-button-style" runat="server" Text="Clear Filter" OnClick="btnClearFilter_Click" />
+                        <asp:Label ID="lblSurgeryIdInValid" runat="server" ForeColor="Red"></asp:Label><br />
                     </div>
                 </div>
             </div>
