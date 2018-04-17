@@ -158,10 +158,26 @@ namespace PMngOpeWrd.Model
             return dataTable;
         }
 
-        internal DataTable GetSurgeryBySearchKey(string searchColumn, string searchValue)
-        {
-            throw new NotImplementedException();
+        //internal DataTable GetSurgeryBySearchKey(string searchColumn, string searchValue)
+        //{
+        //    throw new NotImplementedException();
 
+        //}
+
+        internal DataTable GetSurgeryDetailsBySurgeryId(int surgeryId)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter("GetSurgeryDetailsBySurgeryId", sqlCon);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDa.SelectCommand.Parameters.AddWithValue("@SurgeryId", surgeryId);
+            DataTable dataTable = new DataTable();
+            sqlDa.Fill(dataTable);
+            sqlCon.Close();
+            return dataTable;
         }
     }
 }

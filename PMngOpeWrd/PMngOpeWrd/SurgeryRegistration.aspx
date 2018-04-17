@@ -112,7 +112,7 @@
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <div class="input-group date" id='admissionDate'>
-                                <asp:TextBox ID="txtAdmissionDate" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" MaxLength="10" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtAdmissionDate" Style="pointer-events: none; background-color: #f2f2f2;" ClientIDMode="Static" CssClass="m-wrap span12 date form_datetime form-control" MaxLength="10" runat="server"></asp:TextBox>
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </span>
@@ -363,7 +363,7 @@
                         <div class="col-md-1"></div>
                         <div class="col-md-4"></div>
                         <div class="col-md-7 button-group">
-                            <asp:Button ID="Button1" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Submit" />
+                            <asp:Button ID="btnDirecctorApproval" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Submit" />
                         </div>
                     </div>
                 </div>
@@ -381,29 +381,32 @@
         $(document).ready(function () {
             $(function () {
                 $('#datetimepickerFrom').datetimepicker({
-                    format: 'YYYY/MM/DD hh:mm A',
-                    minDate: moment()
+                    format: 'YYYY/MM/DD hh:mm A'
                 });
             });
 
             $(function () {
                 $('#datetimepickerTo').datetimepicker({
-                    format: 'YYYY/MM/DD hh:mm A',
-                    minDate: moment()
+                    format: 'YYYY/MM/DD hh:mm A'
                 });
             });
 
             $(function () {
                 $('#admissionDate').datetimepicker({
                     defaultDate: moment(),
-                    format: 'YYYY/MM/DD',
-                    minDate: moment()
+                    format: 'YYYY/MM/DD'
                 });
             });
+
+            //,minDate: moment()
+            //,minDate: moment()
 
             $("#admissionDate").on("dp.change", function (e) {
                 //$('#datetimepickerFrom').data("DateTimePicker").minDate(e.date);
                 //$('#datetimepickerTo').data("DateTimePicker").minDate(e.date);
+                //alert($("#body_hdnAdmissionDate").val());
+                //$('#admissionDate').data("DateTimePicker").date($("#body_hdnAdmissionDate").val());
+                //$('#admissionDate').data("DateTimePicker").date("2018/04/18");
             });
 
             $("#datetimepickerFrom").on("dp.change", function (e) {
@@ -413,6 +416,8 @@
                 $('#datetimepickerFrom').data("DateTimePicker").maxDate(e.date);
             });
 
+  <%--          var dtString = $("#<%=hdnAdmissionDate.ClientID%>").val();
+            $('#admissionDate').data("DateTimePicker").date(dtString);--%>
         });
     </script>
 

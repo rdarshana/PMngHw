@@ -169,5 +169,44 @@ namespace PMngOpeWrd.Presenter
             surgeryView.transactionStatusFail = string.Empty;
         }
 
+        internal void GetSurgeryDetailsBySurgeryId()
+        {
+            DataTable surgeryData = surgeryModel.GetSurgeryDetailsBySurgeryId(surgeryView.surgeryId);
+            surgeryView.patientId = surgeryData.Rows[0]["PatientId"].ToString();
+            surgeryView.NIC = surgeryData.Rows[0]["NIC"].ToString();
+            surgeryView.firstName = surgeryData.Rows[0]["FirstName"].ToString();
+            surgeryView.lastName = surgeryData.Rows[0]["LastName"].ToString();
+            surgeryView.doctor = surgeryData.Rows[0]["DoctorId"].ToString();
+            surgeryView.wardNo = surgeryData.Rows[0]["WardNo"].ToString();
+
+            string patientSurgeryDate = surgeryData.Rows[0]["AdmissionDate"].ToString();
+            DateTime valueAdmission = DateTime.Parse(patientSurgeryDate);
+            surgeryView.admissionDate = string.Format("{0:yyyy/MM/dd}", valueAdmission);
+
+            surgeryView.surgeryDescription = surgeryData.Rows[0]["Description"].ToString();
+
+            DateTime valueAdmissionTo = DateTime.Parse(surgeryData.Rows[0]["SurgeryEnd"].ToString());
+            string formattedTo = string.Format("{0:g}", valueAdmissionTo);
+            string[] toArray = formattedTo.Split(' ');
+            string toDateFormat = string.Format("{0:yyyy/MM/dd}", DateTime.Parse(toArray[0]));
+            surgeryView.surgeryDateTo = toDateFormat + ' ' + toArray[1] + ' ' + toArray[2];
+
+            DateTime valueAdmissionFrom = DateTime.Parse(surgeryData.Rows[0]["SurgeryStart"].ToString());
+            string formattedFrom = string.Format("{0:g}", valueAdmissionFrom);
+            string[] fromArray = formattedFrom.Split(' ');
+            string fromDateFormat = string.Format("{0:yyyy/MM/dd}", DateTime.Parse(fromArray[0]));
+            surgeryView.surgeryDateFrom = fromDateFormat + ' ' + fromArray[1] + ' ' + fromArray[2];
+
+
+            surgeryView.theatorId = surgeryData.Rows[0]["TheatorId"].ToString();
+            surgeryView.surgeonApproval = surgeryData.Rows[0]["SurgeonApproval"].ToString();
+            surgeryView.surgeonDescription = surgeryData.Rows[0]["SurgeonDescription"].ToString();
+            surgeryView.anesthetistApproval = surgeryData.Rows[0]["AnesthetistApproval"].ToString();
+            surgeryView.anesthetistProblem = surgeryData.Rows[0]["AnesthetistProlems"].ToString();
+            surgeryView.modeOfAnesthesia = surgeryData.Rows[0]["ModeOfAnesthesia"].ToString();
+            surgeryView.directorApproval = surgeryData.Rows[0]["DirectorApproval"].ToString();
+            surgeryView.directorDescription = surgeryData.Rows[0]["DirectorDescription"].ToString();
+
+        }
     }
 }

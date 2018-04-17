@@ -28,11 +28,11 @@ namespace PMngOpeWrd.Presenter
             surgeryView.surgeryData = surgeruyModel.GetAllSurgeryApprovalData(surgeryView.userType, surgeryView.searchColumn, surgeryView.searchValue);
         }
 
-        public void GetEmployeeByKey()
-        {
-            surgeryView.surgeryData = surgeruyModel.GetSurgeryBySearchKey(surgeryView.searchColumn, surgeryView.searchValue);
+        //public void GetEmployeeByKey()
+        //{
+        //    surgeryView.surgeryData = surgeruyModel.GetSurgeryBySearchKey(surgeryView.searchColumn, surgeryView.searchValue);
 
-        }
+        //}
 
         public void ClearFilter()
         {

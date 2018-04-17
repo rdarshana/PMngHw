@@ -432,22 +432,27 @@ namespace PMngOpeWrd
         {
             if (!IsPostBack)
             {
-                isNewSurgery = "true";
                 presenter.LoadWardOwners();
                 presenter.LoadWardsByDoctor();
                 presenter.LoadTheaters();
-            }
-            else
-            {
 
+                if ((Request.QueryString["frm"] != null) && (Request.QueryString["sid"] != null))
+                {
+                    isNewSurgery = "false";
+                    string navigateFrom = Request.QueryString["frm"];
+                    surgeryId= Convert.ToInt32(Request.QueryString["sid"]);
+                    presenter.GetSurgeryDetailsBySurgeryId();
+                }
+                else
+                {
+                    isNewSurgery = "true";
+                }
             }
-           
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             presenter.RegisterSurgery();
-            //presenter.GetPatientHistoryInformation();
             btnSubmit.Text = "Register";
         }
 
@@ -462,12 +467,6 @@ namespace PMngOpeWrd
 
         protected void gridViewSurgeryData_onClick(object sender, EventArgs e)
         {
-            //examineId = Convert.ToInt32((sender as LinkButton).CommandArgument);
-            //isNewExamine = "false";
-            //btnSubmit.Text = "Update";
-            //transactionStatusSuccess = string.Empty;
-            //transactionStatusFail = string.Empty;
-            //presenter.GetDataSelectedById();
         }
 
         protected void gridViewSurgeryRegistration_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -478,7 +477,8 @@ namespace PMngOpeWrd
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-             presenter.GetPatientById();
+            presenter.GetPatientById();
+            //hdnAdmissionDate.Value = "2018/4/19";
             //presenter.ClearHistoryInformation();
         }
 
@@ -497,6 +497,41 @@ namespace PMngOpeWrd
             //admissionDate = hdnAdmissionDate.Value;
             //surgeryDateFrom = hdnSurgeryStart.Value;
             //surgeryDateTo = hdnSurgeryEnd.Value;
+        }
+
+        private void MainFormEditable(bool status)
+        {
+            txtPatientId.Enabled = status;
+            btnSearch.Enabled = status;
+            ddlDoctors.Enabled = status;
+            ddlWardNo.Enabled = status;
+            txtSurgeonDescription.Enabled = status;
+            ddlTheators.Enabled = status;
+            btnSearchTheator.Enabled = status;
+            btnSubmit.Enabled = status;
+            btnClear.Enabled = status;
+        }
+
+        private void SurgeonApprovalEditable(bool status)
+        {
+            ddlSurgeonApprove.Enabled = status;
+            txtSurgeonDescription.Enabled = status;
+            ddlSurgeonApprove.Enabled = status;
+        }
+
+        private void AnesthetistApproval(bool status)
+        {
+            ddlAnesthetistApprove.Enabled = status;
+            txtAnestheticsProblems.Enabled = status;
+            txtModeOfAnesthesia.Enabled = status;
+            btnAnesthesiaOk.Enabled = status;
+        }
+
+        private void DirectorApproval(bool status)
+        {
+            ddlDirectorApprove.Enabled = status;
+            txtDirectorDescription.Enabled = status;
+            btnDirecctorApproval.Enabled = status;
         }
     }
 }
