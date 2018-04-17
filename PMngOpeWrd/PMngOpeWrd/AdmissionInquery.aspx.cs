@@ -29,22 +29,18 @@ namespace PMngOpeWrd
 
         protected void gridViewAdmissionData_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            //gridViewSurgeryData.PageIndex = e.NewPageIndex;
-            //presenter.FillPatientGrid();
+            gridViewAdmissionData.PageIndex = e.NewPageIndex;
+            presenter.FillPatientAdmissionGridBySearchValues();
         }
 
         protected void btnSearchFilter_Click(object sender, EventArgs e)
         {
-            //presenter.GetEmployeeByKey();
             presenter.FillPatientAdmissionGridBySearchValues();
         }
 
         protected void GridViewPatient_onClick(object sender, EventArgs e)
         {
-            //string selectedPatientId = (sender as LinkButton).CommandArgument;
-            //patientId = selectedPatientId;
 
-            //Response.Redirect("PatientRegistration.aspx?pid=" + patientId);
         }
 
         public string patientId

@@ -20,7 +20,7 @@ namespace PMngOpeWrd.Presenter
 
         internal void FillPatientAdmissionGrid()
         {
-            //inquiryView.admissionData = inquiryModel.GetPatientAdmissionDetails(inquiryView.patientId, inquiryView.status);
+            inquiryView.admissionData = inquiryModel.GetPatientAdmissionDetails("", "admitted");
         }
 
         internal void FillPatientAdmissionGridBySearchValues()

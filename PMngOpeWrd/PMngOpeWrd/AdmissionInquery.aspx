@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-md-5">
                             <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control">
-                                <asp:ListItem Value="admitted">Admitted</asp:ListItem>
+                                <asp:ListItem Selected="True" Value="admitted">Admitted</asp:ListItem>
                                 <asp:ListItem Value="discharged">Discharged</asp:ListItem>
                                 <asp:ListItem Value="all">All</asp:ListItem>
                             </asp:DropDownList>
@@ -62,7 +62,8 @@
 
             <div class="row gridview-margin">
                 <div class="col-md-11">
-                    <asp:GridView ID="gridViewAdmissionData" CssClass="table table-striped table-bordered table-hover" PageSize="15" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewAdmissionData_PageIndexChanging">
+                    <%--<asp:GridView ID="gridViewAdmissionData" CssClass="table table-striped table-bordered table-hover" PageSize="15" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewAdmissionData_PageIndexChanging">--%>
+                        <asp:GridView ID="gridViewAdmissionData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewAdmissionData_PageIndexChanging">
                         <Columns>
                             <asp:BoundField DataField="AdmissionId" HeaderText="Admission Id" />
                             <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
