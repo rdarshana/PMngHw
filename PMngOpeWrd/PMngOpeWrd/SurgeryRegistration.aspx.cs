@@ -8,12 +8,14 @@ using PMngOpeWrd.View;
 using PMngOpeWrd.Presenter;
 using System.Data;
 using System.Threading;
+using Microsoft.CSharp.RuntimeBinder;
 
 namespace PMngOpeWrd
 {
     public partial class SurgeryRegistration : System.Web.UI.Page, ISurgeryView
     {
         SurgeryPresenter presenter;
+        string navigateFrom = string.Empty;
 
         public string patientId
         {
@@ -423,6 +425,127 @@ namespace PMngOpeWrd
             }
         }
 
+        public string surggeryDetailIsEditable
+        {
+            get
+            {
+                return hdnSurggeryDetailIsEditable.Value;
+            }
+            set
+            {
+                hdnSurggeryDetailIsEditable.Value = value;
+            }
+        }
+
+        public dynamic surgeryStatus
+        {
+            set
+            {
+                string userType = string.Empty;
+                if (!string.IsNullOrEmpty(Session["role"] as string))
+                {
+                    userType = Session["role"].ToString();
+                }
+                else
+                {
+                    userType = "doctor";
+                }
+
+                if (IsPropertyExist(value) && navigateFrom == "app")
+                {
+                    if (userType == "doctor")
+                    {
+                        if (value.SurgeonApproval == "")
+                        {
+                            MainFormEditable(false);
+                            SurgeonApprovalEditable(true);
+                            AnesthetistApprovalEditable(false);
+                            DirectorApprovalEditable(false);
+                        }
+                        else
+                        {
+                            MainFormEditable(false);
+                            SurgeonApprovalEditable(false);
+                            AnesthetistApprovalEditable(false);
+                            DirectorApprovalEditable(false);
+                        }
+                    }
+                    else if (userType == "anesthetist")
+                    {
+                        if (value.SurgeonApproval == "approved" && value.AnesthetistApproval == "")
+                        {
+                            MainFormEditable(false);
+                            SurgeonApprovalEditable(false);
+                            AnesthetistApprovalEditable(true);
+                            DirectorApprovalEditable(false);
+                        }
+                        else
+                        {
+                            MainFormEditable(false);
+                            SurgeonApprovalEditable(false);
+                            AnesthetistApprovalEditable(false);
+                            DirectorApprovalEditable(false);
+                        }
+                    }
+                    else if (userType == "director")
+                    {
+                        if(value.SurgeonApproval == "approved" && value.AnesthetistApproval == "approved" && value.DirectorApproval =="")
+                        {
+                            MainFormEditable(false);
+                            SurgeonApprovalEditable(false);
+                            AnesthetistApprovalEditable(false);
+                            DirectorApprovalEditable(true);
+                        }
+                        else
+                        {
+                            MainFormEditable(false);
+                            SurgeonApprovalEditable(false);
+                            AnesthetistApprovalEditable(false);
+                            DirectorApprovalEditable(false);
+                        }
+                    }
+                    else
+                    {
+                        MainFormEditable(false);
+                        SurgeonApprovalEditable(false);
+                        AnesthetistApprovalEditable(false);
+                        DirectorApprovalEditable(false);
+                    }
+                    btnClear.Enabled = false;
+                    txtPatientId.Enabled = false;
+                    btnSearch.Enabled = false;
+                }
+                else if (navigateFrom == "lst")
+                {
+                    if(surggeryDetailIsEditable == "true" && userType == "doctor")
+                    {
+                        MainFormEditable(true);
+                        SurgeonApprovalEditable(false);
+                        AnesthetistApprovalEditable(false);
+                        DirectorApprovalEditable(false);
+                        btnSearch.Enabled = false;
+                        txtPatientId.Enabled = false;
+                        btnClear.Enabled = false;
+                        btnSubmit.Text = "Update";
+                    }
+                    else
+                    {
+                        MainFormEditable(false);
+                        SurgeonApprovalEditable(false);
+                        AnesthetistApprovalEditable(false);
+                        DirectorApprovalEditable(false);
+                    }
+                }
+                else
+                {
+                    MainFormEditable(false);
+                    SurgeonApprovalEditable(false);
+                    AnesthetistApprovalEditable(false);
+                    DirectorApprovalEditable(false);
+                }                
+            }
+        }
+
         public SurgeryRegistration()
         {
             presenter = new SurgeryPresenter(this);
@@ -439,9 +562,10 @@ namespace PMngOpeWrd
                 if ((Request.QueryString["frm"] != null) && (Request.QueryString["sid"] != null))
                 {
                     isNewSurgery = "false";
-                    string navigateFrom = Request.QueryString["frm"];
+                    navigateFrom = Request.QueryString["frm"];
                     surgeryId= Convert.ToInt32(Request.QueryString["sid"]);
                     presenter.GetSurgeryDetailsBySurgeryId();
+                    presenter.GetSurgeryApprovalStatusById();
                 }
                 else
                 {
@@ -505,7 +629,7 @@ namespace PMngOpeWrd
             btnSearch.Enabled = status;
             ddlDoctors.Enabled = status;
             ddlWardNo.Enabled = status;
-            txtSurgeonDescription.Enabled = status;
+            txtSurgeryDescription.Enabled = status;
             ddlTheators.Enabled = status;
             btnSearchTheator.Enabled = status;
             btnSubmit.Enabled = status;
@@ -516,10 +640,10 @@ namespace PMngOpeWrd
         {
             ddlSurgeonApprove.Enabled = status;
             txtSurgeonDescription.Enabled = status;
-            ddlSurgeonApprove.Enabled = status;
+            btnSurgeonApproval.Enabled = status;
         }
 
-        private void AnesthetistApproval(bool status)
+        private void AnesthetistApprovalEditable(bool status)
         {
             ddlAnesthetistApprove.Enabled = status;
             txtAnestheticsProblems.Enabled = status;
@@ -527,11 +651,40 @@ namespace PMngOpeWrd
             btnAnesthesiaOk.Enabled = status;
         }
 
-        private void DirectorApproval(bool status)
+        private void DirectorApprovalEditable(bool status)
         {
             ddlDirectorApprove.Enabled = status;
             txtDirectorDescription.Enabled = status;
             btnDirecctorApproval.Enabled = status;
+        }
+
+        public static bool IsPropertyExist(dynamic dynamicObj)
+        {
+            try
+            {
+                var value = dynamicObj.PatientId;
+                return true;
+            }
+            catch (RuntimeBinderException)
+            {
+                return false;
+            }
+
+        }
+
+        protected void btnSurgeonApproval_Click(object sender, EventArgs e)
+        {
+            presenter.SubmitSurgeonApproval();
+        }
+
+        protected void btnAnesthesiaOk_Click(object sender, EventArgs e)
+        {
+            presenter.SubmitAnesthesiaApproval();
+        }
+
+        protected void btnDirecctorApproval_Click(object sender, EventArgs e)
+        {
+            presenter.SubmitDirecctorApproval();
         }
     }
 }

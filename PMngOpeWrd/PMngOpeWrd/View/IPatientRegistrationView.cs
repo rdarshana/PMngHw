@@ -30,6 +30,5 @@ namespace PMngOpeWrd.View
         bool patientRegistration { set; }
         bool patientUpdate { set; }
         string removeQueryString { set; }
-
     }
 }

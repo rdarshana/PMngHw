@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 
@@ -78,7 +79,7 @@ namespace PMngOpeWrd.Model
                 sqlCmd.Parameters.AddWithValue("@TheatorId", surgery.TheatorId);
                 sqlCmd.Parameters.AddWithValue("@PatientId", surgery.PatientId);
                 sqlCmd.Parameters.AddWithValue("@WardNo", surgery.WardNo);
-                sqlCmd.Parameters.AddWithValue("@IsNewSurgery", true);
+                sqlCmd.Parameters.AddWithValue("@IsNewSurgery", surgery.IsNewSurgery);
 
                 sqlCmd.ExecuteNonQuery();
                 sqlCon.Close();
@@ -112,7 +113,7 @@ namespace PMngOpeWrd.Model
             return dataTable;
         }
 
-        internal bool IsValidTheaterSelection(string surgeryDateFrom, string surgeryDateTo, string theatorId)
+        internal bool IsValidTheaterSelection(string surgeryDateFrom, string surgeryDateTo, string theatorId, int surgeryId, string isNewSurgery)
         {
             bool validTheatorSelection = false;
             if (sqlCon.State == ConnectionState.Closed)
@@ -125,6 +126,8 @@ namespace PMngOpeWrd.Model
             sqlDa.SelectCommand.Parameters.AddWithValue("@FromDate", surgeryDateFrom);
             sqlDa.SelectCommand.Parameters.AddWithValue("@ToDate", surgeryDateTo);
             sqlDa.SelectCommand.Parameters.AddWithValue("@TheatorId", theatorId);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@IsNewSurgery", isNewSurgery);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@SurgeryId", surgeryId);
             DataTable dataTable = new DataTable();
             sqlDa.Fill(dataTable);
             sqlCon.Close();
@@ -178,6 +181,30 @@ namespace PMngOpeWrd.Model
             sqlDa.Fill(dataTable);
             sqlCon.Close();
             return dataTable;
+        }
+
+        internal dynamic GetSurgeryApprovalStatusById(int surgeryId)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+            SqlCommand sqlCmd = new SqlCommand("GetSurgeryApprovalStatusById", sqlCon);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.Parameters.AddWithValue("@SurgeryId", surgeryId);
+            SqlDataReader reader = sqlCmd.ExecuteReader();
+            string status = string.Empty;
+            dynamic surgeryDetails = new ExpandoObject();
+
+            if (reader.Read())
+            {
+                surgeryDetails.SurgeonApproval = Convert.ToString(reader["SurgeonApproval"]);
+                surgeryDetails.AnesthetistApproval = Convert.ToString(reader["AnesthetistApproval"]);
+                surgeryDetails.DirectorApproval = Convert.ToString(reader["DirectorApproval"]);
+                surgeryDetails.PatientId = Convert.ToString(reader["PatientId"]);
+            }
+
+            return surgeryDetails;
         }
     }
 }

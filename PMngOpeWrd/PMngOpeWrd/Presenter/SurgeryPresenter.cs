@@ -107,7 +107,7 @@ namespace PMngOpeWrd.Presenter
         {
             ClearErrorMessages();
 
-            bool isValidTheaterSelection = surgeryModel.IsValidTheaterSelection(surgeryView.surgeryDateFrom, surgeryView.surgeryDateTo, surgeryView.theatorId);
+            bool isValidTheaterSelection = surgeryModel.IsValidTheaterSelection(surgeryView.surgeryDateFrom, surgeryView.surgeryDateTo, surgeryView.theatorId, surgeryView.surgeryId, surgeryView.isNewSurgery);
             if (isValidTheaterSelection)
             {
                 dynamic surgery = new ExpandoObject();
@@ -207,6 +207,20 @@ namespace PMngOpeWrd.Presenter
             surgeryView.directorApproval = surgeryData.Rows[0]["DirectorApproval"].ToString();
             surgeryView.directorDescription = surgeryData.Rows[0]["DirectorDescription"].ToString();
 
+            string editableCount = surgeryData.Rows[0]["IsEditableCount"].ToString();
+            if (editableCount == "0")
+            {
+                surgeryView.surggeryDetailIsEditable = "false";
+            }
+            else
+            {
+                surgeryView.surggeryDetailIsEditable = "true";
+            }
+        }
+
+        internal void GetSurgeryApprovalStatusById()
+        {
+            surgeryView.surgeryStatus = surgeryModel.GetSurgeryApprovalStatusById(surgeryView.surgeryId);
         }
     }
 }

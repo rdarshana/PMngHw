@@ -37,5 +37,7 @@ namespace PMngOpeWrd.View
         DataTable wardDoctors { set; }
         DataTable Wards { set; }
         DataTable availableTheators { set; }
+        dynamic surgeryStatus { set; }
+        string surggeryDetailIsEditable { get; set; }
     }
 }

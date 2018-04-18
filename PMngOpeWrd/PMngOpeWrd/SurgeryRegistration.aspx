@@ -53,7 +53,8 @@
                     <asp:HiddenField ID="hdnAdmissionDate" runat="server" />
                     <asp:HiddenField ID="hdnSurgeryStart" runat="server" />
                     <asp:HiddenField ID="hdnSurgeryEnd" runat="server" />
-
+                     <asp:HiddenField ID="hdnSurggeryDetailIsEditable" runat="server" />
+                    
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
@@ -255,9 +256,9 @@
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <asp:DropDownList ID="ddlSurgeonApprove" Enabled="false" CssClass="form-control" runat="server">
-                                <asp:ListItem Value="approve">Approve</asp:ListItem>
-                                <asp:ListItem Value="pending" Selected="True">Pending</asp:ListItem>
-                                <asp:ListItem Value="reject">Reject</asp:ListItem>
+                                <asp:ListItem Value="approved">Approve</asp:ListItem>
+                                <asp:ListItem Value="" Selected="True">Pending</asp:ListItem>
+                                <asp:ListItem Value="rejected">Reject</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -295,9 +296,9 @@
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <asp:DropDownList ID="ddlAnesthetistApprove" Enabled="false" CssClass="form-control" runat="server">
-                                <asp:ListItem Value="approve">Approve</asp:ListItem>
-                                <asp:ListItem Value="pending" Selected="True">Pending</asp:ListItem>
-                                <asp:ListItem Value="reject">Reject</asp:ListItem>
+                                <asp:ListItem Value="approved">Approve</asp:ListItem>
+                                <asp:ListItem Value="" Selected="True">Pending</asp:ListItem>
+                                <asp:ListItem Value="rejected">Reject</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -344,9 +345,9 @@
                         </div>
                         <div class="col-md-7 col-xm-12">
                             <asp:DropDownList ID="ddlDirectorApprove" Enabled="false" CssClass="form-control" runat="server">
-                                <asp:ListItem Value="approve">Approve</asp:ListItem>
-                                <asp:ListItem Value="pending" Selected="True">Pending</asp:ListItem>
-                                <asp:ListItem Value="reject">Reject</asp:ListItem>
+                                <asp:ListItem Value="approved">Approve</asp:ListItem>
+                                <asp:ListItem Value="" Selected="True">Pending</asp:ListItem>
+                                <asp:ListItem Value="rejected">Reject</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                     </div>
