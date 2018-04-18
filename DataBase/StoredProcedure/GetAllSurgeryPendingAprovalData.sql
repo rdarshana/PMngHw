@@ -29,7 +29,7 @@ ELSE IF (@UserType = 'anesthetist')
 
 ELSE
 	BEGIN
-		SET @QueryStatus = 'AND SU.[SurgeonApproval] = ''approved'' AND SU.[AnesthetistApproval] = ''approved'' AND [DirectorApproval] IS NULL';
+		SET @QueryStatus = 'AND SU.[SurgeonApproval] = ''approved'' AND SU.[AnesthetistApproval] = ''approved'' AND SU.[DirectorApproval] IS NULL';
 	END
 
 
