@@ -67,7 +67,7 @@
         <div class="col-md-10 info-mzg">
         
         <div id="grdDisplayMessage" class="alert alert-info" style="display:none" runat="server">
-            There are no matching records
+            There are no pending approvals
         </div>
             </div>
         <div class="col-md-2"></div>

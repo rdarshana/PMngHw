@@ -88,6 +88,7 @@
     <Content Include="css\employee.css" />
     <Content Include="css\employeeInquiry.css" />
     <Content Include="css\surgery-approval.css" />
+    <Content Include="css\surgery-list.css" />
     <Content Include="css\surgery-registration.css" />
     <Content Include="css\userlogin.css" />
     <Content Include="css\main.css" />
@@ -211,6 +212,7 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="SurgeryApproval.aspx" />
+    <Content Include="SurgeryList.aspx" />
     <Content Include="SurgeryRegistration.aspx" />
     <Content Include="TheatorRegistration.aspx" />
     <Content Include="UserLogin.aspx" />
@@ -278,6 +280,7 @@
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\PatientExaminationModel.cs" />
     <Compile Include="Model\PatientRegistrationModel.cs" />
+    <Compile Include="Model\SurgeryListModel.cs" />
     <Compile Include="Model\SurgeryModel.cs" />
     <Compile Include="Model\TheatorModel.cs" />
     <Compile Include="Model\WardModel.cs" />
@@ -318,6 +321,7 @@
     <Compile Include="Presenter\PatientInquiryPresente.cs" />
     <Compile Include="Presenter\PatientRegistrationPresenter.cs" />
     <Compile Include="Presenter\SurgeryApprovalPresenter.cs" />
+    <Compile Include="Presenter\SurgeryListPresenter.cs" />
     <Compile Include="Presenter\SurgeryPresenter.cs" />
     <Compile Include="Presenter\TheatorRegistrationPresenter.cs" />
     <Compile Include="Presenter\WardRegistrationPresenter.cs" />
@@ -335,6 +339,13 @@
     </Compile>
     <Compile Include="SurgeryApproval.aspx.designer.cs">
       <DependentUpon>SurgeryApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SurgeryList.aspx.cs">
+      <DependentUpon>SurgeryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SurgeryList.aspx.designer.cs">
+      <DependentUpon>SurgeryList.aspx</DependentUpon>
     </Compile>
     <Compile Include="SurgeryRegistration.aspx.cs">
       <DependentUpon>SurgeryRegistration.aspx</DependentUpon>
@@ -366,6 +377,7 @@
     <Compile Include="View\IPatientInquiryView.cs" />
     <Compile Include="View\IPatientRegistrationView.cs" />
     <Compile Include="View\ISurgeryApprovalView.cs" />
+    <Compile Include="View\ISurgeryListView.cs" />
     <Compile Include="View\ISurgeryView.cs" />
     <Compile Include="View\ITheatorRegistrationView.cs" />
     <Compile Include="View\IWardRegistrationView.cs" />
