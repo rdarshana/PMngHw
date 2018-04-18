@@ -39,5 +39,6 @@ namespace PMngOpeWrd.View
         DataTable availableTheators { set; }
         dynamic surgeryStatus { set; }
         string surggeryDetailIsEditable { get; set; }
+        string employeeId { get; }
     }
 }

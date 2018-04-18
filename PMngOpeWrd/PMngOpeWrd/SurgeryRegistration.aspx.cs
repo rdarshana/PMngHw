@@ -252,7 +252,7 @@ namespace PMngOpeWrd
             set
             {
                 string theator = value.Trim();
-                ddlDoctors.ClearSelection();
+                ddlTheators.ClearSelection();
                 ListItem selectedTheator = ddlTheators.Items.FindByValue(theator);
                 if (selectedTheator != null)
                 {
@@ -336,14 +336,14 @@ namespace PMngOpeWrd
         {
             get
             {
-                return ddlSurgeonApprove.SelectedValue;
+                return ddlAnesthetistApprove.SelectedValue;
             }
 
             set
             {
-                string surgeonApprove = value.Trim();
-                ddlSurgeonApprove.ClearSelection();
-                ListItem selectedApprove = ddlSurgeonApprove.Items.FindByValue(surgeonApprove);
+                string anesthetistApprove = value.Trim();
+                ddlAnesthetistApprove.ClearSelection();
+                ListItem selectedApprove = ddlAnesthetistApprove.Items.FindByValue(anesthetistApprove);
                 if (selectedApprove != null)
                 {
                     selectedApprove.Selected = true;
@@ -387,8 +387,8 @@ namespace PMngOpeWrd
             set
             {
                 string directorApprove = value.Trim();
-                ddlSurgeonApprove.ClearSelection();
-                ListItem selectedApprove = ddlSurgeonApprove.Items.FindByValue(directorApprove);
+                ddlDirectorApprove.ClearSelection();
+                ListItem selectedApprove = ddlDirectorApprove.Items.FindByValue(directorApprove);
                 if (selectedApprove != null)
                 {
                     selectedApprove.Selected = true;
@@ -422,6 +422,24 @@ namespace PMngOpeWrd
                 {
                     btnSubmit.Enabled = false;
                 }
+            }
+        }
+
+        public string employeeId
+        {
+            get
+            {
+                string admittedBy = string.Empty;
+
+                if (!string.IsNullOrEmpty(Session["id"] as string))
+                {
+                    admittedBy = Session["id"].ToString();
+                }
+                else
+                {
+                    admittedBy = "EMP-14";
+                }
+                return admittedBy;
             }
         }
 
@@ -669,22 +687,27 @@ namespace PMngOpeWrd
             {
                 return false;
             }
-
         }
 
         protected void btnSurgeonApproval_Click(object sender, EventArgs e)
         {
             presenter.SubmitSurgeonApproval();
+            SurgeonApprovalEditable(false);
+            lblSurgeonApprovalStatus.Text = "Approval Submitted Successfully";
         }
 
         protected void btnAnesthesiaOk_Click(object sender, EventArgs e)
         {
             presenter.SubmitAnesthesiaApproval();
+            AnesthetistApprovalEditable(false);
+            lblAnestheticsApprovalStatus.Text = "Approval Submitted Successfully";
         }
 
         protected void btnDirecctorApproval_Click(object sender, EventArgs e)
         {
             presenter.SubmitDirecctorApproval();
+            DirectorApprovalEditable(false);
+            lblDirectorApprovalStatus.Text = "Approval Submitted Successfully";
         }
     }
 }

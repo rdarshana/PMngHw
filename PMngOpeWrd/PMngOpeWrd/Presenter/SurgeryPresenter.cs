@@ -222,5 +222,20 @@ namespace PMngOpeWrd.Presenter
         {
             surgeryView.surgeryStatus = surgeryModel.GetSurgeryApprovalStatusById(surgeryView.surgeryId);
         }
+
+        internal void SubmitSurgeonApproval()
+        {
+            bool approvalStatus = surgeryModel.SubmitSurgeonApproval(surgeryView.surgeryId, surgeryView.surgeonApproval, surgeryView.surgeonDescription, surgeryView.employeeId);
+        }
+
+        internal void SubmitAnesthesiaApproval()
+        {
+            bool approvalStatus = surgeryModel.SubmitAnesthesiaApproval(surgeryView.surgeryId, surgeryView.anesthetistApproval, surgeryView.modeOfAnesthesia,surgeryView.anesthetistProblem, surgeryView.employeeId);
+        }
+
+        internal void SubmitDirecctorApproval()
+        {
+            bool approvalStatus = surgeryModel.SubmitDirecctorApproval(surgeryView.surgeryId, surgeryView.directorApproval,surgeryView.directorDescription, surgeryView.employeeId);
+        }
     }
 }

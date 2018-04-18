@@ -206,5 +206,88 @@ namespace PMngOpeWrd.Model
 
             return surgeryDetails;
         }
+
+
+        internal bool SubmitSurgeonApproval(int surgeryId, string surgeonApproval, string surgeonDescription, string approver)
+        {
+            try
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+
+                SqlCommand sqlCmd = new SqlCommand("AddSurgeonApproval", sqlCon);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue("@SurgeryId", surgeryId);
+                sqlCmd.Parameters.AddWithValue("@SurgeonApproval", surgeonApproval);
+                sqlCmd.Parameters.AddWithValue("@SurgeonDescription", surgeonDescription);
+                sqlCmd.Parameters.AddWithValue("@Approver", approver);
+                
+                sqlCmd.ExecuteNonQuery();
+                sqlCon.Close();
+
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
+        internal bool SubmitAnesthesiaApproval(int surgeryId, string anesthetistApproval, string modeOfAnesthesia, string anesthetistProblem, string approver)
+        {
+            try
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+
+                SqlCommand sqlCmd = new SqlCommand("AddAnesthesiaApproval", sqlCon);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue("@SurgeryId", surgeryId);
+                sqlCmd.Parameters.AddWithValue("@AnesthetistApproval", anesthetistApproval);
+                sqlCmd.Parameters.AddWithValue("@ModeOfAnesthesia", modeOfAnesthesia);
+                sqlCmd.Parameters.AddWithValue("@AnesthetistProblem", anesthetistProblem);
+                sqlCmd.Parameters.AddWithValue("@Approver", approver);
+
+                sqlCmd.ExecuteNonQuery();
+                sqlCon.Close();
+
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
+        internal bool SubmitDirecctorApproval(int surgeryId, string directorApproval, string directorDescription, string approver)
+        {
+            try
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+
+                SqlCommand sqlCmd = new SqlCommand("AddDirecctorApproval", sqlCon);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue("@SurgeryId", surgeryId);
+                sqlCmd.Parameters.AddWithValue("@DirectorApproval", directorApproval);
+                sqlCmd.Parameters.AddWithValue("@DirectorDescription", directorDescription);
+                sqlCmd.Parameters.AddWithValue("@Approver", approver);
+
+                sqlCmd.ExecuteNonQuery();
+                sqlCon.Close();
+
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
     }
 }

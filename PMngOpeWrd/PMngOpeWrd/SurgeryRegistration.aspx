@@ -53,8 +53,8 @@
                     <asp:HiddenField ID="hdnAdmissionDate" runat="server" />
                     <asp:HiddenField ID="hdnSurgeryStart" runat="server" />
                     <asp:HiddenField ID="hdnSurgeryEnd" runat="server" />
-                     <asp:HiddenField ID="hdnSurggeryDetailIsEditable" runat="server" />
-                    
+                    <asp:HiddenField ID="hdnSurggeryDetailIsEditable" runat="server" />
+
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">
@@ -246,38 +246,47 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="form-horizontal box box-primary">
-                    <div class="form-group approval-box-header">
-                        <asp:Label ID="lblSurgeonApproval" runat="server" Text="Surgeon Approval"></asp:Label>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="Label2" CssClass="control-label" runat="server" for="ddlSurgeonApprove" Text="Approval"></asp:Label>
-                        </div>
-                        <div class="col-md-7 col-xm-12">
-                            <asp:DropDownList ID="ddlSurgeonApprove" Enabled="false" CssClass="form-control" runat="server">
-                                <asp:ListItem Value="approved">Approve</asp:ListItem>
-                                <asp:ListItem Value="" Selected="True">Pending</asp:ListItem>
-                                <asp:ListItem Value="rejected">Reject</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblSurgeonDescription" CssClass="control-label" runat="server" for="txtSurgeonDescription" Text="Description"></asp:Label>
-                        </div>
-                        <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtSurgeonDescription" Enabled="false" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4"></div>
-                        <div class="col-md-7 button-group">
-                            <asp:Button ID="btnSurgeonApproval" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Submit" />
-                        </div>
-                    </div>
+
+                    <asp:UpdatePanel ID="upsurgeonApproval" runat="server">
+                        <ContentTemplate>
+                            <div class="form-group approval-box-header">
+                                <asp:Label ID="lblSurgeonApproval" runat="server" Text="Surgeon Approval"></asp:Label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4 col-xm-12">
+                                    <asp:Label ID="Label2" CssClass="control-label" runat="server" for="ddlSurgeonApprove" Text="Approval"></asp:Label>
+                                </div>
+                                <div class="col-md-7 col-xm-12">
+                                    <asp:DropDownList ID="ddlSurgeonApprove" Enabled="true" CssClass="form-control" runat="server">
+                                        <asp:ListItem Value="approved">Approved</asp:ListItem>
+                                        <asp:ListItem Value="">Pending</asp:ListItem>
+                                        <asp:ListItem Value="rejected">Rejected</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4 col-xm-12">
+                                    <asp:Label ID="lblSurgeonDescription" CssClass="control-label" runat="server" for="txtSurgeonDescription" Text="Description"></asp:Label>
+                                </div>
+                                <div class="col-md-7 col-xm-12">
+                                    <asp:TextBox ID="txtSurgeonDescription" Enabled="false" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-7 button-group">
+                                    <asp:Button ID="btnSurgeonApproval" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Submit" OnClick="btnSurgeonApproval_Click" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <asp:Label ID="lblSurgeonApprovalStatus" ForeColor="#00CC00" CssClass="control-label" runat="server" Text=""></asp:Label>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -286,47 +295,56 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="form-horizontal box box-primary">
-                    <div class="form-group approval-box-header">
-                        <asp:Label ID="lblAnesthetistApproval" runat="server" Text="Anesthetist Approval"></asp:Label>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblApproved" CssClass="control-label" runat="server" for="ddlAnesthetistApprove" Text="Approval"></asp:Label>
-                        </div>
-                        <div class="col-md-7 col-xm-12">
-                            <asp:DropDownList ID="ddlAnesthetistApprove" Enabled="false" CssClass="form-control" runat="server">
-                                <asp:ListItem Value="approved">Approve</asp:ListItem>
-                                <asp:ListItem Value="" Selected="True">Pending</asp:ListItem>
-                                <asp:ListItem Value="rejected">Reject</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblProblems" CssClass="control-label" runat="server" for="txtAnestheticsProblems" Text="Problems"></asp:Label>
-                        </div>
-                        <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtAnestheticsProblems" Enabled="false" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblModeOfAnesthesia" CssClass="control-label" runat="server" for="txtModeOfAnesthesia" Text="Mode Of Anesthesia"></asp:Label>
-                        </div>
-                        <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtModeOfAnesthesia" Enabled="false" CssClass="form-control" MaxLength="100" runat="server" TextMode="SingleLine"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4"></div>
-                        <div class="col-md-7 button-group">
-                            <asp:Button ID="btnAnesthesiaOk" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Submit" />
-                        </div>
-                    </div>
+
+                    <asp:UpdatePanel ID="upAnestheticsApproval" runat="server">
+                        <ContentTemplate>
+                            <div class="form-group approval-box-header">
+                                <asp:Label ID="lblAnesthetistApproval" runat="server" Text="Anesthetist Approval"></asp:Label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4 col-xm-12">
+                                    <asp:Label ID="lblApproved" CssClass="control-label" runat="server" for="ddlAnesthetistApprove" Text="Approval"></asp:Label>
+                                </div>
+                                <div class="col-md-7 col-xm-12">
+                                    <asp:DropDownList ID="ddlAnesthetistApprove" Enabled="false" CssClass="form-control" runat="server">
+                                        <asp:ListItem Value="approved">Approved</asp:ListItem>
+                                        <asp:ListItem Value="" Selected="True">Pending</asp:ListItem>
+                                        <asp:ListItem Value="rejected">Rejected</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4 col-xm-12">
+                                    <asp:Label ID="lblProblems" CssClass="control-label" runat="server" for="txtAnestheticsProblems" Text="Problems"></asp:Label>
+                                </div>
+                                <div class="col-md-7 col-xm-12">
+                                    <asp:TextBox ID="txtAnestheticsProblems" Enabled="false" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4 col-xm-12">
+                                    <asp:Label ID="lblModeOfAnesthesia" CssClass="control-label" runat="server" for="txtModeOfAnesthesia" Text="Mode Of Anesthesia"></asp:Label>
+                                </div>
+                                <div class="col-md-7 col-xm-12">
+                                    <asp:TextBox ID="txtModeOfAnesthesia" Enabled="false" CssClass="form-control" MaxLength="100" runat="server" TextMode="SingleLine"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-7 button-group">
+                                    <asp:Button ID="btnAnesthesiaOk" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Submit" OnClick="btnAnesthesiaOk_Click" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <asp:Label ID="lblAnestheticsApprovalStatus" ForeColor="#00CC00" CssClass="control-label" runat="server" Text=""></asp:Label>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -335,38 +353,48 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="form-horizontal box box-primary">
-                    <div class="form-group approval-box-header">
-                        <asp:Label ID="lblDirector" runat="server" Text="Director Approval"></asp:Label>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="lblDirectorApproval" CssClass="control-label" runat="server" for="ddlDirectorApprove" Text="Approval"></asp:Label>
-                        </div>
-                        <div class="col-md-7 col-xm-12">
-                            <asp:DropDownList ID="ddlDirectorApprove" Enabled="false" CssClass="form-control" runat="server">
-                                <asp:ListItem Value="approved">Approve</asp:ListItem>
-                                <asp:ListItem Value="" Selected="True">Pending</asp:ListItem>
-                                <asp:ListItem Value="rejected">Reject</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 col-xm-12">
-                            <asp:Label ID="Label4" CssClass="control-label" runat="server" for="txtDirectorDescription" Text="Description"></asp:Label>
-                        </div>
-                        <div class="col-md-7 col-xm-12">
-                            <asp:TextBox ID="txtDirectorDescription" Enabled="false" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4"></div>
-                        <div class="col-md-7 button-group">
-                            <asp:Button ID="btnDirecctorApproval" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Submit" />
-                        </div>
-                    </div>
+
+                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                        <ContentTemplate>
+                            <div class="form-group approval-box-header">
+                                <asp:Label ID="lblDirector" runat="server" Text="Director Approval"></asp:Label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4 col-xm-12">
+                                    <asp:Label ID="lblDirectorApproval" CssClass="control-label" runat="server" for="ddlDirectorApprove" Text="Approval"></asp:Label>
+                                </div>
+                                <div class="col-md-7 col-xm-12">
+                                    <asp:DropDownList ID="ddlDirectorApprove" Enabled="false" CssClass="form-control" runat="server">
+                                        <asp:ListItem Value="approved">Approved</asp:ListItem>
+                                        <asp:ListItem Value="" Selected="True">Pending</asp:ListItem>
+                                        <asp:ListItem Value="rejected">Rejected</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4 col-xm-12">
+                                    <asp:Label ID="Label4" CssClass="control-label" runat="server" for="txtDirectorDescription" Text="Description"></asp:Label>
+                                </div>
+                                <div class="col-md-7 col-xm-12">
+                                    <asp:TextBox ID="txtDirectorDescription" Enabled="false" CssClass="form-control" runat="server" MaxLength="200" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-7 button-group">
+                                    <asp:Button ID="btnDirecctorApproval" Enabled="false" CssClass="btn btn-primary primary-button-style" runat="server" Text="Submit" OnClick="btnDirecctorApproval_Click" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <asp:Label ID="lblDirectorApprovalStatus" ForeColor="#00CC00" CssClass="control-label" runat="server" Text=""></asp:Label>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+
+
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -417,7 +445,7 @@
                 $('#datetimepickerFrom').data("DateTimePicker").maxDate(e.date);
             });
 
-  <%--          var dtString = $("#<%=hdnAdmissionDate.ClientID%>").val();
+            <%--          var dtString = $("#<%=hdnAdmissionDate.ClientID%>").val();
             $('#admissionDate').data("DateTimePicker").date(dtString);--%>
         });
     </script>

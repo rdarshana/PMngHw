@@ -436,6 +436,15 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.Label lblFail;
         
         /// <summary>
+        /// upsurgeonApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upsurgeonApproval;
+        
+        /// <summary>
         /// lblSurgeonApproval control.
         /// </summary>
         /// <remarks>
@@ -488,6 +497,24 @@ namespace PMngOpeWrd {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSurgeonApproval;
+        
+        /// <summary>
+        /// lblSurgeonApprovalStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSurgeonApprovalStatus;
+        
+        /// <summary>
+        /// upAnestheticsApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upAnestheticsApproval;
         
         /// <summary>
         /// lblAnesthetistApproval control.
@@ -562,6 +589,24 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.Button btnAnesthesiaOk;
         
         /// <summary>
+        /// lblAnestheticsApprovalStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAnestheticsApprovalStatus;
+        
+        /// <summary>
+        /// UpdatePanel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
+        
+        /// <summary>
         /// lblDirector control.
         /// </summary>
         /// <remarks>
@@ -614,5 +659,14 @@ namespace PMngOpeWrd {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDirecctorApproval;
+        
+        /// <summary>
+        /// lblDirectorApprovalStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDirectorApprovalStatus;
     }
 }

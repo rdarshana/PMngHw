@@ -54,7 +54,7 @@
                             <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
                             <asp:BoundField DataField="NIC" HeaderText="NIC" />
                             <asp:BoundField DataField="TheatorId" HeaderText="Theator Id" />
-                            <asp:HyperLinkField DataNavigateUrlFields="SurgeryId" DataNavigateUrlFormatString="SurgeryRegistration.aspx?surid={0}" Text="Approval" />
+                            <asp:HyperLinkField DataNavigateUrlFields="SurgeryId" DataNavigateUrlFormatString="SurgeryRegistration.aspx?sid={0}&frm=app" Text="Approval" />
                         </Columns>
                     </asp:GridView>
                 </div>
