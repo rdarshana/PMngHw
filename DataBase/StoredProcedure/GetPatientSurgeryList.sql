@@ -45,23 +45,23 @@ ELSE
 
 IF (@SurgeryFrom != '' AND @SurgeryTo != '')
 	BEGIN
-		SET @QuerySurgeryDate = 'AND SU.SurgeryStart BETWEEN '''+@SurgeryFrom+''' AND '''+@SurgeryTo+''' ';
+		SET @QuerySurgeryDate = 'AND SU.SurgeryStart BETWEEN '''+@SurgeryFrom+''' AND DATEADD(DAY,1,'''+@SurgeryTo+''' )';
 	END
 ELSE
 	BEGIN
 		SET @QuerySurgeryDate = '';
 	END
-	--DATEADD(day, 1,AdmissionDate)
-IF (@SurgeryFrom != '' AND @SurgeryTo != '')
+
+IF (@AdmissionFrom != '' AND @AdmissionTo != '')
 	BEGIN
-		SET @QueryAdmissionDate = 'AND SU.AdmissionDate BETWEEN '''+@AdmissionFrom+''' AND '''+@AdmissionTo+''' ';
+		SET @QueryAdmissionDate = 'AND SU.AdmissionDate BETWEEN '''+@AdmissionFrom+''' AND DATEADD(DAY,1,'''+@AdmissionTo+''' )';
 	END
 ELSE
 	BEGIN
 		SET @QueryAdmissionDate = '';
 	END
 
-SET	@SearchQuery = 'SELECT SU.[SurgeryId],SU.[PatientId], SU.[TheatorId], SU.[SurgeryStart], SU.[WardNo], SU.[Status], CONCAT(PA.FirstName,'' '',PA.LastName) as Patient, PA.[NIC], PAD.[AdmissionStatus]
+SET	@SearchQuery = 'SELECT SU.[SurgeryId],SU.[PatientId], SU.[TheatorId], SU.[SurgeryStart], SU.[AdmissionDate], SU.[WardNo], SU.[Status], CONCAT(PA.FirstName,'' '',PA.LastName) as Patient, PA.[NIC], PAD.[AdmissionStatus]
 	FROM [dbo].[Surgery] SU INNER JOIN [dbo].[Patient] PA ON SU.[PatientId] = PA.[PatientId] 
 		 LEFT JOIN [dbo].[PatientAdmission] PAD ON SU.[SurgeryId] = PAD.[SurgeryId]
 	WHERE SU.[PatientId] IS NOT NULL '+@QueryPatient+' ' +@QueryDoctor+' ' +@QueryStatus+' ' +@QuerySurgeryDate+' ' +@QueryAdmissionDate+'

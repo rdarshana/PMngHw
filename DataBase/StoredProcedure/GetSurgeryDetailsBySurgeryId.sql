@@ -11,5 +11,5 @@ SET @IsEditable = (SELECT COUNT([PatientId])
 
 	SELECT PA.[PatientId], PA.[NIC], PA.[FirstName], PA.[LastName], SU.*, @IsEditable AS IsEditableCount
 	FROM [dbo].[Surgery] SU INNER JOIN [dbo].[Patient] PA ON SU.PatientId = PA.PatientId
-	WHERE [SurgeryId] = @SurgeryId
+	WHERE SU.[SurgeryId] = @SurgeryId
 END

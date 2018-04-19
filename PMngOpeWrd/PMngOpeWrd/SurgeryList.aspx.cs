@@ -233,7 +233,7 @@ namespace PMngOpeWrd
         {
             get
             {
-                return txtSurgeryDateTo.Text;
+                return txtAdmissionDateTo.Text;
             }
             set
             {
