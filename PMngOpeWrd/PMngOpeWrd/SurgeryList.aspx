@@ -21,13 +21,13 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="body" runat="server">
-    <div class="form-group">
-        <asp:HiddenField ID="hdnEmployeeId" runat="server" />
-        <div class="gridview-search-margin">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        <ContentTemplate>
+            <div class="form-group">
+                <asp:HiddenField ID="hdnEmployeeId" runat="server" />
+                <div class="gridview-search-margin">
 
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                <ContentTemplate>
                     <div class="row">
                         <div class="form-horizontal">
                             <div class="form-group">
@@ -44,6 +44,19 @@
                                     <asp:Label ID="lblSurgeryIdInValid" runat="server" ForeColor="Red"></asp:Label><br />
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3 col-xm-12">
+                                    <asp:Label ID="lblDoctor" CssClass="control-label" runat="server" for="ddlDoctors" Text="Doctor"></asp:Label>
+                                </div>
+                                <div class="col-md-5 col-xm-12">
+                                    <asp:DropDownList ID="ddlDoctors" CssClass="form-control" AutoPostBack="false" AppendDataBoundItems="true" runat="server">
+                                        <asp:ListItem Value="default">Select a Doctor...</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-md-5"></div>
+                            </div>
+
                             <div class="form-group">
                                 <div class="col-md-3">
                                 </div>
@@ -70,7 +83,7 @@
                                     <asp:BoundField DataField="WardNo" HeaderText="Ward No" />
                                     <asp:BoundField DataField="AdmissionStatus" HeaderText="Admission Status" />
                                     <asp:BoundField DataField="Status" HeaderText="Surgery Status" />
-                                   <%-- <asp:TemplateField  HeaderText="Admission Status">
+                                    <%-- <asp:TemplateField  HeaderText="Admission Status">
                                         <ItemTemplate>
                                            <%# ((string)Eval("AdmissionStatus")).Length > 0? "Not Admitted" : Eval("AdmissionStatus")   %>
                                         </ItemTemplate>
@@ -81,21 +94,21 @@
                         </div>
                         <div class="col-md-1"></div>
                     </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
 
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-10 info-mzg">
-
-            <div id="grdDisplayMessage" class="alert alert-info" style="display: none" runat="server">
-                There are no marching records
+                </div>
             </div>
-        </div>
-        <div class="col-md-2"></div>
-    </div>
+
+            <div class="row">
+                <div class="col-md-10 info-mzg">
+
+                    <div id="grdDisplayMessage" class="alert alert-info" style="display: none" runat="server">
+                        There are no marching records
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
 
 

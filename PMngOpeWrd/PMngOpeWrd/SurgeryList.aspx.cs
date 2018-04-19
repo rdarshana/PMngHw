@@ -17,6 +17,7 @@ namespace PMngOpeWrd
         {
             if (!this.IsPostBack)
             {
+                presenter.LoadWardOwners();
                 presenter.FillPatientGrid();
             }
 
@@ -141,6 +142,36 @@ namespace PMngOpeWrd
                     userType = "doctor";
                 }
                 return userType;
+            }
+        }
+
+        public string doctor
+        {
+            get
+            {
+                return ddlDoctors.SelectedValue;
+            }
+
+            set
+            {
+                string wardOwner = value.Trim();
+                ddlDoctors.ClearSelection();
+                ListItem selectedOwner = ddlDoctors.Items.FindByValue(wardOwner);
+                if (selectedOwner != null)
+                {
+                    selectedOwner.Selected = true;
+                }
+            }
+        }
+
+        public DataTable wardDoctors
+        {
+            set
+            {
+                ddlDoctors.DataSource = value;
+                ddlDoctors.DataTextField = "Owner";
+                ddlDoctors.DataValueField = "EmployeeId";
+                ddlDoctors.DataBind();
             }
         }
     }

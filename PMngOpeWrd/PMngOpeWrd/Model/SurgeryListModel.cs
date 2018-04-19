@@ -23,6 +23,7 @@ namespace PMngOpeWrd.Model
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             sqlDa.SelectCommand.Parameters.AddWithValue("@SearchColumn", filterData.searchColumn);
             sqlDa.SelectCommand.Parameters.AddWithValue("@SearchValue", filterData.searchValue);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@Doctor", filterData.doctor);
             DataTable dataTable = new DataTable();
             sqlDa.Fill(dataTable);
             sqlCon.Close();

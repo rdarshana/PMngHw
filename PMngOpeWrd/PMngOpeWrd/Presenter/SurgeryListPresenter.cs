@@ -11,7 +11,8 @@ namespace PMngOpeWrd.Presenter
     public class SurgeryListPresenter
     {
         ISurgeryListView surgeryView;
-        SurgeryListModel surgeryModel;
+        SurgeryListModel surgeryListModel;
+        SurgeryModel surgeryModel;
 
         /// <summary>
         /// constructor of the patient presenter
@@ -20,7 +21,13 @@ namespace PMngOpeWrd.Presenter
         public SurgeryListPresenter(ISurgeryListView view)
         {
             surgeryView = view;
-            surgeryModel = new SurgeryListModel();
+            surgeryListModel = new SurgeryListModel();
+            surgeryModel = new SurgeryModel();
+        }
+
+        internal void LoadWardOwners()
+        {
+            surgeryView.wardDoctors = surgeryModel.LoadWardOwners();
         }
 
         public void FillPatientGrid()
@@ -28,13 +35,15 @@ namespace PMngOpeWrd.Presenter
             dynamic filterData = new ExpandoObject();
             filterData.searchColumn = surgeryView.searchColumn;
             filterData.searchValue = surgeryView.searchValue;
-            surgeryView.surgeryData = surgeryModel.GetAllSurgeryApprovalData(filterData);
+            filterData.doctor = surgeryView.doctor;
+            surgeryView.surgeryData = surgeryListModel.GetAllSurgeryApprovalData(filterData);
         }
 
         internal void ClearFilter()
         {
             surgeryView.searchColumn = "searchColumn";
             surgeryView.searchValue = string.Empty;
+            surgeryView.doctor = "default";
             FillPatientGrid();
         }
     }

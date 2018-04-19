@@ -12,5 +12,7 @@ namespace PMngOpeWrd.View
         DataTable surgeryData { set; }
         string searchColumn { get; set; }
         string searchValue { get; set; }
+        DataTable wardDoctors { set; }
+        string doctor { get; set; }
     }
 }
