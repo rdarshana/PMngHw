@@ -174,5 +174,72 @@ namespace PMngOpeWrd
                 ddlDoctors.DataBind();
             }
         }
+
+        public string status
+        {
+            get
+            {
+                return ddlSurgeryStatus.SelectedValue;
+            }
+
+            set
+            {
+                string surgeryStatus = value.Trim();
+                ddlSurgeryStatus.ClearSelection();
+                ListItem selectedStatus = ddlSurgeryStatus.Items.FindByValue(surgeryStatus);
+                if (selectedStatus != null)
+                {
+                    selectedStatus.Selected = true;
+                }
+            }
+        }
+
+        public string surgeryStartFrom
+        {
+            get
+            {
+               return txtSurgeryDateFrom.Text;
+            }
+            set
+            {
+                txtSurgeryDateFrom.Text = value;
+            }
+        }
+        public string surgeryStartTo
+        {
+            get
+            {
+                return txtSurgeryDateTo.Text;
+            }
+            set
+            {
+                txtSurgeryDateTo.Text = value;
+            }
+        }
+
+        public string admissionFrom
+        {
+            get
+            {
+                return txtAdmissionDateFrom.Text;
+            }
+            set
+            {
+                txtAdmissionDateFrom.Text = value;
+            }
+        }
+
+        public string admissionTo
+        {
+            get
+            {
+                return txtSurgeryDateTo.Text;
+            }
+            set
+            {
+                txtAdmissionDateTo.Text = value;
+            }
+        }
+
     }
 }

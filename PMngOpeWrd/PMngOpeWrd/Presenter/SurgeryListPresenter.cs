@@ -36,6 +36,11 @@ namespace PMngOpeWrd.Presenter
             filterData.searchColumn = surgeryView.searchColumn;
             filterData.searchValue = surgeryView.searchValue;
             filterData.doctor = surgeryView.doctor;
+            filterData.surgeryFrom = surgeryView.surgeryStartFrom;
+            filterData.surgeryTo = surgeryView.surgeryStartTo;
+            filterData.admissionFrom = surgeryView.admissionFrom;
+            filterData.admissionTo = surgeryView.admissionTo;
+            filterData.surgeryStatus = surgeryView.status;
             surgeryView.surgeryData = surgeryListModel.GetAllSurgeryApprovalData(filterData);
         }
 
@@ -44,6 +49,12 @@ namespace PMngOpeWrd.Presenter
             surgeryView.searchColumn = "searchColumn";
             surgeryView.searchValue = string.Empty;
             surgeryView.doctor = "default";
+            surgeryView.status = "default";
+            surgeryView.surgeryStartFrom = string.Empty;
+            surgeryView.surgeryStartTo = string.Empty;
+            surgeryView.admissionFrom = string.Empty;
+            surgeryView.admissionTo = string.Empty;
+
             FillPatientGrid();
         }
     }

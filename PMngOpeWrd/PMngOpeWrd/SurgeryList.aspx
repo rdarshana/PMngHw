@@ -76,7 +76,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-3">
-                                    <asp:Label ID="lblFromSurgery" CssClass="control-label" runat="server" Text="Surgery Start At"></asp:Label>
+                                    <asp:Label ID="lblFromSurgery" CssClass="control-label" runat="server" Text="Surgery Date"></asp:Label>
                                 </div>
                                 <div class="col-md-1">
                                     <asp:Label ID="lblSuFrom" CssClass="control-label" runat="server" for="txtSurgeryDateFrom" Text="From"></asp:Label>
@@ -217,6 +217,12 @@
                 $('#datetimepickerFrom').data("DateTimePicker").maxDate(e.date);
             });
 
+            $("#admissionDateFrom").on("dp.change", function (e) {
+                $('#admissionDateTo').data("DateTimePicker").minDate(e.date);
+            });
+            $("#admissionDateTo").on("dp.change", function (e) {
+                $('#admissionDateFrom').data("DateTimePicker").maxDate(e.date);
+            });
         }
 
         $(document).ready(function () {

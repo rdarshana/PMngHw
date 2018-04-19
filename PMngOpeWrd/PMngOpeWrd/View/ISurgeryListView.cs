@@ -14,5 +14,10 @@ namespace PMngOpeWrd.View
         string searchValue { get; set; }
         DataTable wardDoctors { set; }
         string doctor { get; set; }
+        string status { get; set; }
+        string surgeryStartFrom { get; set; }
+        string surgeryStartTo { get; set; }
+        string admissionFrom { get; set; }
+        string admissionTo { get; set; }
     }
 }

@@ -24,6 +24,12 @@ namespace PMngOpeWrd.Model
             sqlDa.SelectCommand.Parameters.AddWithValue("@SearchColumn", filterData.searchColumn);
             sqlDa.SelectCommand.Parameters.AddWithValue("@SearchValue", filterData.searchValue);
             sqlDa.SelectCommand.Parameters.AddWithValue("@Doctor", filterData.doctor);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@SurgeryFrom", filterData.surgeryFrom);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@SurgeryTo", filterData.surgeryTo);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@AdmissionFrom", filterData.admissionFrom);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@AdmissionTo", filterData.admissionTo);
+            sqlDa.SelectCommand.Parameters.AddWithValue("@SurgeryStatus", filterData.surgeryStatus);
+
             DataTable dataTable = new DataTable();
             sqlDa.Fill(dataTable);
             sqlCon.Close();
