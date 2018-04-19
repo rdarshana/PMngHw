@@ -6,15 +6,15 @@ ALTER PROCEDURE [dbo].[PatientWardAdmission]
 	@AdmittedBy VARCHAR(20),
 	@DischargeDescription VARCHAR (500),
 	@IsNewAdmission BIT,
-	@AdmissionStatus VARCHAR (20)
-
+	@AdmissionStatus VARCHAR (20),
+	@SurgeryId INT
 AS
 BEGIN
 
 	IF(@IsNewAdmission = 'true')
 		BEGIN
-			INSERT INTO [dbo].[PatientAdmission](WardNo, PatientId, AdmissionDescription, AdmissionDate, AdmittedBy, DischargeDescription, AdmissionStatus) 
-					VALUES (@WardNo, @PatientId, @AdmissionDescription , getdate() ,@AdmittedBy, @DischargeDescription, 'admitted');
+			INSERT INTO [dbo].[PatientAdmission](WardNo, PatientId, AdmissionDescription, AdmissionDate, AdmittedBy, DischargeDescription, AdmissionStatus, SurgeryId) 
+					VALUES (@WardNo, @PatientId, @AdmissionDescription , getdate() ,@AdmittedBy, @DischargeDescription, 'admitted', @SurgeryId);
 	END
 
 	ELSE

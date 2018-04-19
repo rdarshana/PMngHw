@@ -28,5 +28,6 @@ namespace PMngOpeWrd.View
         string dataFrom { get; set; }
         dynamic admissionHistory { set; }
         bool wardNoEnable { set; }
+        int surgeryId { get; set; }
     }
 }

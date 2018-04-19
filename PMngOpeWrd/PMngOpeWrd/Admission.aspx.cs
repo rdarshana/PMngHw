@@ -349,6 +349,19 @@ namespace PMngOpeWrd
             }
         }
 
+        public int surgeryId
+        {
+            get
+            {
+                return Convert.ToInt32(hdnSurgeryId.Value);
+            }
+
+            set
+            {
+                hdnSurgeryId.Value = value.ToString();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

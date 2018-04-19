@@ -9,6 +9,7 @@ CREATE TABLE [dbo].[PatientAdmission] (
 	[DischageDate]			DATE,
 	[DischargeDescription]  VARCHAR (500) NULL,
 	[DischargedBy]			VARCHAR (20) NULL,
+	[SurgeryId]				INT,
     PRIMARY KEY CLUSTERED (AdmissionId),
 	CONSTRAINT FK_AdmissionWard FOREIGN KEY (WardNo) REFERENCES [Ward] (WardNo),
 	CONSTRAINT FK_AdmissionPatient FOREIGN KEY (PatientId) REFERENCES [Patient](PatientId),

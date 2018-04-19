@@ -46,6 +46,7 @@
                     <asp:HiddenField ID="hdnAdmissionStatus"  Value="newAdmission" runat="server" />
                     <asp:HiddenField ID="hdnAdmissionId" runat="server" />
                     <asp:HiddenField ID="hdnDataFrom" runat="server" />
+                    <asp:HiddenField ID="hdnSurgeryId" runat="server" />
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-4 col-xm-12">

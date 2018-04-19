@@ -108,13 +108,14 @@ namespace PMngOpeWrd.Model
             sqlCmd.Parameters.AddWithValue("@DischargeDescription", surgery.DischargeDescription);
             sqlCmd.Parameters.AddWithValue("@IsNewAdmission", surgery.IsNewAdmission);
             sqlCmd.Parameters.AddWithValue("@AdmissionStatus", surgery.AdmissionStatus);
+            sqlCmd.Parameters.AddWithValue("@SurgeryId", surgery.SurgeryId);
             sqlCmd.ExecuteNonQuery();
             sqlCon.Close();
 
             return true;
         }
 
-        internal string GetIsPatientAdmitForSurgery(string patientId)
+        internal dynamic GetIsPatientAdmitForSurgery(string patientId)
         {
             if (sqlCon.State == ConnectionState.Closed)
             {
@@ -124,14 +125,16 @@ namespace PMngOpeWrd.Model
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.AddWithValue("@patientId", patientId);
             SqlDataReader reader = sqlCmd.ExecuteReader();
+            dynamic surgeryValue = new ExpandoObject();
             string wardNo = string.Empty;
 
             if (reader.Read())
             {
-                wardNo = Convert.ToString(reader["WardNo"]);
+                surgeryValue.wardNo = Convert.ToString(reader["WardNo"]);
+                surgeryValue.surgeryId = Convert.ToInt32(reader["SurgeryId"]);
             }
 
-            return wardNo;
+            return surgeryValue;
         }
 
         internal DataTable GetPatientAdmissionDetails(string patientId, string status)

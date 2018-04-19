@@ -63,7 +63,10 @@
                             <asp:BoundField DataField="Patient" HeaderText="Patient Name" />
                             <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
                             <asp:BoundField DataField="TheatorId" HeaderText="Theator Id" />
-                            <asp:HyperLinkField DataNavigateUrlFields="SurgeryId" DataNavigateUrlFormatString="SurgeryRegistration.aspx?sid={0}&frm=lst" Text="Approval" />
+                            <asp:BoundField DataField="WardNo" HeaderText="Ward No" />
+                            <asp:BoundField DataField="AdmissionStatus" HeaderText="Admission Status" />
+                            <asp:BoundField DataField="Status" HeaderText="Surgery Status" />
+                            <asp:HyperLinkField DataNavigateUrlFields="SurgeryId" DataNavigateUrlFormatString="SurgeryRegistration.aspx?sid={0}&frm=lst" Text="View" />
                         </Columns>
                     </asp:GridView>
                 </div>

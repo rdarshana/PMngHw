@@ -32,9 +32,9 @@ ELSE
 --	END
 
 
-SET	@SearchQuery = 'SELECT SU.[SurgeryId],SU.[PatientId], SU.[TheatorId], SU.[SurgeryStart], CONCAT(PA.FirstName,'' '',PA.LastName) as Patient, PA.[NIC]
+SET	@SearchQuery = 'SELECT SU.[SurgeryId],SU.[PatientId], SU.[TheatorId], SU.[SurgeryStart], CONCAT(PA.FirstName,'' '',PA.LastName) as Patient, PA.[NIC], PAD.[AdmissionStatus]
 	FROM [dbo].[Surgery] SU INNER JOIN [dbo].[Patient] PA ON SU.[PatientId] = PA.[PatientId] 
-		 INNER JOIN [dbo].[PatientAdmission] PAD ON PAD.[PatientId] = SU.[PatientId]
+		 LEFT JOIN [dbo].[PatientAdmission] PAD ON SU.[SurgeryId] = PAD.[SurgeryId]
 	WHERE SU.[PatientId] IS NOT NULL '+@QueryPatient+'
 	ORDER BY SU.[AdmissionDate]';
 

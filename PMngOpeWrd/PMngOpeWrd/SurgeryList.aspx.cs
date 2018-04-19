@@ -30,7 +30,7 @@ namespace PMngOpeWrd
         protected void gridViewSurgeryList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gridViewSurgeryList.PageIndex = e.NewPageIndex;
-            //presenter.FillPatientGrid();
+            presenter.FillPatientGrid();
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)

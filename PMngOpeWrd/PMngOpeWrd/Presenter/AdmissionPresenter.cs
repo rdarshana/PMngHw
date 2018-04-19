@@ -1,4 +1,5 @@
-﻿using PMngOpeWrd.Model;
+﻿using Microsoft.CSharp.RuntimeBinder;
+using PMngOpeWrd.Model;
 using PMngOpeWrd.View;
 using System;
 using System.Collections.Generic;
@@ -120,6 +121,7 @@ namespace PMngOpeWrd.Presenter
             surgery.DischargeDescription = admissionView.dischargeDescription;
             surgery.IsNewAdmission = admissionView.isNewAdmission;
             surgery.AdmissionStatus = admissionView.admissionStatus;
+            surgery.SurgeryId = admissionView.surgeryId;
 
             transactionStatus = admissionModel.AdmitPatient(surgery);
             admissionView.transactionStatusFail = string.Empty;
@@ -174,11 +176,29 @@ namespace PMngOpeWrd.Presenter
 
         internal void GetIsPatientAdmitForSurgery()
         {
-            string wardNo = admissionModel.GetIsPatientAdmitForSurgery(admissionView.patientId);
-            if(wardNo != string.Empty)
+            dynamic surgeryData = admissionModel.GetIsPatientAdmitForSurgery(admissionView.patientId);
+            if(IsPropertyExist(surgeryData))
             {
-                admissionView.wardNo = wardNo;
+                admissionView.wardNo = surgeryData.wardNo;
+                admissionView.surgeryId = surgeryData.surgeryId;
                 admissionView.wardNoEnable = false;
+            }
+            else
+            {
+                admissionView.surgeryId = 0;
+            }
+        }
+
+        private static bool IsPropertyExist(dynamic dynamicObj)
+        {
+            try
+            {
+                var value = dynamicObj.wardNo;
+                return true;
+            }
+            catch (RuntimeBinderException)
+            {
+                return false;
             }
         }
     }
