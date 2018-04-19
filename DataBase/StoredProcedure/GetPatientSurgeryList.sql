@@ -15,6 +15,7 @@ DECLARE @QueryDoctor VARCHAR (200);
 DECLARE @QueryStatus VARCHAR (200);
 DECLARE @QueryAdmissionDate VARCHAR (200);
 DECLARE @QuerySurgeryDate VARCHAR (200);
+DECLARE @QueryDefault VARCHAR (1000);
 
 IF (@SearchValue != '')
 	BEGIN
@@ -61,7 +62,22 @@ ELSE
 		SET @QueryAdmissionDate = '';
 	END
 
-SET	@SearchQuery = 'SELECT SU.[SurgeryId],SU.[PatientId], SU.[TheatorId], SU.[SurgeryStart], SU.[AdmissionDate], SU.[WardNo], SU.[Status], CONCAT(PA.FirstName,'' '',PA.LastName) as Patient, PA.[NIC], PAD.[AdmissionStatus]
+
+	--ELSE IF (@SearchValue = '' AND @Doctor = 'default' AND @SurgeryStatus = 'default' AND (@SurgeryFrom = '' OR @SurgeryTo = '') AND (@AdmissionFrom = '' OR @AdmissionTo = ''))
+	--BEGIN
+	--	SET @QuerySurgeryDate = 'AND SU.SurgeryStart BETWEEN DATEADD(DAY,-1,getdate()) AND getdate()';
+	--END
+
+--IF	(@SearchValue = '' AND @Doctor != 'default' AND @SurgeryStatus != 'default' AND (@SurgeryFrom = '' OR @SurgeryTo = '') AND (@AdmissionFrom = '' OR @AdmissionTo = ''))
+--	BEGIN
+--		SET @SearchQuery = 'SELECT SU.[SurgeryId],SU.[PatientId], SU.[TheatorId], SU.[SurgeryStart], SU.[AdmissionDate], SU.[WardNo], SU.[Status], CONCAT(PA.FirstName,'' '',PA.LastName) as Patient, PA.[NIC], PAD.[AdmissionStatus]
+--	FROM [dbo].[Surgery] SU INNER JOIN [dbo].[Patient] PA ON SU.[PatientId] = PA.[PatientId] 
+--		 LEFT JOIN [dbo].[PatientAdmission] PAD ON SU.[SurgeryId] = PAD.[SurgeryId]
+--	WHERE SU.[PatientId] IS NOT NULL AND SU.[AdmissionDate] = getdate() AND SU.[SurgeonApproval] = ''approved'' AND [AnesthetistApproval] = ''approved'' AND [DirectorApproval] = ''approved'' AND [Status]=''pending'' AND PAD.[AdmissionStatus] = ''admitted''
+--	ORDER BY SU.[AdmissionDate]';
+--	END
+
+SET	@SearchQuery = 'SELECT SU.[SurgeryId],SU.[PatientId], SU.[DoctorId], SU.[TheatorId], SU.[SurgeryStart], SU.[AdmissionDate], SU.[WardNo], SU.[Status], CONCAT(PA.FirstName,'' '',PA.LastName) as Patient, PA.[NIC], PAD.[AdmissionStatus]
 	FROM [dbo].[Surgery] SU INNER JOIN [dbo].[Patient] PA ON SU.[PatientId] = PA.[PatientId] 
 		 LEFT JOIN [dbo].[PatientAdmission] PAD ON SU.[SurgeryId] = PAD.[SurgeryId]
 	WHERE SU.[PatientId] IS NOT NULL '+@QueryPatient+' ' +@QueryDoctor+' ' +@QueryStatus+' ' +@QuerySurgeryDate+' ' +@QueryAdmissionDate+'

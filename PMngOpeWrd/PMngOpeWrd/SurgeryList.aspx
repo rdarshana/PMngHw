@@ -148,13 +148,14 @@
                     </div>
                 </div>
                 <div class="row gridview-margin">
-                    <div class="col-md-11">
+                    <div class="col-md-12">
                         <asp:GridView ID="gridViewSurgeryList" CssClass="table table-striped table-bordered table-hover" PageSize="15" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewSurgeryList_PageIndexChanging">
                             <Columns>
                                 <asp:BoundField DataField="SurgeryId" HeaderText="Surgery Id" />
                                 <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
                                 <asp:BoundField DataField="Patient" HeaderText="Patient Name" />
-                                 <asp:BoundField DataField="AdmissionDate" HeaderText="Admission Date" />
+                                <asp:BoundField DataField="DoctorId" HeaderText="Doctor" />
+                                <asp:BoundField DataField="AdmissionDate" HeaderText="Admission Date"  DataFormatString="{0:MM/dd/yyyy}" />
                                 <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
                                 <asp:BoundField DataField="TheatorId" HeaderText="Theator Id" />
                                 <asp:BoundField DataField="WardNo" HeaderText="Ward No" />
@@ -169,7 +170,6 @@
                             </Columns>
                         </asp:GridView>
                     </div>
-                    <div class="col-md-1"></div>
                 </div>
 
 
@@ -207,7 +207,7 @@
                 format: 'YYYY/MM/DD'
             });
 
-            $('#admissionDateTo').datetimepicker({
+            $('#admissionDateTo').datetimepicker({             
                format: 'YYYY/MM/DD'
             });
 

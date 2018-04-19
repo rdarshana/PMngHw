@@ -18,6 +18,9 @@ namespace PMngOpeWrd
             if (!this.IsPostBack)
             {
                 presenter.LoadWardOwners();
+                string thisDay = DateTime.Now.ToString("yyyy/MM/dd");
+                txtSurgeryDateFrom.Text = thisDay;
+                txtSurgeryDateTo.Text = thisDay;
                 presenter.FillPatientGrid();
             }
 
