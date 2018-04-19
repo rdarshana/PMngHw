@@ -30,5 +30,12 @@ namespace PMngOpeWrd.Presenter
             filterData.searchValue = surgeryView.searchValue;
             surgeryView.surgeryData = surgeryModel.GetAllSurgeryApprovalData(filterData);
         }
+
+        internal void ClearFilter()
+        {
+            surgeryView.searchColumn = "searchColumn";
+            surgeryView.searchValue = string.Empty;
+            FillPatientGrid();
+        }
     }
 }

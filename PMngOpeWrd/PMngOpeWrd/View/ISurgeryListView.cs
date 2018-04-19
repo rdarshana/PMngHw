@@ -10,7 +10,7 @@ namespace PMngOpeWrd.View
     public interface ISurgeryListView
     {
         DataTable surgeryData { set; }
-        string searchColumn { get; }
+        string searchColumn { get; set; }
         string searchValue { get; set; }
     }
 }

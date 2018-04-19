@@ -47,12 +47,12 @@ namespace PMngOpeWrd
                 }
             }
             lblSurgeryIdInValid.Text = string.Empty;
-           // presenter.FillPatientGrid();
+            presenter.FillPatientGrid();
         }
 
         protected void btnClearFilter_Click(object sender, EventArgs e)
         {
-           // presenter.ClearFilter();
+           presenter.ClearFilter();
         }
 
         protected void GridViewPatient_onClick(object sender, EventArgs e)
@@ -109,11 +109,21 @@ namespace PMngOpeWrd
                         columnName = "PatientId";
                         break;
                     case "surgeryId":
-                        columnName = "SurgeryId";
+                        columnName = "SurgeryId";   
                         break;
                 }
 
                 return columnName;
+            }
+            set
+            {
+                string defaultFilter = value.Trim();
+                ddlPatientFilter.ClearSelection();
+                ListItem selectedColumn = ddlPatientFilter.Items.FindByValue(defaultFilter);
+                if (selectedColumn != null)
+                {
+                    selectedColumn.Selected = true;
+                }
             }
         }
 
