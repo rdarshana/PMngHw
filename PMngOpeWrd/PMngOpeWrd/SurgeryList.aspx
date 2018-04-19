@@ -156,11 +156,11 @@
                                 <asp:BoundField DataField="Patient" HeaderText="Patient Name" />
                                 <asp:BoundField DataField="DoctorId" HeaderText="Doctor" />
                                 <asp:BoundField DataField="AdmissionDate" HeaderText="Admission Date"  DataFormatString="{0:MM/dd/yyyy}" />
-                                <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
-                                <asp:BoundField DataField="TheatorId" HeaderText="Theator Id" />
-                                <asp:BoundField DataField="WardNo" HeaderText="Ward No" />
                                 <asp:BoundField DataField="AdmissionStatus" HeaderText="Admission Status" />
-                                <asp:BoundField DataField="Status" HeaderText="Surgery Status" />
+                                <asp:BoundField DataField="WardNo" HeaderText="Ward No" />
+                                <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
+                                 <asp:BoundField DataField="Status" HeaderText="Surgery Status" />
+                                <asp:BoundField DataField="TheatorId" HeaderText="Theator Id" />
                                 <%-- <asp:TemplateField  HeaderText="Admission Status">
                                         <ItemTemplate>
                                            <%# ((string)Eval("AdmissionStatus")).Length > 0? "Not Admitted" : Eval("AdmissionStatus")   %>
