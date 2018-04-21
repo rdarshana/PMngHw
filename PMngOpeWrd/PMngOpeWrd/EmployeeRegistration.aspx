@@ -104,7 +104,7 @@
                     </div>
                     <div class="col-md-7">
                         <asp:TextBox ID="txtNIC" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvNIC" runat="server" ErrorMessage="This field is required" ControlToValidate="txtNIC" ValidationGroup="patientRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvNIC" runat="server" ErrorMessage="This field is required" ControlToValidate="txtNIC" ValidationGroup="employeeRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
                 </div>
 
@@ -122,9 +122,11 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
                         <asp:Label ID="lblMobilePhone" CssClass="control-label" runat="server" for="txtMobilePhone" Text="Mobile Phone"></asp:Label>
+                         <span class="required-field-star">*</span>
                     </div>
                     <div class="col-md-7">
                         <asp:TextBox ID="txtMobilePhone" CssClass="form-control" runat="server"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="reqMobilePhone" runat="server" ErrorMessage="This field is required" ControlToValidate="txtMobilePhone" ValidationGroup="employeeRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
                 </div>
 
@@ -145,7 +147,7 @@
                     </div>
                     <div class="col-md-7">
                         <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="refEmail" runat="server" ControlToValidate="txtEmail" ValidationGroup="patientRegistration" ForeColor="Red" ErrorMessage="Invalid Email format" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="refEmail" runat="server" ControlToValidate="txtEmail" ValidationGroup="employeeRegistration" ForeColor="Red" ErrorMessage="Invalid Email format" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </div>
                 </div>
 

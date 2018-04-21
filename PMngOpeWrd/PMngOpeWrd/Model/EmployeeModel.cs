@@ -93,9 +93,11 @@ namespace PMngOpeWrd.Model
             }
 
             string guid = userGuid.ToString();
-
-            // Hash the password together with unique user Guid
-            string hashedPassword = Common.Security.HashSHA1(employee.password + guid);
+            string hashedPassword = string.Empty;
+            if (employee.password != "") {
+                // Hash the password together with unique user Guid
+                hashedPassword = Common.Security.HashSHA1(employee.password + guid);
+            }
 
             SqlCommand sqlCmd = new SqlCommand("EmployeeRegistration", sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;

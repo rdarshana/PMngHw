@@ -24,6 +24,13 @@ BEGIN
 
 	ELSE
 		BEGIN
-			UPDATE [dbo].[Employee] SET Password = @Password, UserGuid= @UserGuid, FirstName = @FirstName, EmployeeType = @EmployeeType, LastName = @LastName , NIC = @NIC, Address = @Address, MobilePhone =  @MobilePhone, LandPhone = @LandPhone, Email = @Email, IsActive = @IsActive WHERE EmployeeId = @EmployeeId;
+			IF (@Password != '')
+				BEGIN
+					UPDATE [dbo].[Employee] SET Password = @Password, UserGuid= @UserGuid, FirstName = @FirstName, EmployeeType = @EmployeeType, LastName = @LastName , NIC = @NIC, Address = @Address, MobilePhone =  @MobilePhone, LandPhone = @LandPhone, Email = @Email, IsActive = @IsActive WHERE EmployeeId = @EmployeeId;
+				END
+			ELSE
+				BEGIN	
+					UPDATE [dbo].[Employee] SET FirstName = @FirstName, EmployeeType = @EmployeeType, LastName = @LastName , NIC = @NIC, Address = @Address, MobilePhone =  @MobilePhone, LandPhone = @LandPhone, Email = @Email, IsActive = @IsActive WHERE EmployeeId = @EmployeeId;
+				END
 		END
 	END
