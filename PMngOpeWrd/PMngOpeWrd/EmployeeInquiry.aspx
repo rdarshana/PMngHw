@@ -13,7 +13,7 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="formleftcolumn" runat="server">
-    <div class="employee-ing-formleft"></div>
+    <div class="employee-inq-formleft"></div>
 </asp:Content>
 
 <asp:Content ID="Content6" ContentPlaceHolderID="formrightcolumn" runat="server">
@@ -37,7 +37,7 @@
                                 </asp:DropDownList>
                             </div>
                             <div class="col-md-5 search-left-margin">
-                                <asp:TextBox ID="txtSearchId" CssClass="form-control" placeholder="Search Value..." runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtSearchId" MaxLength="50" CssClass="form-control" placeholder="Search Value..." runat="server"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <span class="input-group-btn">
@@ -51,7 +51,7 @@
                     </div>
                     <div class="row gridview-margin">
                         <div class="col-md-11">
-                            <asp:GridView ID="gridViewEmployeeData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewEmployeeData_PageIndexChanging">
+                            <asp:GridView ID="gridViewEmployeeData" CssClass="table table-striped table-bordered table-hover" PageSize="15" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewEmployeeData_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="EmployeeId" HeaderText="Employee Id" />
                                     <asp:BoundField DataField="FirstName" HeaderText="First Name" />

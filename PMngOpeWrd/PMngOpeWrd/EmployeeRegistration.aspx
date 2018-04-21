@@ -35,7 +35,7 @@
                         <asp:Label ID="lblEmployeeType" CssClass="control-label" runat="server" for="ddlEmployeeType" Text="Employee Type"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:DropDownList ID="ddlEmployeeType" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlEmployeeType_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddlEmployeeType" runat="server" CssClass="form-control">
                             <asp:ListItem Value="administrator">Administrator</asp:ListItem>
                             <asp:ListItem Value="anesthetist">Anesthetist</asp:ListItem>
                             <asp:ListItem Value="director">Director</asp:ListItem>
@@ -62,7 +62,7 @@
                         <span class="required-field-star">*</span>
                     </div>
                     <div class="col-md-7 col-xm-12">
-                        <asp:TextBox ID="txtFirstName" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtFirstName" CssClass="form-control" MaxLength="50" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ErrorMessage="This field is required" ControlToValidate="txtFirstName" ValidationGroup="employeeRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                         <asp:Label ID="lblLastName" CssClass="control-label" runat="server" for="txtLastName" Text="Last Name"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtLastName" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtLastName" CssClass="form-control" MaxLength="50" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group">
@@ -82,7 +82,7 @@
                         <asp:Label ID="lblPassword" CssClass="control-label" runat="server" for="pwdPassword" Text="Password"></asp:Label>
                     </div>
                     <div class="col-md-7 col-xm-12">
-                        <asp:TextBox ID="pwdPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="pwdPassword" TextMode="Password" MaxLength="50" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
@@ -92,7 +92,7 @@
                         <asp:Label ID="lblConfirmPassword" CssClass="control-label" runat="server" for="pwdConfirmPassword" Text="Confirm Password"></asp:Label>
                     </div>
                     <div class="col-md-7 col-xm-12">
-                        <asp:TextBox ID="pwdConfirmPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="pwdConfirmPassword" TextMode="Password" MaxLength="50" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:CompareValidator ID="passwordCompareValidator" runat="server" ValidationGroup="employeeRegistration" ForeColor="Red" ErrorMessage="The Password you entered do not matched. Please Re-enteryour Password" ControlToValidate="pwdConfirmPassword" ControlToCompare="pwdPassword"></asp:CompareValidator>
                     </div>
                 </div>
@@ -103,8 +103,9 @@
                         <span class="required-field-star">*</span>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtNIC" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNIC" CssClass="form-control" MaxLength="10" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvNIC" runat="server" ErrorMessage="This field is required" ControlToValidate="txtNIC" ValidationGroup="employeeRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid NIC Format" ControlToValidate="txtNIC" ValidationGroup="employeeRegistration" ForeColor="Red" ValidationExpression="\d{9}[v|V]"></asp:RegularExpressionValidator>
                     </div>
                 </div>
 
@@ -114,7 +115,7 @@
                         <asp:Label ID="lblAddress" CssClass="control-label" runat="server" for="txtAddress" Text="Address"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtAddress" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtAddress" CssClass="form-control" MaxLength="200" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
@@ -122,11 +123,13 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
                         <asp:Label ID="lblMobilePhone" CssClass="control-label" runat="server" for="txtMobilePhone" Text="Mobile Phone"></asp:Label>
+
                          <span class="required-field-star">*</span>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtMobilePhone" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtMobilePhone" MaxLength="10" CssClass="form-control" runat="server"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="reqMobilePhone" runat="server" ErrorMessage="This field is required" ControlToValidate="txtMobilePhone" ValidationGroup="employeeRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="rxvMobilePhone" runat="server" ErrorMessage="Invalid Phone Number" ControlToValidate="txtMobilePhone" ValidationGroup="employeeRegistration" ForeColor="Red" ValidationExpression="\d{10}"></asp:RegularExpressionValidator>
                     </div>
                 </div>
 
@@ -136,7 +139,8 @@
                         <asp:Label ID="lblLandPhone" CssClass="control-label" runat="server" for="txtLandPhone" Text="Land Phone"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtLandPhone" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtLandPhone" MaxLength="10" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="rexLandPhone" runat="server" ErrorMessage="Invalid Phone Number" ControlToValidate="txtLandPhone" ValidationGroup="employeeRegistration" ForeColor="Red" ValidationExpression="\d{10}"></asp:RegularExpressionValidator>
                     </div>
                 </div>
 
@@ -146,7 +150,7 @@
                         <asp:Label ID="lblEmail" CssClass="control-label" runat="server" for="txtEmail" Text="Email"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" MaxLength="100" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="refEmail" runat="server" ControlToValidate="txtEmail" ValidationGroup="employeeRegistration" ForeColor="Red" ErrorMessage="Invalid Email format" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </div>
                 </div>

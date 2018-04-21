@@ -193,6 +193,15 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNIC;
         
         /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
         /// lblAddress control.
         /// </summary>
         /// <remarks>
@@ -238,6 +247,15 @@ namespace PMngOpeWrd {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqMobilePhone;
         
         /// <summary>
+        /// rxvMobilePhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rxvMobilePhone;
+        
+        /// <summary>
         /// lblLandPhone control.
         /// </summary>
         /// <remarks>
@@ -254,6 +272,15 @@ namespace PMngOpeWrd {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLandPhone;
+        
+        /// <summary>
+        /// rexLandPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rexLandPhone;
         
         /// <summary>
         /// lblEmail control.

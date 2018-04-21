@@ -72,7 +72,7 @@ namespace PMngOpeWrd
                 else
                 {
                     Session.Clear();
-                    Response.Redirect("UserLogin.aspx");
+                   // Response.Redirect("UserLogin.aspx");
                 }
             }
         }

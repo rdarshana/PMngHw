@@ -315,10 +315,10 @@ namespace PMngOpeWrd
             employeeUpdate = false;
         }
 
-        protected void ddlEmployeeType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            presenter.GetNextEmployeeId();
-        }
+        //protected void ddlEmployeeType_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    presenter.GetNextEmployeeId();
+        //}
 
         public string removeQueryString
         {
