@@ -45,7 +45,7 @@
                         <span class="required-field-star">*</span>
                     </div>
                     <div class="col-md-7 col-xm-12">
-                        <asp:TextBox ID="txtFirstName" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtFirstName" MaxLength="50" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ErrorMessage="This field is required" ControlToValidate="txtFirstName" ValidationGroup="patientRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
                 </div>
@@ -64,11 +64,12 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
                         <asp:Label ID="lblNIC" CssClass="control-label" runat="server" for="txtNIC" Text="NIC"></asp:Label>
-                        <%-- <span class="required-field-star">*</span>--%>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtNIC" CssClass="form-control" runat="server"></asp:TextBox>
-                        <%--<asp:RequiredFieldValidator ID="rfvNIC" runat="server" ErrorMessage="This field is required" ControlToValidate="txtNIC" ValidationGroup="patientRegistration" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                        <asp:TextBox ID="txtNIC" CssClass="form-control" MaxLength="50" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid NIC Format" ControlToValidate="txtNIC" ValidationGroup="patientRegistration" ForeColor="Red" ValidationExpression="\d{9}[v|V]"></asp:RegularExpressionValidator>
+                        <br/>
+                        <asp:Label ID="lblNICInValid" runat="server" ForeColor="Red"></asp:Label><br />
                     </div>
                 </div>
 
@@ -109,11 +110,11 @@
                     </div>
                     <div class="col-md-7">
                         <div class="input-group date">
-                            <asp:TextBox ID="txtDateofBirth" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control"></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                            <asp:TextBox ID="txtDateofBirth" MaxLength="10" ClientIDMode="Static" runat="server" CssClass="m-wrap span12 date form_datetime form-control"></asp:TextBox><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                         </div>
                     </div>
                 </div>
-                                <div class="form-group">
+                <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
                         <asp:Label ID="lblBloodGroup" CssClass="control-label" runat="server" for="ddlBloodGroup" Text="Blood Group"></asp:Label>
@@ -138,7 +139,7 @@
                         <asp:Label ID="lblAddress" CssClass="control-label" runat="server" for="txtAddress" Text="Address"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtAddress" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtAddress" MaxLength="200" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
@@ -148,7 +149,8 @@
                         <asp:Label ID="lblMobilePhone" CssClass="control-label" runat="server" for="txtMobilePhone" Text="Mobile Phone"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtMobilePhone" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtMobilePhone" MaxLength="10" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="rxvMobilePhone" runat="server" ErrorMessage="Invalid Phone Number" ControlToValidate="txtMobilePhone" ValidationGroup="patientRegistration" ForeColor="Red" ValidationExpression="\d{10}"></asp:RegularExpressionValidator>
                     </div>
                 </div>
 
@@ -158,7 +160,8 @@
                         <asp:Label ID="lblLandPhone" CssClass="control-label" runat="server" for="txtLandPhone" Text="Land Phone"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtLandPhone" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtLandPhone" MaxLength="10" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="rexLandPhone" runat="server" ErrorMessage="Invalid Phone Number" ControlToValidate="txtLandPhone" ValidationGroup="patientRegistration" ForeColor="Red" ValidationExpression="\d{10}"></asp:RegularExpressionValidator>
                     </div>
                 </div>
 
@@ -168,7 +171,7 @@
                         <asp:Label ID="lblEmail" CssClass="control-label" runat="server" for="txtEmail" Text="Email"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" MaxLength="100" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="refEmail" runat="server" ControlToValidate="txtEmail" ValidationGroup="patientRegistration" ForeColor="Red" ErrorMessage="Invalid Email format" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </div>
                 </div>
@@ -181,7 +184,7 @@
                         <asp:Label ID="lblgardianName" CssClass="control-label" runat="server" for="txtGardianName" Text="Name of the Guardian"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtGardianName" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtGardianName" MaxLength="50" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
@@ -191,7 +194,7 @@
                         <asp:Label ID="Label1" CssClass="control-label" runat="server" for="txtGardianAddress" Text="Address of the Guardian "></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtGardianAddress" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtGardianAddress" MaxLength="250" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
@@ -201,7 +204,8 @@
                         <asp:Label ID="lblEmergencyContact" CssClass="control-label" runat="server" for="txtEmergencyContact" Text="Contact of the Guardian"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtEmergencyContact" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtEmergencyContact" MaxLength="20" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Invalid Phone Number" ControlToValidate="txtEmergencyContact" ValidationGroup="patientRegistration" ForeColor="Red" ValidationExpression="\d{10}"></asp:RegularExpressionValidator>
                     </div>
                 </div>
 

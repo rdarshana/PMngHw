@@ -54,53 +54,68 @@ namespace PMngOpeWrd.Presenter
         /// <returns></returns>
         public void RegisterPatient()
         {
-            dynamic patient = new ExpandoObject();
-            bool transactionStatus = false;
+            string nicNumber = string.Empty;
 
-            patient.patientId = patientView.patientId;
-            patient.isNewPatient = patientView.isNewPatient;
-            patient.firstName = patientView.firstName;
-            patient.lastName = patientView.lastName;
-            patient.NIC = patientView.NIC;
-            patient.address = patientView.address;
-            patient.mobilePhone = patientView.mobilePhone;
-            patient.landPhone = patientView.landPhone;
-            patient.email = patientView.email;
-            patient.gender = patientView.gender;
-            patient.bloodGroup = patientView.bloodGroup;
-            patient.maritalStatus = patientView.maritalStatus;
-            patient.emergencyContact = patientView.emergencyContact;
-            patient.dateOfBirth = patientView.dateOfBirth;
-            patient.gardianName = patientView.gardianName;
-            patient.gardianAddress = patientView.gardianAddress;
-            transactionStatus = patientRegistration.InsertPatientData(patient);
-
-            if (transactionStatus)
+            if (patientView.isNewPatient == "true")
             {
-                if (patientView.isNewPatient == "true")
+                nicNumber = patientRegistration.GetExistingEmployeeNIC(patientView.NIC);
+            }
+
+            if (nicNumber == "")
+            {
+                patientView.NICNumberError = string.Empty;
+               dynamic patient = new ExpandoObject();
+                bool transactionStatus = false;
+
+                patient.patientId = patientView.patientId;
+                patient.isNewPatient = patientView.isNewPatient;
+                patient.firstName = patientView.firstName;
+                patient.lastName = patientView.lastName;
+                patient.NIC = patientView.NIC;
+                patient.address = patientView.address;
+                patient.mobilePhone = patientView.mobilePhone;
+                patient.landPhone = patientView.landPhone;
+                patient.email = patientView.email;
+                patient.gender = patientView.gender;
+                patient.bloodGroup = patientView.bloodGroup;
+                patient.maritalStatus = patientView.maritalStatus;
+                patient.emergencyContact = patientView.emergencyContact;
+                patient.dateOfBirth = patientView.dateOfBirth;
+                patient.gardianName = patientView.gardianName;
+                patient.gardianAddress = patientView.gardianAddress;
+                transactionStatus = patientRegistration.InsertPatientData(patient);
+
+                if (transactionStatus)
                 {
-                    patientView.transactionStatusSuccess = "Patient has been Registered Successfully";
+                    if (patientView.isNewPatient == "true")
+                    {
+                        patientView.transactionStatusSuccess = "Patient has been Registered Successfully";
+                    }
+                    else
+                    {
+                        patientView.transactionStatusSuccess = "Patient has been Updated Successfully";
+                    }
                 }
                 else
                 {
-                    patientView.transactionStatusSuccess = "Patient has been Updated Successfully";
+                    if (patientView.isNewPatient == "true")
+                    {
+                        patientView.transactionStatusFail = "Patient Registration has been Failed";
+                    }
+                    else
+                    {
+                        patientView.transactionStatusFail = "Patient Update has been Failed";
+                    }
+
                 }
+
+                //FillPatientGrid();
+                ClearPatientData();
             }
             else
             {
-                if (patientView.isNewPatient == "true")
-                {
-                    patientView.transactionStatusFail = "Patient Registration has been Failed";
-                }
-                else
-                {
-                    patientView.transactionStatusFail = "Patient Update has been Failed";
-                }
-
+                patientView.NICNumberError = "This NIC number already exist in the system";
             }
-
-            //FillPatientGrid();
-            ClearPatientData();
 
         }
 

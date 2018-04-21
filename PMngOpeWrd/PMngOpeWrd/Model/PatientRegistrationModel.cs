@@ -73,6 +73,27 @@ namespace PMngOpeWrd.Model
             return dataTable;
         }
 
+        internal string GetExistingEmployeeNIC(string NIC)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlCommand sqlCmd = new SqlCommand("GetExistingPatientNIC", sqlCon);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.Parameters.AddWithValue("@NIC", NIC);
+            SqlDataReader reader = sqlCmd.ExecuteReader();
+            string selectedNIC = string.Empty;
+
+            if (reader.Read())
+            {
+                selectedNIC = Convert.ToString(reader["NIC"]);
+            }
+            sqlCon.Close();
+            return selectedNIC;
+        }
+
         /// <summary>
         /// insert or update patient information
         /// </summary>
@@ -125,6 +146,7 @@ namespace PMngOpeWrd.Model
             {
                 return reader.GetString(0);
             }
+            sqlCon.Close();
             return null;
         }
 

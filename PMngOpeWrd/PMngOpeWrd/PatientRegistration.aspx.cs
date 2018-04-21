@@ -291,6 +291,14 @@ namespace PMngOpeWrd
             }
         }
 
+        public string NICNumberError
+        {
+            set
+            {
+                lblNICInValid.Text = value;
+            }
+        }
+
         public string removeQueryString
         {
             set
@@ -338,7 +346,11 @@ namespace PMngOpeWrd
         {
 
             presenter.RegisterPatient();
-            btnSubmit.Text = "Register";
+
+            if (lblNICInValid.Text == "")
+            {
+                btnSubmit.Text = "Register";
+            }
 
         }
 

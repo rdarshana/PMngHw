@@ -8,7 +8,7 @@
 </asp:Content>
 
 <asp:Content ID="patientregLeftnav" ContentPlaceHolderID="formleftnav" runat="server">
-   <div class="patirnt-inq-formleftnav"></div>
+    <div class="patirnt-inq-formleftnav"></div>
 </asp:Content>
 
 <asp:Content ID="patientLeftColumn" ContentPlaceHolderID="formleftcolumn" runat="server">
@@ -46,42 +46,43 @@
                 </div>
             </div>
             <div class="row gridview-margin">
-                <div class="col-md-11">
-                    <asp:GridView ID="gridViewPatientData" CssClass="table table-striped table-bordered table-hover" PageSize="10" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="PatientView_SelectedIndexChanged" OnPageIndexChanging="gridViewPatientData_PageIndexChanging">
-                        <Columns>
-                            <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
-                            <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-                            <asp:BoundField DataField="LastName" HeaderText="Last Name" />
-                            <asp:BoundField DataField="NIC" HeaderText="NIC" />
-                           <%--<asp:BoundField DataField="Address" HeaderText="Address" />--%>
-                            <asp:BoundField DataField="MobilePhone" HeaderText="Mobile Phone" />
-                            <%--<asp:BoundField DataField="LandPhone" HeaderText="Land Phone" />--%>
-                            <asp:BoundField DataField="Email" HeaderText="Email" />
-                            <asp:BoundField DataField="Gender" HeaderText="Gender" />
-                            <asp:BoundField DataField="MaritalStatus" HeaderText="Marital Status" />
-                            <asp:BoundField DataField="EmergencyContact" HeaderText="Emergency Contact" />
-                            <asp:BoundField DataField="DateOfBirth" HeaderText="Date Of Birth" />
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("PatientId") %>' OnClick="GridViewPatient_onClick">View</asp:LinkButton>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
+                <div class="col-md-12">
+                    <div style="width: 100%; overflow-x: scroll">
+                        <asp:GridView ID="gridViewPatientData" CssClass="table table-striped table-bordered table-hover" PageSize="15" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="PatientView_SelectedIndexChanged" OnPageIndexChanging="gridViewPatientData_PageIndexChanging">
+                            <Columns>
+                                <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
+                                <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                                <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                                <asp:BoundField DataField="NIC" HeaderText="NIC" />
+                                <%--<asp:BoundField DataField="Address" HeaderText="Address" />--%>
+                                <asp:BoundField DataField="MobilePhone" HeaderText="Mobile Phone" />
+                                <%--<asp:BoundField DataField="LandPhone" HeaderText="Land Phone" />--%>
+                                <asp:BoundField DataField="Email" HeaderText="Email" />
+                                <asp:BoundField DataField="Gender" HeaderText="Gender" />
+                                <asp:BoundField DataField="MaritalStatus" HeaderText="Marital Status" />
+                                <asp:BoundField DataField="EmergencyContact" HeaderText="Emergency Contact" />
+                                <asp:BoundField DataField="DateOfBirth" HeaderText="Date Of Birth" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="linkView" runat="server" CommandArgument='<%# Eval("PatientId") %>' OnClick="GridViewPatient_onClick">View</asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </div>
+
                 </div>
-                <div class="col-md-1"></div>
             </div>
-            <%--<div class="col-md-3"></div>--%>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-10 info-mzg">
-        
-        <div id="grdDisplayMessage" class="alert alert-info" style="display:none" runat="server">
-            There are no matching records
-        </div>
+
+            <div id="grdDisplayMessage" class="alert alert-info" style="display: none" runat="server">
+                There are no matching records
             </div>
+        </div>
         <div class="col-md-2"></div>
     </div>
 
