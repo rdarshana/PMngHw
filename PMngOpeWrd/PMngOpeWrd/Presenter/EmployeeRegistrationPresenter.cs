@@ -66,10 +66,7 @@ namespace PMngOpeWrd.Presenter
                     employeeView.transactionStatusFail = "Employee Update has been Failed";
                 }
 
-            }
-
-
-            ClearEmployeeData();
+            }          
         }
 
         public void GetEmployeeById()
@@ -108,7 +105,6 @@ namespace PMngOpeWrd.Presenter
             employeeView.removeQueryString = "eid";
             employeeView.employeeTypeEnable = true;
             employeeView.isNewEmployee = "true";
-            GetNextEmployeeId();
         }
     }
 }

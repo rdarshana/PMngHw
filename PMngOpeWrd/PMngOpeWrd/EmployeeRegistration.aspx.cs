@@ -239,15 +239,13 @@ namespace PMngOpeWrd
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 if (Request.QueryString["empid"] != null)
                 {
                     isNewEmployee = "false";
                     employeeId = Request.QueryString["empid"];
-                    employeeType = Request.QueryString["emptyp"]; 
-
+                    employeeType = Request.QueryString["emptyp"];
                     removeQueryString = "empid";
                     removeQueryString = "emptyp";
                     employeeTypeEnable = false;
@@ -255,6 +253,12 @@ namespace PMngOpeWrd
                     btnSubmit.Text = "Update";
                     employeeRegistration = false;
                     employeeUpdate = true;
+
+                    //if user edit his profile
+                    if (Session["id"] as string == employeeId)
+                    {
+                        btnClear.Enabled = false;
+                    }
                 }
                 else
                 {
@@ -265,13 +269,35 @@ namespace PMngOpeWrd
                     employeeRegistration = true;
                     employeeUpdate = false;
                 }
+                ValidateFormPermission();
             }
+        }
+
+        private void ValidateFormPermission()
+        {
+            if (Session["id"] as string != employeeId)
+            {
+                string loginUserRole = Session["role"] as string;
+                if (loginUserRole == "anesthetist" || loginUserRole == "doctor" || loginUserRole == "director")
+                {
+                    formEditable(false);
+                }
+            }
+           
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             presenter.RegisterEmployee();
             btnSubmit.Text = "Register";
+
+            if (Session["id"] as string == employeeId)
+            {
+                Response.Redirect("EmployeeInquiry.aspx");
+            }
+
+            presenter.ClearEmployeeData();
+            presenter.GetNextEmployeeId();
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -282,6 +308,7 @@ namespace PMngOpeWrd
         protected void btnClear_Click(object sender, EventArgs e)
         {
             presenter.ClearEmployeeData();
+            presenter.GetNextEmployeeId();
             btnSubmit.Text = "Register";
             this.removeQueryString = "empid";
             employeeRegistration = true;
@@ -305,14 +332,21 @@ namespace PMngOpeWrd
             }
         }
 
-        private void formHeaderEditable(bool status )
-        {
-
-        }
-
         private void formEditable(bool status)
         {
-            
+            txtFirstName.Enabled = status;
+            txtLastName.Enabled = status;
+            pwdPassword.Visible = status;
+            pwdConfirmPassword.Visible = status;
+            txtNIC.Enabled = status;
+            txtMobilePhone.Enabled = status;
+            txtLandPhone.Enabled = status;
+            txtAddress.Enabled = status;
+            txtEmail.Enabled = status;
+            chkIsActive.Enabled = status;
+            btnClear.Enabled = status;
+            btnSubmit.Enabled = status;
+            ddlEmployeeType.Enabled = status;
         }
     }
 }
