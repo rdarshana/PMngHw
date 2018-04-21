@@ -304,5 +304,15 @@ namespace PMngOpeWrd
                 this.Request.QueryString.Remove(value);
             }
         }
+
+        private void formHeaderEditable(bool status )
+        {
+
+        }
+
+        private void formEditable(bool status)
+        {
+            
+        }
     }
 }

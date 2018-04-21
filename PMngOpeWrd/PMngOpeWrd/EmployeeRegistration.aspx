@@ -36,10 +36,11 @@
                     </div>
                     <div class="col-md-7">
                         <asp:DropDownList ID="ddlEmployeeType" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlEmployeeType_SelectedIndexChanged">
+                            <asp:ListItem Value="administrator">Administrator</asp:ListItem>
                             <asp:ListItem Value="anesthetist">Anesthetist</asp:ListItem>
                             <asp:ListItem Value="director">Director</asp:ListItem>
                             <asp:ListItem Value="doctor">Doctor</asp:ListItem>
-                            <asp:ListItem Value="mlt">MLT</asp:ListItem>
+                          <%--  <asp:ListItem Value="mlt">MLT</asp:ListItem>--%>
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -165,7 +166,7 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-7 button-group">
                     <asp:Button ID="btnSubmit" CssClass="btn btn-primary primary-button-style" runat="server" Text="Register" OnClick="btnSubmit_Click" ValidationGroup="employeeRegistration" />
-                    <asp:Button ID="btnDelete" CssClass="btn btn-primary primary-button-style" runat="server" Text="Delete" OnClick="btnDelete_Click" />
+                    <asp:Button ID="btnDelete" CssClass="btn btn-primary primary-button-style" Visible="false" runat="server" Text="Delete" OnClick="btnDelete_Click" />
                     <asp:Button ID="btnClear" CssClass="btn btn-primary primary-button-style" runat="server" Text="Clear" OnClick="btnClear_Click" />
                 </div>
 

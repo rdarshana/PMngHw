@@ -211,7 +211,7 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-7 button-group">
                     <asp:Button ID="btnSubmit" CssClass="btn btn-primary primary-button-style" runat="server" Text="Register" OnClick="btnSubmit_Click" ValidationGroup="patientRegistration" />
-                    <asp:Button ID="btnDelete" CssClass="btn btn-primary primary-button-style" runat="server" Text="Delete" OnClick="btnDelete_Click" />
+                    <asp:Button ID="btnDelete" CssClass="btn btn-primary primary-button-style" runat="server" Visible="false" Text="Delete" OnClick="btnDelete_Click" />
                     <asp:Button ID="btnClear" CssClass="btn btn-primary primary-button-style" runat="server" Text="Clear" OnClick="btnClear_Click" />
                 </div>
 
