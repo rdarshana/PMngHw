@@ -106,6 +106,7 @@
                         <asp:TextBox ID="txtNIC" CssClass="form-control" MaxLength="10" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvNIC" runat="server" ErrorMessage="This field is required" ControlToValidate="txtNIC" ValidationGroup="employeeRegistration" ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid NIC Format" ControlToValidate="txtNIC" ValidationGroup="employeeRegistration" ForeColor="Red" ValidationExpression="\d{9}[v|V]"></asp:RegularExpressionValidator>
+                        <br/>
                         <asp:Label ID="lblNICInValid" runat="server" ForeColor="Red"></asp:Label><br />
                     </div>
                 </div>
