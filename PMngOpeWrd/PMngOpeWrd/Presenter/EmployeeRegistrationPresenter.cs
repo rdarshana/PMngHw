@@ -26,47 +26,55 @@ namespace PMngOpeWrd.Presenter
 
         internal void RegisterEmployee()
         {
-            dynamic employee = new ExpandoObject();
-            bool transactionStatus = false;
+            string nicNumber = employeeModel.GetExistingEmployeeNIC(employeeView.NIC);
 
-            employee.EmployeeId = employeeView.employeeId;
-            employee.isNewEmployee = employeeView.isNewEmployee;
-            employee.employeeType = employeeView.employeeType;
-            employee.password = employeeView.password;
-            employee.firstName = employeeView.firstName;
-            employee.lastName = employeeView.lastName;
-            employee.NIC = employeeView.NIC;
-            employee.address = employeeView.address;
-            employee.mobilePhone = employeeView.mobilePhone;
-            employee.landPhone = employeeView.landPhone;
-            employee.email = employeeView.email;
-            employee.isActive = employeeView.isActive;
-
-            transactionStatus = employeeModel.RegisterEmployee(employee);
-
-            if (transactionStatus)
+            if (nicNumber == "")
             {
-                if (employeeView.isNewEmployee == "true")
+                employeeView.NICNumberError = string.Empty;
+                dynamic employee = new ExpandoObject();
+                bool transactionStatus = false;
+
+                employee.EmployeeId = employeeView.employeeId;
+                employee.isNewEmployee = employeeView.isNewEmployee;
+                employee.employeeType = employeeView.employeeType;
+                employee.password = employeeView.password;
+                employee.firstName = employeeView.firstName;
+                employee.lastName = employeeView.lastName;
+                employee.NIC = employeeView.NIC;
+                employee.address = employeeView.address;
+                employee.mobilePhone = employeeView.mobilePhone;
+                employee.landPhone = employeeView.landPhone;
+                employee.email = employeeView.email;
+                employee.isActive = employeeView.isActive;
+
+                transactionStatus = employeeModel.RegisterEmployee(employee);
+
+                if (transactionStatus)
                 {
-                    employeeView.transactionStatusSuccess = "Employee has been Registered Successfully";
+                    if (employeeView.isNewEmployee == "true")
+                    {
+                        employeeView.transactionStatusSuccess = "Employee has been Registered Successfully";
+                    }
+                    else
+                    {
+                        employeeView.transactionStatusSuccess = "Employee has been Updated Successfully";
+                    }
                 }
                 else
                 {
-                    employeeView.transactionStatusSuccess = "Employee has been Updated Successfully";
+                    if (employeeView.isNewEmployee == "true")
+                    {
+                        employeeView.transactionStatusFail = "Employee Registration has been Failed";
+                    }
+                    else
+                    {
+                        employeeView.transactionStatusFail = "Employee Update has been Failed";
+                    }
                 }
             }
-            else
-            {
-                if (employeeView.isNewEmployee == "true")
-                {
-                    employeeView.transactionStatusFail = "Employee Registration has been Failed";
-                }
-                else
-                {
-                    employeeView.transactionStatusFail = "Employee Update has been Failed";
-                }
-
-            }          
+            else{
+                employeeView.NICNumberError  = "This NIC number already exist in the system";
+            }
         }
 
         public void GetEmployeeById()
@@ -105,6 +113,7 @@ namespace PMngOpeWrd.Presenter
             employeeView.removeQueryString = "eid";
             employeeView.employeeTypeEnable = true;
             employeeView.isNewEmployee = "true";
+            employeeView.NICNumberError = string.Empty;
         }
     }
 }

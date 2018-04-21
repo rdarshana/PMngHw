@@ -26,5 +26,6 @@ namespace PMngOpeWrd.View
         bool employeeUpdate { set;  }
         string removeQueryString { set; }
         bool employeeTypeEnable { set; }
+        string NICNumberError { set; }
     }
 }

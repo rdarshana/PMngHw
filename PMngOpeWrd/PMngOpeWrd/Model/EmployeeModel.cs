@@ -27,6 +27,26 @@ namespace PMngOpeWrd.Model
             return dataTable;
         }
 
+        internal string GetExistingEmployeeNIC(string NIC)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+            }
+
+            SqlCommand sqlCmd = new SqlCommand("GetExistingEmployeeNIC", sqlCon);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.Parameters.AddWithValue("@NIC", NIC);
+            SqlDataReader reader = sqlCmd.ExecuteReader();
+            string selectedNIC = string.Empty;
+
+            if (reader.Read())
+            {
+                selectedNIC = Convert.ToString(reader["NIC"]);
+            }
+            return selectedNIC;
+        }
+
         public DataTable GetEmployeeById(string employeeId)
         {
             if (sqlCon.State == ConnectionState.Closed)
@@ -94,7 +114,8 @@ namespace PMngOpeWrd.Model
 
             string guid = userGuid.ToString();
             string hashedPassword = string.Empty;
-            if (employee.password != "") {
+            if (employee.password != "")
+            {
                 // Hash the password together with unique user Guid
                 hashedPassword = Common.Security.HashSHA1(employee.password + guid);
             }
@@ -105,7 +126,7 @@ namespace PMngOpeWrd.Model
             sqlCmd.Parameters.AddWithValue("@EmployeeType", employee.employeeType);
             sqlCmd.Parameters.AddWithValue("@IsNewEmployee", employee.isNewEmployee);
             sqlCmd.Parameters.AddWithValue("@Password", hashedPassword);
-            sqlCmd.Parameters.AddWithValue("@UserGuid", guid); 
+            sqlCmd.Parameters.AddWithValue("@UserGuid", guid);
             sqlCmd.Parameters.AddWithValue("@FirstName", employee.firstName);
             sqlCmd.Parameters.AddWithValue("@LastName", employee.lastName);
             sqlCmd.Parameters.AddWithValue("@NIC", employee.NIC);
@@ -114,7 +135,7 @@ namespace PMngOpeWrd.Model
             sqlCmd.Parameters.AddWithValue("@LandPhone", employee.landPhone);
             sqlCmd.Parameters.AddWithValue("@Email", employee.email);
             sqlCmd.Parameters.AddWithValue("@IsActive", employee.isActive);
- 
+
             sqlCmd.ExecuteNonQuery();
             sqlCon.Close();
 

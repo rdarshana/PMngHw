@@ -232,6 +232,14 @@ namespace PMngOpeWrd
             }
         }
 
+        public string NICNumberError
+        {
+            set
+            {
+                lblNICInValid.Text = value;
+            }
+        }
+
         public EmployeeRegistration()
         {
             presenter = new EmployeeRegistrationPresenter(this);
@@ -289,15 +297,18 @@ namespace PMngOpeWrd
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             presenter.RegisterEmployee();
-            btnSubmit.Text = "Register";
-
+           
             if (Session["id"] as string == employeeId)
             {
                 Response.Redirect("EmployeeInquiry.aspx");
             }
 
-            presenter.ClearEmployeeData();
-            presenter.GetNextEmployeeId();
+            //if NIC not exist clear form and ready for next form
+            if (lblNICInValid.Text == "") {
+                btnSubmit.Text = "Register";
+                presenter.ClearEmployeeData();
+                presenter.GetNextEmployeeId();
+            }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
