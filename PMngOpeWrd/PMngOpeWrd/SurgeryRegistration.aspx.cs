@@ -183,7 +183,7 @@ namespace PMngOpeWrd
             set
             {
                 ddlWardNo.DataSource = value;
-                ddlWardNo.DataTextField = "WardNo";
+                ddlWardNo.DataTextField = "Wards";
                 ddlWardNo.DataValueField = "WardNo";
                 ddlWardNo.DataBind();
             }

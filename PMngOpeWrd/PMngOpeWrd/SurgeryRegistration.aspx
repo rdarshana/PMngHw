@@ -258,7 +258,7 @@
                                     <asp:Label ID="Label2" CssClass="control-label" runat="server" for="ddlSurgeonApprove" Text="Approval"></asp:Label>
                                 </div>
                                 <div class="col-md-7 col-xm-12">
-                                    <asp:DropDownList ID="ddlSurgeonApprove" Enabled="true" CssClass="form-control" runat="server">
+                                    <asp:DropDownList ID="ddlSurgeonApprove" Enabled="false" CssClass="form-control" runat="server">
                                         <asp:ListItem Value="approved">Approved</asp:ListItem>
                                         <asp:ListItem Value="">Pending</asp:ListItem>
                                         <asp:ListItem Value="rejected">Rejected</asp:ListItem>
@@ -401,42 +401,32 @@
         </div>
     </div>
 
-    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <%--<script src="Scripts/jquery-1.9.1.min.js"></script>--%>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="Scripts/moment.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/bootstrap-datetimepicker.js"></script>
     <script type="text/javascript">
 
-        $(document).ready(function () {
-            $(function () {
-                $('#datetimepickerFrom').datetimepicker({
-                    format: 'YYYY/MM/DD hh:mm A'
-                });
+        function pageLoad() {
+            $('#datetimepickerFrom').datetimepicker({
+                format: 'YYYY/MM/DD hh:mm A',
             });
 
-            $(function () {
-                $('#datetimepickerTo').datetimepicker({
-                    format: 'YYYY/MM/DD hh:mm A'
-                });
+            $('#datetimepickerTo').datetimepicker({
+                format: 'YYYY/MM/DD hh:mm A'
             });
 
-            $(function () {
-                $('#admissionDate').datetimepicker({
-                    defaultDate: moment(),
-                    format: 'YYYY/MM/DD'
-                });
+            //minDate: moment().millisecond(0).second(0).minute(0).hour(0),
+            //useCurrent: false
+
+            $('#admissionDate').datetimepicker({
+                defaultDate: moment(),
+                format: 'YYYY/MM/DD',
             });
 
-            //,minDate: moment()
-            //,minDate: moment()
-
-            $("#admissionDate").on("dp.change", function (e) {
-                //$('#datetimepickerFrom').data("DateTimePicker").minDate(e.date);
-                //$('#datetimepickerTo').data("DateTimePicker").minDate(e.date);
-                //alert($("#body_hdnAdmissionDate").val());
-                //$('#admissionDate').data("DateTimePicker").date($("#body_hdnAdmissionDate").val());
-                //$('#admissionDate').data("DateTimePicker").date("2018/04/18");
-            });
+            //minDate: moment().millisecond(0).second(0).minute(0).hour(0),
+            //useCurrent: false
 
             $("#datetimepickerFrom").on("dp.change", function (e) {
                 $('#datetimepickerTo').data("DateTimePicker").minDate(e.date);
@@ -444,9 +434,46 @@
             $("#datetimepickerTo").on("dp.change", function (e) {
                 $('#datetimepickerFrom').data("DateTimePicker").maxDate(e.date);
             });
+        }
 
-            <%--          var dtString = $("#<%=hdnAdmissionDate.ClientID%>").val();
-            $('#admissionDate').data("DateTimePicker").date(dtString);--%>
+
+        $(document).ready(function () {
+            //$(function () {
+            //    $('#datetimepickerFrom').datetimepicker({
+            //        format: 'YYYY/MM/DD hh:mm A'
+            //    });
+            //});
+
+            //$(function () {
+            //    $('#datetimepickerTo').datetimepicker({
+            //        format: 'YYYY/MM/DD hh:mm A'
+            //    });
+            //});
+
+            //$(function () {
+            //    $('#admissionDate').datetimepicker({
+            //        defaultDate: moment(),
+            //        format: 'YYYY/MM/DD'
+            //    });
+            //});
+
+            ////,minDate: moment()
+            ////,minDate: moment()
+
+            //$("#admissionDate").on("dp.change", function (e) {
+            //    //$('#datetimepickerFrom').data("DateTimePicker").minDate(e.date);
+            //    //$('#datetimepickerTo').data("DateTimePicker").minDate(e.date);
+            //    //alert($("#body_hdnAdmissionDate").val());
+            //    //$('#admissionDate').data("DateTimePicker").date($("#body_hdnAdmissionDate").val());
+            //    //$('#admissionDate').data("DateTimePicker").date("2018/04/18");
+            //});
+
+            //$("#datetimepickerFrom").on("dp.change", function (e) {
+            //    $('#datetimepickerTo').data("DateTimePicker").minDate(e.date);
+            //});
+            //$("#datetimepickerTo").on("dp.change", function (e) {
+            //    $('#datetimepickerFrom').data("DateTimePicker").maxDate(e.date);
+            //});
         });
     </script>
 
