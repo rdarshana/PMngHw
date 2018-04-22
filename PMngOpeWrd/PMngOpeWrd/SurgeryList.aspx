@@ -168,7 +168,7 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>--%>
                                     <asp:HyperLinkField HeaderText="View Surgery" DataNavigateUrlFields="SurgeryId" DataNavigateUrlFormatString="SurgeryRegistration.aspx?sid={0}&frm=lst" Text="View" />
-                                    <asp:HyperLinkField HeaderText="OP Note" DataNavigateUrlFields="SurgeryId" DataNavigateUrlFormatString="OperationNote.aspx?sid={0}" Text="View" />
+                                    <asp:HyperLinkField HeaderText="Surgery Note" DataNavigateUrlFields="SurgeryId" DataNavigateUrlFormatString="OperationNote.aspx?sid={0}" Text="View" />
                                 </Columns>
                             </asp:GridView>
                         </div>

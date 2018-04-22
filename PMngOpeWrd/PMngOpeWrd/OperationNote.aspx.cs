@@ -78,14 +78,14 @@ namespace PMngOpeWrd
 
         public string surgeryStatus
         {
-            get 
+            get
             {
                 return ddlSurgeryStatus.SelectedValue;
             }
 
             set
             {
-                string status= value.Trim();
+                string status = value.Trim();
                 ddlSurgeryStatus.ClearSelection();
                 ListItem selectedStatus = ddlSurgeryStatus.Items.FindByValue(status);
                 if (selectedStatus != null)
@@ -104,6 +104,23 @@ namespace PMngOpeWrd
                     surgeryId = Convert.ToInt32(Request.QueryString["sid"]);
                     presenter.GetSurgeryDetailsById();
                 }
+                ValidateFormPermission();
+            }
+        }
+
+        private void ValidateFormPermission()
+        {
+            if (!string.IsNullOrEmpty(Session["role"] as string))
+            {
+                string loginUserRole = Session["role"] as string;
+                if (loginUserRole == "anesthetist" || loginUserRole == "director")
+                {
+                    formEditable(false);
+                }
+                else if(loginUserRole == "administrator")
+                {
+                    Response.Redirect("Home.aspx");
+                }
             }
         }
 
@@ -116,6 +133,13 @@ namespace PMngOpeWrd
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("SurgeryList.aspx");
+        }
+
+        private void formEditable(bool status)
+        {
+            txtNote.Enabled = status;
+            ddlSurgeryStatus.Enabled = status;
+            btnSubmit.Enabled = status;
         }
     }
 }
