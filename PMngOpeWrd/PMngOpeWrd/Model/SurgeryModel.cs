@@ -44,6 +44,32 @@ namespace PMngOpeWrd.Model
             return dataTable;
         }
 
+        internal bool UpdatePostSurgery(int surgeryId, string note, string status)
+        {
+            try
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+
+                SqlCommand sqlCmd = new SqlCommand("UpdateSurgeruStatus", sqlCon);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue("@SurgeryId", surgeryId);
+                sqlCmd.Parameters.AddWithValue("@Note", note);
+                sqlCmd.Parameters.AddWithValue("@Status", status);
+
+                sqlCmd.ExecuteNonQuery();
+                sqlCon.Close();
+
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
         public DataTable LoadAllTheaters()
         {
             if (sqlCon.State == ConnectionState.Closed)

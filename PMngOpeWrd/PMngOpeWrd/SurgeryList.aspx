@@ -149,26 +149,29 @@
                 </div>
                 <div class="row gridview-margin">
                     <div class="col-md-12">
-                        <asp:GridView ID="gridViewSurgeryList" CssClass="table table-striped table-bordered table-hover" PageSize="15" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewSurgeryList_PageIndexChanging">
-                            <Columns>
-                                <asp:BoundField DataField="SurgeryId" HeaderText="Surgery Id" />
-                                <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
-                                <asp:BoundField DataField="Patient" HeaderText="Patient Name" />
-                                <asp:BoundField DataField="DoctorId" HeaderText="Doctor" />
-                                <asp:BoundField DataField="AdmissionDate" HeaderText="Admission Date"  DataFormatString="{0:MM/dd/yyyy}" />
-                                <asp:BoundField DataField="AdmissionStatus" HeaderText="Admission Status" />
-                                <asp:BoundField DataField="WardNo" HeaderText="Ward No" />
-                                <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
-                                 <asp:BoundField DataField="Status" HeaderText="Surgery Status" />
-                                <asp:BoundField DataField="TheatorId" HeaderText="Theator Id" />
-                                <%-- <asp:TemplateField  HeaderText="Admission Status">
+                        <div style="width: 100%; overflow-x: scroll">
+                            <asp:GridView ID="gridViewSurgeryList" CssClass="table table-striped table-bordered table-hover" PageSize="15" AllowPaging="true" runat="server" AutoGenerateColumns="false" OnPageIndexChanging="gridViewSurgeryList_PageIndexChanging">
+                                <Columns>
+                                    <asp:BoundField DataField="SurgeryId" HeaderText="Surgery Id" />
+                                    <asp:BoundField DataField="PatientId" HeaderText="Patient Id" />
+                                    <asp:BoundField DataField="Patient" HeaderText="Patient Name" />
+                                    <asp:BoundField DataField="DoctorId" HeaderText="Doctor" />
+                                    <asp:BoundField DataField="AdmissionDate" HeaderText="Admission Date" DataFormatString="{0:MM/dd/yyyy}" />
+                                    <asp:BoundField DataField="AdmissionStatus" HeaderText="Admission Status" />
+                                    <asp:BoundField DataField="WardNo" HeaderText="Ward No" />
+                                    <asp:BoundField DataField="SurgeryStart" HeaderText="Surgery Start" />
+                                    <asp:BoundField DataField="Status" HeaderText="Surgery Status" />
+                                    <asp:BoundField DataField="TheatorId" HeaderText="Theator Id" />
+                                    <%-- <asp:TemplateField  HeaderText="Admission Status">
                                         <ItemTemplate>
                                            <%# ((string)Eval("AdmissionStatus")).Length > 0? "Not Admitted" : Eval("AdmissionStatus")   %>
                                         </ItemTemplate>
                                     </asp:TemplateField>--%>
-                                <asp:HyperLinkField DataNavigateUrlFields="SurgeryId" DataNavigateUrlFormatString="SurgeryRegistration.aspx?sid={0}&frm=lst" Text="View" />
-                            </Columns>
-                        </asp:GridView>
+                                    <asp:HyperLinkField HeaderText="View Surgery" DataNavigateUrlFields="SurgeryId" DataNavigateUrlFormatString="SurgeryRegistration.aspx?sid={0}&frm=lst" Text="View" />
+                                    <asp:HyperLinkField HeaderText="OP Note" DataNavigateUrlFields="SurgeryId" DataNavigateUrlFormatString="OperationNote.aspx?sid={0}" Text="View" />
+                                </Columns>
+                            </asp:GridView>
+                        </div>
                     </div>
                 </div>
 
@@ -207,8 +210,8 @@
                 format: 'YYYY/MM/DD'
             });
 
-            $('#admissionDateTo').datetimepicker({             
-               format: 'YYYY/MM/DD'
+            $('#admissionDateTo').datetimepicker({
+                format: 'YYYY/MM/DD'
             });
 
             $("#datetimepickerFrom").on("dp.change", function (e) {
@@ -228,7 +231,7 @@
 
         $(document).ready(function () {
 
-           
+
         });
     </script>
 </asp:Content>

@@ -87,6 +87,7 @@
     <Content Include="css\datepicker.css" />
     <Content Include="css\employee.css" />
     <Content Include="css\employeeInquiry.css" />
+    <Content Include="css\operationNote.css" />
     <Content Include="css\surgery-approval.css" />
     <Content Include="css\surgery-list.css" />
     <Content Include="css\surgery-registration.css" />
@@ -115,6 +116,7 @@
     <Content Include="js\moment.js" />
     <Content Include="js\npm.js" />
     <Content Include="js\pages\PatientRegistration.js" />
+    <Content Include="OperationNote.aspx" />
     <Content Include="packages.config" />
     <Content Include="PatientExamination.aspx" />
     <Content Include="PatientInquiry.aspx" />
@@ -284,6 +286,13 @@
     <Compile Include="Model\SurgeryModel.cs" />
     <Compile Include="Model\TheatorModel.cs" />
     <Compile Include="Model\WardModel.cs" />
+    <Compile Include="OperationNote.aspx.cs">
+      <DependentUpon>OperationNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OperationNote.aspx.designer.cs">
+      <DependentUpon>OperationNote.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PatientExamination.aspx.cs">
       <DependentUpon>PatientExamination.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -317,6 +326,7 @@
     <Compile Include="Presenter\EmployeeInquiryPresenter.cs" />
     <Compile Include="Presenter\EmployeeRegistrationPresenter.cs" />
     <Compile Include="Presenter\LoginPresenter.cs" />
+    <Compile Include="Presenter\OperationNotePresenter.cs" />
     <Compile Include="Presenter\PatientExaminationPresenter.cs" />
     <Compile Include="Presenter\PatientInquiryPresente.cs" />
     <Compile Include="Presenter\PatientRegistrationPresenter.cs" />
@@ -373,6 +383,7 @@
     <Compile Include="View\IEmployeeRegistrationView.cs" />
     <Compile Include="View\IEmployeeInquiryView.cs" />
     <Compile Include="View\ILoginView.cs" />
+    <Compile Include="View\IOperationNoteView.cs" />
     <Compile Include="View\IPatientExaminationView.cs" />
     <Compile Include="View\IPatientInquiryView.cs" />
     <Compile Include="View\IPatientRegistrationView.cs" />
