@@ -1,8 +1,9 @@
-CREATE PROCEDURE [dbo].[GetExistingPatientNIC]
-@NIC varchar (10)
+ALTER PROCEDURE [dbo].[GetExistingPatientNIC]
+@NIC varchar (10),
+@PID VARCHAR(20)
 AS
 BEGIN
 	SELECT NIC
 	FROM [dbo].[Patient]
-	WHERE [NIC] = @NIC
+	WHERE [NIC] = @NIC AND [PatientId] != @PID
 END

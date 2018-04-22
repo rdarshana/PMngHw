@@ -26,7 +26,7 @@ namespace PMngOpeWrd.Presenter
 
         internal void RegisterEmployee()
         {
-            string nicNumber = employeeModel.GetExistingEmployeeNIC(employeeView.NIC);
+            string nicNumber = employeeModel.GetExistingEmployeeNIC(employeeView.NIC, employeeView.employeeId);
 
             if (nicNumber == "")
             {

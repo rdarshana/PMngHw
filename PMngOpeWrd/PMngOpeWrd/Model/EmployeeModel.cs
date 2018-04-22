@@ -27,7 +27,7 @@ namespace PMngOpeWrd.Model
             return dataTable;
         }
 
-        internal string GetExistingEmployeeNIC(string NIC)
+        internal string GetExistingEmployeeNIC(string NIC, string EID)
         {
             if (sqlCon.State == ConnectionState.Closed)
             {
@@ -37,6 +37,7 @@ namespace PMngOpeWrd.Model
             SqlCommand sqlCmd = new SqlCommand("GetExistingEmployeeNIC", sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.AddWithValue("@NIC", NIC);
+            sqlCmd.Parameters.AddWithValue("@EID", EID);
             SqlDataReader reader = sqlCmd.ExecuteReader();
             string selectedNIC = string.Empty;
 

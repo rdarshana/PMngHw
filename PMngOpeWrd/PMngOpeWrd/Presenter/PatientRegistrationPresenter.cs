@@ -54,17 +54,12 @@ namespace PMngOpeWrd.Presenter
         /// <returns></returns>
         public void RegisterPatient()
         {
-            string nicNumber = string.Empty;
-
-            if (patientView.isNewPatient == "true")
-            {
-                nicNumber = patientRegistration.GetExistingEmployeeNIC(patientView.NIC);
-            }
+            string nicNumber = patientRegistration.GetExistingPatietnNIC(patientView.NIC, patientView.patientId);
 
             if (nicNumber == "")
             {
                 patientView.NICNumberError = string.Empty;
-               dynamic patient = new ExpandoObject();
+                dynamic patient = new ExpandoObject();
                 bool transactionStatus = false;
 
                 patient.patientId = patientView.patientId;

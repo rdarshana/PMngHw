@@ -344,6 +344,8 @@ namespace PMngOpeWrd
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            transactionStatusFail = string.Empty;
+            transactionStatusSuccess = string.Empty;
 
             presenter.RegisterPatient();
 

@@ -66,7 +66,7 @@
                         <asp:Label ID="lblNIC" CssClass="control-label" runat="server" for="txtNIC" Text="NIC"></asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox ID="txtNIC" CssClass="form-control" MaxLength="50" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNIC" CssClass="form-control" MaxLength="10" runat="server"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid NIC Format" ControlToValidate="txtNIC" ValidationGroup="patientRegistration" ForeColor="Red" ValidationExpression="\d{9}[v|V]"></asp:RegularExpressionValidator>
                         <br/>
                         <asp:Label ID="lblNICInValid" runat="server" ForeColor="Red"></asp:Label><br />
