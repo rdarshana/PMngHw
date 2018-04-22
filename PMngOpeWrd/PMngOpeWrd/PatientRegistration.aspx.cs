@@ -262,12 +262,13 @@ namespace PMngOpeWrd
             }
         }
 
-        public string isNewPatient{
+        public string isNewPatient
+        {
             get
             {
                 return hdnIsNewPatient.Value;
-               
-                    
+
+
             }
             set
             {
@@ -312,7 +313,7 @@ namespace PMngOpeWrd
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             if (!IsPostBack)
             {
                 //read only a dateof birth control in page load
@@ -323,7 +324,7 @@ namespace PMngOpeWrd
 
                 if (Request.QueryString["pid"] != null)
                 {
-                    string patientID= Request.QueryString["pid"];
+                    string patientID = Request.QueryString["pid"];
                     isNewPatient = "false";
                     this.patientId = patientID;
                     presenter.GetPatientById();
@@ -339,6 +340,7 @@ namespace PMngOpeWrd
                     patientUpdate = false;
                     presenter.GetNextPatientId();
                 }
+                ValidateFormPermission();
             }
         }
 
@@ -366,7 +368,39 @@ namespace PMngOpeWrd
         {
             presenter.ClearPatientData();
             btnSubmit.Text = "Register";
-            this.removeQueryString ="pid";
+            this.removeQueryString = "pid";
+        }
+
+        private void ValidateFormPermission()
+        {
+            if (!string.IsNullOrEmpty(Session["role"] as string))
+            {
+                string loginUserRole = Session["role"] as string;
+                if (loginUserRole == "anesthetist" || loginUserRole == "administrator" || loginUserRole == "director")
+                {
+                    formEditable(false);
+                }
+            }
+        }
+
+        private void formEditable(bool status)
+        {
+            txtFirstName.Enabled = status;
+            txtLastName.Enabled = status;
+            txtNIC.Enabled = status;
+            ddlGender.Enabled = status;
+            radioStatusMarried.Enabled = status;
+            radioStatusSingle.Enabled = status;
+            ddlBloodGroup.Enabled = status;
+            txtAddress.Enabled = status;
+            txtMobilePhone.Enabled = status;
+            txtLandPhone.Enabled = status;
+            txtEmail.Enabled = status;
+            txtGardianName.Enabled = status;
+            txtGardianAddress.Enabled = status;
+            txtEmergencyContact.Enabled = status;
+            btnClear.Enabled = status;
+            btnSubmit.Enabled = status;
         }
     }
 }
