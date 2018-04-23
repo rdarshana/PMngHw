@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PMng.Master" AutoEventWireup="true" CodeBehind="SurgeryList.aspx.cs" Inherits="PMngOpeWrd.SurgeryList" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/PMng.Master" AutoEventWireup="true" CodeBehind="SurgeryList.aspx.cs" Inherits="PMngOpeWrd.SurgeryList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/surgery-list.css" rel="stylesheet" />
@@ -81,6 +82,7 @@
                                         <asp:ListItem Value="default">Select a Status...</asp:ListItem>
                                         <asp:ListItem Value="pending">Pending</asp:ListItem>
                                         <asp:ListItem Value="completed">Completed</asp:ListItem>
+                                        <asp:ListItem Value="postpone">Postpone</asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                                 <div class="col-md-5"></div>
