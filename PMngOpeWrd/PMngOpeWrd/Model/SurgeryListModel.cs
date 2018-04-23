@@ -28,8 +28,8 @@ namespace PMngOpeWrd.Model
             sqlDa.SelectCommand.Parameters.AddWithValue("@SurgeryTo", filterData.surgeryTo);
             sqlDa.SelectCommand.Parameters.AddWithValue("@AdmissionFrom", filterData.admissionFrom);
             sqlDa.SelectCommand.Parameters.AddWithValue("@AdmissionTo", filterData.admissionTo);
-            sqlDa.SelectCommand.Parameters.AddWithValue("@SurgeryStatus", filterData.surgeryStatus);
-
+            sqlDa.SelectCommand.Parameters.AddWithValue("@SurgeryStatus", filterData.surgeryStatus); 
+            sqlDa.SelectCommand.Parameters.AddWithValue("@TheatorId", filterData.theatorId);
             DataTable dataTable = new DataTable();
             sqlDa.Fill(dataTable);
             sqlCon.Close();

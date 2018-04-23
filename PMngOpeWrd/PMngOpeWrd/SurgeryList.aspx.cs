@@ -17,6 +17,7 @@ namespace PMngOpeWrd
         {
             if (!this.IsPostBack)
             {
+                presenter.LoadTheaters();
                 presenter.LoadWardOwners();
                 string thisDay = DateTime.Now.ToString("yyyy/MM/dd");
                 txtSurgeryDateFrom.Text = thisDay;
@@ -175,6 +176,36 @@ namespace PMngOpeWrd
                 ddlDoctors.DataTextField = "Owner";
                 ddlDoctors.DataValueField = "EmployeeId";
                 ddlDoctors.DataBind();
+            }
+        }
+
+        public DataTable theators
+        {
+            set
+            {
+                ddlTheators.DataSource = value;
+                ddlTheators.DataTextField = "TheatorId";
+                ddlTheators.DataValueField = "TheatorId";
+                ddlTheators.DataBind();
+            }
+        }
+
+        public string theatorId
+        {
+            get
+            {
+                return ddlTheators.SelectedValue;
+            }
+
+            set
+            {
+                string theator = value.Trim();
+                ddlTheators.ClearSelection();
+                ListItem selectedTheator = ddlTheators.Items.FindByValue(theator);
+                if (selectedTheator != null)
+                {
+                    selectedTheator.Selected = true;
+                }
             }
         }
 

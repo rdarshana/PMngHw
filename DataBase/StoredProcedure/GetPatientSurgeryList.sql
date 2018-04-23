@@ -6,7 +6,8 @@ ALTER PROCEDURE [dbo].[GetPatientSurgeryList]
 @SurgeryTo VARCHAR(10),
 @AdmissionFrom VARCHAR(10),
 @AdmissionTo VARCHAR(10),
-@SurgeryStatus VARCHAR(10)
+@SurgeryStatus VARCHAR(10),
+@TheatorId VARCHAR(10)
 AS
 BEGIN
 DECLARE @SearchQuery VARCHAR (1000);
@@ -16,6 +17,7 @@ DECLARE @QueryStatus VARCHAR (200);
 DECLARE @QueryAdmissionDate VARCHAR (200);
 DECLARE @QuerySurgeryDate VARCHAR (200);
 DECLARE @QueryDefault VARCHAR (1000);
+DECLARE @QueryTheator VARCHAR (200);
 
 IF (@SearchValue != '')
 	BEGIN
@@ -62,7 +64,15 @@ ELSE
 		SET @QueryAdmissionDate = '';
 	END
 
-
+IF (@TheatorId != 'default')
+	BEGIN
+		SET @QueryTheator = 'AND SU.TheatorId = '''+@TheatorId+'''';
+	END
+ELSE
+	BEGIN
+		SET @QueryTheator = '';
+	END
+	
 	--ELSE IF (@SearchValue = '' AND @Doctor = 'default' AND @SurgeryStatus = 'default' AND (@SurgeryFrom = '' OR @SurgeryTo = '') AND (@AdmissionFrom = '' OR @AdmissionTo = ''))
 	--BEGIN
 	--	SET @QuerySurgeryDate = 'AND SU.SurgeryStart BETWEEN DATEADD(DAY,-1,getdate()) AND getdate()';
@@ -77,10 +87,13 @@ ELSE
 --	ORDER BY SU.[AdmissionDate]';
 --	END
 
+--'+@QueryTheator+'
+--' +@QueryAdmissionDate+'
+
 SET	@SearchQuery = 'SELECT SU.[SurgeryId],SU.[PatientId], SU.[DoctorId], SU.[TheatorId], SU.[SurgeryStart], SU.[AdmissionDate], SU.[WardNo], SU.[Status], CONCAT(PA.FirstName,'' '',PA.LastName) as Patient, PA.[NIC], PAD.[AdmissionStatus]
 	FROM [dbo].[Surgery] SU INNER JOIN [dbo].[Patient] PA ON SU.[PatientId] = PA.[PatientId] 
 		 LEFT JOIN [dbo].[PatientAdmission] PAD ON SU.[SurgeryId] = PAD.[SurgeryId]
-	WHERE SU.[PatientId] IS NOT NULL '+@QueryPatient+' ' +@QueryDoctor+' ' +@QueryStatus+' ' +@QuerySurgeryDate+' ' +@QueryAdmissionDate+'
+	WHERE SU.[PatientId] IS NOT NULL '+@QueryPatient+' ' +@QueryDoctor+' ' +@QueryStatus+' ' +@QuerySurgeryDate+' ' +@QueryAdmissionDate+' ' +@QueryTheator+'
 	ORDER BY SU.[AdmissionDate]';
 
 	PRINT @SearchQuery;

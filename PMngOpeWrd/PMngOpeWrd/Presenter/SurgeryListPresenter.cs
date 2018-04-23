@@ -25,6 +25,11 @@ namespace PMngOpeWrd.Presenter
             surgeryModel = new SurgeryModel();
         }
 
+        internal void LoadTheaters()
+        {
+            surgeryView.theators = surgeryModel.LoadAllTheaters();
+        }
+
         internal void LoadWardOwners()
         {
             surgeryView.wardDoctors = surgeryModel.LoadWardOwners();
@@ -41,6 +46,7 @@ namespace PMngOpeWrd.Presenter
             filterData.admissionFrom = surgeryView.admissionFrom;
             filterData.admissionTo = surgeryView.admissionTo;
             filterData.surgeryStatus = surgeryView.status;
+            filterData.theatorId = surgeryView.theatorId;
             surgeryView.surgeryData = surgeryListModel.GetAllSurgeryApprovalData(filterData);
         }
 
@@ -50,6 +56,7 @@ namespace PMngOpeWrd.Presenter
             surgeryView.searchValue = string.Empty;
             surgeryView.doctor = "default";
             surgeryView.status = "default";
+            surgeryView.theatorId = "default";
             surgeryView.surgeryStartFrom = string.Empty;
             surgeryView.surgeryStartTo = string.Empty;
             surgeryView.admissionFrom = string.Empty;

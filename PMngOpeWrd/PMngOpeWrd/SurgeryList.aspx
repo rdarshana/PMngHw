@@ -61,6 +61,18 @@
                             </div>
 
                             <div class="form-group">
+                                <div class="col-md-3 col-xm-12">
+                                    <asp:Label ID="lblTheator" CssClass="control-label" runat="server" for="ddlTheator" Text="Theator"></asp:Label>
+                                </div>
+                                <div class="col-md-4 col-xm-12">
+                                    <asp:DropDownList ID="ddlTheators" CssClass="form-control" AutoPostBack="false" AppendDataBoundItems="true" runat="server">
+                                        <asp:ListItem Value="default">Select a Theator...</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-md-5"></div>
+                            </div>
+
+                            <div class="form-group">
                                 <div class="col-md-3">
                                     <asp:Label ID="lblSurgeryStatus" CssClass="control-label" runat="server" for="ddlSurgeryStatus" Text="Surgery Status"></asp:Label>
                                 </div>

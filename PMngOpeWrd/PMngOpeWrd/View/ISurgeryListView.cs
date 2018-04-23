@@ -19,5 +19,7 @@ namespace PMngOpeWrd.View
         string surgeryStartTo { get; set; }
         string admissionFrom { get; set; }
         string admissionTo { get; set; }
+        DataTable theators { set; }
+        string theatorId { get; set; }
     }
 }
