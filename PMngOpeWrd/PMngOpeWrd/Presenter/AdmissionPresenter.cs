@@ -182,10 +182,13 @@ namespace PMngOpeWrd.Presenter
                 admissionView.wardNo = surgeryData.wardNo;
                 admissionView.surgeryId = surgeryData.surgeryId;
                 admissionView.wardNoEnable = false;
+                //admissionDate
+                admissionView.surgeryNotification = "This Patient Registered for Surgery on " + surgeryData.surgeryStart;
             }
             else
             {
                 admissionView.surgeryId = 0;
+                admissionView.surgeryNotification  = string.Empty;
             }
         }
 

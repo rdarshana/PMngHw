@@ -54,7 +54,12 @@ namespace PMngOpeWrd.Presenter
         /// <returns></returns>
         public void RegisterPatient()
         {
-            string nicNumber = patientRegistration.GetExistingPatietnNIC(patientView.NIC, patientView.patientId);
+
+            string nicNumber = "";
+            if (patientView.NIC != "")
+            {
+                nicNumber = patientRegistration.GetExistingPatietnNIC(patientView.NIC, patientView.patientId);
+            }
 
             if (nicNumber == "")
             {

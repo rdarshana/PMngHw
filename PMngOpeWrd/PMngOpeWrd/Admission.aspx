@@ -79,7 +79,7 @@
                         <div class="col-md-4 col-xm-12">
                         </div>
                         <div class="col-md-7 col-xm-12">
-                            <asp:Label ID="lblSurgeryNotification" Visible="false" CssClass="control-label" runat="server" for="txtComplain" Text="This Patient Registered for Surgery" ForeColor="#00CC00"></asp:Label>
+                            <asp:Label ID="lblSurgeryNotification" Visible="false" CssClass="control-label" runat="server" for="txtComplain" Text="" ForeColor="#00CC00"></asp:Label>
                         </div>
                     </div>
 

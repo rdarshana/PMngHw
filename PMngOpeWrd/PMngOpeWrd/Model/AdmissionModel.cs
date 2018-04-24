@@ -132,6 +132,7 @@ namespace PMngOpeWrd.Model
             {
                 surgeryValue.wardNo = Convert.ToString(reader["WardNo"]);
                 surgeryValue.surgeryId = Convert.ToInt32(reader["SurgeryId"]);
+                surgeryValue.surgeryStart = Convert.ToString(reader["SurgeryStart"]); 
             }
 
             return surgeryValue;

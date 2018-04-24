@@ -337,6 +337,18 @@ namespace PMngOpeWrd
             }
         }
 
+        public string surgeryNotification
+        {
+            get
+            {
+                return lblSurgeryNotification.Text;
+            }
+            set
+            {
+                lblSurgeryNotification.Text = value;
+            }
+        }
+
         public string removeQueryString
         {
             set
@@ -420,6 +432,7 @@ namespace PMngOpeWrd
             btnSubmit.Enabled = false;
             btnUpdate.Enabled = false;
             lblSurgeryNotification.Visible = false;
+            presenter.GetAvailableBeds();
         }
 
         protected void btnSubmitUpdate_Click(object sender, EventArgs e)
